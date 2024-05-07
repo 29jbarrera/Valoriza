@@ -1,0 +1,130 @@
+<body>
+  <hr class="hr-1" />
+  <form>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Centro</label>
+        <input
+          class="input-form"
+          id="centro"
+          type="text"
+          pInputText
+          formControlName="centro"
+        />
+      </div>
+
+      <div class="form-group">
+        <label>Nombre centro</label>
+        <input
+          class="input-form"
+          id="nombre-centro"
+          type="text"
+          pInputText
+          formControlName="nombre-centro"
+        />
+      </div>
+    </div>
+
+    <div class="form-row-2">
+      <div class="form-group-2">
+        <label>Familia</label>
+        <input
+          class="input-form"
+          id="Familia"
+          pInputText
+          formControlName="Familia"
+        />
+      </div>
+
+      <div class="form-group-2">
+        <label>Maquianria</label>
+        <input
+          class="input-form"
+          id="maquinaria"
+          pInputText
+          formControlName="maquinaria"
+        />
+      </div>
+
+      <div class="form-group-2">
+        <label>Bastidor</label>
+        <p-inputNumber
+          mode="currency"
+          inputId="Importe"
+          currency="EUR"
+          locale="de-DE"
+          class="input-form"
+          id="bastidor"
+          formControlName="bastidor"
+        />
+      </div>
+    </div>
+
+    <div class="form-group-2">
+      <label>Fecha desde</label>
+      <p-inputMask
+        mask="99/99/9999"
+        slotChar="mm/dd/yyyy"
+        class="fecha-desde"
+        id="fecha-desde"
+        formControlName="fechaDesde"
+      />
+    </div>
+
+    <div class="form-group-2">
+      <label>Fecha hasta</label>
+      <p-inputMask
+        mask="99/99/9999"
+        slotChar="mm/dd/yyyy"
+        class="fecha-hasta"
+        id="fecha-hasta"
+        formControlName="fechaHasta"
+      />
+    </div>
+
+    <div class="form-buttons">
+      <div class="form-button">
+        <button class="limpiar">Limpiar búsqueda</button>
+      </div>
+
+      <div class="form-button">
+        <button class="buscar">Buscar</button>
+      </div>
+    </div>
+  </form>
+
+  <hr />
+  <h1>Gruas</h1>
+  <p-table [value]="gruas || []" [tableStyle]="{ 'min-width': '60rem' }">
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="maquinaria" style="width: 20%">
+          Maquinaria <p-sortIcon field="maquinaria" />
+        </th>
+        <th pSortableColumn="centro" style="width: 20%">
+          Centro <p-sortIcon field="centro" />
+        </th>
+        <th pSortableColumn="familia" style="width: 20%">
+          Familia <p-sortIcon field="familia" />
+        </th>
+        <th pSortableColumn="subfamilia" style="width: 20%">
+          Subfamilia <p-sortIcon field="subfamilia" />
+        </th>
+        <th pSortableColumn="fechaproxima" style="width: 20%">
+          Fecha próxima <p-sortIcon field="fechaproxima" />
+        </th>
+        <th pSortableColumn="reload" style="width: 20%"></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-gruas>
+      <tr>
+        <td>{{ gruas.maquinaria }}</td>
+        <td>{{ gruas.centro }}</td>
+        <td>{{ gruas.familia }}</td>
+        <td>{{ gruas.subfamilia }}</td>
+        <td>{{ gruas.fechaproxima }}</td>
+        <td><img />Basura</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</body>
