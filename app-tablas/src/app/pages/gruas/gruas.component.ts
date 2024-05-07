@@ -10,11 +10,12 @@ import { CommonModule } from '@angular/common';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputMaskModule } from 'primeng/inputmask';
+import { CalendarModule } from 'primeng/calendar';
 
 @Component({
   selector: 'app-gruas',
   standalone: true,
-  imports: [TableModule, CommonModule, InputNumberModule, InputTextModule, InputMaskModule],
+  imports: [TableModule, CommonModule, InputNumberModule, InputTextModule, InputMaskModule, CalendarModule],
   templateUrl: './gruas.component.html',
   styleUrl: './gruas.component.css'
 })

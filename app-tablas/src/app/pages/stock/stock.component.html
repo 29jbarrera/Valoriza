@@ -85,23 +85,25 @@
     >
       <ng-template pTemplate="header">
         <tr>
-          <th pSortableColumn="nombre" style="width: 25%">
-            Nombre centro <p-sortIcon field="nombre" />
+          <th pSortableColumn="nombre" style="width: 16.66%">
+            Nombre centro <p-sortIcon class="orden" field="nombre" />
           </th>
-          <th pSortableColumn="nombreReferencia" style="width: 25%">
-            Nombre referencia material <p-sortIcon field="nombreReferencia" />
+          <th pSortableColumn="nombreReferencia" style="width: 16.66%">
+            Nombre referencia material
+            <p-sortIcon class="orden" field="nombreReferencia" />
           </th>
-          <th pSortableColumn="descripcion" style="width: 25%">
-            Descripcion referencia material <p-sortIcon field="descripcion" />
+          <th pSortableColumn="descripcion" style="width: 16.66">
+            Descripcion referencia material
+            <p-sortIcon class="orden" field="descripcion" />
           </th>
-          <th pSortableColumn="cantidad" style="width: 25%">
-            Cantidad <p-sortIcon field="cantidad" />
+          <th pSortableColumn="cantidad" style="width: 16.66%">
+            Cantidad <p-sortIcon class="orden" field="cantidad" />
           </th>
-          <th pSortableColumn="Importe" style="width: 25%">
-            Importe <p-sortIcon field="Importe" />
+          <th pSortableColumn="Importe" style="width: 16.66%">
+            Importe <p-sortIcon class="orden" field="Importe" />
           </th>
-          <th pSortableColumn="Divisa" style="width: 25%">
-            Divisa <p-sortIcon field="Divisa" />
+          <th pSortableColumn="Divisa" style="width: 16.66%">
+            Divisa <p-sortIcon class="orden" field="Divisa" />
           </th>
         </tr>
         <tr>
@@ -150,7 +152,7 @@
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-centros>
-        <tr>
+        <tr class="body-table">
           <td>{{ centros.nombre }}</td>
           <td>{{ centros.nombreReferencia }}</td>
           <td>{{ centros.descripcion }}</td>
@@ -160,6 +162,7 @@
         </tr>
       </ng-template>
     </p-table>
+    <p>Resultado totales:  {{ centros?.length || 0 }}</p>
   </div>
-  <p>Resultado:</p>
+
 </body>
