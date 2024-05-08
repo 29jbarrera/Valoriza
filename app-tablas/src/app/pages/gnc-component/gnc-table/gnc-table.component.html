@@ -1,39 +1,43 @@
 <body>
   <!-- TABLA DE DATOS -->
   <div class="card">
-    <!-- <p-table [value]="gruas || []" [tableStyle]="{ 'min-width': '50rem' }"> -->
+    <p-table [value]="gnc || []" [tableStyle]="{ 'min-width': '50rem' }">
       <ng-template pTemplate="header">
         <tr>
-          <th pSortableColumn="maquinaria" style="width: 19.3%">
+          <th pSortableColumn="maquinaria" >
             Maquinaria <p-sortIcon field="maquinaria" class="orden" />
           </th>
-          <th pSortableColumn="centro" style="width: 19.3%">
-            Centro <p-sortIcon field="centro" class="orden" />
+          <th pSortableColumn="nombrecentro" >
+           Nombre centro <p-sortIcon field="nombrecentro" class="orden" />
           </th>
-          <th pSortableColumn="familia" style="width: 19.3%">
+          <th pSortableColumn="delegacion" >
+            Delegación <p-sortIcon field="delegacion" class="orden" />
+          </th>
+          <th pSortableColumn="familia" >
             Familia <p-sortIcon field="familia" class="orden" />
           </th>
-          <th pSortableColumn="subfamilia" style="width: 19.3%">
+          <th pSortableColumn="subfamilia" >
             Subfamilia <p-sortIcon field="subfamilia" class="orden" />
           </th>
-          <th pSortableColumn="fechaproxima" style="width: 19.3%">
+          <th pSortableColumn="fechaproxima" >
             Fecha próxima <p-sortIcon field="fechaproxima" class="orden" />
           </th>
-          <th pSortableColumn="reload" style="width: 3.5%">Reload</th>
+          <th pSortableColumn="nube" ></th>
         </tr>
       </ng-template>
-      <ng-template pTemplate="body" let-gruas | filtrogruas>
+      <ng-template pTemplate="body" let-gnc >
         <tr class="body-table">
-          <td>{{ gruas.maquinaria }}</td>
-          <td>{{ gruas.centro }}</td>
-          <td>{{ gruas.familia }}</td>
-          <td>{{ gruas.subfamilia }}</td>
-          <td>{{ gruas.fechaproxima }}</td>
-          <td><img />Basura</td>
+          <td>{{ gnc.maquinaria }}</td>
+          <td>{{ gnc.nombrecentro }}</td>
+          <td>{{ gnc.delegacion }}</td>
+          <td>{{ gnc.familia }}</td>
+          <td>{{ gnc.subfamilia }}</td>
+          <td>{{ gnc.fechaproxima }}</td>
+          <td>nube</td>
         </tr>
       </ng-template>
-    <!-- </p-table> -->
-    <!-- <p>Resultado totales: {{ gruas?.length || 0 }}</p> -->
+    </p-table>
+    <p>Resultado totales: {{ gnc?.length || 0 }}</p>
   </div>
 </body>
 

@@ -26,7 +26,7 @@ export class GastosTableComponent implements OnInit {
       centroProveedor: [''],
       delegacion: [''],
       fecha: [''],
-      proveedor: [''],
+      proveedor: [],
       importe: [''],
       divisa: [''],
       referenciaMaterial: [''],
