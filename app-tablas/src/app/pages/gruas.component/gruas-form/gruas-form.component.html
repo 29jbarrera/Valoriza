@@ -87,12 +87,16 @@
     </div>
   </div>
   <div class="form-buttons">
-    <div class="form-button">
-      <button type="reset" class="limpiar">Limpiar búsqueda</button>
-    </div>
+    <p-button
+        type="reset"
+        label="Limpiar búsqueda" [raised]="true" severity="secondary"
+        class="limpiar"
+      ></p-button>
 
     <div class="form-button">
-      <button type="button" class="buscar">Buscar</button>
+      <p-button type="button"
+      label="Buscar" [raised]="true"
+      ></p-button>
     </div>
   </div>
 </form>
