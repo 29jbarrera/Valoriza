@@ -1,0 +1,108 @@
+form {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.form-row1 {
+  padding-top: 10px;
+  margin: 0 auto;
+  display: flex;
+  flex-grow: 1;
+  gap: 20px;
+  width: 50%;
+}
+
+.form-group1{
+  display: flex;
+  flex-direction: column;
+}
+
+.form-row2 {
+  display: flex;
+}
+
+.form-group2{
+  flex: 1;
+}
+
+.form-row3 {
+  padding-top: 10px;
+  margin: 0 auto;
+  display: flex;
+  flex-grow: 1;
+  gap: 20px;
+  width: 50%;
+}
+
+.form-row4 {
+  padding-top: 10px;
+  display: flex;
+}
+
+.form-group4 {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.form-row5 {
+  padding-top: 10px;
+  display: flex;
+}
+
+.form-group5 {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.form-row6 {
+  padding-top: 10px;
+  display: flex;
+}
+
+.form-group6 {
+
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.form-row7 {
+  padding-top: 10px;
+  display: flex;
+}
+
+.form-group7 {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+
+
+label {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.form-row {
+  margin: 0 auto;
+  width: 70%;
+  padding: 5px;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+.form-button {
+  margin: 0 20px; /* Espacio entre cada botón */
+}

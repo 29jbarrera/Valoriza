@@ -1,0 +1,153 @@
+<form>
+  <div class="form-row1">
+    <div class="form-group1">
+      <label>Centro</label>
+      <input
+        class="input-form"
+        id="centro"
+        type="text"
+        pInputText
+        formControlName="centro"
+      />
+    </div>
+
+    <div class="form-group1">
+      <label></label>
+      <input
+        type="text"
+        pInputText
+        pInputText
+        [disabled]="true"
+        id="disabled"
+      />
+    </div>
+  </div>
+
+  <div class="form-row2">
+    <div class="form-group2">
+      <label>Familia</label>
+      <p-treeSelect
+        class="md:w-20rem w-full"
+        containerStyleClass="w-full"
+        placeholder="-"
+        id="familia"
+        formControlName="familia"
+      />
+    </div>
+  </div>
+
+  <div class="form-row3">
+    <div class="form-group3">
+      <label>Maquinaria</label>
+      <input
+        class="input-form"
+        id="maquinaria"
+        pInputText
+        formControlName="maquinaria"
+      />
+    </div>
+
+    <div class="form-group3">
+      <label></label>
+      <input
+        type="text"
+        pInputText
+        pInputText
+        [disabled]="true"
+        id="disabled"
+      />
+    </div>
+  </div>
+
+  <div class="form-row4">
+    <div class="form-group4">
+      <label>Fecha desde</label>
+      <p-calendar
+        placeholder="mm/dd/yyyy"
+        class="input-form"
+        id="fecha-desde"
+        [showIcon]="true"
+        inputId="icondisplay"
+        formControlName="fechaDesde"
+      />
+    </div>
+  </div>
+
+  <div class="form-row5">
+    <div class="form-group5">
+      <label>Fecha hasta</label>
+      <p-calendar
+        placeholder="mm/dd/yyyy"
+        class="input-form"
+        id="fecha-hasta"
+        [showIcon]="true"
+        inputId="icondisplay"
+        formControlName="fechaHasta"
+      />
+    </div>
+  </div>
+
+  <div class="form-row6">
+    <div class="form-group6">
+      <label>Horas desde</label>
+      <p-calendar
+        class="input-form"
+        id="horas-desde"
+        [timeOnly]="true"
+        inputId="calendar-timeonly"
+        formControlName="horasDesde"
+      />
+    </div>
+
+    <div class="form-group6">
+      <label>Kilómetros desde</label>
+      <p-inputNumber
+        class="input-form"
+        id="km-desde"
+        inputId="km"
+        suffix=" km"
+        formControlName="kmDesde"
+      />
+    </div>
+  </div>
+
+  <div class="form-row7">
+    <div class="form-group7">
+      <label>Horas hasta</label>
+      <p-calendar
+        class="input-form"
+        id="fecha-desde"
+        [timeOnly]="true"
+        inputId="calendar-timeonly"
+        formControlName="fechaDesde"
+      />
+    </div>
+
+    <div class="form-group7">
+      <label>Kilometros hasta</label>
+      <p-inputNumber
+        class="input-form"
+        id="km-desde"
+        inputId="km"
+        suffix=" km"
+        formControlName="kmHasta"
+      />
+    </div>
+  </div>
+
+  <div class="form-buttons">
+    <div class="form-button">
+      <p-button
+        type="reset"
+        label="Limpiar búsqueda"
+        [raised]="true"
+        severity="secondary"
+        class="limpiar"
+      ></p-button>
+    </div>
+
+    <div class="form-button">
+      <p-button type="button" label="Buscar" [raised]="true"></p-button>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,54 @@
+<body>
+  <!-- TABLA DE DATOS -->
+  <div class="card">
+    <p-table
+      [value]="horometrosKilometros || []"
+      [tableStyle]="{ 'min-width': '50rem' }"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="centroMaquina">
+            Centro Máquina
+            <p-sortIcon field="centroMaquina" class="orden" />
+          </th>
+          <th pSortableColumn="subFamilia">
+            Subfamilia<p-sortIcon field="subFamilia" class="orden" />
+          </th>
+          <th pSortableColumn="maquinaria">
+            Maquinaria <p-sortIcon field="maquinaria" class="orden" />
+          </th>
+          <th pSortableColumn="Marca">
+            Marca <p-sortIcon field="marca" class="orden" />
+          </th>
+          <th pSortableColumn="modelo">
+            Modelo <p-sortIcon field="modelo" class="orden" />
+          </th>
+          <th pSortableColumn="horometroFinal">
+            Horómetro final<p-sortIcon field="horometroFinal" class="orden" />
+          </th>
+          <th pSortableColumn="kilometroFinal">
+            Kilómetro final<p-sortIcon field="kilometroFinal" class="orden" />
+          </th>
+          <th pSortableColumn="fecha">
+            Fecha<p-sortIcon field="fecha" class="orden" />
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-horonometrosKilometros>
+        <tr class="body-table">
+          <td>{{ horonometrosKilometros.centroMaquina }}</td>
+          <td>{{ horonometrosKilometros.subFamilia }}</td>
+          <td>{{ horonometrosKilometros.maquinaria }}</td>
+          <td>{{ horonometrosKilometros.marca }}</td>
+          <td>{{ horonometrosKilometros.modelo }}</td>
+          <td>{{ horonometrosKilometros.horometroFinal }}</td>
+          <td>{{ horonometrosKilometros.kilometroFinal }}</td>
+          <td>{{ horonometrosKilometros.fecha }}</td>
+          <td></td>
+          <td><img />reload</td>
+        </tr>
+      </ng-template>
+    </p-table>
+    <p>Resultado totales: {{ horometrosKilometros?.length || 0 }}</p>
+  </div>
+</body>
