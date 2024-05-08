@@ -8,10 +8,13 @@ import { CalendarModule } from 'primeng/calendar';
 @Component({
   selector: 'app-gruas-form',
   standalone: true,
-  imports: [InputMaskModule,InputNumberModule,InputTextModule,CalendarModule],
+  imports: [
+    InputMaskModule,
+    InputNumberModule,
+    InputTextModule,
+    CalendarModule,
+  ],
   templateUrl: './gruas-form.component.html',
-  styleUrl: './gruas-form.component.css'
+  styleUrl: './gruas-form.component.css',
 })
-export class GruasFormComponent {
-
-}
+export class GruasFormComponent {}

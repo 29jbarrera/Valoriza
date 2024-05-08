@@ -60,15 +60,21 @@
 
     <div class="form-buttons">
       <div class="form-button">
-        <button class="limpiar">Limpiar búsqueda</button>
+        <p-button
+        type="reset"
+        label="Limpiar búsqueda" [raised]="true" severity="secondary"
+        class="limpiar"
+      ></p-button>
       </div>
 
       <div class="form-button">
-        <button class="buscar">Buscar</button>
+        <p-button type="button"
+      label="Buscar" [raised]="true"
+      ></p-button>
       </div>
 
       <div class="form-button">
-        <button class="recalculo">Recálculo de Stock</button>
+        <p-button label="Recálculo" severity="info"></p-button>
       </div>
     </div>
   </form>

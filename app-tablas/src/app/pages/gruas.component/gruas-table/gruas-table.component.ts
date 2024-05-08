@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 import { GruasService } from '../../../service/gruas.service';
 
 import { Gruas } from '../../../Interfaces/gruas.interface';
 
 import { TableModule } from 'primeng/table';
-import { CommonModule } from '@angular/common';
 
-import { FormGroup, FormBuilder } from '@angular/forms';
+
+
 
 @Component({
   selector: 'app-gruas-table',

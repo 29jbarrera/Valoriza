@@ -29,17 +29,6 @@
   width: 100%;
   padding: 5px;
   box-sizing: border-box;
-  border: 2px solid var(--color-secondary);
-}
-
-.input-form:focus {
-  border-color: var(--color-primary);
-  outline: none; /* Elimina el resplandor predeterminado al hacer clic */
-}
-
-.form-row {
-  display: flex;
-  justify-content: space-between;
 }
 
 .form-row-2 {
@@ -65,7 +54,7 @@
   width: 100%;
   padding: 5px;
   box-sizing: border-box;
-  border: 2px solid var(--color-secondary);
+
 }
 
 .form-group-2 input:focus {
@@ -86,29 +75,7 @@
   margin: 0 20px; /* Espacio entre cada botón */
 }
 
-.limpiar {
-  background-color: transparent;
-  color: var(--color-primary);
-  border: none;
-  cursor: pointer;
-}
 
-.buscar {
-  background-color: #ced13c;
-  border: none;
-  color: #fff;
-  width: 150px;
-  cursor: pointer;
-  border-radius: 5px;
-  padding: 3px;
-}
 
-.recalculo {
-  background-color: var(--color-secondary);
-  border: none;
-  color: #fff;
-  width: 150px;
-  cursor: pointer;
-  border-radius: 5px;
-  padding: 3px;
-}
+
+

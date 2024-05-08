@@ -1,14 +1,19 @@
 import { Component } from '@angular/core';
 
-import { TableModule } from 'primeng/table';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { InputTextModule } from 'primeng/inputtext';
+import { InputMaskModule } from 'primeng/inputmask';
 import { CalendarModule } from 'primeng/calendar';
 
 @Component({
   selector: 'app-stock-form',
   standalone: true,
-  imports: [TableModule, InputNumberModule, InputTextModule, CalendarModule],
+  imports: [
+    InputNumberModule,
+    InputTextModule,
+    CalendarModule,
+    InputMaskModule,
+  ],
   templateUrl: './stock-form.component.html',
   styleUrl: './stock-form.component.css',
 })

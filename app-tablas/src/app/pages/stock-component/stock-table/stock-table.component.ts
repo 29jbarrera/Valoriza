@@ -1,29 +1,32 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 import { StockService } from '../../../service/stock.service';
 
-import { Centro } from '../../../Interfaces/centro.interface';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Stock } from '../../../Interfaces/stock.interface';
+
+import { TableModule } from 'primeng/table';
 
 @Component({
   selector: 'app-stock-table',
   standalone: true,
-  imports: [],
+  imports: [TableModule, CommonModule],
   templateUrl: './stock-table.component.html',
   styleUrl: './stock-table.component.css',
 })
 export class StockTableComponent implements OnInit {
-  stock: Centro[] | undefined;
+  stock: Stock[] | undefined;
   searchForm: FormGroup;
-centros: any;
 
   constructor(private StockService: StockService, private fb: FormBuilder) {
     this.searchForm = this.fb.group({
-      centro: [''],
-      familia: [''],
-      maquinaria: [''],
-      fechaDesde: [''],
-      fechaHasta: [''],
+      nombreCentro: [''],
+      nombreReferenciaMaterial: [''],
+      descripcionRefMaterial: [''],
+      cantidad: [''],
+      importe: [''],
+      divisa: [''],
     });
   }
 
@@ -32,7 +35,6 @@ centros: any;
   }
 
   async actualizarTabla() {
-    this.stock = await this.StockService.getCentros();
+    this.stock = await this.StockService.getStock();
   }
 }
-
