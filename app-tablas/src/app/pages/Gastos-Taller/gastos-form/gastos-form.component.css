@@ -2,15 +2,36 @@ body {
   margin: 0;
 }
 
-.form-group {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 10px;
+form {
+  margin: 0 auto;
+  width: 70%;
 }
 
-.input-form {
-  padding: 5px;
-  border: 2px solid var(--color-secondary);
+.form-row2 {
+  display: flex;
+  gap: 20px;
+}
+
+.form-row3 {
+  display: flex;
+  gap: 20px;
+}
+
+.form-row4 {
+  display: flex;
+  gap: 20px;
+}
+
+.form-row5 {
+  display: flex;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  margin-bottom: 10px;
 }
 
 label {
@@ -18,39 +39,18 @@ label {
   font-weight: 700;
 }
 
-#nombre-centro{
+#nombre-centro {
   background: #eaeaea;
 }
 
 .form-row {
   margin: 0 auto;
-  width: 40%;
+  width: 70%;
   padding: 5px;
   font-size: 14px;
   font-weight: 700;
   display: flex;
   justify-content: space-between;
-}
-
-.form-row > .form-group:nth-child(-n + 2) {
-  flex: 0 0 50%;
-  margin-right: 15px;
-}
-
-.form-group:last-child {
-  margin-right: 0;
-}
-
-
-.form-row-2 {
-  margin: 0 auto;
-  width: 40%;
-  font-size: 14px;
-  font-weight: 700;
-}
-
-.form-group-2 .input-form {
-  width: 100%;
 }
 
 .form-buttons {
@@ -73,7 +73,7 @@ label {
 }
 
 .buscar {
-  background-color: #ced13c;
+  background-color: #72add1;
   border: none;
   color: #fff;
   width: 200px;

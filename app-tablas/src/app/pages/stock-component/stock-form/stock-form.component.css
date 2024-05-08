@@ -1,0 +1,114 @@
+.hr-1 {
+  border: none;
+  height: 3px;
+  background-color: var(--color-secondary);
+  margin-top: 50px;
+  margin-bottom: 40px;
+}
+
+.form-row {
+  margin: 0 auto;
+  width: 60%;
+  padding: 5px;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-row > .form-group:nth-child(-n + 2) {
+  flex: 0 0 50%;
+  margin-right: 15px;
+}
+
+.form-group:last-child {
+  margin-right: 0;
+}
+
+.input-form {
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+  border: 2px solid var(--color-secondary);
+}
+
+.input-form:focus {
+  border-color: var(--color-primary);
+  outline: none; /* Elimina el resplandor predeterminado al hacer clic */
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-row-2 {
+  margin: 0 auto;
+  width: 60%;
+  padding: 5px;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-row-2 > .form-group-2 {
+  flex: 0 0 33%;
+  margin-right: 15px;
+}
+
+.form-group-2:last-child {
+  margin-right: 0; /* Elimina el margen derecho del último elemento */
+}
+
+.form-group-2 input {
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+  border: 2px solid var(--color-secondary);
+}
+
+.form-group-2 input:focus {
+  border-color: var(--color-primary);
+  outline: none; /* Elimina el resplandor predeterminado al hacer clic */
+}
+
+/* BOTONES */
+
+.form-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+.form-button {
+  margin: 0 20px; /* Espacio entre cada botón */
+}
+
+.limpiar {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: none;
+  cursor: pointer;
+}
+
+.buscar {
+  background-color: #ced13c;
+  border: none;
+  color: #fff;
+  width: 150px;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 3px;
+}
+
+.recalculo {
+  background-color: var(--color-secondary);
+  border: none;
+  color: #fff;
+  width: 150px;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 3px;
+}

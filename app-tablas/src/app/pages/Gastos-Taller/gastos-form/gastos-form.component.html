@@ -1,0 +1,165 @@
+<form>
+  <div class="form-row1">
+    <div class="form-group">
+      <label>Delegación</label>
+      <input
+        class="input-form"
+        id="delegacion"
+        type="text"
+        pInputText
+        formControlName="delegacion"
+      />
+    </div>
+  </div>
+
+  <div class="form-row2">
+    <div class="form-group">
+      <label>Código centro</label>
+      <p-inputGroup>
+        <input type="text" pInputText />
+        <button
+          type="button"
+          pButton
+          icon="pi pi-search"
+          class="p-button"
+        ></button>
+      </p-inputGroup>
+    </div>
+
+    <div class="form-group">
+      <label>Nombre centro</label>
+      <input
+        class="input-form"
+        id="nombre-centro"
+        type="text"
+        pInputText
+        [disabled]="true"
+        formControlName="nombre-centro"
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Código proveedor</label>
+      <input
+        class="input-form"
+        id="codigo-proveedor"
+        pInputText
+        formControlName="codigo-proveedor"
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Divisa</label>
+      <input
+        class="input-form"
+        id="divisa"
+        pInputText
+        formControlName="divisa"
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Nombre</label>
+      <input
+        class="input-form"
+        id="nombre-centro"
+        type="text"
+        pInputText
+        [disabled]="true"
+        formControlName="nombre-centro"
+      />
+    </div>
+  </div>
+
+  <div class="form-row3">
+    <div class="form-group">
+      <label>Referencia material</label>
+      <input
+        class="input-form"
+        id="ref-material"
+        pInputText
+        formControlName="ref-material"
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Descripción referencia material</label>
+      <input
+        class="input-form"
+        id="descripcion-ref-material"
+        pInputText
+        formControlName="descripcion-ref-material"
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Albarán</label>
+      <input
+        class="input-form"
+        id="albaran"
+        pInputText
+        formControlName="albaran"
+      />
+    </div>
+  </div>
+
+  <div class="form-row4">
+    <div class="form-group">
+      <label>Fecha desde</label>
+      <p-calendar
+        placeholder="mm/dd/yyyy"
+        class="input-form"
+        id="fecha-desde"
+        [showIcon]="true"
+        inputId="icondisplay"
+        formControlName="fechaDesde"
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Fecha hasta</label>
+      <p-calendar
+        placeholder="mm/dd/yyyy"
+        class="input-form"
+        id="fecha-hasta"
+        [showIcon]="true"
+        inputId="icondisplay"
+        formControlName="fechaHasta"
+      />
+    </div>
+  </div>
+
+  <div class="form-row5">
+    <div class="form-group">
+      <label>Importe desde</label>
+      <p-inputNumber
+        mode="currency"
+        inputId="currency-germany"
+        currency="EUR"
+        locale="de-DE"
+        formControlName="importeHasta"
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Importe hasta</label>
+      <p-inputNumber
+        mode="currency"
+        inputId="currency-germany"
+        currency="EUR"
+        locale="de-DE"
+        formControlName="importeDesde"
+      />
+    </div>
+  </div>
+
+    <div class="form-buttons">
+      <div class="form-button">
+        <button type="reset" class="limpiar">Limpiar búsqueda</button>
+      </div>
+
+      <div class="form-button">
+        <button type="button" class="buscar">Buscar</button>
+      </div>
+    </div>
+</form>

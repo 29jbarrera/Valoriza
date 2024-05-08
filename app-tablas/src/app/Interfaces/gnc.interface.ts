@@ -1,6 +1,6 @@
 export interface Gnc {
   maquinaria: number;
-  centro: string;
+  Nombrecentro: string;
   delegacion: string;
   familia: string;
   subfamilia: string;

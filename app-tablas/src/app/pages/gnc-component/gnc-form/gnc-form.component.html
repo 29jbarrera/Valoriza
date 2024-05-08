@@ -1,1 +1,101 @@
-<p>gnc-form works!</p>
+<form>
+  <div class="form-row">
+    <div class="form-group">
+      <label>Centro</label>
+      <input
+        class="input-form"
+        id="centro"
+        type="text"
+        pInputText
+        formControlName="centro"
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Nombre centro</label>
+      <input
+        class="input-form"
+        id="nombre-centro"
+        type="text"
+        pInputText
+        [disabled]="true"
+        formControlName="nombre-centro"
+      />
+    </div>
+  </div>
+
+  <div class="form-row-2">
+    <div class="form-group-2">
+      <label>Familia</label>
+      <input
+        class="input-form"
+        id="Familia"
+        pInputText
+        formControlName="Familia"
+      />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group">
+      <label>Maquianria</label>
+      <input
+        class="input-form"
+        id="maquinaria"
+        pInputText
+        formControlName="maquinaria"
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Bastidor</label>
+      <p-inputNumber
+        mode="currency"
+        inputId="Importe"
+        currency="EUR"
+        locale="de-DE"
+        class="input-form"
+        id="bastidor"
+        formControlName="bastidor"
+      />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group">
+      <label>Fecha desde</label>
+      <p-calendar
+        placeholder="mm/dd/yyyy"
+        class="input-form"
+        id="fecha-desde"
+        [showIcon]="true"
+        inputId="icondisplay"
+        formControlName="fechaDesde"
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Fecha hasta</label>
+      <p-inputMask
+        mask="99/99/9999"
+        placeholder="mm/dd/yyyy"
+        slotChar="mm/dd/yyyy"
+        class="input-form"
+        id="fecha-hasta"
+        formControlName="fechaHasta"
+      />
+    </div>
+  </div>
+  <div class="form-buttons">
+    <div class="form-button">
+      <button type="reset" class="limpiar">Limpiar búsqueda</button>
+    </div>
+
+    <div class="form-button">
+      <button type="button" class="buscar">Buscar</button>
+    </div>
+  </div>
+</form>
+
+<hr />
+

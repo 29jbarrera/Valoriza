@@ -1,0 +1,24 @@
+import { Component } from '@angular/core';
+
+import { InputNumberModule } from 'primeng/inputnumber';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputMaskModule } from 'primeng/inputmask';
+import { CalendarModule } from 'primeng/calendar';
+import { InputGroupModule } from 'primeng/inputgroup';
+import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
+
+@Component({
+  selector: 'app-gastos-form',
+  standalone: true,
+  imports: [
+    InputMaskModule,
+    InputNumberModule,
+    InputTextModule,
+    CalendarModule,
+    InputGroupAddonModule,
+    InputGroupModule,
+  ],
+  templateUrl: './gastos-form.component.html',
+  styleUrl: './gastos-form.component.css',
+})
+export class GastosFormComponent {}
