@@ -18,6 +18,10 @@ label {
   font-weight: 700;
 }
 
+#nombre-centro{
+  background: #eaeaea;
+}
+
 .form-row {
   margin: 0 auto;
   width: 40%;
@@ -41,7 +45,6 @@ label {
 .form-row-2 {
   margin: 0 auto;
   width: 40%;
-  padding: 5px;
   font-size: 14px;
   font-weight: 700;
 }
@@ -77,58 +80,4 @@ label {
   cursor: pointer;
   border-radius: 5px;
   padding: 3px;
-}
-
-/* TABLA DE DATOS */
-
-.card {
-  margin: 0 auto;
-  width: 90%;
-  margin-top: 20px;
-}
-
-.p-table {
-  width: 100%;
-}
-
-th {
-  text-align: left;
-  padding-right: 20px;
-  background-color: var(--color-background-grey);
-  padding: 5px;
-  border-right: 2px solid grey;
-  color: var(--color-primary);
-}
-
-th:last-child {
-  border-right: none;
-}
-
-.colum-filtro {
-  border-bottom: 2px solid grey;
-}
-
-td {
-  padding-top: 7px;
-}
-
-.orden {
-  float: right;
-}
-
-.colum-filter {
-  border-bottom: 2px solid grey;
-}
-
-.body-table:nth-child(even) {
-  background-color: #f6f6f6ad;
-}
-
-.body-table:nth-child(odd) {
-  background-color: #fff;
-}
-
-.body-table td,
-.body-table th {
-  border-bottom: 1px solid #cccccc;
 }

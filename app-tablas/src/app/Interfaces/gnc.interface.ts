@@ -1,4 +1,4 @@
-export interface Gruas {
+export interface Gnc {
   maquinaria: number;
   centro: string;
   delegacion: string;

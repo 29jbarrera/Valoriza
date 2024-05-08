@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 
-import { Gruas } from '../Interfaces/gruas.interface';
+import { Gnc } from '../Interfaces/gnc.interface';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
-export class GruasService {
-  constructor() {}
+export class GncService {
 
-  async getGruas(): Promise<Gruas[]> {
+  constructor() { }
+  async getGnc(): Promise<Gnc[]> {
     // Datos ficticios de prueba
-    const gruas: Gruas[] = [
+    const gnc: Gnc[] = [
       {
         maquinaria: 1,
         centro: 'Centro 1',
@@ -44,21 +44,6 @@ export class GruasService {
         fechaproxima: '10/10/2020',
       },
     ];
-    return gruas;
-  }
-
-  async buscarGruas(filtros: any): Promise<Gruas[]> {
-    const gruas = await this.getGruas();
-    // Aplicar filtros
-    const gruasFiltradas = gruas.filter((grua) => {
-      const centroMinusculas = grua.centro.toLowerCase();
-      const filtroCentroMinusculas = filtros.centro.toLowerCase();
-      if (filtros.centro) {
-        return centroMinusculas.includes(filtroCentroMinusculas);
-      } else {
-        return true;
-      }
-    });
-    return gruasFiltradas;
+    return gnc;
   }
 }
