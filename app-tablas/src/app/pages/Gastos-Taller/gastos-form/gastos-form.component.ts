@@ -8,7 +8,6 @@ import { InputGroupModule } from 'primeng/inputgroup';
 import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 import { ButtonModule } from 'primeng/button';
 
-
 @Component({
   selector: 'app-gastos-form',
   standalone: true,
@@ -20,7 +19,6 @@ import { ButtonModule } from 'primeng/button';
     InputGroupAddonModule,
     InputGroupModule,
     ButtonModule,
-
   ],
   templateUrl: './gastos-form.component.html',
   styleUrl: './gastos-form.component.css',

@@ -24,7 +24,7 @@
     </div>
   </div>
 
-  <div class="form-row-2">
+  <div class="form-row2">
     <div class="form-group-2">
       <label>Familia</label>
       <input
@@ -38,7 +38,7 @@
 
   <div class="form-row">
     <div class="form-group">
-      <label>Maquianria</label>
+      <label>Maquinaria</label>
       <input
         class="input-form"
         id="maquinaria"
@@ -49,14 +49,11 @@
 
     <div class="form-group">
       <label>Bastidor</label>
-      <p-inputNumber
-        mode="currency"
-        inputId="Importe"
-        currency="EUR"
-        locale="de-DE"
+      <input
         class="input-form"
-        id="bastidor"
-        formControlName="bastidor"
+        id="maquinaria"
+        pInputText
+        formControlName="maquinaria"
       />
     </div>
   </div>
@@ -67,7 +64,7 @@
       <p-calendar
         placeholder="mm/dd/yyyy"
         class="input-form"
-        id="fecha-desde"
+        id="fecha"
         [showIcon]="true"
         inputId="icondisplay"
         formControlName="fechaDesde"
@@ -76,26 +73,30 @@
 
     <div class="form-group">
       <label>Fecha hasta</label>
-      <p-inputMask
-        mask="99/99/9999"
+      <p-calendar
         placeholder="mm/dd/yyyy"
-        slotChar="mm/dd/yyyy"
         class="input-form"
-        id="fecha-hasta"
-        formControlName="fechaHasta"
+        id="fecha"
+        [showIcon]="true"
+        inputId="icondisplay"
+        formControlName="fechaDesde"
       />
     </div>
   </div>
   <div class="form-buttons">
     <div class="form-button">
-      <button type="reset" class="limpiar">Limpiar búsqueda</button>
+      <p-button
+        type="reset"
+        label="Limpiar búsqueda"
+        [raised]="true"
+        severity="secondary"
+        class="limpiar"
+      ></p-button>
     </div>
 
     <div class="form-button">
-      <button type="button" class="buscar">Buscar</button>
+      <p-button type="button" label="Buscar" [raised]="true"></p-button>
     </div>
   </div>
 </form>
-
 <hr />
-
