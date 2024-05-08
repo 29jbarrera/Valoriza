@@ -1,90 +1,123 @@
-    <!-- Tabla -->
-    <div class="card">
-      <p-table
-        [value]="stock || []"
-        dataKey="id"
-        [tableStyle]="{ 'min-width': '50rem' }"
-      >
-        <ng-template pTemplate="header">
-          <tr>
-            <th pSortableColumn="nombre" style="width: 16.66%">
-              Nombre centro <p-sortIcon class="orden" field="nombre" />
-            </th>
-            <th pSortableColumn="nombreReferencia" style="width: 16.66%">
-              Nombre referencia material
-              <p-sortIcon class="orden" field="nombreReferencia" />
-            </th>
-            <th pSortableColumn="descripcion" style="width: 16.66">
-              Descripcion referencia material
-              <p-sortIcon class="orden" field="descripcion" />
-            </th>
-            <th pSortableColumn="cantidad" style="width: 16.66%">
-              Cantidad <p-sortIcon class="orden" field="cantidad" />
-            </th>
-            <th pSortableColumn="Importe" style="width: 16.66%">
-              Importe <p-sortIcon class="orden" field="Importe" />
-            </th>
-            <th pSortableColumn="Divisa" style="width: 16.66%">
-              Divisa <p-sortIcon class="orden" field="Divisa" />
-            </th>
-          </tr>
-          <tr>
-            <th>
-              <p-columnFilter
-                type="text"
-                field="code"
-                [showClearButton]="false"
-              />
-            </th>
-            <th>
-              <p-columnFilter
-                type="text"
-                field="name"
-                [showClearButton]="false"
-              />
-            </th>
-            <th>
-              <p-columnFilter
-                type="text"
-                field="quantity"
-                [showClearButton]="false"
-              />
-            </th>
-            <th>
-              <p-columnFilter
-                type="text"
-                field="price"
-                [showClearButton]="false"
-              />
-            </th>
-            <th>
-              <p-columnFilter
-                type="text"
-                field="price"
-                [showClearButton]="false"
-              />
-            </th>
-            <th>
-              <p-columnFilter
-                type="text"
-                field="price"
-                [showClearButton]="false"
-              />
-            </th>
-          </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-stock>
-          <tr class="body-table">
-            <td>{{ stock.nombreCentro }}</td>
-            <td>{{ stock.nombreReferenciaMaterial }}</td>
-            <td>{{ stock.descripcionRefMaterial }}</td>
-            <td>{{ stock.cantidad }}</td>
-            <td>{{ stock.importe }}</td>
-            <td>{{ stock.divisa }}</td>
-          </tr>
-        </ng-template>
-      </p-table>
-      <p>Resultado totales:  {{ stock?.length || 0 }}</p>
-    </div>
+<div class="Table">
+  <p-table
+    #dt
+    [value]="stock || []"
+    dataKey="id"
+    [rowsPerPageOptions]="[5, 10, 20]"
+    [tableStyle]="{ width: '100%' }"
+    [rows]="5"
+  >
 
-
+    <ng-template pTemplate="header">
+      <!-- <tr>
+        <th  style="width: 16.66%">
+          Acion
+        </th>
+        <th pSortableColumn="nombreCentro" style="width: 16.66%">
+          Centro <p-sortIcon class="order" field="nombreCentro" />
+        </th>
+        <th pSortableColumn="nombreReferenciaMaterial" style="width: 16.66%">
+          Material
+          <p-sortIcon class="order" field="nombreReferencia" />
+        </th>
+        <th pSortableColumn="descripcionRefMaterial" style="width: 16.66%">
+          Referencia
+          <p-sortIcon class="order" field="descripcion" />
+        </th>
+        <th pSortableColumn="cantidad" style="width: 16.66%">
+          Cantidad <p-sortIcon class="order" field="cantidad" />
+        </th>
+        <th pSortableColumn="importe" style="width: 16.66%">
+          Importe <p-sortIcon class="order" field="Importe" />
+        </th>
+        <th pSortableColumn="divisa" style="width: 16.66%">
+          Divisa <p-sortIcon class="order" field="Divisa" />
+        </th>
+      </tr> -->
+      <tr>
+        <th></th>
+        <th pSortableColumn="nombreCentro">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="nombreCentro"
+              class="filter"
+              placeholder="Centro"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="nombreCentro" />
+          </div>
+        </th>
+        <th pSortableColumn="nombreReferenciaMaterial">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="nombreReferenciaMaterial"
+              placeholder="Material"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="nombreReferencia" />
+          </div>
+        </th>
+        <th pSortableColumn="descripcionRefMaterial">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="descripcionRefMaterial"
+              placeholder="Referencia"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="descripcion" />
+          </div>
+        </th>
+        <th pSortableColumn="cantidad">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="cantidad"
+              placeholder="Cantidad"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="cantidad" />
+          </div>
+        </th>
+        <th pSortableColumn="importe">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="importe"
+              placeholder="Importe"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="Importe" />
+          </div>
+        </th>
+        <th pSortableColumn="divisa">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="importe"
+              placeholder="Divisa"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="Divisa" />
+          </div>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-stock>
+      <tr class="body-table">
+        <td>
+          <i class="fas fa-pen"></i>
+        </td>
+        <td>{{ stock.nombreCentro }}</td>
+        <td>{{ stock.descripcionRefMaterial }}</td>
+        <td>{{ stock.nombreReferenciaMaterial }}</td>
+        <td>{{ stock.cantidad }}</td>
+        <td>{{ stock.importe }}</td>
+        <td>{{ stock.divisa }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <p>Resultado totales: {{ stock?.length || 0 }}</p>
+</div>

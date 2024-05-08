@@ -1,81 +1,19 @@
-<body>
-  <hr class="hr-1" />
-  <form>
-    <div class="form-row">
-      <div class="form-group">
-        <label>Código centro</label>
-        <p-inputNumber
-          class="input-form"
-          id="codigo-centro"
-          formControlName="codigo-centro"
-        />
-      </div>
-
-      <div class="form-group">
-        <label>Nombre centro</label>
-        <input
-          class="input-form"
-          id="nombre-centro"
-          type="text"
-          pInputText
-          formControlName="nombre-centro"
-        />
-      </div>
-    </div>
-
-    <div class="form-row-2">
-      <div class="form-group-2">
-        <label>Nombre referencia material</label>
-        <input
-          class="input-form"
-          id="nombre-referencia-material"
-          pInputText
-          formControlName="referencia-material"
-        />
-      </div>
-
-      <div class="form-group-2">
-        <label>Descripción referencia material</label>
-        <input
-          class="input-form"
-          id="descripcion-referencia-material"
-          pInputText
-          formControlName="descripcion-referencia"
-        />
-      </div>
-
-      <div class="form-group-2">
-        <label>Importe</label>
-        <p-inputNumber
-          mode="currency"
-          inputId="Importe"
-          currency="EUR"
-          locale="de-DE"
-          class="input-form"
-          id="importe"
-          formControlName="importe"
-        />
-      </div>
-    </div>
-
-    <div class="form-buttons">
-      <div class="form-button">
-        <p-button
-        type="reset"
-        label="Limpiar búsqueda" [raised]="true" severity="secondary"
-        class="limpiar"
-      ></p-button>
-      </div>
-
-      <div class="form-button">
-        <p-button type="button"
-      label="Buscar" [raised]="true"
-      ></p-button>
-      </div>
-
-      <div class="form-button">
-        <p-button label="Recálculo" severity="info"></p-button>
-      </div>
-    </div>
-  </form>
-</body>
+<form class="Filter">
+  <fieldset>
+    <legend>Código centro</legend>
+    <input type="text" />
+  </fieldset>
+  <fieldset>
+    <legend>Nombre centro</legend>
+    <input type="text" />
+  </fieldset>
+  <fieldset>
+    <legend>Referencia material</legend>
+    <input type="text" />
+  </fieldset>
+ 
+  <fieldset>
+    <legend>Importe</legend>
+    <input type="text" />
+  </fieldset>
+</form>

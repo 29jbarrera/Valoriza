@@ -1,4 +1,16 @@
 import { Injectable } from '@angular/core';
+import {
+  rand,
+  randAmount,
+  randArn,
+  randBrand,
+  randCompanyName,
+  randCurrencyName,
+  randProductDescription,
+  randVehicleManufacturer,
+  randVehicleModel,
+  seed,
+} from '@ngneat/falso';
 
 import { Stock } from '../Interfaces/stock.interface';
 
@@ -9,25 +21,18 @@ export class StockService {
   constructor() {}
 
   async getStock(): Promise<Stock[]> {
-    const stock: Stock[] = [
-      {
-        nombreCentro: 'Centro',
-        nombreReferenciaMaterial: 'Nombre Referencia',
-        descripcionRefMaterial: 'Descripcion',
-        cantidad: 11,
-        importe: 50,
-        divisa: 'euro',
-      },
-      {
-        nombreCentro: 'Centro 1',
-        nombreReferenciaMaterial: 'Nombre Referencia 1',
-        descripcionRefMaterial: 'Descripcion 1',
-        cantidad: 14,
-        importe: 60,
-        divisa: 'dolar',
-      },
-    ];
+    const stock: Stock[] = [];
 
+    for (let i = 0; i < 100; i++) {
+      stock.push({
+        nombreCentro: randVehicleManufacturer(),
+        nombreReferenciaMaterial: randArn(),
+        descripcionRefMaterial: randVehicleModel(),
+        cantidad: randAmount({ min: 1, max: 20 }),
+        importe: randAmount({ min: 10, max: 100 }),
+        divisa: randCurrencyName(),
+      });
+    }
     return stock;
   }
 }

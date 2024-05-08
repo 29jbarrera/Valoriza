@@ -1,0 +1,10 @@
+.Logotype{
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    border-bottom: 1px solid #ddd;
+    img{
+        height: 40px;
+    }
+}

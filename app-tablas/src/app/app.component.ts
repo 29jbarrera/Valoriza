@@ -6,6 +6,13 @@ import { InputTextModule } from 'primeng/inputtext';
 import { RippleModule } from 'primeng/ripple';
 import { BadgeModule } from 'primeng/badge';
 import { ButtonModule } from 'primeng/button';
+import { DocComponent } from './doc/doc.component';
+import { LogotypeComponent } from './components/logotype/logotype.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { MapComponent } from './components/map/map.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FormlyModule } from '@ngx-formly/core';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -22,38 +29,19 @@ import { ButtonModule } from 'primeng/button';
     // MenuModule,
     // DashboardRoutingModule,
     // BlockViewerModule
+    DocComponent,
+    LogotypeComponent,
+    MenuComponent,
+    NavigationComponent,
+    MapComponent,
+    HeaderComponent,
+    ReactiveFormsModule,
+    //
+
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'app-tablas';
-
-  menu_items = [
-    {
-      class: 'pi pi-home mr-2',
-      name: 'stock',
-      path: 'stock',
-    },
-    {
-      class: 'pi pi-home mr-2',
-      name: 'gruas',
-      path: 'gruas',
-    },
-    {
-      class: 'pi pi-home mr-2',
-      name: 'gnc',
-      path: 'gnc',
-    },
-    {
-      class: 'pi pi-home mr-2',
-      name: 'gastos-taller',
-      path: 'gastos-taller',
-    },
-    {
-      class: 'pi pi-home mr-2',
-      name: 'horometros-kilometros',
-      path: 'horometros-kilometros',
-    },
-  ];
 }

@@ -1,0 +1,32 @@
+<app-logotype></app-logotype>
+<ul>
+  <li *ngFor="let item of menu_items">
+    <p>
+        {{item.name}}
+    </p>
+    <ul>
+      <li
+        *ngFor="let item2 of item.items"
+        [ngClass]="{ 'li-active': get_if_path_is_active(item, item2) }"
+      >
+        <a (click)="navigate(item,item2)">
+          <i [class]="item2.class"></i>
+          <span>{{ item2.name }}</span>
+          <b>
+            <!-- random number 1 - 100 -->
+            {{ item2.n}}
+          </b>
+        </a>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<div class="user">
+  <i class="fas fa-user"></i>
+  <div>
+    <b>Salbatore Garcia</b>
+    <span>s.garcia&#64;alicunde.com</span>
+  </div>
+  <i class="fas fa-angle-down"></i>
+</div>
