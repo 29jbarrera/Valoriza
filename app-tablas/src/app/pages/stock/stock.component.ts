@@ -8,12 +8,13 @@ import { Centro } from '../../Interfaces/centro.interface';
 import { TableModule } from 'primeng/table';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { InputTextModule } from 'primeng/inputtext';
+import { ButtonModule } from 'primeng/button';
 
 
 @Component({
   selector: 'app-stock',
   standalone: true,
-  imports: [TableModule, CommonModule,InputNumberModule,InputTextModule],
+  imports: [TableModule, CommonModule,InputNumberModule,InputTextModule, ButtonModule],
   templateUrl: './stock.component.html',
   styleUrl: './stock.component.css',
 })
