@@ -85,7 +85,7 @@ export class MenuComponent {
           path: 'gruas',
           n: Math.round(Math.random() * 100),
         },
-       
+
         {
           class: 'fas fa-tools',
           name: 'Gastos',
@@ -102,6 +102,12 @@ export class MenuComponent {
           class: 'fas fa-tachometer-alt',
           name: 'Preventivo',
           path: 'preventivo',
+          n: Math.round(Math.random() * 100),
+        },
+        {
+          class: 'fas fa-tools',
+          name: 'Reparaciones',
+          path: 'reparaciones',
           n: Math.round(Math.random() * 100),
         },
       ],
@@ -165,7 +171,7 @@ export class MenuComponent {
           path: 'gnc',
           n: Math.round(Math.random() * 100),
         },
-       
+
         {
           class: 'fas fa-cogs',
           name: 'Materiales',

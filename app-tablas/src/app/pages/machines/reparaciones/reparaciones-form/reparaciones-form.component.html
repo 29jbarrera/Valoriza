@@ -1,0 +1,184 @@
+<form>
+  <div class="form-row1">
+    <div class="form-group1">
+      <label>Centro Reparador</label>
+      <input
+        class="input-form"
+        id="centroReparador"
+        type="text"
+        pInputText
+        formControlName="centroReparador"
+      />
+    </div>
+    <div class="form-group1">
+      <label></label>
+      <input
+        class="input-form"
+        id="centroReparadordisable"
+        type="text"
+        pInputText
+        [disabled]="true"
+        formControlName="centroReparadordisable"
+      />
+    </div>
+    <div class="form-group1">
+      <label>Divisa</label>
+      <input
+        class="input-form"
+        id="divisa"
+        type="text"
+        pInputText
+        formControlName="divisa"
+      />
+    </div>
+    <div class="form-group1">
+      <label></label>
+      <input
+        class="input-form"
+        id="divisadisable"
+        type="text"
+        pInputText
+        [disabled]="true"
+        formControlName="divisadisable"
+      />
+    </div>
+  </div>
+
+  <div class="form-row1">
+    <div class="form-group1">
+      <label>Maquinaria</label>
+      <input
+        class="input-form"
+        id="maquinaria"
+        type="text"
+        pInputText
+        formControlName="maquinaria"
+      />
+    </div>
+    <div class="form-group1">
+      <label></label>
+      <input
+        class="input-form"
+        id="maquinariadisable"
+        type="text"
+        pInputText
+        [disabled]="true"
+        formControlName="maquinariadisable"
+      />
+    </div>
+    <div class="form-group1">
+      <label>Proveedor</label>
+      <input
+        class="input-form"
+        id="proveedor"
+        type="text"
+        pInputText
+        formControlName="proveedor"
+      />
+    </div>
+    <div class="form-group1">
+      <label></label>
+      <input
+        class="input-form"
+        id="proovedordisable"
+        type="text"
+        pInputText
+        [disabled]="true"
+        formControlName="proovedordisable"
+      />
+    </div>
+  </div>
+
+  <div class="form-row2">
+    <div class="form-group2">
+      <label>Tipo Actuación</label>
+      <p-treeSelect
+        class="md:w-20rem w-full"
+        containerStyleClass="w-full"
+        placeholder="-"
+        id="tipoActuacion"
+        formControlName="tipoActuacion"
+      />
+    </div>
+    <div class="form-group2">
+      <label>Tipo Mantenimiento</label>
+      <p-treeSelect
+        class="md:w-20rem w-full"
+        containerStyleClass="w-full"
+        placeholder="-"
+        id="tipoMantenimiento"
+      />
+    </div>
+    <div class="form-group2">
+      <label>Descripción</label>
+      <input class="input-form" id="descripcion" type="text" pInputText />
+    </div>
+  </div>
+
+  <div class="form-row3">
+    <div class="form-group3">
+      <label>Albarán</label>
+      <input
+        class="input-form"
+        id="albaran"
+        type="text"
+        pInputText
+        formControlName="albaran"
+      />
+    </div>
+    <div class="form-group3">
+      <label>Coste</label>
+      <p-inputNumber
+        mode="currency"
+        inputId="currency-germany"
+        currency="EUR"
+        locale="de-DE"
+        id="coste"
+        formControlName="coste"
+      />
+    </div>
+  </div>
+
+  <div class="form-row4">
+    <div class="form-group4">
+      <label>Fecha desde</label>
+      <p-calendar
+        placeholder="mm/dd/yyyy"
+        class="input-form"
+        id="fechaDesde"
+        [showIcon]="true"
+        inputId="icondisplay"
+        formControlName="fechaDesde"
+      />
+    </div>
+  </div>
+  <div class="form-row4">
+    <div class="form-group4">
+      <label>Fecha hasta</label>
+      <p-calendar
+        placeholder="mm/dd/yyyy"
+        class="input-form"
+        id="fechaHasta"
+        [showIcon]="true"
+        inputId="icondisplay"
+        formControlName="fechaHasta"
+      />
+    </div>
+  </div>
+
+  <div class="form-buttons">
+    <div class="form-button">
+      <p-button
+        type="reset"
+        label="Limpiar búsqueda"
+        [raised]="true"
+        severity="secondary"
+        class="limpiar"
+      ></p-button>
+    </div>
+
+    <div class="form-button">
+      <p-button type="button" label="Buscar" [raised]="true"></p-button>
+    </div>
+  </div>
+</form>
