@@ -1,1 +1,51 @@
-<p>preventivo-table works!</p>
+<body>
+  <div class="card">
+    <p-table [value]="preventivo || []" [tableStyle]="{ 'min-width': '50rem' }">
+    </p-table>
+    <ng-template pItemplate="header">
+      <tr>
+        <th pSortableColumn="centroMaquina">
+          Centro Máquina
+          <p-sortIcon field="centroMaquina" class="orden" />
+        </th>
+        <th pSortableColumn="subfamilia">
+          SubFamilia
+          <p-sortIcon field="subfamilia" class="orden" />
+        </th>
+        <th pSortableColumn="maquinaria">
+          Maquinaria
+          <p-sortIcon field="maquinaria" class="orden" />
+        </th>
+        <th pSortableColumn="nivel">
+          Nivel
+          <p-sortIcon field="nivel" class="orden" />
+        </th>
+        <th pSortableColumn="posicion">
+          Posicion
+          <p-sortIcon field="posicion" class="orden" />
+        </th>
+        <th pSortableColumn="horomMant">
+          Horóm. Mant.
+          <p-sortIcon field="horomMant" class="orden" />
+        </th>
+        <th pSortableColumn="horomFinal">
+          Horóm. Final
+          <p-sortIcon field="horomFinal" class="orden" />
+        </th>
+        <th pSortableColumn="kmMant">
+          Km. Mant.
+          <p-sortIcon field="kmMant" class="orden" />
+        </th>
+        <th pSortableColumn="kmFinal">
+          Km. Final
+          <p-sortIcon field="kmFinal" class="orden" />
+        </th>
+        <Var
+          ><th pSortableColumn="fecha">
+            Fecha
+            <p-sortIcon field="fecha" class="orden" /></th
+        ></Var>
+      </tr>
+    </ng-template>
+  </div>
+</body>
