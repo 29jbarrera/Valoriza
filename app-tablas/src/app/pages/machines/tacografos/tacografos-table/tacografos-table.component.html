@@ -1,1 +1,102 @@
-<p>tacografos-table works!</p>
+<div class="Table">
+  <p-table
+    #dt
+    [value]="tacografos || []"
+    dataKey="id"
+    [rowsPerPageOptions]="[5, 10, 20]"
+    [tableStyle]="{ width: '100%' }"
+    [rows]="5"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th></th>
+        <th pSortableColumn="maquinaria">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="maquinaria"
+              class="filter"
+              placeholder="Maquinaria"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="maquinaria" />
+          </div>
+        </th>
+        <th pSortableColumn="center">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="center"
+              class="filter"
+              placeholder="Centro"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="center" />
+          </div>
+        </th>
+        <th pSortableColumn="delegacion">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="delegacion"
+              class="filter"
+              placeholder="Delegación"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="delegacion" />
+          </div>
+        </th>
+        <th pSortableColumn="family">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="famili"
+              class="filter"
+              placeholder="Familia"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="family" />
+          </div>
+        </th>
+        <th pSortableColumn="subFamily">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="subFamily"
+              class="filter"
+              placeholder="Subfamilia"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="subFamily" />
+          </div>
+        </th>
+        <th pSortableColumn="dateProx">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="dateProx"
+              class="filter"
+              placeholder="Fecha Próxima"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="dateProx" />
+          </div>
+        </th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-tacografos>
+      <tr class="body-table">
+        <td>
+          <i class="fas fa-pen"></i>
+        </td>
+        <td>{{ tacografos.maquinaria }}</td>
+        <td>{{ tacografos.center }}</td>
+        <td>{{ tacografos.delegation }}</td>
+        <td>{{ tacografos.family }}</td>
+        <td>{{ tacografos.subFamily }}</td>
+        <td>{{ tacografos.dateProx }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
