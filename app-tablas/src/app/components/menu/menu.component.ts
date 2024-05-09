@@ -98,6 +98,12 @@ export class MenuComponent {
           path: 'horometros-kilometros',
           n: Math.round(Math.random() * 100),
         },
+        {
+          class: 'fas fa-tachometer-alt',
+          name: 'Preventivo',
+          path: 'preventivo',
+          n: Math.round(Math.random() * 100),
+        },
       ],
     },
     {

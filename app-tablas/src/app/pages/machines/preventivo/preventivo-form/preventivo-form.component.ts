@@ -5,7 +5,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { InputMaskModule } from 'primeng/inputmask';
 import { CalendarModule } from 'primeng/calendar';
 import { TreeSelectModule } from 'primeng/treeselect';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-preventivo-form',
@@ -16,7 +17,9 @@ import { FormsModule } from '@angular/forms';
     InputTextModule,
     CalendarModule,
     TreeSelectModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    CommonModule,
   ],
   templateUrl: './preventivo-form.component.html',
   styleUrl: './preventivo-form.component.css',
