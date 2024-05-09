@@ -2,7 +2,7 @@ export interface GastosTaller {
   centroProveedor: string;
   delegacion: string;
   fecha: Date;
-  proveedor: number;
+  proveedor: string;
   importe: number;
   divisa: string;
   referenciaMaterial: string;

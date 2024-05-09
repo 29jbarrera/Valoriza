@@ -1,4 +1,17 @@
 import { Injectable } from '@angular/core';
+import {
+  rand,
+  randAmount,
+  randArn,
+  randBrand,
+  randCompanyName,
+  randCurrencyName,
+  randProductDescription,
+  randVehicleManufacturer,
+  randVehicleModel,
+  seed,
+} from '@ngneat/falso';
+
 import { GastosTaller } from '../Interfaces/gastos-taller.interface';
 
 @Injectable({
@@ -8,53 +21,25 @@ export class GastosTallerService {
   constructor() {}
 
   async getGastosTaller(): Promise<GastosTaller[]> {
-    const gastosTaller: GastosTaller[] = [
-      {
-        centroProveedor: 'Centro1',
-        delegacion: 'delgacion2',
-        fecha: new Date(2023, 5, 15),
-        proveedor: 1,
-        importe: 20,
+    const gastosTaller: GastosTaller[] = [];
+    const randomDate = new Date(rand([new Date(2020, 0, 1).getTime(), new Date().getTime()]) as number);
+    for (let i = 0; i < 100; i++) {
+      gastosTaller.push({
+        centroProveedor: randCurrencyName(),
+        delegacion: randArn(),
+        fecha: randomDate,
+        proveedor: randCurrencyName(),
+        importe: randAmount({ min: 10, max: 100 }),
         divisa: 'EUR',
-        referenciaMaterial: 'ref111',
-        descripcionRefMaterial: 'descrip11',
-        cantidad: 1,
+        referenciaMaterial: randCurrencyName(),
+        descripcionRefMaterial: randCurrencyName(),
+        cantidad: randAmount({ min: 10, max: 100 }),
         gastoConmutable: true,
-        descripcion: 'Descripción del gasto',
-        albaran: 'ALB123',
-        archivo: 'file',
-      },
-      {
-        centroProveedor: 'Centro3',
-        delegacion: 'Delegacion4',
-        fecha: new Date(2024, 2, 10),
-        proveedor: 789012,
-        importe: 2000,
-        divisa: 'USD',
-        referenciaMaterial: 'Ref456',
-        descripcionRefMaterial: 'Otra descripción del material',
-        cantidad: 1,
-        gastoConmutable: false,
-        descripcion: 'Otra descripción del gasto',
-        albaran: 'ALB456',
-        archivo: 'file1',
-      },
-      {
-        centroProveedor: 'Centro5',
-        delegacion: 'Delegacion6',
-        fecha: new Date(2024, 8, 20),
-        proveedor: 345678,
-        importe: 1800,
-        divisa: 'GBP',
-        referenciaMaterial: 'Ref789',
-        descripcionRefMaterial: 'Descripción adicional del material',
-        cantidad: 3,
-        gastoConmutable: true,
-        descripcion: 'Descripción adicional del gasto',
-        albaran: 'ALB789',
-        archivo: 'file2',
-      },
-    ];
+        descripcion: randCurrencyName(),
+        albaran: randCurrencyName(),
+        archivo: randCurrencyName(),
+      });
+    }
     return gastosTaller;
   }
 }

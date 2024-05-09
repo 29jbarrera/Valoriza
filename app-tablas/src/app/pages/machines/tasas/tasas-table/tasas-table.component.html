@@ -1,0 +1,221 @@
+<div class="Table">
+  <p-table
+    #dt
+    [value]="tasas || []"
+    dataKey="id"
+    [rowsPerPageOptions]="[5, 10, 20]"
+    [tableStyle]="{ width: '100%' }"
+    [rows]="5"
+  >
+  <ng-template pTemplate="header">
+    <tr>
+      <th></th>
+      <th pSortableColumn="dateDesde">
+        <div class="flex align-items-center">
+          <p-columnFilter
+            type="text"
+            field="dateDesde"
+            class="filter"
+            placeholder="Fecha desde"
+            [showClearButton]="false"
+          />
+          <p-sortIcon class="order" field="dateDesde" />
+        </div>
+      </th>
+      <th></th>
+      <th pSortableColumn="dateHasta">
+        <div class="flex align-items-center">
+          <p-columnFilter
+            type="text"
+            field="dateHasta"
+            class="filter"
+            placeholder="Fecha hasta"
+            [showClearButton]="false"
+          />
+          <p-sortIcon class="order" field="dateHasta" />
+        </div>
+      </th>
+      <th pSortableColumn="centroMaquina">
+        <div class="flex align-items-center">
+          <p-columnFilter
+            type="text"
+            field="centroMaquina"
+            class="filter"
+            placeholder="Centro Máquina"
+            [showClearButton]="false"
+          />
+          <p-sortIcon class="order" field="centroMaquina" />
+        </div>
+      </th>
+      <th pSortableColumn="subFamilia">
+        <div class="flex align-items-center">
+          <p-columnFilter
+            type="text"
+            field="subFamilia"
+            class="filter"
+            placeholder="Subfamilia"
+            [showClearButton]="false"
+          />
+          <p-sortIcon class="order" field="subFamilia" />
+        </div>
+      </th>
+      <th pSortableColumn="matricula">
+        <div class="flex align-items-center">
+          <p-columnFilter
+            type="text"
+            field="matricula"
+            class="filter"
+            placeholder="Matrícula"
+            [showClearButton]="false"
+          />
+          <p-sortIcon class="order" field="matricula" />
+        </div>
+      </th>
+      <th pSortableColumn="bastidor">
+        <div class="flex align-items-center">
+          <p-columnFilter
+            type="text"
+            field="bastidor"
+            class="filter"
+            placeholder="Bastidor"
+            [showClearButton]="false"
+          />
+          <p-sortIcon class="order" field="bastidor" />
+        </div>
+      </th>
+      <th pSortableColumn="tasaTotal">
+        <div class="flex align-items-center">
+          <p-columnFilter
+            type="text"
+            field="tasaTotal"
+            class="filter"
+            placeholder="Tasa total"
+            [showClearButton]="false"
+          />
+          <p-sortIcon class="order" field="tasaTotal" />
+        </div>
+      </th>
+      <th pSortableColumn="tasaChasis">
+        <div class="flex align-items-center">
+          <p-columnFilter
+            type="text"
+            field="tasaChasis"
+            class="filter"
+            placeholder="Tasa chasis"
+            [showClearButton]="false"
+          />
+          <p-sortIcon class="order" field="tasaChasis" />
+        </div>
+      </th>
+      <th pSortableColumn="divisa">
+        <div class="flex align-items-center">
+          <p-columnFilter
+            type="text"
+            field="divisa"
+            class="filter"
+            placeholder="Divisa"
+            [showClearButton]="false"
+          />
+          <p-sortIcon class="order" field="divisa" />
+        </div>
+      </th>
+      <th pSortableColumn="implemento1">
+        <div class="flex align-items-center">
+          <p-columnFilter
+            type="text"
+            field="implemento1"
+            class="filter"
+            placeholder="Implemento 1"
+            [showClearButton]="false"
+          />
+          <p-sortIcon class="order" field="implemento1" />
+        </div>
+      </th>
+      <th pSortableColumn="tasa1">
+        <div class="flex align-items-center">
+          <p-columnFilter
+            type="text"
+            field="tasa1"
+            class="filter"
+            placeholder="Tasa 1"
+            [showClearButton]="false"
+          />
+          <p-sortIcon class="order" field="tasa1" />
+        </div>
+      </th>
+      <th pSortableColumn="divisa1">
+        <div class="flex align-items-center">
+          <p-columnFilter
+            type="text"
+            field="divisa1"
+            class="filter"
+            placeholder="Divisa 1"
+            [showClearButton]="false"
+          />
+          <p-sortIcon class="order" field="divisa1" />
+        </div>
+      </th>
+      <th pSortableColumn="implemento2">
+        <div class="flex align-items-center">
+          <p-columnFilter
+            type="text"
+            field="implemento2"
+            class="filter"
+            placeholder="Implemento 2"
+            [showClearButton]="false"
+          />
+          <p-sortIcon class="order" field="implemento2" />
+        </div>
+      </th>
+      <th pSortableColumn="tasa2">
+        <div class="flex align-items-center">
+          <p-columnFilter
+            type="text"
+            field="tasa2"
+            class="filter"
+            placeholder="Tasa 2"
+            [showClearButton]="false"
+          />
+          <p-sortIcon class="order" field="tasa2" />
+        </div>
+      </th>
+      <th pSortableColumn="divisa2">
+        <div class="flex align-items-center">
+          <p-columnFilter
+            type="text"
+            field="divisa2"
+            class="filter"
+            placeholder="Divisa 2"
+            [showClearButton]="false"
+          />
+          <p-sortIcon class="order" field="divisa2" />
+        </div>
+      </th>
+      <th></th>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-tasas>
+    <tr class="body-table">
+      <td>
+        <i class="fas fa-pen"></i>
+      </td>
+      <td>{{ tasas.dateDesde }}</td>
+      <td>{{ tasas.dateHasta }}</td>
+      <td>{{ tasas.centroMaquina }}</td>
+      <td>{{ tasas.subFamilia }}</td>
+      <td>{{ tasas.matricula }}</td>
+      <td>{{ tasas.bastidor }}</td>
+      <td>{{ tasas.tasaTotal }}</td>
+      <td>{{ tasas.tasaChasis }}</td>
+      <td>{{ tasas.divisa }}</td>
+      <td>{{ tasas.implemento1 }}</td>
+      <td>{{ tasas.tasa1 }}</td>
+      <td>{{ tasas.divisa1 }}</td>
+      <td>{{ tasas.implemento2 }}</td>
+      <td>{{ tasas.tasa2 }}</td>
+      <td>{{ tasas.divisa2 }}</td>
+    </tr>
+  </ng-template>
+  </p-table>
+</div>

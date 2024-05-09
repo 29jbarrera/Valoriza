@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { GastosTaller } from '../../../Interfaces/gastos-taller.interface';
-
-import { GastosTallerService } from '../../../service/gastos-taller.service';
+import { TasasService } from '../../../../service/tasas.service';
+import { Tasas } from '../../../../Interfaces/tasas.interface';
 
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
@@ -19,9 +23,10 @@ import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { ButtonModule } from 'primeng/button';
 
 @Component({
-  selector: 'app-gastos-table',
+  selector: 'app-tasas-table',
   standalone: true,
-  imports: [TableModule,
+  imports: [
+    TableModule,
     TagModule,
     IconFieldModule,
     InputTextModule,
@@ -36,38 +41,38 @@ import { ButtonModule } from 'primeng/button';
     FormlyModule,
     FormlyPrimeNGModule,
   ],
-  templateUrl: './gastos-table.component.html',
-  styleUrl: './gastos-table.component.css',
+  templateUrl: './tasas-table.component.html',
+  styleUrl: './tasas-table.component.css',
 })
-export class GastosTableComponent implements OnInit {
-  gastosTaller: GastosTaller[] | undefined;
+export class TasasTableComponent implements OnInit {
+  tasas: Tasas[] | undefined;
   searchForm: FormGroup;
 
-  constructor(
-    private GastosTallerService: GastosTallerService,
-    private fb: FormBuilder
-  ) {
+  constructor (private TasasService: TasasService, private fb: FormBuilder){
     this.searchForm = this.fb.group({
-      centroProveedor: [''],
-      delegacion: [''],
-      fecha: [''],
-      proveedor: [],
-      importe: [''],
-      divisa: [''],
-      referenciaMaterial: [''],
-      descripcionRefMaterial: [''],
-      cantidad: [''],
-      gastoConmutable: [''],
-      descripcion: [''],
-      albaran: [''],
-      archivo: [''],
+      dateDesde:[''],
+      dateHasta:[''],
+      centroMaquina:[''],
+      subFamilia:[''],
+      matricula:[''],
+      bastidor:[''],
+      tasaTotal:[''],
+      tasaChasis:[''],
+      divisa:[''],
+      implemento1:[''],
+      tasa1:[''],
+      divisa1:[''],
+      implemento2:[''],
+      tasa2:[''],
+      divisa2:[''],
     });
   }
+
   ngOnInit() {
     this.actualizarTabla();
   }
 
   async actualizarTabla() {
-    this.gastosTaller = await this.GastosTallerService.getGastosTaller();
+    this.tasas = await this.TasasService.getTasas();
   }
 }

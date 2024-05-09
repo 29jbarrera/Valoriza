@@ -1,0 +1,84 @@
+body {
+  margin: 0;
+}
+
+form {
+  margin: 0 auto;
+  width: 70%;
+}
+
+.form-row1 {
+  display: flex;
+  gap: 20px;
+}
+
+.form-group1 {
+  display: flex;
+  flex-grow: 1;
+  flex-basis: calc((100% -4%) / 2);
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.form-group1:first-child,
+.form-group1:nth-child(3) {
+  flex-basis: 2%;
+}
+
+#centerdisable,
+#maquinariadisable,
+#divisadisable {
+  margin-top: 18px;
+}
+
+.form-row2 {
+  margin: 0 auto;
+  display: flex;
+  gap: 20px;
+}
+
+.form-group2 {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.form-row3 {
+  display: flex;
+  gap: 20px;
+}
+
+.form-group3 {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  margin-bottom: 10px;
+  margin-left: 350px;
+}
+
+
+label {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.form-row {
+  margin: 0 auto;
+  width: 70%;
+  padding: 5px;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+.form-button {
+  margin: 0 20px;
+}
