@@ -116,6 +116,12 @@ export class MenuComponent {
           path: 'tacografos',
           n: Math.round(Math.random() * 100),
         },
+        {
+          class: 'fas fa-hand-holding-usd',
+          name: 'Tasas',
+          path: 'tasas',
+          n: Math.round(Math.random() * 100),
+        },
       ],
     },
     {
