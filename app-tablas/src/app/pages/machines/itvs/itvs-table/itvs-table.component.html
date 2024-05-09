@@ -1,1 +1,54 @@
-<p>itvs-table works!</p>
+<body>
+  <div class="card">
+    <p-table [value]="itvs || []" [tableStyle]="{ 'min-width': '50rem' }">
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="maquinaria" style="width: 14%">
+            Maquinaria
+            <p-sortIcon field="maquinaria" class="orden" />
+          </th>
+          <th pSortableColumn="centro" style="width: 14%">
+            Centro
+            <p-sortIcon field="centro" class="orden" />
+          </th>
+          <th pSortableColumn="delegacion" style="width: 14%">
+            Delegación
+            <p-sortIcon field="delegacion" class="orden" />
+          </th>
+          <th pSortableColumn="familia" style="width: 14%">
+            Familia
+            <p-sortIcon field="familia" class="orden" />
+          </th>
+          <th pSortableColumn="subfamilia" style="width: 14%">
+            Subfamilia
+            <p-sortIcon field="subfamilia" class="orden" />
+          </th>
+          <th pSortableColumn="fechaProxima" style="width: 14%">
+            Fecha Próxima
+            <p-sortIcon field="fechaProxima" class="orden" />
+          </th>
+          <th pSortableColumn="comentarios" style="width: 14%">
+            Comentario
+            <p-sortIcon field="comentarios" class="orden" />
+          </th>
+          <th pSortableColumn="reload" style="width: 2%">
+            <p-sortIcon field="reload" class="orden" />
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-itvs>
+        <tr class="body-table">
+          <td>{{ itvs.maquinaria }}</td>
+          <td>{{ itvs.centro }}</td>
+          <td>{{ itvs.delegacion }}</td>
+          <td>{{ itvs.familia }}</td>
+          <td>{{ itvs.subfamilia }}</td>
+          <td>{{ itvs.fechaProxima }}</td>
+          <td>{{ itvs.comentarios }}</td>
+          <td></td>
+        </tr>
+      </ng-template>
+
+    </p-table>
+  </div>
+</body>

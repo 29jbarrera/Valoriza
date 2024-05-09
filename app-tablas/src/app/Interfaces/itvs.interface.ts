@@ -4,5 +4,6 @@ export interface Itvs {
   delegacion: string;
   familia: string;
   subfamilia: string;
+  fechaProxima: Date;
   comentarios: string;
 }

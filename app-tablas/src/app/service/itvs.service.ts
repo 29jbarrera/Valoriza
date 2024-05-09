@@ -15,6 +15,7 @@ export class ItvsService {
         delegacion: 'delegación 1',
         familia: 'familia 1',
         subfamilia: 'subfamilia',
+        fechaProxima: new Date('2024-05-11'),
         comentarios: 'comentario 1',
       },
       {
@@ -23,6 +24,7 @@ export class ItvsService {
         delegacion: 'delegación 2',
         familia: 'familia 2',
         subfamilia: 'subfamilia 2',
+        fechaProxima: new Date('2024-05-12'),
         comentarios: 'comentario 2',
       },
       {
@@ -31,6 +33,7 @@ export class ItvsService {
         delegacion: 'delegación 3',
         familia: 'familia 3',
         subfamilia: 'subfamilia 3',
+        fechaProxima: new Date('2024-05-13'),
         comentarios: 'comentario 3',
       },
     ];

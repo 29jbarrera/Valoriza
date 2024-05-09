@@ -4,25 +4,25 @@
     <p-table [value]="gnc || []" [tableStyle]="{ 'min-width': '50rem' }">
       <ng-template pTemplate="header">
         <tr>
-          <th pSortableColumn="maquinaria" >
+          <th pSortableColumn="maquinaria" style="width: 16%">
             Maquinaria <p-sortIcon field="maquinaria" class="orden" />
           </th>
-          <th pSortableColumn="nombrecentro" >
+          <th pSortableColumn="nombrecentro" style="width: 16%">
            Nombre centro <p-sortIcon field="nombrecentro" class="orden" />
           </th>
-          <th pSortableColumn="delegacion" >
+          <th pSortableColumn="delegacion" style="width: 16%">
             Delegación <p-sortIcon field="delegacion" class="orden" />
           </th>
-          <th pSortableColumn="familia" >
+          <th pSortableColumn="familia" style="width: 16%">
             Familia <p-sortIcon field="familia" class="orden" />
           </th>
-          <th pSortableColumn="subfamilia" >
+          <th pSortableColumn="subfamilia" style="width: 16%">
             Subfamilia <p-sortIcon field="subfamilia" class="orden" />
           </th>
-          <th pSortableColumn="fechaproxima" >
+          <th pSortableColumn="fechaproxima" style="width: 16%">
             Fecha próxima <p-sortIcon field="fechaproxima" class="orden" />
           </th>
-          <th pSortableColumn="nube" ></th>
+          <th pSortableColumn="nube" style="width: 4%"></th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-gnc >

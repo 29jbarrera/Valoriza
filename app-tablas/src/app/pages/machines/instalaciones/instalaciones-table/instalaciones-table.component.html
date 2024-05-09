@@ -6,19 +6,19 @@
     >
       <ng-template pTemplate="header">
         <tr>
-          <th pSortableColumn="centroInstalacion">
+          <th pSortableColumn="centroInstalacion" style="width: 33%">
             Centro Instalacion
             <p-sortIcon field="centroInstalacion" class="orden" />
           </th>
-          <th pSortableColumn="nombre">
+          <th pSortableColumn="nombre" style="width: 33%">
             Nombre
             <p-sortIcon field="nombre" class="orden" />
           </th>
-          <th pSortableColumn="comentarios">
+          <th pSortableColumn="comentarios" style="width: 33%">
             Comentarios
             <p-sortIcon field="comentarios" class="orden" />
           </th>
-          <th pSortableColumn="reload">Reload</th>
+          <th pSortableColumn="reload" style="width: 1%">Reload</th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-instalaciones>
