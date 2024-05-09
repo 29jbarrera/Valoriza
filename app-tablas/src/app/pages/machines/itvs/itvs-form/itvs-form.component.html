@@ -1,0 +1,107 @@
+<form>
+  <div class="form-row1">
+    <div class="form-group">
+      <label>Centro</label>
+      <input
+        class="input-form"
+        id="centro"
+        type="text"
+        pInputText
+        formControlName="centro"
+      />
+    </div>
+    <div class="form-group">
+      <label></label>
+      <input
+        class="input-form"
+        id="centrodisable"
+        type="text"
+        pInputText
+        formControlName="centrodisable"
+      />
+    </div>
+  </div>
+  <div class="form-row2">
+    <div class="form-group2">
+      <label>Familia</label>
+      <p-treeSelect
+        class="md:w-20rem w-full"
+        containerStyleClass="w-full"
+        placeholder="-"
+        id="familia"
+        formControlName="familia"
+      />
+    </div>
+  </div>
+  <div class="form-row3">
+    <div class="form-group3">
+      <label>Maquinaria</label>
+      <input
+        class="input-form"
+        id="maquinaria"
+        type="text"
+        pInputText
+        formControlName="maquinaria"
+      />
+    </div>
+    <div class="form-group3">
+      <label></label>
+      <input
+        class="input-form"
+        id="maquinariadisable"
+        type="text"
+        pInputText
+        formControlName="maquinariadisable"
+      />
+    </div>
+    <div class="form-group3">
+      <label>Fecha próxima desde</label>
+      <p-calendar
+        placeholder="mm/dd/yyyy"
+        class="input-form"
+        id="fecha-desde"
+        [showIcon]="true"
+        inputId="icondisplay"
+        formControlName="fechaDesde"
+      />
+    </div>
+    <div class="form-group3">
+      <label>Comentarios</label>
+      <input
+        class="input-form"
+        id="comentarios"
+        type="text"
+        pInputText
+        formControlName="comentarios"
+      />
+    </div>
+  </div>
+  <div class="form-row4">
+    <div class="form-group4">
+      <label>Fecha próxima hasta</label>
+      <p-calendar
+        placeholder="mm/dd/yyyy"
+        class="input-form"
+        id="fecha-hasta"
+        [showIcon]="true"
+        inputId="icondisplay"
+        formControlName="fechaHasta"
+      />
+    </div>
+  </div>
+  <div class="form-buttons">
+    <div class="form-button">
+      <p-button
+        type="reset"
+        label="Limpiar búsqueda" [raised]="true" severity="secondary"
+        class="limpiar"
+      ></p-button>
+    </div>
+
+    <div class="form-button">
+      <p-button type="button"
+      label="Buscar" [raised]="true"
+      ></p-button>
+    </div>
+  </div>
+</form>

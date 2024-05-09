@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
+import { ItvsFormComponent } from './itvs-form/itvs-form.component';
+import { ItvsTableComponent } from './itvs-table/itvs-table.component';
 
 @Component({
   selector: 'app-itvs',
   standalone: true,
-  imports: [],
+  imports: [ItvsFormComponent, ItvsTableComponent],
   templateUrl: './itvs.component.html',
-  styleUrl: './itvs.component.css'
+  styleUrl: './itvs.component.css',
 })
-export class ItvsComponent {
-
-}
+export class ItvsComponent {}
