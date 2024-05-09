@@ -1,0 +1,97 @@
+<form>
+  <div class="form-row1">
+    <div class="form-group1">
+      <label>Centro</label>
+      <input
+        class="input-form"
+        id="center"
+        type="text"
+        pInputText
+        formControlName="center"
+      />
+    </div>
+    <div class="form-group1">
+      <label></label>
+      <input
+        class="input-form"
+        id="centerdisable"
+        type="text"
+        pInputText
+        [disabled]="true"
+      />
+    </div>
+  </div>
+
+  <div class="form-row2">
+    <div class="form-group2">
+      <label>Familia</label>
+      <p-treeSelect
+        class="md:w-20rem w-full"
+        containerStyleClass="w-full"
+        placeholder="-"
+        id="family"
+      />
+    </div>
+  </div>
+
+  <div class="form-row1">
+    <div class="form-group1">
+      <label>Maquinaria</label>
+      <input class="input-form" id="maquinaria" type="text" pInputText />
+    </div>
+    <div class="form-group1">
+      <label></label>
+      <input
+        class="input-form"
+        id="maquinariadisable"
+        type="text"
+        pInputText
+        [disabled]="true"
+      />
+    </div>
+  </div>
+
+  <div class="form-row3">
+    <div class="form-group3">
+      <label>Fecha desde</label>
+      <p-calendar
+        placeholder="mm/dd/yyyy"
+        class="input-form"
+        id="fechaDesde"
+        [showIcon]="true"
+        inputId="icondisplay"
+        formControlName="fechaDesde"
+      />
+    </div>
+  </div>
+
+  <div class="form-row3">
+    <div class="form-group3">
+      <label>Fecha hasta</label>
+      <p-calendar
+        placeholder="mm/dd/yyyy"
+        class="input-form"
+        id="fechaHasta"
+        [showIcon]="true"
+        inputId="icondisplay"
+        formControlName="fechaHasta"
+      />
+    </div>
+  </div>
+
+  <div class="form-buttons">
+    <div class="form-button">
+      <p-button
+        type="reset"
+        label="Limpiar búsqueda"
+        [raised]="true"
+        severity="secondary"
+        class="limpiar"
+      ></p-button>
+    </div>
+
+    <div class="form-button">
+      <p-button type="button" label="Buscar" [raised]="true"></p-button>
+    </div>
+  </div>
+</form>

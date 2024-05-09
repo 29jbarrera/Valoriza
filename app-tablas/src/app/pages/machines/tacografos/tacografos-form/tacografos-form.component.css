@@ -25,21 +25,19 @@ form {
   flex-basis: 2%;
 }
 
-#centroReparadordisable,
-#divisadisable,
-#maquinariadisable,
-#proovedordisable {
+#centerdisable,
+#maquinariadisable {
   margin-top: 18px;
 }
 
 .form-row2 {
+  margin: 0 auto;
   display: flex;
   gap: 20px;
 }
 
 .form-group2 {
   display: flex;
-  flex-grow: 1;
   flex-direction: column;
   margin-bottom: 10px;
 }
@@ -54,19 +52,9 @@ form {
   flex: 1;
   flex-direction: column;
   margin-bottom: 10px;
-}
-
-.form-row4 {
-  display: flex;
-}
-
-.form-group4 {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  margin-bottom: 10px;
   margin-left: 350px;
 }
+
 
 label {
   font-size: 14px;
