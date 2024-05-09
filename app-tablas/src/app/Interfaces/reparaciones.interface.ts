@@ -6,7 +6,7 @@ export interface Reparaciones {
   fecha: Date,
   proveedor: string,
   albaran: string,
-  coste: number,
+  cost: number,
   divisa:string,
-  descripcion:string
+  description:string
 }

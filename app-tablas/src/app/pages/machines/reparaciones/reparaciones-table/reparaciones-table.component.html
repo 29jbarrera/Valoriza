@@ -1,1 +1,166 @@
-<p>reparaciones-table works!</p>
+<div class="Table">
+  <p-table
+    #dt
+    [value]="reparaciones || []"
+    dataKey="id"
+    [rowsPerPageOptions]="[5, 10, 20]"
+    [tableStyle]="{ width: '100%' }"
+    [rows]="5"
+  >
+
+    <ng-template pTemplate="header">
+      <tr>
+        <th></th>
+        <th pSortableColumn="centroReparador">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="nombreCentro"
+              class="filter"
+              placeholder="Centro Reparador"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="centroReparador" />
+          </div>
+        </th>
+        <th pSortableColumn="maquinaria">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="maquinaria"
+              class="filter"
+              placeholder="Maquinaria"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="maquinaria" />
+          </div>
+        </th>
+        <th pSortableColumn="tipoActuacion">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="tipoActuacion"
+              class="filter"
+              placeholder="Tipo Actuación"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="tipoActuacion" />
+          </div>
+        </th>
+        <th pSortableColumn="tipoMantenimiento">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="tipoMantenimiento"
+              class="filter"
+              placeholder="Tipo Mantenimiento"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="tipoMantenimiento" />
+          </div>
+        </th>
+        <th pSortableColumn="tipoMantenimiento">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="tipoMantenimiento"
+              class="filter"
+              placeholder="Tipo Mantenimiento"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="tipoMantenimiento" />
+          </div>
+        </th>
+        <th pSortableColumn="fecha">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="fecha"
+              class="filter"
+              placeholder="Fecha"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="fecha" />
+          </div>
+        </th>
+        <th pSortableColumn="proveedor">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="proveedor"
+              class="filter"
+              placeholder="Proveedor"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="proveedor" />
+          </div>
+        </th>
+        <th pSortableColumn="alabaran">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="albaran"
+              class="filter"
+              placeholder="Albarán"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="albaran" />
+          </div>
+        </th>
+        <th pSortableColumn="cost">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="cost"
+              class="filter"
+              placeholder="Coste"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="cost" />
+          </div>
+        </th>
+        <th pSortableColumn="divisa">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="divisa"
+              class="filter"
+              placeholder="Divisa"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="Divisa" />
+          </div>
+        </th>
+        <th pSortableColumn="description">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="description"
+              class="filter"
+              placeholder="Descripción"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="description" />
+          </div>
+        </th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-reparaciones>
+      <tr class="body-table">
+        <td>
+          <i class="fas fa-pen"></i>
+        </td>
+        <td>{{ reparaciones.centroReparador }}</td>
+        <td>{{ reparaciones.maquinaria }}</td>
+        <td>{{ reparaciones.tipoActuacion }}</td>
+        <td>{{ reparaciones.tipoMantenimiento }}</td>
+        <td>{{ reparaciones.fecha }}</td>
+        <td>{{ reparaciones.proveedor }}</td>
+        <td>{{ reparaciones.albaran}}</td>
+        <td>{{ reparaciones.cost }}</td>
+        <td>{{ reparaciones.divisa }}</td>
+        <td>{{ reparaciones.description }}</td>
+      </tr>
+
+    </ng-template>
