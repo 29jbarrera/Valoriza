@@ -1,0 +1,194 @@
+<form>
+  <div class="form-row1">
+    <div class="form-group1">
+      <label>Delegación</label>
+      <p-treeSelect
+        class="md:w-20rem w-full"
+        containerStyleClass="w-full"
+        placeholder="-"
+        id="delegacion"
+        formControlName="delegacion"
+      />
+    </div>
+    <div class="form-group1">
+      <label>Centro</label>
+      <input
+        class="input-form"
+        id="centro"
+        type="text"
+        pInputText
+        formControlName="centro"
+      />
+    </div>
+    <div class="form-group1">
+      <label></label>
+      <input
+        class="input-form"
+        id="centrodisable"
+        type="text"
+        pInputText
+        formControlName="centrosidable"
+      />
+    </div>
+  </div>
+  <div class="form-row2">
+    <div class="form-group2">
+      <label>Familia</label>
+      <p-treeSelect
+        class="md:w-20rem w-full"
+        containerStyleClass="w-full"
+        placeholder="-"
+        id="familia"
+        formControlName="familia"
+      />
+    </div>
+  </div>
+  <div class="form-row3">
+    <div class="form-group3">
+      <label>Maquinaria</label>
+      <input
+        class="input-form"
+        id="maquinaria"
+        type="text"
+        pInputText
+        formControlName="maquinaria"
+      />
+    </div>
+    <div class="form-group3">
+      <label></label>
+      <input
+        class="input-form"
+        id="maquinariadisable"
+        type="text"
+        pInputText
+        formControlName="maquinariadisable"
+      />
+    </div>
+  </div>
+  <div class="form-row3">
+    <div class="form-group3">
+      <label>Nivel de Mantenimiento</label>
+      <input
+        class="input-form"
+        id="nivelMantenimiento"
+        type="text"
+        pInputText
+        formControlName="nivelMantenimiento"
+      />
+    </div>
+    <div class="form-group3">
+      <label></label>
+      <input
+        class="input-form"
+        id="nivelMantenimientodisable"
+        type="text"
+        pInputText
+        formControlName="nivelMantenimientodisable"
+      />
+    </div>
+  </div>
+  <div class="form-row4">
+    <div class="form-group4">
+      <label>Fecha desde</label>
+      <p-calendar
+        placeholder="mm/dd/yyyy"
+        class="input-form"
+        id="fechaDesde"
+        [showIcon]="true"
+        inputId="icondisplay"
+        formControlName="fechaDesde"
+      />
+    </div>
+  </div>
+  <div class="form-row4">
+    <div class="form-group4">
+      <label>Fecha hasta</label>
+      <p-calendar
+        placeholder="mm/dd/yyyy"
+        class="input-form"
+        id="fechaHasta"
+        [showIcon]="true"
+        inputId="icondisplay"
+        formControlName="fechaHasta"
+      />
+    </div>
+  </div>
+  <div class="form-row5">
+    <div class="form-group5">
+      <label>Horas desde</label>
+      <p-calendar
+        id="horasDesde"
+        [timeOnly]="true"
+        inputId="calendar-timeonly"
+        formControlName="horasdesde"
+      />
+    </div>
+    <div class="form-group5">
+      <label>Kilómetros desde</label>
+      <p-inputNumber
+        class="input-form"
+        id="km-desde"
+        inputId="km"
+        suffix=" km"
+        formControlName="kmDesde"
+      />
+    </div>
+  </div>
+  <div class="form-row5">
+    <div class="form-group5">
+      <label>Horas desde</label>
+      <p-calendar
+        id="horasDesde"
+        [timeOnly]="true"
+        inputId="calendar-timeonly"
+        formControlName="horasdesde"
+      />
+    </div>
+    <div class="form-group5">
+      <label>Kilómetros desde</label>
+      <p-inputNumber
+        class="input-form"
+        id="km-desde"
+        inputId="km"
+        suffix=" km"
+        formControlName="kmDesde"
+      />
+    </div>
+  </div>
+  <div class="form-row5">
+    <div class="form-group5">
+      <label>Horas hasta</label>
+      <p-calendar
+        id="horasDesde"
+        [timeOnly]="true"
+        inputId="calendar-timeonly"
+        formControlName="horasdesde"
+      />
+    </div>
+    <div class="form-group5">
+      <label>Kilómetros hasta</label>
+      <p-inputNumber
+        class="input-form"
+        id="km-desde"
+        inputId="km"
+        suffix=" km"
+        formControlName="kmDesde"
+      />
+    </div>
+  </div>
+  <div class="form-buttons">
+    <div class="form-button">
+      <p-button
+        type="reset"
+        label="Limpiar búsqueda"
+        [raised]="true"
+        severity="secondary"
+        class="limpiar"
+      ></p-button>
+    </div>
+
+    <div class="form-button">
+      <p-button type="button" label="Buscar" [raised]="true"></p-button>
+    </div>
+  </div>
+</form>
