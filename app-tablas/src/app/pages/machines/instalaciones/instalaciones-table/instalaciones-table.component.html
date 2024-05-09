@@ -1,0 +1,35 @@
+<body>
+  <div class="card">
+    <p-table
+      [value]="instalaciones || []"
+      [tableStyle]="{ 'min-width': '50rem' }"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="centroInstalacion">
+            Centro Instalacion
+            <p-sortIcon field="centroInstalacion" class="orden" />
+          </th>
+          <th pSortableColumn="nombre">
+            Nombre
+            <p-sortIcon field="nombre" class="orden" />
+          </th>
+          <th pSortableColumn="comentarios">
+            Comentarios
+            <p-sortIcon field="comentarios" class="orden" />
+          </th>
+          <th pSortableColumn="reload">Reload</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-instalaciones>
+        <tr class="body-table">
+          <td>{{ instalaciones.centroInstalacion }}</td>
+          <td>{{ instalaciones.nombre }}</td>
+          <td>{{ instalaciones.comentarios }}</td>
+          <td></td>
+        </tr>
+      </ng-template>
+    </p-table>
+    <p>Resultado totales: {{ instalaciones?.length || 0 }}</p>
+  </div>
+</body>

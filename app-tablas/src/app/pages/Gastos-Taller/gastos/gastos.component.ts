@@ -8,8 +8,6 @@ import { GastosTableComponent } from '../gastos-table/gastos-table.component';
   standalone: true,
   imports: [GastosFormComponent, GastosTableComponent],
   templateUrl: './gastos.component.html',
-  styleUrl: './gastos.component.css'
+  styleUrl: './gastos.component.css',
 })
-export class GastosComponent {
-
-}
+export class GastosComponent {}
