@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 
@@ -9,4 +9,8 @@ import { InputTextModule } from 'primeng/inputtext';
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
-export class HeaderComponent {}
+export class HeaderComponent {
+  @Input() title: string = '';
+  @Input() icon: string = 'assets/icon.svg';
+  @Input() description: string = '';
+}
