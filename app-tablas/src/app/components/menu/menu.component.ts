@@ -122,6 +122,12 @@ export class MenuComponent {
           path: 'tasas',
           n: Math.round(Math.random() * 100),
         },
+        {
+          class: 'fas fa-list',
+          name: 'Ratios centro',
+          path: 'ratios-centro',
+          n: Math.round(Math.random() * 100),
+        },
       ],
     },
     {
