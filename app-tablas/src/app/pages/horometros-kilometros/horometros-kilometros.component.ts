@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
-import { HorometrosKilometrosFormComponent } from '../horometros-kilometros-form/horometros-kilometros-form.component';
-import { HorometrosKilometrosTableComponent } from '../horometros-kilometros-table/horometros-kilometros-table.component';
+import { HorometrosKilometrosFormComponent } from './horometros-kilometros-form/horometros-kilometros-form.component';
+import { HorometrosKilometrosTableComponent } from './horometros-kilometros-table/horometros-kilometros-table.component';
 
 @Component({
   selector: 'app-horometros-kilometros',
