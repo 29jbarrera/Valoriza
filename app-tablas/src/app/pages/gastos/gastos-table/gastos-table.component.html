@@ -1,0 +1,204 @@
+<body>
+  <!-- TABLA DE DATOS -->
+  <div class="Table">
+    <p-table
+      [value]="gastosTaller || []"
+      [tableStyle]="{ 'min-width': '50rem' }"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th></th>
+        <th pSortableColumn="centroProveedor">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="centroProveedor"
+              class="filter"
+              placeholder="Centro proveedor"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="centroProveedor" />
+          </div>
+          <th pSortableColumn="delegacion">
+            <div class="flex align-items-center">
+              <p-columnFilter
+                type="text"
+                field="delegacion"
+                class="filter"
+                placeholder="Delegación"
+                [showClearButton]="false"
+              />
+              <p-sortIcon class="order" field="delegacion" />
+            </div>
+          </th>
+          <th pSortableColumn="fecha">
+            <div class="flex align-items-center">
+              <p-columnFilter
+                type="text"
+                field="fecha"
+                class="filter"
+                placeholder="Fecha"
+                [showClearButton]="false"
+              />
+              <p-sortIcon class="order" field="fecha" />
+            </div>
+          </th>
+          <th pSortableColumn="proveedor">
+            <div class="flex align-items-center">
+              <p-columnFilter
+                type="text"
+                field="proveedor"
+                class="filter"
+                placeholder="Proveedor"
+                [showClearButton]="false"
+              />
+              <p-sortIcon class="order" field="proveedor" />
+            </div>
+          </th>
+          <th pSortableColumn="importe">
+            <div class="flex align-items-center">
+              <p-columnFilter
+                type="text"
+                field="importe"
+                class="filter"
+                placeholder="Importe"
+                [showClearButton]="false"
+              />
+              <p-sortIcon class="order" field="importe" />
+            </div>
+          </th>
+          <th pSortableColumn="divisa">
+            <div class="flex align-items-center">
+              <p-columnFilter
+                type="text"
+                field="divisa"
+                class="filter"
+                placeholder="Divisa"
+                [showClearButton]="false"
+              />
+              <p-sortIcon class="order" field="divisa" />
+            </div>
+          </th>
+          <th pSortableColumn="referenciaMaterial">
+            <div class="flex align-items-center">
+              <p-columnFilter
+                type="text"
+                field="referenciaMaterial"
+                class="filter"
+                placeholder="Referencia Material"
+                [showClearButton]="false"
+              />
+              <p-sortIcon class="order" field="referenciaMaterial" />
+            </div>
+          </th>
+          <th pSortableColumn="descripcionRefMaterial">
+            <div class="flex align-items-center">
+              <p-columnFilter
+                type="text"
+                field="descripcionRefMaterial"
+                class="filter"
+                placeholder="Descripción Referencia material"
+                [showClearButton]="false"
+              />
+              <p-sortIcon class="order" field="descripcionRefMaterial" />
+            </div>
+          </th>
+          <th pSortableColumn="cantidad">
+            <div class="flex align-items-center">
+              <p-columnFilter
+                type="text"
+                field="cantidad"
+                class="filter"
+                placeholder="Cantidad"
+                [showClearButton]="false"
+              />
+              <p-sortIcon class="order" field="cantidad" />
+            </div>
+          </th>
+          <th pSortableColumn="gastoConmutable">
+            <div class="flex align-items-center">
+              <p-columnFilter
+                type="text"
+                field="gastoConmutable"
+                class="filter"
+                placeholder="Gasto Conmutable"
+                [showClearButton]="false"
+              />
+              <p-sortIcon class="order" field="gastoConmutable" />
+            </div>
+          </th>
+          <th pSortableColumn="descripcion">
+            <div class="flex align-items-center">
+              <p-columnFilter
+                type="text"
+                field="descripcion"
+                class="filter"
+                placeholder="Descripción"
+                [showClearButton]="false"
+              />
+              <p-sortIcon class="order" field="descripcion" />
+            </div>
+          </th>
+          <th pSortableColumn="albaran">
+            <div class="flex align-items-center">
+              <p-columnFilter
+                type="text"
+                field="albaran"
+                class="filter"
+                placeholder="Albarán"
+                [showClearButton]="false"
+              />
+              <p-sortIcon class="order" field="albaran" />
+            </div>
+          </th>
+          <th pSortableColumn="archivo">
+            <div class="flex align-items-center">
+              <p-columnFilter
+                type="text"
+                field="archivo"
+                class="filter"
+                placeholder="Archivo"
+                [showClearButton]="false"
+              />
+              <p-sortIcon class="order" field="archivo" />
+            </div>
+          </th>
+          <th pSortableColumn="reload">
+            <div class="flex align-items-center">
+              <p-columnFilter
+                type="text"
+                field="reload"
+                class="filter"
+                placeholder="Reload"
+                [showClearButton]="false"
+              />
+              <p-sortIcon class="order" field="reload" />
+            </div>
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-gastosTaller>
+        <tr class="body-table">
+          <td>
+            <i class="fas fa-pen"></i>
+          </td>
+          <td>{{ gastosTaller.centroProveedor }}</td>
+          <td>{{ gastosTaller.delegacion }}</td>
+          <td>{{ gastosTaller.fecha }}</td>
+          <td>{{ gastosTaller.importe }}</td>
+          <td>{{ gastosTaller.proveedor }}</td>
+          <td>{{ gastosTaller.divisa }}</td>
+          <td>{{ gastosTaller.referenciaMaterial }}</td>
+          <td>{{ gastosTaller.descripcionRefMaterial }}</td>
+          <td>{{ gastosTaller.cantidad }}</td>
+          <td>{{ gastosTaller.gastoConmutable }}</td>
+          <td>{{ gastosTaller.descripcion }}</td>
+          <td>{{ gastosTaller.albaran }}</td>
+          <td>{{ gastosTaller.archivo }}</td>
+          <td></td>
+        </tr>
+      </ng-template>
+    </p-table>
+    <p>Resultado totales: {{ gastosTaller?.length || 0 }}</p>
+  </div>
+</body>
