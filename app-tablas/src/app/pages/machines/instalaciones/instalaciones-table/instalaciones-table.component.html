@@ -1,28 +1,57 @@
 <body>
-  <div class="card">
+  <div class="Table">
     <p-table
-      [value]="instalaciones || []"
-      [tableStyle]="{ 'min-width': '50rem' }"
-    >
+    #dt
+    [value]="instalaciones || []"
+    dataKey="id"
+    [rowsPerPageOptions]="[5, 10, 20]"
+    [tableStyle]="{ width: '100%' }"
+    [rows]="5"
+  >
       <ng-template pTemplate="header">
         <tr>
-          <th pSortableColumn="centroInstalacion" style="width: 33%">
-            Centro Instalacion
-            <p-sortIcon field="centroInstalacion" class="orden" />
-          </th>
-          <th pSortableColumn="nombre" style="width: 33%">
-            Nombre
-            <p-sortIcon field="nombre" class="orden" />
-          </th>
-          <th pSortableColumn="comentarios" style="width: 33%">
-            Comentarios
-            <p-sortIcon field="comentarios" class="orden" />
-          </th>
-          <th pSortableColumn="reload" style="width: 1%">Reload</th>
-        </tr>
+          <th></th>
+        <th pSortableColumn="centroInstalacion">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="centroInstalacion"
+              class="filter"
+              placeholder="Centro instalación"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="centroInstalacion" />
+          </div>
+        </th>
+        <th pSortableColumn="nombre">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="nombre"
+              class="filter"
+              placeholder="Nombre"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="nombre" />
+          </div>
+          <th pSortableColumn="comentarios">
+            <div class="flex align-items-center">
+              <p-columnFilter
+                type="text"
+                field="comentarios"
+                class="filter"
+                placeholder="Comentarios"
+                [showClearButton]="false"
+              />
+              <p-sortIcon class="order" field="comentarios" />
+            </div>
+            <th></th>
       </ng-template>
       <ng-template pTemplate="body" let-instalaciones>
         <tr class="body-table">
+          <td>
+            <i class="fas fa-pen"></i>
+          </td>
           <td>{{ instalaciones.centroInstalacion }}</td>
           <td>{{ instalaciones.nombre }}</td>
           <td>{{ instalaciones.comentarios }}</td>
