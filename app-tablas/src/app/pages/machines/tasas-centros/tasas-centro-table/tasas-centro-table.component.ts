@@ -7,8 +7,8 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { TasasService } from '../../../../service/tasas.service';
-import { Tasas } from '../../../../Interfaces/tasas.interface';
+import { TasasCentro } from '../../../../Interfaces/tasas-centro.interface';
+import { TasasCentroService } from '../../../../service/tasas-centro.service';
 
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
@@ -23,7 +23,7 @@ import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { ButtonModule } from 'primeng/button';
 
 @Component({
-  selector: 'app-tasas-table',
+  selector: 'app-tasas-centro-table',
   standalone: true,
   imports: [
     TableModule,
@@ -41,30 +41,26 @@ import { ButtonModule } from 'primeng/button';
     FormlyModule,
     FormlyPrimeNGModule,
   ],
-  templateUrl: './tasas-table.component.html',
-  styleUrl: './tasas-table.component.css',
+  templateUrl: './tasas-centro-table.component.html',
+  styleUrl: './tasas-centro-table.component.css',
 })
-export class TasasTableComponent implements OnInit {
-  tasas: Tasas[] | undefined;
+export class TasasCentroTableComponent implements OnInit {
+  tasasCentro: TasasCentro[] | undefined;
   searchForm: FormGroup;
 
-  constructor(private TasasService: TasasService, private fb: FormBuilder) {
+  constructor(
+    private TasasCentroService: TasasCentroService,
+    private fb: FormBuilder
+  ) {
     this.searchForm = this.fb.group({
       dateDesde: [''],
       dateHasta: [''],
-      centroMaquina: [''],
-      subFamilia: [''],
-      matricula: [''],
-      bastidor: [''],
+      delegation: [''],
+      code: [''],
+      name: [''],
+      cost: [''],
       tasaTotal: [''],
-      tasaChasis: [''],
-      divisa: [''],
-      implemento1: [''],
-      tasa1: [''],
-      divisa1: [''],
-      implemento2: [''],
-      tasa2: [''],
-      divisa2: [''],
+      currency: [''],
     });
   }
 
@@ -73,6 +69,6 @@ export class TasasTableComponent implements OnInit {
   }
 
   async actualizarTabla() {
-    this.tasas = await this.TasasService.getTasas();
+    this.tasasCentro = await this.TasasCentroService.getTasasCentro();
   }
 }

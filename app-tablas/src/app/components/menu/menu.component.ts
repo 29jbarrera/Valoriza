@@ -129,6 +129,12 @@ export class MenuComponent {
           n: Math.round(Math.random() * 100),
         },
         {
+          class: 'fas fa-hand-holding-usd',
+          name: 'Tasas centro',
+          path: 'tasas-centro',
+          n: Math.round(Math.random() * 100),
+        },
+        {
           class: 'fas fa-list',
           name: 'Ratios centro',
           path: 'ratios-centro',

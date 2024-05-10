@@ -5,10 +5,8 @@ import { TasasTableComponent } from './tasas-table/tasas-table.component';
 @Component({
   selector: 'app-tasas',
   standalone: true,
-  imports: [TasasFormComponent,TasasTableComponent],
+  imports: [TasasFormComponent, TasasTableComponent],
   templateUrl: './tasas.component.html',
-  styleUrl: './tasas.component.css'
+  styleUrl: './tasas.component.css',
 })
-export class TasasComponent {
-
-}
+export class TasasComponent {}

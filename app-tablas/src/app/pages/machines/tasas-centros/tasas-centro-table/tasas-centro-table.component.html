@@ -1,0 +1,115 @@
+<div class="Table">
+  <p-table
+    #dt
+    [value]="tasasCentro || []"
+    dataKey="id"
+    [rowsPerPageOptions]="[5, 10, 20]"
+    [tableStyle]="{ width: '100%' }"
+    [rows]="5"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th></th>
+        <th pSortableColumn="dateDesde">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="dateDesde"
+              class="filter"
+              placeholder="Fecha desde"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="dateDesde" />
+          </div>
+        </th>
+        <th pSortableColumn="dateHasta">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="dateHasta"
+              class="filter"
+              placeholder="Fecha hasta"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="dateHasta" />
+          </div>
+        </th>
+        <th pSortableColumn="delegation">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="delegation"
+              class="filter"
+              placeholder="Delegación"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="delegation" />
+          </div>
+        </th>
+        <th pSortableColumn="code">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="code"
+              class="filter"
+              placeholder="Código"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="code" />
+          </div>
+        </th>
+        <th pSortableColumn="name">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="name"
+              class="filter"
+              placeholder="Nombre"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="name" />
+          </div>
+        </th>
+        <th pSortableColumn="cost">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="cost"
+              class="filter"
+              placeholder="Coste"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="cost" />
+          </div>
+        </th>
+        <th pSortableColumn="currency">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="currency"
+              class="filter"
+              placeholder="Divisa"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="currency" />
+          </div>
+        </th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-tasasCentro>
+      <tr class="body-table">
+        <td>
+          <i class="fas fa-pen"></i>
+        </td>
+        <td>{{ tasasCentro.dateDesde }}</td>
+        <td>{{ tasasCentro.dateHasta }}</td>
+        <td>{{ tasasCentro.delegation }}</td>
+        <td>{{ tasasCentro.code }}</td>
+        <td>{{ tasasCentro.name }}</td>
+        <td>{{ tasasCentro.cost }}</td>
+        <td>{{ tasasCentro.currency }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
