@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { StockComponent } from './pages/stock-component/stock/stock.component';
-import { GruasComponent } from './pages/gruas.component/gruas/gruas.component';
+import { GruasComponent } from './pages/gruas/gruas.component';
 import { GncComponent } from './pages/gnc/gnc.component';
 import { GastosComponent } from './pages/gastos/gastos.component';
 import { HorometrosKilometrosComponent } from './pages/horometros-kilometros/horometros-kilometros.component';

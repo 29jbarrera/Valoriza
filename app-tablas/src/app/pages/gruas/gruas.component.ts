@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
-import { GruasFormComponent } from '../gruas-form/gruas-form.component';
-import { GruasTableComponent } from '../gruas-table/gruas-table.component';
+import { GruasFormComponent } from './gruas-form/gruas-form.component';
+import { GruasTableComponent } from './gruas-table/gruas-table.component';
 
 @Component({
   selector: 'app-gruas',

@@ -12,7 +12,7 @@ export class GruasService {
     // Datos ficticios de prueba
     const gruas: Gruas[] = [
       {
-        maquinaria: 1,
+        maquinaria: "maquinaria 1",
         centro: 'Centro 1',
         delegacion: 'Delegacion 1',
         familia: 'Familia 1',
@@ -20,7 +20,7 @@ export class GruasService {
         fechaproxima: '12/12/2020',
       },
       {
-        maquinaria: 2,
+        maquinaria: "maquinaria 2",
         centro: 'Centro 2',
         delegacion: 'Delegacion 2',
         familia: 'Familia 2',
@@ -28,7 +28,7 @@ export class GruasService {
         fechaproxima: '12/12/2030',
       },
       {
-        maquinaria: 3,
+        maquinaria: "maquinaria 3",
         centro: 'Centro 3',
         delegacion: 'Delegacion 3',
         familia: 'Familia 3',
@@ -36,7 +36,7 @@ export class GruasService {
         fechaproxima: '12/12/2040',
       },
       {
-        maquinaria: 4,
+        maquinaria: "maquinaria 4",
         centro: 'Departamento',
         delegacion: 'Deporte',
         familia: 'Deportiva',
