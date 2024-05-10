@@ -111,6 +111,12 @@ export class MenuComponent {
           n: Math.round(Math.random() * 100),
         },
         {
+          class: 'fas fa-tools',
+          name: 'Reparaciones centro',
+          path: 'reparaciones-centro',
+          n: Math.round(Math.random() * 100),
+        },
+        {
           class: 'fas fa-tachometer-alt',
           name: 'Tacógrafos',
           path: 'tacografos',

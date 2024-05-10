@@ -1,0 +1,76 @@
+<div class="Table">
+  <p-table
+    #dt
+    [value]="reparacionesCentro || []"
+    dataKey="id"
+    [rowsPerPageOptions]="[5, 10, 20]"
+    [tableStyle]="{ width: '100%' }"
+    [rows]="5"
+  >
+  <ng-template pTemplate="header">
+    <tr>
+      <th></th>
+      <th pSortableColumn="code">
+        <div class="flex align-items-center">
+          <p-columnFilter
+            type="text"
+            field="code"
+            class="filter"
+            placeholder="Código"
+            [showClearButton]="false"
+          />
+          <p-sortIcon class="order" field="code" />
+        </div>
+      </th>
+      <th pSortableColumn="name">
+        <div class="flex align-items-center">
+          <p-columnFilter
+            type="text"
+            field="name"
+            class="filter"
+            placeholder="Nombre"
+            [showClearButton]="false"
+          />
+          <p-sortIcon class="order" field="name" />
+        </div>
+      </th>
+      <th pSortableColumn="delegation">
+        <div class="flex align-items-center">
+          <p-columnFilter
+            type="text"
+            field="delegation"
+            class="filter"
+            placeholder="Delegación"
+            [showClearButton]="false"
+          />
+          <p-sortIcon class="order" field="delegation" />
+        </div>
+      </th>
+      <th pSortableColumn="cost">
+        <div class="flex align-items-center">
+          <p-columnFilter
+            type="text"
+            field="cost"
+            class="filter"
+            placeholder="Coste"
+            [showClearButton]="false"
+          />
+          <p-sortIcon class="order" field="cost" />
+        </div>
+      </th>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-reparacionesCentro>
+    <tr class="body-table">
+      <td>
+        <i class="fas fa-pen"></i>
+      </td>
+      <td>{{ reparacionesCentro.code }}</td>
+      <td>{{ reparacionesCentro.name }}</td>
+      <td>{{ reparacionesCentro.delegation }}</td>
+      <td>{{ reparacionesCentro.cost }}</td>
+    </tr>
+  </ng-template>
+  </p-table>
+</div>
