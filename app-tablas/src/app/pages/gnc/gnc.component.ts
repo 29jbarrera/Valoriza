@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 
 import { GncFormComponent } from './gnc-form/gnc-form.component';
 import { GncTableComponent } from './gnc-table/gnc-table.component';
+import { HeaderComponent } from '../../components/header/header.component';
 
 @Component({
   selector: 'app-gnc',
   standalone: true,
-  imports: [GncFormComponent, GncTableComponent],
+  imports: [GncFormComponent, GncTableComponent, HeaderComponent],
   templateUrl: './gnc.component.html',
   styleUrl: './gnc.component.css',
 })
