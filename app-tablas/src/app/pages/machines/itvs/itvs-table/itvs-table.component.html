@@ -1,43 +1,107 @@
 <body>
-  <div class="card">
-    <p-table [value]="itvs || []" [tableStyle]="{ 'min-width': '50rem' }">
+  <div class="Table">
+    <p-table
+      #dt
+      [value]="itvs || []"
+      dataKey="id"
+      [rowsPerPageOptions]="[5, 10, 20]"
+      [tableStyle]="{ width: '100%' }"
+      [rows]="5"
+    >
       <ng-template pTemplate="header">
         <tr>
-          <th pSortableColumn="maquinaria" style="width: 14%">
-            Maquinaria
-            <p-sortIcon field="maquinaria" class="orden" />
+          <th></th>
+          <th pSortableColumn="maquinaria">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="maquinaria"
+              class="filter"
+              placeholder="Maquinaria"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="maquinaria" />
+          </div>
+          <th pSortableColumn="centro">
+            <div class="flex align-items-center">
+              <p-columnFilter
+                type="text"
+                field="centro"
+                class="filter"
+                placeholder="Centro"
+                [showClearButton]="false"
+              />
+              <p-sortIcon class="order" field="centro" />
+            </div>
           </th>
-          <th pSortableColumn="centro" style="width: 14%">
-            Centro
-            <p-sortIcon field="centro" class="orden" />
+          <th pSortableColumn="delegacion">
+            <div class="flex align-items-center">
+              <p-columnFilter
+                type="text"
+                field="delegacion"
+                class="filter"
+                placeholder="Delegacion"
+                [showClearButton]="false"
+              />
+              <p-sortIcon class="order" field="delegacion" />
+            </div>
           </th>
-          <th pSortableColumn="delegacion" style="width: 14%">
-            Delegación
-            <p-sortIcon field="delegacion" class="orden" />
+          <th pSortableColumn="familia">
+            <div class="flex align-items-center">
+              <p-columnFilter
+                type="text"
+                field="familia"
+                class="filter"
+                placeholder="Familia"
+                [showClearButton]="false"
+              />
+              <p-sortIcon class="order" field="familia" />
+            </div>
           </th>
-          <th pSortableColumn="familia" style="width: 14%">
-            Familia
-            <p-sortIcon field="familia" class="orden" />
+          <th pSortableColumn="subFamilia">
+            <div class="flex align-items-center">
+              <p-columnFilter
+                type="text"
+                field="subFamilia"
+                class="filter"
+                placeholder="Subfamilia"
+                [showClearButton]="false"
+              />
+              <p-sortIcon class="order" field="subFamilia" />
+            </div>
           </th>
-          <th pSortableColumn="subfamilia" style="width: 14%">
-            Subfamilia
-            <p-sortIcon field="subfamilia" class="orden" />
+          <th pSortableColumn="fechaProxima">
+            <div class="flex align-items-center">
+              <p-columnFilter
+                type="text"
+                field="fechaProxima"
+                class="filter"
+                placeholder="Fecha próxima"
+                [showClearButton]="false"
+              />
+              <p-sortIcon class="order" field="fechaProxima" />
+            </div>
           </th>
-          <th pSortableColumn="fechaProxima" style="width: 14%">
-            Fecha Próxima
-            <p-sortIcon field="fechaProxima" class="orden" />
+          <th pSortableColumn="comentarios">
+            <div class="flex align-items-center">
+              <p-columnFilter
+                type="text"
+                field="comentarios"
+                class="filter"
+                placeholder="Comentarios"
+                [showClearButton]="false"
+              />
+              <p-sortIcon class="order" field="comentarios" />
+            </div>
           </th>
-          <th pSortableColumn="comentarios" style="width: 14%">
-            Comentario
-            <p-sortIcon field="comentarios" class="orden" />
-          </th>
-          <th pSortableColumn="reload" style="width: 2%">
-            <p-sortIcon field="reload" class="orden" />
-          </th>
+          <th></th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-itvs>
         <tr class="body-table">
+          <td>
+            <i class="fas fa-pen"></i>
+          </td>
           <td>{{ itvs.maquinaria }}</td>
           <td>{{ itvs.centro }}</td>
           <td>{{ itvs.delegacion }}</td>
@@ -48,7 +112,6 @@
           <td></td>
         </tr>
       </ng-template>
-
     </p-table>
   </div>
 </body>

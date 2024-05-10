@@ -86,12 +86,17 @@ export class MenuComponent {
           n: Math.round(Math.random() * 100),
         },
         {
+          class: 'fas fa-tools',
+          name: 'Instalaciones',
+          path: 'instalaciones',
+          n: Math.round(Math.random() * 100),
+        },
+        {
           class: 'fas fa-truck',
           name: 'Grúas',
           path: 'gruas',
           n: Math.round(Math.random() * 100),
         },
-
         {
           class: 'fas fa-tools',
           name: 'Gastos',
