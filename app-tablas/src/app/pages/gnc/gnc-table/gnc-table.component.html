@@ -1,0 +1,103 @@
+  <div class="Table">
+    <p-table
+      #dt
+      [value]="gnc || []"
+      dataKey="id"
+      [rowsPerPageOptions]="[5, 10, 20]"
+      [tableStyle]="{ width: '100%' }"
+      [rows]="5"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th></th>
+          <th pSortableColumn="maquinaria">
+            <div class="flex align-items-center">
+              <p-columnFilter
+                type="text"
+                field="maquinaria"
+                class="filter"
+                placeholder="Maquinaria"
+                [showClearButton]="false"
+              />
+              <p-sortIcon class="order" field="maquinaria" />
+            </div>
+          </th>
+          <th pSortableColumn="nombrecentro">
+            <div class="flex align-items-center">
+              <p-columnFilter
+                type="text"
+                field="nombrecentro"
+                class="filter"
+                placeholder="Nombre centro"
+                [showClearButton]="false"
+              />
+              <p-sortIcon class="order" field="nombrecentro" />
+            </div>
+          </th>
+          <th pSortableColumn="delegacion">
+            <div class="flex align-items-center">
+              <p-columnFilter
+                type="text"
+                field="delegacion"
+                class="filter"
+                placeholder="Delegación"
+                [showClearButton]="false"
+              />
+              <p-sortIcon class="order" field="delegacion" />
+            </div>
+          </th>
+          <th pSortableColumn="familia">
+            <div class="flex align-items-center">
+              <p-columnFilter
+                type="text"
+                field="familia"
+                class="filter"
+                placeholder="Familia"
+                [showClearButton]="false"
+              />
+              <p-sortIcon class="order" field="familia" />
+            </div>
+          </th>
+          <th pSortableColumn="subFamilia">
+            <div class="flex align-items-center">
+              <p-columnFilter
+                type="text"
+                field="subFamilia"
+                class="filter"
+                placeholder="Subfamilia"
+                [showClearButton]="false"
+              />
+              <p-sortIcon class="order" field="subFamilia" />
+            </div>
+          </th>
+          <th pSortableColumn="fechaproxima">
+            <div class="flex align-items-center">
+              <p-columnFilter
+                type="text"
+                field="fechaproxima"
+                class="filter"
+                placeholder="Fecha próxima"
+                [showClearButton]="false"
+              />
+              <p-sortIcon class="order" field="fechaproxima" />
+            </div>
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-gnc>
+        <tr class="body-table">
+          <td>
+            <i class="fas fa-pen"></i>
+          </td>
+          <td>{{ gnc.maquinaria }}</td>
+          <td>{{ gnc.nombrecentro }}</td>
+          <td>{{ gnc.delegacion }}</td>
+          <td>{{ gnc.familia }}</td>
+          <td>{{ gnc.subfamilia }}</td>
+          <td>{{ gnc.fechaproxima }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+    <p>Resultado totales: {{ gnc?.length || 0 }}</p>
+  </div>
+

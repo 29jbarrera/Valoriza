@@ -56,6 +56,12 @@ export class MenuComponent {
           n: Math.round(Math.random() * 100),
         },
         {
+          class: 'fas fa-car',
+          name: 'ITVs',
+          path: 'itvs',
+          n: Math.round(Math.random() * 100),
+        },
+        {
           class: 'fas fa-book',
           name: 'Documentacion',
           path: 'stock2',
