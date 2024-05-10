@@ -128,6 +128,12 @@ export class MenuComponent {
           path: 'ratios-centro',
           n: Math.round(Math.random() * 100),
         },
+        {
+          class: 'fas fa-list',
+          name: 'Ratios maquinaria',
+          path: 'ratios-maquinaria',
+          n: Math.round(Math.random() * 100),
+        },
       ],
     },
     {

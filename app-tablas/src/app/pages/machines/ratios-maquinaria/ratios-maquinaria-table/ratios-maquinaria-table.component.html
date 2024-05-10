@@ -1,0 +1,180 @@
+<div class="Table">
+  <p-table
+    #dt
+    [value]="ratiosMaquinaria || []"
+    dataKey="id"
+    [rowsPerPageOptions]="[5, 10, 20]"
+    [tableStyle]="{ width: '100%' }"
+    [rows]="5"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th></th>
+        <th pSortableColumn="dateDesde">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="dateDesde"
+              class="filter"
+              placeholder="Fecha desde"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="dateDesde" />
+          </div>
+        </th>
+        <th pSortableColumn="dateHasta">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="dateHasta"
+              class="filter"
+              placeholder="Fecha hasta"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="dateHasta" />
+          </div>
+        </th>
+        <th pSortableColumn="matricula">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="matricula"
+              class="filter"
+              placeholder="Matrícula"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="matricula" />
+          </div>
+        </th>
+        <th pSortableColumn="centro">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="centro"
+              class="filter"
+              placeholder="Centro"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="centro" />
+          </div>
+        </th>
+        <th pSortableColumn="repairs">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="repairs"
+              class="filter"
+              placeholder="Repaciones"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="repairs" />
+          </div>
+        </th>
+        <th pSortableColumn="seguro">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="seguro"
+              class="filter"
+              placeholder="Seguro"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="seguro" />
+          </div>
+        </th>
+        <th pSortableColumn="impuesto">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="impuesto"
+              class="filter"
+              placeholder="Impuesto"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="impuesto" />
+          </div>
+        </th>
+        <th pSortableColumn="amortizaciones">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="amortizaciones"
+              class="filter"
+              placeholder="Amortizaciones"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="amortizaciones" />
+          </div>
+        </th>
+        <th pSortableColumn="financieros">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="financieros"
+              class="filter"
+              placeholder="Financieros"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="financieros" />
+          </div>
+        </th>
+        <th pSortableColumn="tasa">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="tasa"
+              class="filter"
+              placeholder="Tasa"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="tasa" />
+          </div>
+        </th>
+        <th pSortableColumn="ratio">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="ratio"
+              class="filter"
+              placeholder="Ratio"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="ratio" />
+          </div>
+        </th>
+        <th pSortableColumn="divisa">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="divisa"
+              class="filter"
+              placeholder="Divisa"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="divisa" />
+          </div>
+        </th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-ratiosMaquinaria>
+      <tr class="body-table">
+        <td>
+          <i class="fas fa-pen"></i>
+        </td>
+        <td>{{ ratiosMaquinaria.dateDesde }}</td>
+        <td>{{ ratiosMaquinaria.dateHasta }}</td>
+        <td>{{ ratiosMaquinaria.matricula }}</td>
+        <td>{{ ratiosMaquinaria.centro }}</td>
+        <td>{{ ratiosMaquinaria.repairs }}</td>
+        <td>{{ ratiosMaquinaria.seguro }}</td>
+        <td>{{ ratiosMaquinaria.impuesto }}</td>
+        <td>{{ ratiosMaquinaria.amortizaciones }}</td>
+        <td>{{ ratiosMaquinaria.financieros }}</td>
+        <td>{{ ratiosMaquinaria.tasa }}</td>
+        <td>{{ ratiosMaquinaria.ratio }}</td>
+        <td>{{ ratiosMaquinaria.divisa }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

@@ -7,8 +7,8 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { RatiosCentro } from '../../../../Interfaces/ratiosCentro.interface';
-import { RatiosCentroService } from '../../../../service/ratios-centro.service';
+import { RatiosMaquinaria } from '../../../../Interfaces/ratiosMaquinaria.interface';
+import { RatiosMaquinariaService } from '../../../../service/ratios-maquinaria.service';
 
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
@@ -23,7 +23,7 @@ import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { ButtonModule } from 'primeng/button';
 
 @Component({
-  selector: 'app-ratios-centro-table',
+  selector: 'app-ratios-maquinaria-table',
   standalone: true,
   imports: [
     TableModule,
@@ -41,17 +41,18 @@ import { ButtonModule } from 'primeng/button';
     FormlyModule,
     FormlyPrimeNGModule,
   ],
-  templateUrl: './ratios-centro-table.component.html',
-  styleUrl: './ratios-centro-table.component.css',
+  templateUrl: './ratios-maquinaria-table.component.html',
+  styleUrl: './ratios-maquinaria-table.component.css',
 })
-export class RatiosCentroTableComponent implements OnInit {
-  ratiosCentro: RatiosCentro[] | undefined;
+export class RatiosMaquinariaTableComponent implements OnInit {
+  ratiosMaquinaria: RatiosMaquinaria[] | undefined;
   searchForm: FormGroup;
 
-  constructor (private RatiosCentroService: RatiosCentroService, private fb: FormBuilder){
+  constructor (private RatiosMaquinariaService: RatiosMaquinariaService, private fb: FormBuilder){
     this.searchForm = this.fb.group({
       dateDesde:[''],
       dateHasta:[''],
+      matricula:[''],
       centro:[''],
       repairs:[''],
       seguro:[''],
@@ -69,6 +70,7 @@ export class RatiosCentroTableComponent implements OnInit {
   }
 
   async actualizarTabla() {
-    this.ratiosCentro = await this.RatiosCentroService.getRatios();
+    this.ratiosMaquinaria = await this.RatiosMaquinariaService.getRatiosMaquinaria();
   }
 }
+
