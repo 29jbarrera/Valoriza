@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
+import { PartesFormComponent } from './partes-form/partes-form.component';
+import { PartesTableComponent } from './partes-table/partes-table.component';
 
 @Component({
   selector: 'app-partes-trabajo',
   standalone: true,
-  imports: [],
+  imports: [PartesFormComponent, PartesTableComponent],
   templateUrl: './partes-trabajo.component.html',
   styleUrl: './partes-trabajo.component.css'
 })

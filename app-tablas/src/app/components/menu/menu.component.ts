@@ -183,11 +183,16 @@ export class MenuComponent {
           path: 'gnc',
           n: Math.round(Math.random() * 100),
         },
-
         {
           class: 'fas fa-cogs',
           name: 'Materiales',
           path: 'gnc',
+          n: Math.round(Math.random() * 100),
+        },
+        {
+          class: 'fas fa-book',
+          name: 'Partes de trabajo',
+          path: 'partes-trabajo',
           n: Math.round(Math.random() * 100),
         },
       ],
