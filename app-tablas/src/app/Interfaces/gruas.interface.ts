@@ -1,5 +1,5 @@
 export interface Gruas {
-  maquinaria: number;
+  maquinaria: string;
   centro: string;
   delegacion: string;
   familia: string;

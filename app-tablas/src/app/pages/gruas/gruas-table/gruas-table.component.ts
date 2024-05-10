@@ -8,15 +8,12 @@ import { Gruas } from '../../../Interfaces/gruas.interface';
 
 import { TableModule } from 'primeng/table';
 
-
-
-
 @Component({
   selector: 'app-gruas-table',
   standalone: true,
   imports: [TableModule, CommonModule],
   templateUrl: './gruas-table.component.html',
-  styleUrl: './gruas-table.component.css'
+  styleUrl: './gruas-table.component.css',
 })
 export class GruasTableComponent implements OnInit {
   gruas: Gruas[] | undefined;
