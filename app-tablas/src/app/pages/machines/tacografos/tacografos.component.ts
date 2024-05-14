@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { TacografosFormComponent } from './tacografos-form/tacografos-form.component';
 import { TacografosTableComponent } from './tacografos-table/tacografos-table.component';
+import { HeaderComponent } from '../../../components/header/header.component';
 
 @Component({
   selector: 'app-tacografos',
   standalone: true,
-  imports: [TacografosFormComponent, TacografosTableComponent],
+  imports: [TacografosFormComponent, TacografosTableComponent, HeaderComponent],
   templateUrl: './tacografos.component.html',
   styleUrl: './tacografos.component.css',
 })
