@@ -1,0 +1,95 @@
+<div class="Table">
+  <p-table [value]="cambioCentro || []" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header">
+      <tr>
+        <th></th>
+        <th pSortableColumn="selected">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="selected"
+              class="filter"
+              placeholder="Seleccionado"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="selected" />
+          </div>
+        </th>
+        <th pSortableColumn="matriculaMaquinaria">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="matriculaMaquinaria"
+              class="filter"
+              placeholder="Matrícula Maquinaria"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="matriculaMaquinaria" />
+          </div>
+        </th>
+        <th pSortableColumn="centerCode">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="centerCode"
+              class="filter"
+              placeholder="Código centro"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="centerCode" />
+          </div>
+        </th>
+        <th pSortableColumn="centerName">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="centerName"
+              class="filter"
+              placeholder="Nombre Centro"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="centerName" />
+          </div>
+        </th>
+        <th pSortableColumn="destinationCenterCode">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="destinationCenterCode"
+              class="filter"
+              placeholder="Código centro destino"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="destinationCenterCode" />
+          </div>
+        </th>
+        <th pSortableColumn="destinationCenterName">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="destinationCenterName"
+              class="filter"
+              placeholder="Nombre centro destino"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="destinationCenterName" />
+          </div>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-cambioCentro>
+      <tr class="body-table">
+        <td>
+          <i class="fas fa-pen"></i>
+        </td>
+        <td>{{ cambioCentro.selected }}</td>
+        <td>{{ cambioCentro.matriculaMaquinaria }}</td>
+        <td>{{ cambioCentro.centerCode }}</td>
+        <td>{{ cambioCentro.centerName }}</td>
+        <td>{{ cambioCentro.destinationCenterCode }}</td>
+        <td>{{ cambioCentro.destinationCenterName }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <p>Resultado totales: {{ cambioCentro?.length || 0 }}</p>
+</div>

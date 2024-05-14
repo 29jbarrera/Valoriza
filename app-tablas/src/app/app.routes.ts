@@ -23,6 +23,7 @@ import { DepositosComponent } from './pages/management/depositos/depositos.compo
 import { RepostajesComponent } from './pages/management/repostajes/repostajes.component';
 import { ProveedoresComponent } from './pages/management/proveedores/proveedores.component';
 import { MaterialesComponent } from './pages/management/materiales/materiales.component';
+import { CambioCentroComponent } from './pages/management/cambio-centro/cambio-centro.component';
 
 export const routes: Routes = [
   {
@@ -88,6 +89,10 @@ export const routes: Routes = [
       {
         path: 'materiales',
         component: MaterialesComponent,
+      },
+      {
+        path: 'cambio-centro',
+        component: CambioCentroComponent,
       },
     ],
   },

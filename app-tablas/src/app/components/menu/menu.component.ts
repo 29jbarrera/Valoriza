@@ -230,6 +230,12 @@ export class MenuComponent {
           path: 'partes-trabajo',
           n: Math.round(Math.random() * 100),
         },
+        {
+          class: 'fas fa-book',
+          name: 'Cambio Centro',
+          path: 'cambio-centro',
+          n: Math.round(Math.random() * 100),
+        },
       ],
     },
     {
