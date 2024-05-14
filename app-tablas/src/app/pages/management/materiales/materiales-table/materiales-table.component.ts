@@ -7,9 +7,8 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { GastosTaller } from '../../../../Interfaces/gastos-taller.interface';
-
-import { GastosTallerService } from '../../../../service/gastos-taller.service';
+import { Materiales } from '../../../../Interfaces/materiales.interface';
+import { MaterialesService } from '../../../../service/materiales.service';
 
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
@@ -22,9 +21,8 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { ButtonModule } from 'primeng/button';
-
 @Component({
-  selector: 'app-gastos-table',
+  selector: 'app-materiales-table',
   standalone: true,
   imports: [
     TableModule,
@@ -42,31 +40,21 @@ import { ButtonModule } from 'primeng/button';
     FormlyModule,
     FormlyPrimeNGModule,
   ],
-  templateUrl: './gastos-table.component.html',
-  styleUrl: './gastos-table.component.css',
+  templateUrl: './materiales-table.component.html',
+  styleUrl: './materiales-table.component.css',
 })
-export class GastosTableComponent implements OnInit {
-  gastosTaller: GastosTaller[] | undefined;
+export class MaterialesTableComponent implements OnInit {
+  materiales: Materiales[] | undefined;
   searchForm: FormGroup;
 
   constructor(
-    private GastosTallerService: GastosTallerService,
+    private MaterialesService: MaterialesService,
     private fb: FormBuilder
   ) {
     this.searchForm = this.fb.group({
-      centroProveedor: [''],
-      delegacion: [''],
-      fecha: [''],
-      proveedor: [],
-      importe: [''],
-      divisa: [''],
-      referenciaMaterial: [''],
-      descripcionRefMaterial: [''],
-      cantidad: [''],
-      gastoConmutable: [''],
-      descripcion: [''],
-      albaran: [''],
-      archivo: [''],
+      reference: [''],
+      description: [''],
+      category: [''],
     });
   }
   ngOnInit() {
@@ -74,6 +62,7 @@ export class GastosTableComponent implements OnInit {
   }
 
   async actualizarTabla() {
-    this.gastosTaller = await this.GastosTallerService.getGastosTaller();
+    this.materiales = await this.MaterialesService.getMateriales();
   }
 }
+
