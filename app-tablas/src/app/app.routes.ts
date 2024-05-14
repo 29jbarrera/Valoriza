@@ -15,6 +15,14 @@ import { TasasComponent } from './pages/machines/tasas/tasas.component';
 import { TasasCentrosComponent } from './pages/machines/tasas-centros/tasas-centros.component';
 import { RatiosMaquinariaComponent } from './pages/machines/ratios-maquinaria/ratios-maquinaria.component';
 import { RatiosCentroComponent } from './pages/machines/ratios-centro/ratios-centro.component';
+import { SegurosComponent } from './pages/management/seguros/seguros.component';
+import { MarcasComponent } from './pages/management/marcas/marcas.component';
+import { CategoriasComponent } from './pages/management/categorias/categorias.component';
+import { ImpuestosComponent } from './pages/management/impuestos/impuestos.component';
+import { DepositosComponent } from './pages/management/depositos/depositos.component';
+import { RepostajesComponent } from './pages/management/repostajes/repostajes.component';
+import { ProveedoresComponent } from './pages/management/proveedores/proveedores.component';
+import { MaterialesComponent } from './pages/management/materiales/materiales.component';
 
 export const routes: Routes = [
   {
@@ -44,6 +52,43 @@ export const routes: Routes = [
       { path: 'gnc', component: GncComponent },
       { path: 'gruas', component: GruasComponent },
       { path: 'stock', component: StockComponent },
+    ],
+  },
+  {
+    path: 'management',
+    children: [
+      {
+        path: 'seguros',
+        component: SegurosComponent,
+      },
+      {
+        path: 'marcas',
+        component: MarcasComponent,
+      },
+      {
+        path: 'categorias',
+        component: CategoriasComponent,
+      },
+      {
+        path: 'impuestos',
+        component: ImpuestosComponent,
+      },
+      {
+        path: 'depositos',
+        component: DepositosComponent,
+      },
+      {
+        path: 'repostajes',
+        component: RepostajesComponent,
+      },
+      {
+        path: 'proveedores',
+        component: ProveedoresComponent,
+      },
+      {
+        path: 'materiales',
+        component: MaterialesComponent,
+      },
     ],
   },
   {

@@ -161,67 +161,67 @@ export class MenuComponent {
     },
     {
       name: 'Gestion',
-      path: 'machines',
+      path: 'management',
       items: [
         {
           class: 'fas fa-shapes',
           name: 'Marcas',
-          path: 'gnc',
+          path: 'marcas',
           n: Math.round(Math.random() * 100),
         },
         {
           class: 'fas fa-layer-group',
           name: 'Categorías',
-          path: 'gnc',
+          path: 'categorias',
           n: Math.round(Math.random() * 100),
         },
         {
           class: 'fas fa-shield-alt',
           name: 'Seguros',
-          path: 'stock2',
+          path: 'seguros',
           n: Math.round(Math.random() * 100),
         },
         {
           class: 'fas fa-hand-holding-usd',
           name: 'Impuesto',
-          path: 'gruas',
+          path: 'impuestos',
           n: Math.round(Math.random() * 100),
         },
         {
           class: 'fas fa-receipt',
           name: 'Depósitos',
-          path: 'gnc',
+          path: 'depositos',
           n: Math.round(Math.random() * 100),
         },
         {
           class: 'fas fa-file-invoice-dollar',
           name: 'Repostajes',
-          path: 'gastos-taller',
+          path: 'repostajes',
           n: Math.round(Math.random() * 100),
         },
-        {
-          class: 'fas fa-sliders-h',
-          name: 'Mantenimientos',
-          path: 'horometros-kilometros',
-          n: Math.round(Math.random() * 100),
-        },
+        // {
+        //   class: 'fas fa-sliders-h',
+        //   name: 'Mantenimientos',
+        //   path: 'horometros-kilometros',
+        //   n: Math.round(Math.random() * 100),
+        // },
 
         {
           class: 'fas fa-user-tie',
           name: 'Proveedores',
-          path: 'gnc',
+          path: 'proveedores',
           n: Math.round(Math.random() * 100),
         },
-        {
-          class: 'fas fa-building',
-          name: 'Centro',
-          path: 'gnc',
-          n: Math.round(Math.random() * 100),
-        },
+        // {
+        //   class: 'fas fa-building',
+        //   name: 'Centro',
+        //   path: 'gnc',
+        //   n: Math.round(Math.random() * 100),
+        // },
         {
           class: 'fas fa-cogs',
           name: 'Materiales',
-          path: 'gnc',
+          path: 'materiales',
           n: Math.round(Math.random() * 100),
         },
         {
