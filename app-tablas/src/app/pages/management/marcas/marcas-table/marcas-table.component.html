@@ -1,0 +1,30 @@
+<div class="Table">
+  <p-table [value]="marcas || []" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header">
+      <tr>
+        <th></th>
+        <th pSortableColumn="name">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="name"
+              class="filter"
+              placeholder="Nombre"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="name" />
+          </div>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-marcas>
+      <tr class="body-table">
+        <td>
+          <i class="fas fa-pen"></i>
+        </td>
+        <td>{{ marcas.name }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <p>Resultado totales: {{ marcas?.length || 0 }}</p>
+</div>
