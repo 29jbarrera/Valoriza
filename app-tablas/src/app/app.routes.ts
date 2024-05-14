@@ -20,10 +20,11 @@ import { MarcasComponent } from './pages/management/marcas/marcas.component';
 import { CategoriasComponent } from './pages/management/categorias/categorias.component';
 import { ImpuestosComponent } from './pages/management/impuestos/impuestos.component';
 import { DepositosComponent } from './pages/management/depositos/depositos.component';
-import { RepostajesComponent } from './pages/management/repostajes/repostajes.component';
+import { RepostajesMaquinariaComponent } from './pages/management/repostajes-maquinaria/repostajes.component';
 import { ProveedoresComponent } from './pages/management/proveedores/proveedores.component';
 import { MaterialesComponent } from './pages/management/materiales/materiales.component';
 import { CambioCentroComponent } from './pages/management/cambio-centro/cambio-centro.component';
+import { RepostajeVehiculosComponent } from './pages/management/repostaje-vehiculos/repostaje-vehiculos.component';
 
 export const routes: Routes = [
   {
@@ -79,8 +80,12 @@ export const routes: Routes = [
         component: DepositosComponent,
       },
       {
-        path: 'repostajes',
-        component: RepostajesComponent,
+        path: 'repostajes-maquinaria',
+        component: RepostajesMaquinariaComponent,
+      },
+      {
+        path: 'repostajes-vehiculos',
+        component: RepostajeVehiculosComponent,
       },
       {
         path: 'proveedores',

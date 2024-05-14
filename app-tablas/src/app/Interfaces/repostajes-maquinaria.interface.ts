@@ -1,4 +1,4 @@
-export interface Repostaje {
+export interface RepostajeMaquinaria {
   center: string;
   matricula: string;
   date: Date;

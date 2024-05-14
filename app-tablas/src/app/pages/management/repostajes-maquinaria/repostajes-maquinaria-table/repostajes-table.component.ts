@@ -7,8 +7,8 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { Repostaje } from '../../../../Interfaces/repostajes.interface';
-import { RepostajesService } from '../../../../service/repostajes.service';
+import { RepostajeMaquinaria } from '../../../../Interfaces/repostajes-maquinaria.interface';
+import { RepostajesService } from '../../../../service/repostajes-maquinaria.service';
 
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
@@ -44,8 +44,8 @@ import { ButtonModule } from 'primeng/button';
   templateUrl: './repostajes-table.component.html',
   styleUrl: './repostajes-table.component.css',
 })
-export class RepostajesTableComponent implements OnInit {
-  repostaje: Repostaje[] | undefined;
+export class RepostajesMaquinariaTableComponent implements OnInit {
+  repostaje: RepostajeMaquinaria[] | undefined;
   searchForm: FormGroup;
 
   constructor(

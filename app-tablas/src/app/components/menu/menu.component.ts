@@ -195,8 +195,14 @@ export class MenuComponent {
         },
         {
           class: 'fas fa-file-invoice-dollar',
-          name: 'Repostajes',
-          path: 'repostajes',
+          name: 'Repostajes maquinaria',
+          path: 'repostajes-maquinaria',
+          n: Math.round(Math.random() * 100),
+        },
+        {
+          class: 'fas fa-file-invoice-dollar',
+          name: 'Repostajes vehículos',
+          path: 'repostajes-vehiculos',
           n: Math.round(Math.random() * 100),
         },
         // {
