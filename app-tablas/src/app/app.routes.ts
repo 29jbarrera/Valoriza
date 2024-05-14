@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import { StockComponent } from './pages/stock-component/stock/stock.component';
-import { GruasComponent } from './pages/gruas/gruas.component';
-import { GncComponent } from './pages/gnc/gnc.component';
-import { GastosComponent } from './pages/gastos/gastos.component';
-import { HorometrosKilometrosComponent } from './pages/horometros-kilometros/horometros-kilometros.component';
+import { StockComponent } from './pages/machines/stock-component/stock/stock.component';
+import { GruasComponent } from './pages/machines/gruas/gruas.component';
+import { GncComponent } from './pages/machines/gnc/gnc.component';
+import { GastosComponent } from './pages/machines/gastos/gastos.component';
+import { HorometrosKilometrosComponent } from './pages/machines/horometros-kilometros/horometros-kilometros.component';
 import { TacografosComponent } from './pages/machines/tacografos/tacografos.component';
 import { InstalacionesComponent } from './pages/machines/instalaciones/instalaciones.component';
 import { ItvsComponent } from './pages/machines/itvs/itvs.component';

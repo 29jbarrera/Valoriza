@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { GastosTaller } from '../../../Interfaces/gastos-taller.interface';
+import { GastosTaller } from '../../../../Interfaces/gastos-taller.interface';
 
-import { GastosTallerService } from '../../../service/gastos-taller.service';
+import { GastosTallerService } from '../../../../service/gastos-taller.service';
 
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';

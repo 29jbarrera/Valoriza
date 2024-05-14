@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { GruasService } from '../../../service/gruas.service';
+import { GruasService } from '../../../../service/gruas.service';
 
-import { Gruas } from '../../../Interfaces/gruas.interface';
+import { Gruas } from '../../../../Interfaces/gruas.interface';
 
 import { TableModule } from 'primeng/table';
 

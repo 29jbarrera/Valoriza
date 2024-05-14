@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 import { GruasFormComponent } from './gruas-form/gruas-form.component';
 import { GruasTableComponent } from './gruas-table/gruas-table.component';
-import { HeaderComponent } from '../../components/header/header.component';
+import { HeaderComponent } from '../../../components/header/header.component';
 
 @Component({
   selector: 'app-gruas',
