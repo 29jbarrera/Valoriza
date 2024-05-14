@@ -1,0 +1,69 @@
+<div class="Table">
+  <p-table [value]="depositos || []" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header">
+      <tr>
+        <th></th>
+        <th pSortableColumn="center">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="center"
+              class="filter"
+              placeholder="Centro"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="center" />
+          </div>
+        </th>
+        <th pSortableColumn="description">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="description"
+              class="filter"
+              placeholder="Descripción"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="description" />
+          </div>
+        </th>
+        <th pSortableColumn="capacity">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="capacity"
+              class="filter"
+              placeholder="Capacidad"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="capacity" />
+          </div>
+        </th>
+        <th pSortableColumn="common">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="common"
+              class="filter"
+              placeholder="Común"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="common" />
+          </div>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-depositos>
+      <tr class="body-table">
+        <td>
+          <i class="fas fa-pen"></i>
+        </td>
+        <td>{{ depositos.center }}</td>
+        <td>{{ depositos.description }}</td>
+        <td>{{ depositos.capacity }}</td>
+        <td>{{ depositos.common }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <p>Resultado totales: {{ depositos?.length || 0 }}</p>
+</div>
