@@ -27,6 +27,7 @@ import { CambioCentroComponent } from './pages/management/cambio-centro/cambio-c
 import { RepostajeVehiculosComponent } from './pages/management/repostaje-vehiculos/repostaje-vehiculos.component';
 import { FamiliasSubfamiliasComponent } from './pages/administration/familias-subfamilias/familias-subfamilias.component';
 import { LimiteAvisosComponent } from './pages/administration/limite-avisos/limite-avisos.component';
+import { NivelesAccionComponent } from './pages/administration/niveles-accion/niveles-accion.component';
 
 export const routes: Routes = [
   {
@@ -113,6 +114,10 @@ export const routes: Routes = [
       {
         path: 'limite-avisos',
         component: LimiteAvisosComponent,
+      },
+      {
+        path: 'niveles-accion',
+        component: NivelesAccionComponent,
       },
     ],
   },

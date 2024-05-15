@@ -260,6 +260,12 @@ export class MenuComponent {
           path: 'limite-avisos',
           n: Math.round(Math.random() * 100),
         },
+        {
+          class: 'fas fa-layer-group',
+          name: 'Niveles de acción',
+          path: 'niveles-accion',
+          n: Math.round(Math.random() * 100),
+        },
       ],
     },
   ];
