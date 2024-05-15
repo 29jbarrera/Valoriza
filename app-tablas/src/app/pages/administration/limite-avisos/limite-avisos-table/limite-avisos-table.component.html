@@ -1,0 +1,56 @@
+<div class="Table">
+  <p-table [value]="limiteAvisos || []" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header">
+      <tr>
+        <th></th>
+        <th pSortableColumn="code">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="code"
+              class="filter"
+              placeholder="Código"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="code" />
+          </div>
+        </th>
+        <th pSortableColumn="value">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="value"
+              class="filter"
+              placeholder="Valor"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="value" />
+          </div>
+        </th>
+        <th pSortableColumn="description">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="description"
+              class="filter"
+              placeholder="Descripción"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="description" />
+          </div>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-limiteAvisos>
+      <tr class="body-table">
+        <td>
+          <i class="fas fa-pen"></i>
+        </td>
+        <td>{{ limiteAvisos.code }}</td>
+        <td>{{ limiteAvisos.value }}</td>
+        <td>{{ limiteAvisos.description }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <p>Resultado totales: {{ limiteAvisos?.length || 0 }}</p>
+</div>

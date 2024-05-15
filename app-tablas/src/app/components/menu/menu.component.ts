@@ -254,6 +254,12 @@ export class MenuComponent {
           path: 'familias-subfamilias',
           n: Math.round(Math.random() * 100),
         },
+        {
+          class: 'fas fa-clock',
+          name: 'Límite avisos',
+          path: 'limite-avisos',
+          n: Math.round(Math.random() * 100),
+        },
       ],
     },
   ];
