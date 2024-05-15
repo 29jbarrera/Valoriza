@@ -2,14 +2,8 @@ import { Injectable } from '@angular/core';
 import {
   rand,
   randAmount,
-  randArn,
-  randBrand,
   randCompanyName,
   randCurrencyName,
-  randProductDescription,
-  randVehicleManufacturer,
-  randVehicleModel,
-  seed,
 } from '@ngneat/falso';
 
 import { Gnc } from '../Interfaces/gnc.interface';
@@ -26,12 +20,12 @@ export class GncService {
     );
     for (let i = 0; i < 100; i++) {
       gnc.push({
-        maquinaria: randAmount(),
-        nombrecentro: randCompanyName(),
-        delegacion: randCurrencyName(),
-        familia: randCurrencyName(),
-        subfamilia: randCurrencyName(),
-        fechaproxima: randomDate,
+        machinery: randAmount(),
+        centerName: randCompanyName(),
+        delegation: randCurrencyName(),
+        family: randCurrencyName(),
+        subFamily: randCurrencyName(),
+        nextDate: randomDate,
       });
     }
     return gnc;

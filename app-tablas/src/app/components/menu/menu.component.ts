@@ -157,6 +157,12 @@ export class MenuComponent {
           path: 'ratios-maquinaria',
           n: Math.round(Math.random() * 100),
         },
+        {
+          class: 'fas fa-gas-pump',
+          name: 'GNC',
+          path: 'gnc',
+          n: Math.round(Math.random() * 100),
+        },
       ],
     },
     {

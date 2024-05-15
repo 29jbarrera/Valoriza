@@ -46,7 +46,7 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './gastos-table.component.css',
 })
 export class GastosTableComponent implements OnInit {
-  gastosTaller: GastosTaller[] | undefined;
+  gastosTaller: GastosTaller[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -54,26 +54,26 @@ export class GastosTableComponent implements OnInit {
     private fb: FormBuilder
   ) {
     this.searchForm = this.fb.group({
-      centroProveedor: [''],
-      delegacion: [''],
-      fecha: [''],
-      proveedor: [],
-      importe: [''],
-      divisa: [''],
-      referenciaMaterial: [''],
-      descripcionRefMaterial: [''],
-      cantidad: [''],
-      gastoConmutable: [''],
-      descripcion: [''],
-      albaran: [''],
-      archivo: [''],
+      centerProvider: [''],
+      delegation: [''],
+      date: [''],
+      provider: [],
+      amount: [''],
+      currency: [''],
+      materialReference: [''],
+      descriptionRefMaterial: [''],
+      quantity: [''],
+      switchableCost: [''],
+      description: [''],
+      deliveryNote: [''],
+      file: [''],
     });
   }
   ngOnInit() {
-    this.actualizarTabla();
+    this.updateTable();
   }
 
-  async actualizarTabla() {
+  async updateTable() {
     this.gastosTaller = await this.GastosTallerService.getGastosTaller();
   }
 }

@@ -1,10 +1,10 @@
 export interface HorometrosKilometros {
-  centroMaquina: string;
-  subFamilia: string;
-  maquinaria: string;
-  marca: string;
-  modelo: string;
-  horometroFinal: number;
-  kilometroFinal: number;
-  fecha: Date;
+  machineCenter: string;
+  subFamily: string;
+  machinery: string;
+  brand: string;
+  model: string;
+  finalHorometer: number;
+  finalKM: number;
+  date: Date;
 }

@@ -1,8 +1,8 @@
 export interface Gnc {
-  maquinaria: number;
-  nombrecentro: string;
-  delegacion: string;
-  familia: string;
-  subfamilia: string;
-  fechaproxima: Date;
+  machinery: number;
+  centerName: string;
+  delegation: string;
+  family: string;
+  subFamily: string;
+  nextDate: Date;
 }

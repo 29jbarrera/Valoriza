@@ -1,15 +1,15 @@
 export interface GastosTaller {
-  centroProveedor: string;
-  delegacion: string;
-  fecha: Date;
-  proveedor: string;
-  importe: number;
-  divisa: string;
-  referenciaMaterial: string;
-  descripcionRefMaterial: string;
-  cantidad: number;
-  gastoConmutable: boolean;
-  descripcion: string;
-  albaran: string;
-  archivo: string;
+  centerProvider: string;
+  delegation: string;
+  date: Date;
+  provider: string;
+  amount: number;
+  currency: string;
+  materialReference: string;
+  descriptionRefMaterial: string;
+  quantity: number;
+  switchableCost: boolean;
+  description: string;
+  deliveryNote: string;
+  file: string;
 }

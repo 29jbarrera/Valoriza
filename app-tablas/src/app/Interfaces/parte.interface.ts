@@ -1,9 +1,9 @@
 export interface Partes {
-  nameCenter: string;
-  delegacion: string;
-  matricula: string;
+  centerName: string;
+  delegation: string;
+  tuition: string;
   name: string;
   date: Date;
   state: string;
-  tipeMantenimiento: string;
+  maintenanceType: string;
 }

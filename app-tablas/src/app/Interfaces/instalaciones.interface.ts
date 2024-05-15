@@ -1,5 +1,5 @@
 export interface Instalaciones {
-  centroInstalacion: string;
-  nombre: string;
-  comentarios: string;
+  installationCentre: string;
+  name: string;
+  comments: string;
 }

@@ -1,7 +1,7 @@
 <div class="Table">
   <p-table
     #dt
-    [value]="preventivo || []"
+    [value]="preventivo"
     dataKey="id"
     [rowsPerPageOptions]="[5, 10, 20]"
     [tableStyle]="{ width: '100%' }"
@@ -10,76 +10,76 @@
     <ng-template pTemplate="header">
       <tr>
         <th></th>
-        <th pSortableColumn="centroMaquina">
+        <th pSortableColumn="machineCenter">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="centroMaquina"
+              field="machineCenter"
               class="filter"
-              placeholder="Centro maquina"
+              placeholder="Centro Máquina"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="centroMaquina" />
+            <p-sortIcon class="order" field="machineCenter" />
           </div>
         </th>
-        <th pSortableColumn="subFamilia">
+        <th pSortableColumn="subfamily">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="subFamilia"
+              field="subfamily"
               class="filter"
               placeholder="Subfamilia"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="subFamilia" />
+            <p-sortIcon class="order" field="subfamily" />
           </div>
         </th>
-        <th pSortableColumn="maquinaria">
+        <th pSortableColumn="machinery">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="maquinaria"
+              field="machinery"
               class="filter"
               placeholder="Maquinaria"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="maquinaria" />
+            <p-sortIcon class="order" field="machinery" />
           </div>
         </th>
-        <th pSortableColumn="nivel">
+        <th pSortableColumn="level">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="nivel"
+              field="level"
               class="filter"
               placeholder="Nivel"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="nivel" />
+            <p-sortIcon class="order" field="level" />
           </div>
         </th>
-        <th pSortableColumn="posicion">
+        <th pSortableColumn="position">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="posicion"
+              field="position"
               class="filter"
               placeholder="Posición"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="posicion" />
+            <p-sortIcon class="order" field="position" />
           </div>
         </th>
-        <th pSortableColumn="horomMant">
+        <th pSortableColumn="horomMaint">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="horomMant"
+              field="horomMaint"
               class="filter"
               placeholder="Horom Mant"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="horomMant" />
+            <p-sortIcon class="order" field="horomMaint" />
           </div>
         </th>
         <th pSortableColumn="horomFinal">
@@ -94,16 +94,16 @@
             <p-sortIcon class="order" field="horomFinal" />
           </div>
         </th>
-        <th pSortableColumn="KmMant">
+        <th pSortableColumn="kmMaint">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="KmMant"
+              field="kmMaint"
               class="filter"
               placeholder="Km Mant"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="KmMant" />
+            <p-sortIcon class="order" field="kmMaint" />
           </div>
         </th>
         <th pSortableColumn="KmFinal">
@@ -118,16 +118,16 @@
             <p-sortIcon class="order" field="KmFinal" />
           </div>
         </th>
-        <th pSortableColumn="fecha">
+        <th pSortableColumn="date">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="fecha"
+              field="date"
               class="filter"
               placeholder="Fecha"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="fecha" />
+            <p-sortIcon class="order" field="date" />
           </div>
         </th>
       </tr>
@@ -138,17 +138,18 @@
         <td>
           <i class="fas fa-pen"></i>
         </td>
-        <td>{{ preventivo.centroMaquina }}</td>
-        <td>{{ preventivo.subfamilia }}</td>
-        <td>{{ preventivo.maquinaria }}</td>
-        <td>{{ preventivo.nivel }}</td>
-        <td>{{ preventivo.posicion }}</td>
-        <td>{{ preventivo.horomMant }}</td>
+        <td>{{ preventivo.machineCenter }}</td>
+        <td>{{ preventivo.subfamily }}</td>
+        <td>{{ preventivo.machinery }}</td>
+        <td>{{ preventivo.level }}</td>
+        <td>{{ preventivo.position }}</td>
+        <td>{{ preventivo.horomMaint }}</td>
         <td>{{ preventivo.horomFinal }}</td>
-        <td>{{ preventivo.kmMant }}</td>
+        <td>{{ preventivo.kmMaint }}</td>
         <td>{{ preventivo.kmFinal }}</td>
-        <td>{{ preventivo.fecha }}</td>
+        <td>{{ preventivo.date }}</td>
       </tr>
     </ng-template>
   </p-table>
+  <p>Resultado totales: {{ preventivo.length || 0 }}</p>
 </div>

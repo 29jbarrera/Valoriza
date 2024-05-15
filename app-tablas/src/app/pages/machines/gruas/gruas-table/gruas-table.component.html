@@ -1,7 +1,7 @@
 <div class="Table">
   <p-table
     #dt
-    [value]="gruas || []"
+    [value]="gruas"
     dataKey="id"
     [rowsPerPageOptions]="[5, 10, 20]"
     [tableStyle]="{ width: '100%' }"
@@ -10,67 +10,78 @@
     <ng-template pTemplate="header">
       <tr>
         <th></th>
-        <th pSortableColumn="maquinaria">
+        <th pSortableColumn="machinery">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="maquinaria"
+              field="machinery"
               class="filter"
               placeholder="Maquinaria"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="maquinaria" />
+            <p-sortIcon class="order" field="machinery" />
           </div>
         </th>
-        <th pSortableColumn="centro">
+        <th pSortableColumn="center">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="centro"
+              field="center"
               class="filter"
               placeholder="Centro"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="centro" />
+            <p-sortIcon class="order" field="center" />
           </div>
         </th>
-        <th pSortableColumn="familia">
+        <th pSortableColumn="delegation">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="familia"
+              field="delegation"
+              class="filter"
+              placeholder="Delegación"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="delegation" />
+          </div>
+        </th>
+        <th pSortableColumn="family">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="family"
               class="filter"
               placeholder="Familia"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="familia" />
+            <p-sortIcon class="order" field="family" />
           </div>
         </th>
-        <th pSortableColumn="subFamilia">
+        <th pSortableColumn="subFamily">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="subFamilia"
+              field="subFamily"
               class="filter"
               placeholder="Subfamilia"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="subFamilia" />
+            <p-sortIcon class="order" field="subFamily" />
           </div>
         </th>
-        <th pSortableColumn="fechaproxima">
+        <th pSortableColumn="nextDate">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="fechaproxima"
+              field="nextDate"
               class="filter"
               placeholder="Fecha próxima"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="fechaproxima" />
+            <p-sortIcon class="order" field="nextDate" />
           </div>
         </th>
-        <th></th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-gruas | filtrogruas>
@@ -78,14 +89,14 @@
         <td>
           <i class="fas fa-pen"></i>
         </td>
-        <td>{{ gruas.maquinaria }}</td>
-        <td>{{ gruas.centro }}</td>
-        <td>{{ gruas.familia }}</td>
-        <td>{{ gruas.subfamilia }}</td>
-        <td>{{ gruas.fechaproxima }}</td>
-        <td></td>
+        <td>{{ gruas.machinery }}</td>
+        <td>{{ gruas.center }}</td>
+        <td>{{ gruas.delegation }}</td>
+        <td>{{ gruas.family }}</td>
+        <td>{{ gruas.subFamily }}</td>
+        <td>{{ gruas.nextDate }}</td>
       </tr>
     </ng-template>
   </p-table>
-  <p>Resultado totales: {{ gruas?.length || 0 }}</p>
+  <p>Resultado totales: {{ gruas.length || 0 }}</p>
 </div>

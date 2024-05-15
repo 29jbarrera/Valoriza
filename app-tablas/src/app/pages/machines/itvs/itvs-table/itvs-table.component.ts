@@ -15,7 +15,7 @@ import { TableModule } from 'primeng/table';
   styleUrl: './itvs-table.component.css'
 })
 export class ItvsTableComponent implements OnInit {
-  itvs: Itvs[] | undefined;
+  itvs: Itvs[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -23,19 +23,20 @@ export class ItvsTableComponent implements OnInit {
     private fb: FormBuilder
   ){
     this.searchForm = this.fb.group({
-      maquinaria: [''],
-      centro: [''],
-      delegacion: [''],
-      familia: [''],
-      subfamilia: [''],
-      comentarios: ['']
+      machinery: [''],
+      centre: [''],
+      delegation: [''],
+      family: [''],
+      subfamily: [''],
+      nextDate: [''],
+      comments: ['']
     });
   }
 ngOnInit(){
-  this.actualizarTabla();
+  this.updateTable();
 }
 
-async actualizarTabla(){
+async updateTable(){
   this.itvs = await this.ItvsService.getItvs();
 }
 }

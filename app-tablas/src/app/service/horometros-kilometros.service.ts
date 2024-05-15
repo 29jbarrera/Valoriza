@@ -5,37 +5,34 @@ import {
   rand,
   randAmount,
   randArn,
-  randBrand,
   randCompanyName,
   randCurrencyName,
-  randProductDescription,
-  randVehicleManufacturer,
   randVehicleModel,
-  seed,
 } from '@ngneat/falso';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class HorometrosKilometrosService {
-
   constructor() {}
 
   async getHorometrosKilometros(): Promise<HorometrosKilometros[]> {
     const horometrosKilometros: HorometrosKilometros[] = [];
-      const randomDate = new Date(rand([new Date(2020, 0, 1).getTime(), new Date().getTime()]) as number);
-      for (let i = 0; i < 100; i++) {
-        horometrosKilometros.push({
-          centroMaquina: randCompanyName(),
-          subFamilia: randArn(),
-          maquinaria: randCurrencyName(),
-          marca: randCurrencyName(),
-          modelo:randVehicleModel(),
-          horometroFinal: randAmount(),
-          kilometroFinal: randAmount(),
-          fecha:randomDate,
-        });
+    const randomDate = new Date(
+      rand([new Date(2020, 0, 1).getTime(), new Date().getTime()]) as number
+    );
+    for (let i = 0; i < 100; i++) {
+      horometrosKilometros.push({
+        machineCenter: randCompanyName(),
+        subFamily: randArn(),
+        machinery: randCurrencyName(),
+        brand: randCurrencyName(),
+        model: randVehicleModel(),
+        finalHorometer: randAmount(),
+        finalKM: randAmount(),
+        date: randomDate,
+      });
+    }
+    return horometrosKilometros;
   }
-  return horometrosKilometros;
-}
 }

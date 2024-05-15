@@ -1,8 +1,7 @@
-<!-- TABLA DE DATOS -->
 <div class="Table">
   <p-table
     #dt
-    [value]="horometrosKilometros || []"
+    [value]="horometrosKilometros"
     dataKey="id"
     [rowsPerPageOptions]="[5, 10, 20]"
     [tableStyle]="{ width: '100%' }"
@@ -11,103 +10,102 @@
     <ng-template pTemplate="header">
       <tr>
         <th></th>
-        <th pSortableColumn="centroMaquina">
+        <th pSortableColumn="machineCenter">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="centroMaquina"
+              field="machineCenter"
               class="filter"
               placeholder="Centro Máquina"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="centroMaquina" />
+            <p-sortIcon class="order" field="machineCenter" />
           </div>
         </th>
-        <th pSortableColumn="subFamilia">
+        <th pSortableColumn="subFamily">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="subFamilia"
+              field="subFamily"
               class="filter"
               placeholder="Subfamilia"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="subFamilia" />
+            <p-sortIcon class="order" field="subFamily" />
           </div>
         </th>
-        <th pSortableColumn="maquinaria">
+        <th pSortableColumn="machinery">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="maquinaria"
+              field="machinery"
               class="filter"
               placeholder="Maquinaria"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="maquinaria" />
+            <p-sortIcon class="order" field="machinery" />
           </div>
         </th>
-        <th pSortableColumn="marca">
+        <th pSortableColumn="brand">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="marca"
+              field="brand"
               class="filter"
               placeholder="Marca"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="marca" />
+            <p-sortIcon class="order" field="brand" />
           </div>
         </th>
-        <th pSortableColumn="modelo">
+        <th pSortableColumn="model">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="modelo"
+              field="model"
               class="filter"
               placeholder="Modelo"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="modelo" />
+            <p-sortIcon class="order" field="model" />
           </div>
         </th>
-        <th pSortableColumn="horometroFinal">
+        <th pSortableColumn="finalHorometer">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="horometroFinal"
+              field="finalHorometer"
               class="filter"
               placeholder="Horometro final"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="horometroFinal" />
+            <p-sortIcon class="order" field="finalHorometer" />
           </div>
         </th>
-        <th pSortableColumn="kilometroFinal">
+        <th pSortableColumn="finalKM">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="kilometroFinal"
+              field="finalKM"
               class="filter"
               placeholder="Kilometro final"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="kilometroFinal" />
+            <p-sortIcon class="order" field="finalKM" />
           </div>
         </th>
-        <th pSortableColumn="fecha">
+        <th pSortableColumn="date">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="fecha"
+              field="date"
               class="filter"
               placeholder="Fecha"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="fecha" />
+            <p-sortIcon class="order" field="date" />
           </div>
         </th>
-        <th></th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-horonometrosKilometros>
@@ -115,17 +113,16 @@
         <td>
           <i class="fas fa-pen"></i>
         </td>
-        <td>{{ horonometrosKilometros.centroMaquina }}</td>
-        <td>{{ horonometrosKilometros.subFamilia }}</td>
-        <td>{{ horonometrosKilometros.maquinaria }}</td>
-        <td>{{ horonometrosKilometros.marca }}</td>
-        <td>{{ horonometrosKilometros.modelo }}</td>
-        <td>{{ horonometrosKilometros.horometroFinal }}</td>
-        <td>{{ horonometrosKilometros.kilometroFinal }}</td>
-        <td>{{ horonometrosKilometros.fecha }}</td>
-        <td><img />reload</td>
+        <td>{{ horonometrosKilometros.machineCenter }}</td>
+        <td>{{ horonometrosKilometros.subFamily }}</td>
+        <td>{{ horonometrosKilometros.machinery }}</td>
+        <td>{{ horonometrosKilometros.brand }}</td>
+        <td>{{ horonometrosKilometros.model }}</td>
+        <td>{{ horonometrosKilometros.finalHorometer }}</td>
+        <td>{{ horonometrosKilometros.finalKM }}</td>
+        <td>{{ horonometrosKilometros.date }}</td>
       </tr>
     </ng-template>
   </p-table>
-  <p>Resultado totales: {{ horometrosKilometros?.length || 0 }}</p>
+  <p>Resultado totales: {{ horometrosKilometros.length || 0 }}</p>
 </div>

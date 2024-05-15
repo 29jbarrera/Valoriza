@@ -1,175 +1,163 @@
 <div class="Table">
-  <p-table [value]="gastosTaller || []" [tableStyle]="{ 'min-width': '50rem' }">
+  <p-table [value]="gastosTaller" [tableStyle]="{ 'min-width': '50rem' }">
     <ng-template pTemplate="header">
       <tr>
         <th></th>
-        <th pSortableColumn="centroProveedor">
+        <th pSortableColumn="centerProvider">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="centroProveedor"
+              field="centerProvider"
               class="filter"
               placeholder="Centro proveedor"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="centroProveedor" />
+            <p-sortIcon class="order" field="centerProvider" />
           </div>
         </th>
 
-        <th pSortableColumn="delegacion">
+        <th pSortableColumn="delegation">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="delegacion"
+              field="delegation"
               class="filter"
               placeholder="Delegación"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="delegacion" />
+            <p-sortIcon class="order" field="delegation" />
           </div>
         </th>
-        <th pSortableColumn="fecha">
+        <th pSortableColumn="date">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="fecha"
+              field="date"
               class="filter"
               placeholder="Fecha"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="fecha" />
+            <p-sortIcon class="order" field="date" />
           </div>
         </th>
-        <th pSortableColumn="proveedor">
+        <th pSortableColumn="provider">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="proveedor"
+              field="provider"
               class="filter"
               placeholder="Proveedor"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="proveedor" />
+            <p-sortIcon class="order" field="provider" />
           </div>
         </th>
-        <th pSortableColumn="importe">
+        <th pSortableColumn="amount">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="importe"
+              field="amount"
               class="filter"
               placeholder="Importe"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="importe" />
+            <p-sortIcon class="order" field="amount" />
           </div>
         </th>
-        <th pSortableColumn="divisa">
+        <th pSortableColumn="currency">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="divisa"
+              field="currency"
               class="filter"
               placeholder="Divisa"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="divisa" />
+            <p-sortIcon class="order" field="currency" />
           </div>
         </th>
-        <th pSortableColumn="referenciaMaterial">
+        <th pSortableColumn="materialReference">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="referenciaMaterial"
+              field="materialReference"
               class="filter"
               placeholder="Referencia Material"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="referenciaMaterial" />
+            <p-sortIcon class="order" field="materialReference" />
           </div>
         </th>
-        <th pSortableColumn="descripcionRefMaterial">
+        <th pSortableColumn="descriptionRefMaterial">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="descripcionRefMaterial"
+              field="descriptionRefMaterial"
               class="filter"
               placeholder="Descripción Referencia material"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="descripcionRefMaterial" />
+            <p-sortIcon class="order" field="descriptionRefMaterial" />
           </div>
         </th>
-        <th pSortableColumn="cantidad">
+        <th pSortableColumn="quantity">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="cantidad"
+              field="quantity"
               class="filter"
               placeholder="Cantidad"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="cantidad" />
+            <p-sortIcon class="order" field="quantity" />
           </div>
         </th>
-        <th pSortableColumn="gastoConmutable">
+        <th pSortableColumn="switchableCost">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="gastoConmutable"
+              field="switchableCost"
               class="filter"
               placeholder="Gasto Conmutable"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="gastoConmutable" />
+            <p-sortIcon class="order" field="switchableCost" />
           </div>
         </th>
-        <th pSortableColumn="descripcion">
+        <th pSortableColumn="description">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="descripcion"
+              field="description"
               class="filter"
               placeholder="Descripción"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="descripcion" />
+            <p-sortIcon class="order" field="description" />
           </div>
         </th>
-        <th pSortableColumn="albaran">
+        <th pSortableColumn="deliveryNote">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="albaran"
+              field="deliveryNote"
               class="filter"
               placeholder="Albarán"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="albaran" />
+            <p-sortIcon class="order" field="deliveryNote" />
           </div>
         </th>
-        <th pSortableColumn="archivo">
+        <th pSortableColumn="file">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="archivo"
+              field="file"
               class="filter"
               placeholder="Archivo"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="archivo" />
-          </div>
-        </th>
-        <th pSortableColumn="reload">
-          <div class="flex align-items-center">
-            <p-columnFilter
-              type="text"
-              field="reload"
-              class="filter"
-              placeholder="Reload"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="reload" />
+            <p-sortIcon class="order" field="file" />
           </div>
         </th>
       </tr>
@@ -179,22 +167,21 @@
         <td>
           <i class="fas fa-pen"></i>
         </td>
-        <td>{{ gastosTaller.centroProveedor }}</td>
-        <td>{{ gastosTaller.delegacion }}</td>
-        <td>{{ gastosTaller.fecha }}</td>
-        <td>{{ gastosTaller.importe }}</td>
-        <td>{{ gastosTaller.proveedor }}</td>
-        <td>{{ gastosTaller.divisa }}</td>
-        <td>{{ gastosTaller.referenciaMaterial }}</td>
-        <td>{{ gastosTaller.descripcionRefMaterial }}</td>
-        <td>{{ gastosTaller.cantidad }}</td>
-        <td>{{ gastosTaller.gastoConmutable }}</td>
-        <td>{{ gastosTaller.descripcion }}</td>
-        <td>{{ gastosTaller.albaran }}</td>
-        <td>{{ gastosTaller.archivo }}</td>
-        <td></td>
+        <td>{{ gastosTaller.centerProvider }}</td>
+        <td>{{ gastosTaller.delegation }}</td>
+        <td>{{ gastosTaller.date }}</td>
+        <td>{{ gastosTaller.provider }}</td>
+        <td>{{ gastosTaller.amount }}</td>
+        <td>{{ gastosTaller.currency }}</td>
+        <td>{{ gastosTaller.materialReference }}</td>
+        <td>{{ gastosTaller.descriptionRefMaterial }}</td>
+        <td>{{ gastosTaller.quantity }}</td>
+        <td>{{ gastosTaller.switchableCost }}</td>
+        <td>{{ gastosTaller.description }}</td>
+        <td>{{ gastosTaller.deliveryNote }}</td>
+        <td>{{ gastosTaller.file }}</td>
       </tr>
     </ng-template>
   </p-table>
-  <p>Resultado totales: {{ gastosTaller?.length || 0 }}</p>
+  <p>Resultado totales: {{ gastosTaller.length || 0 }}</p>
 </div>

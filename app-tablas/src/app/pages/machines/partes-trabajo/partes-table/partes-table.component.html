@@ -1,7 +1,7 @@
 <div class="Table">
   <p-table
     #dt
-    [value]="partes || []"
+    [value]="partes"
     dataKey="id"
     [rowsPerPageOptions]="[5, 10, 20]"
     [tableStyle]="{ width: '100%' }"
@@ -10,40 +10,40 @@
   <ng-template pTemplate="header">
     <tr>
       <th></th>
-      <th pSortableColumn="nameCenter">
+      <th pSortableColumn="centerName">
         <div class="flex align-items-center">
           <p-columnFilter
             type="text"
-            field="nameCenter"
+            field="centerName"
             class="filter"
             placeholder="Nombre del centro"
             [showClearButton]="false"
           />
-          <p-sortIcon class="order" field="nameCenter" />
+          <p-sortIcon class="order" field="centerName" />
         </div>
       </th>
-      <th pSortableColumn="delegacion">
+      <th pSortableColumn="delegation">
         <div class="flex align-items-center">
           <p-columnFilter
             type="text"
-            field="delegacion"
+            field="delegation"
             class="filter"
             placeholder="Delegación"
             [showClearButton]="false"
           />
-          <p-sortIcon class="order" field="delegacion" />
+          <p-sortIcon class="order" field="delegation" />
         </div>
       </th>
-      <th pSortableColumn="matricula">
+      <th pSortableColumn="tuition">
         <div class="flex align-items-center">
           <p-columnFilter
             type="text"
-            field="matricula"
+            field="tuition"
             class="filter"
             placeholder="Matrícula"
             [showClearButton]="false"
           />
-          <p-sortIcon class="order" field="matricula" />
+          <p-sortIcon class="order" field="tuition" />
         </div>
       </th>
       <th pSortableColumn="name">
@@ -82,16 +82,16 @@
           <p-sortIcon class="order" field="state" />
         </div>
       </th>
-      <th pSortableColumn="tipeMantenimiento">
+      <th pSortableColumn="maintenanceType">
         <div class="flex align-items-center">
           <p-columnFilter
             type="text"
-            field="tipeMantenimiento"
+            field="maintenanceType"
             class="filter"
             placeholder="Tipo de mantenimiento"
             [showClearButton]="false"
           />
-          <p-sortIcon class="order" field="tipeMantenimiento" />
+          <p-sortIcon class="order" field="maintenanceType" />
         </div>
       </th>
       <th></th>
@@ -103,14 +103,15 @@
       <td>
         <i class="fas fa-pen"></i>
       </td>
-      <td>{{ partes.nameCenter }}</td>
-      <td>{{ partes.delegacion }}</td>
-      <td>{{ partes.matricula }}</td>
+      <td>{{ partes.centerName }}</td>
+      <td>{{ partes.delegation }}</td>
+      <td>{{ partes.tuition }}</td>
       <td>{{ partes.name }}</td>
       <td>{{ partes.date }}</td>
       <td>{{ partes.state }}</td>
-      <td>{{ partes.tipeMantenimiento }}</td>
+      <td>{{ partes.maintenanceType }}</td>
     </tr>
   </ng-template>
   </p-table>
+  <p>Resultado totales: {{ partes.length || 0 }}</p>
 </div>

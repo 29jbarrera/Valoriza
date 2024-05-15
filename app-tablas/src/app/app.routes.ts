@@ -48,7 +48,6 @@ export const routes: Routes = [
       // 1º Vuelta
       { path: 'gastos-taller', component: GastosComponent },
       // TODO
-      { path: 'partes-trabajo', component: PartesTrabajoComponent },
       { path: 'tasas', component: TasasComponent },
       { path: 'tasas-centro', component: TasasCentrosComponent },
       { path: 'ratios-maquinaria', component: RatiosMaquinariaComponent },
@@ -68,6 +67,9 @@ export const routes: Routes = [
       {
         path: 'seguros',
         component: SegurosComponent,
+      },
+      { path: 'partes-trabajo',
+       component: PartesTrabajoComponent
       },
       {
         path: 'marcas',

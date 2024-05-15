@@ -1,7 +1,7 @@
 <div class="Table">
   <p-table
     #dt
-    [value]="ratiosCentro || []"
+    [value]="ratiosCentro"
     dataKey="id"
     [rowsPerPageOptions]="[5, 10, 20]"
     [tableStyle]="{ width: '100%' }"
@@ -10,40 +10,40 @@
     <ng-template pTemplate="header">
       <tr>
         <th></th>
-        <th pSortableColumn="dateDesde">
+        <th pSortableColumn="dateFrom">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="dateDesde"
+              field="dateFrom"
               class="filter"
               placeholder="Fecha desde"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="dateDesde" />
+            <p-sortIcon class="order" field="dateFrom" />
           </div>
         </th>
-        <th pSortableColumn="dateHasta">
+        <th pSortableColumn="dateUntil">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="dateHasta"
+              field="dateUntil"
               class="filter"
               placeholder="Fecha hasta"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="dateHasta" />
+            <p-sortIcon class="order" field="dateUntil" />
           </div>
         </th>
-        <th pSortableColumn="centro">
+        <th pSortableColumn="centre">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="centro"
+              field="centre"
               class="filter"
               placeholder="Centro"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="centro" />
+            <p-sortIcon class="order" field="centre" />
           </div>
         </th>
         <th pSortableColumn="repairs">
@@ -58,64 +58,64 @@
             <p-sortIcon class="order" field="repairs" />
           </div>
         </th>
-        <th pSortableColumn="seguro">
+        <th pSortableColumn="insurance">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="seguro"
+              field="insurance"
               class="filter"
               placeholder="Seguro"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="seguro" />
+            <p-sortIcon class="order" field="insurance" />
           </div>
         </th>
-        <th pSortableColumn="impuesto">
+        <th pSortableColumn="tax">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="impuesto"
+              field="tax"
               class="filter"
               placeholder="Impuesto"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="impuesto" />
+            <p-sortIcon class="order" field="tax" />
           </div>
         </th>
-        <th pSortableColumn="amortizaciones">
+        <th pSortableColumn="Amortization">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="amortizaciones"
+              field="Amortization"
               class="filter"
               placeholder="Amortizaciones"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="amortizaciones" />
+            <p-sortIcon class="order" field="Amortization" />
           </div>
         </th>
-        <th pSortableColumn="financieros">
+        <th pSortableColumn="financial">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="financieros"
+              field="financial"
               class="filter"
               placeholder="Financieros"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="financieros" />
+            <p-sortIcon class="order" field="financial" />
           </div>
         </th>
-        <th pSortableColumn="tasa">
+        <th pSortableColumn="rate">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="tasa"
+              field="rate"
               class="filter"
               placeholder="Tasa"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="tasa" />
+            <p-sortIcon class="order" field="rate" />
           </div>
         </th>
         <th pSortableColumn="ratio">
@@ -130,16 +130,16 @@
             <p-sortIcon class="order" field="ratio" />
           </div>
         </th>
-        <th pSortableColumn="divisa">
+        <th pSortableColumn="currency">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="divisa"
+              field="currency"
               class="filter"
               placeholder="Divisa"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="divisa" />
+            <p-sortIcon class="order" field="currency" />
           </div>
         </th>
       </tr>
@@ -150,18 +150,20 @@
         <td>
           <i class="fas fa-pen"></i>
         </td>
-        <td>{{ ratiosCentro.dateDesde }}</td>
-        <td>{{ ratiosCentro.dateHasta }}</td>
-        <td>{{ ratiosCentro.centro }}</td>
+        <td>{{ ratiosCentro.dateFrom }}</td>
+        <td>{{ ratiosCentro.dateUntil }}</td>
+        <td>{{ ratiosCentro.centre }}</td>
         <td>{{ ratiosCentro.repairs }}</td>
-        <td>{{ ratiosCentro.seguro }}</td>
-        <td>{{ ratiosCentro.impuesto }}</td>
-        <td>{{ ratiosCentro.amortizaciones }}</td>
-        <td>{{ ratiosCentro.financieros }}</td>
-        <td>{{ ratiosCentro.tasa }}</td>
+        <td>{{ ratiosCentro.insurance }}</td>
+        <td>{{ ratiosCentro.tax }}</td>
+        <td>{{ ratiosCentro.Amortization }}</td>
+        <td>{{ ratiosCentro.financial }}</td>
+        <td>{{ ratiosCentro.rate }}</td>
         <td>{{ ratiosCentro.ratio }}</td>
-        <td>{{ ratiosCentro.divisa }}</td>
+        <td>{{ ratiosCentro.currency }}</td>
       </tr>
     </ng-template>
   </p-table>
+  <p>Resultado totales: {{ ratiosCentro.length || 0 }}</p>
+
 </div>

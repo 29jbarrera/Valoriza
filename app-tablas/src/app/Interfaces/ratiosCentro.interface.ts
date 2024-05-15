@@ -1,13 +1,13 @@
 export interface RatiosCentro{
-  dateDesde: Date;
-  dateHasta: Date;
-  centro: string;
+  dateFrom: Date;
+  dateUntil: Date;
+  centre: string;
   repairs: number;
-  seguro: number;
-  impuesto: number;
-  amortizaciones: number;
-  financieros: number;
-  tasa: number;
+  insurance: number;
+  tax: number;
+  Amortization: number;
+  financial: number;
+  rate: number;
   ratio: number;
-  divisa: string;
+  currency: string;
 }

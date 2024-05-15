@@ -45,26 +45,26 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './partes-table.component.css',
 })
 export class PartesTableComponent implements OnInit {
-  partes: Partes[] | undefined;
+  partes: Partes[] = [];
   searchForm: FormGroup;
 
   constructor(private PartesService: PartesService, private fb: FormBuilder) {
     this.searchForm = this.fb.group({
-      nameCenter: [''],
-      datedelegacionHasta: [''],
-      matricula: [''],
+      centerName: [''],
+      delegation: [''],
+      tuition: [''],
       name: [''],
       date: [''],
       state: [''],
-      tipeMantenimiento: [''],
+      maintenanceType: [''],
     });
   }
 
   ngOnInit() {
-    this.actualizarTabla();
+    this.updateTable();
   }
 
-  async actualizarTabla() {
+  async updateTable() {
     this.partes = await this.PartesService.getPartes();
   }
 }

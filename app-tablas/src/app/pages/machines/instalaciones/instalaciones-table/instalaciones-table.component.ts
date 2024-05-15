@@ -16,7 +16,7 @@ import { InstalacionesService } from '../../../../service/instalaciones.service'
   styleUrl: './instalaciones-table.component.css'
 })
 export class InstalacionesTableComponent implements OnInit {
-  instalaciones: Instalaciones[] | undefined;
+  instalaciones: Instalaciones[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -24,16 +24,16 @@ export class InstalacionesTableComponent implements OnInit {
     private fb: FormBuilder
   ) {
     this.searchForm = this.fb.group({
-      centroInstalacion: [''],
-      nombre: [''],
-      comentarios: [''],
+      installationCentre: [''],
+      name: [''],
+      comments: [''],
     });
   }
   ngOnInit() {
-    this.actualizarTabla();
+    this.updateTable();
   }
 
-  async actualizarTabla() {
+  async updateTable() {
     this.instalaciones = await this.InstalacionesService.getInstalaciones();
   }
 }

@@ -45,30 +45,30 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './ratios-centro-table.component.css',
 })
 export class RatiosCentroTableComponent implements OnInit {
-  ratiosCentro: RatiosCentro[] | undefined;
+  ratiosCentro: RatiosCentro[] = [];
   searchForm: FormGroup;
 
   constructor (private RatiosCentroService: RatiosCentroService, private fb: FormBuilder){
     this.searchForm = this.fb.group({
-      dateDesde:[''],
-      dateHasta:[''],
-      centro:[''],
+      dateFrom:[''],
+      dateUntil:[''],
+      centre:[''],
       repairs:[''],
-      seguro:[''],
-      impuesto:[''],
-      amortizaciones:[''],
-      financieros:[''],
-      tasa:[''],
+      insurance:[''],
+      tax:[''],
+      Amortization:[''],
+      financial:[''],
+      rate:[''],
       ratio:[''],
-      divisa:[''],
+      currency:[''],
     });
   }
 
   ngOnInit() {
-    this.actualizarTabla();
+    this.updateTable();
   }
 
-  async actualizarTabla() {
+  async updateTable() {
     this.ratiosCentro = await this.RatiosCentroService.getRatios();
   }
 }

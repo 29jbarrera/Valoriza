@@ -45,23 +45,23 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './gnc-table.component.css',
 })
 export class GncTableComponent implements OnInit {
-  gnc: Gnc[] | undefined;
+  gnc: Gnc[] = [];
   searchForm: FormGroup;
   constructor(private GncService: GncService, private fb: FormBuilder) {
     this.searchForm = this.fb.group({
-      maquinaria: [''],
-      nombrecentro: [''],
-      delegacion: [''],
-      familia: [],
-      subfamilia: [''],
-      fechaproxima: [''],
+      machinery: [''],
+      centerName: [''],
+      delegation: [''],
+      family: [],
+      subFamily: [''],
+      nextDate: [''],
     });
   }
   ngOnInit() {
-    this.actualizarTabla();
+    this.updateTable();
   }
 
-  async actualizarTabla() {
+  async updateTable() {
     this.gnc = await this.GncService.getGnc();
   }
 }

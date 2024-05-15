@@ -45,31 +45,31 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './ratios-maquinaria-table.component.css',
 })
 export class RatiosMaquinariaTableComponent implements OnInit {
-  ratiosMaquinaria: RatiosMaquinaria[] | undefined;
+  ratiosMaquinaria: RatiosMaquinaria[] = [];
   searchForm: FormGroup;
 
   constructor (private RatiosMaquinariaService: RatiosMaquinariaService, private fb: FormBuilder){
     this.searchForm = this.fb.group({
-      dateDesde:[''],
-      dateHasta:[''],
-      matricula:[''],
-      centro:[''],
+      dateFrom:[''],
+      dateUntil:[''],
+      tuition:[''],
+      centre:[''],
       repairs:[''],
-      seguro:[''],
-      impuesto:[''],
-      amortizaciones:[''],
-      financieros:[''],
-      tasa:[''],
+      insurance:[''],
+      tax:[''],
+      amortization:[''],
+      financial:[''],
+      rate:[''],
       ratio:[''],
-      divisa:[''],
+      currency:[''],
     });
   }
 
   ngOnInit() {
-    this.actualizarTabla();
+    this.updateTable();
   }
 
-  async actualizarTabla() {
+  async updateTable() {
     this.ratiosMaquinaria = await this.RatiosMaquinariaService.getRatiosMaquinaria();
   }
 }

@@ -26,17 +26,17 @@ export class RatiosCentroService {
     );
     for (let i = 0; i < 100; i++) {
       ratios.push({
-        dateDesde: randomDate,
-        dateHasta: randomDate,
-        centro: randCompanyName(),
+        dateFrom: randomDate,
+        dateUntil: randomDate,
+        centre: randCompanyName(),
         repairs: randAmount({ min: 1, max: 20 }),
-        seguro: randAmount({ min: 1, max: 20 }),
-        impuesto: randAmount({ min: 1, max: 20 }),
-        amortizaciones: randAmount({ min: 1, max: 20 }),
-        financieros: randAmount({ min: 1, max: 20 }),
-        tasa: randAmount({ min: 1, max: 20 }),
+        insurance: randAmount({ min: 1, max: 20 }),
+        tax: randAmount({ min: 1, max: 20 }),
+        Amortization: randAmount({ min: 1, max: 20 }),
+        financial: randAmount({ min: 1, max: 20 }),
+        rate: randAmount({ min: 1, max: 20 }),
         ratio: randAmount({ min: 1, max: 20 }),
-        divisa: randCurrencyName(),
+        currency: randCurrencyName(),
       });
     }
     return ratios;

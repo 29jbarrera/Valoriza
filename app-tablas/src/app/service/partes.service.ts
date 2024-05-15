@@ -1,15 +1,9 @@
 import { Injectable } from '@angular/core';
 import {
   rand,
-  randAmount,
-  randArn,
-  randBrand,
   randCompanyName,
   randCurrencyName,
   randProductDescription,
-  randVehicleManufacturer,
-  randVehicleModel,
-  seed,
 } from '@ngneat/falso';
 
 import { Partes } from '../Interfaces/parte.interface';
@@ -27,13 +21,13 @@ export class PartesService {
     );
     for (let i = 0; i < 100; i++) {
       partes.push({
-        nameCenter: randCompanyName(),
-        delegacion: randCurrencyName(),
-        matricula: randProductDescription(),
+        centerName: randCompanyName(),
+        delegation: randCurrencyName(),
+        tuition: randProductDescription(),
         name: randCurrencyName(),
         date: randomDate,
         state: randCurrencyName(),
-        tipeMantenimiento: randCurrencyName(),
+        maintenanceType: randCurrencyName(),
       });
     }
     return partes;

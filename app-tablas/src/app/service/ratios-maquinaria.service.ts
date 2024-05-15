@@ -3,19 +3,14 @@ import {
   rand,
   randAmount,
   randArn,
-  randBrand,
   randCompanyName,
   randCurrencyName,
-  randProductDescription,
-  randVehicleManufacturer,
-  randVehicleModel,
-  seed,
 } from '@ngneat/falso';
 
 import { RatiosMaquinaria } from '../Interfaces/ratiosMaquinaria.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class RatiosMaquinariaService {
   constructor() {}
@@ -27,18 +22,18 @@ export class RatiosMaquinariaService {
     );
     for (let i = 0; i < 100; i++) {
       ratiosMaquinaria.push({
-        dateDesde: randomDate,
-        dateHasta: randomDate,
-        matricula: randArn(),
-        centro: randCompanyName(),
+        dateFrom: randomDate,
+        dateUntil: randomDate,
+        tuition: randArn(),
+        centre: randCompanyName(),
         repairs: randAmount({ min: 1, max: 20 }),
-        seguro: randAmount({ min: 1, max: 20 }),
-        impuesto: randAmount({ min: 1, max: 20 }),
-        amortizaciones: randAmount({ min: 1, max: 20 }),
-        financieros: randAmount({ min: 1, max: 20 }),
-        tasa: randAmount({ min: 1, max: 20 }),
+        insurance: randAmount({ min: 1, max: 20 }),
+        tax: randAmount({ min: 1, max: 20 }),
+        amortization: randAmount({ min: 1, max: 20 }),
+        financial: randAmount({ min: 1, max: 20 }),
+        rate: randAmount({ min: 1, max: 20 }),
         ratio: randAmount({ min: 1, max: 20 }),
-        divisa: randCurrencyName(),
+        currency: randCurrencyName(),
       });
     }
     return ratiosMaquinaria;

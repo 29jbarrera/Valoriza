@@ -45,7 +45,7 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './preventivo-table.component.css',
 })
 export class PreventivoTableComponent implements OnInit {
-  preventivo: Preventivo[] | undefined;
+  preventivo: Preventivo[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -53,22 +53,22 @@ export class PreventivoTableComponent implements OnInit {
     private fb: FormBuilder
   ) {
     this.searchForm = this.fb.group({
-      centroMaquina: [''],
-      subfamilia: [''],
-      maquinaria: [''],
-      nivel: [''],
-      posicion: [''],
-      horromMant: [''],
+      machineCenter: [''],
+      subfamily: [''],
+      machinery: [''],
+      level: [''],
+      position: [''],
+      horromMaint: [''],
       horromFinal: [''],
-      kmMant: [''],
+      kmMaint: [''],
       kmFinal: [''],
-      fecha: [''],
+      date: [''],
     });
   }
   ngOnInit() {
-    this.actualizarTabla();
+    this.updateTable();
   }
-  async actualizarTabla() {
+  async updateTable() {
     this.preventivo = await this.PreventivoService.getPreventivo();
   }
 }

@@ -1,8 +1,8 @@
 export interface Gruas {
-  maquinaria: string;
-  centro: string;
-  delegacion: string;
-  familia: string;
-  subfamilia: string;
-  fechaproxima: string;
+  machinery: string;
+  center: string;
+  delegation: string;
+  family: string;
+  subFamily: string;
+  nextDate: string;
 }

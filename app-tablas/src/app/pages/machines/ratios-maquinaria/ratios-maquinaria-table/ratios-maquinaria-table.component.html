@@ -1,7 +1,7 @@
 <div class="Table">
   <p-table
     #dt
-    [value]="ratiosMaquinaria || []"
+    [value]="ratiosMaquinaria"
     dataKey="id"
     [rowsPerPageOptions]="[5, 10, 20]"
     [tableStyle]="{ width: '100%' }"
@@ -162,19 +162,21 @@
         <td>
           <i class="fas fa-pen"></i>
         </td>
-        <td>{{ ratiosMaquinaria.dateDesde }}</td>
-        <td>{{ ratiosMaquinaria.dateHasta }}</td>
-        <td>{{ ratiosMaquinaria.matricula }}</td>
-        <td>{{ ratiosMaquinaria.centro }}</td>
+        <td>{{ ratiosMaquinaria.dateFrom }}</td>
+        <td>{{ ratiosMaquinaria.dateUntil }}</td>
+        <td>{{ ratiosMaquinaria.tuition }}</td>
+        <td>{{ ratiosMaquinaria.centre }}</td>
         <td>{{ ratiosMaquinaria.repairs }}</td>
-        <td>{{ ratiosMaquinaria.seguro }}</td>
-        <td>{{ ratiosMaquinaria.impuesto }}</td>
-        <td>{{ ratiosMaquinaria.amortizaciones }}</td>
-        <td>{{ ratiosMaquinaria.financieros }}</td>
-        <td>{{ ratiosMaquinaria.tasa }}</td>
+        <td>{{ ratiosMaquinaria.insurance }}</td>
+        <td>{{ ratiosMaquinaria.tax }}</td>
+        <td>{{ ratiosMaquinaria.amortization }}</td>
+        <td>{{ ratiosMaquinaria.financial }}</td>
+        <td>{{ ratiosMaquinaria.rate }}</td>
         <td>{{ ratiosMaquinaria.ratio }}</td>
-        <td>{{ ratiosMaquinaria.divisa }}</td>
+        <td>{{ ratiosMaquinaria.currency }}</td>
       </tr>
     </ng-template>
   </p-table>
+  <p>Resultado totales: {{ ratiosMaquinaria.length || 0 }}</p>
+
 </div>

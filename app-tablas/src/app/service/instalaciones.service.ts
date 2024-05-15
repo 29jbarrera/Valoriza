@@ -10,19 +10,19 @@ export class InstalacionesService {
   async getInstalaciones(): Promise<Instalaciones[]> {
     const instalaciones: Instalaciones[] = [
       {
-        centroInstalacion: 'centro1',
-        nombre: 'Nombre1',
-        comentarios: 'Comentario número 1',
+        installationCentre: 'centro1',
+        name: 'Nombre1',
+        comments: 'Comentario número 1',
       },
       {
-        centroInstalacion: 'centro2',
-        nombre: 'Nombre2',
-        comentarios: 'Comentario número 2',
+        installationCentre: 'centro2',
+        name: 'Nombre2',
+        comments: 'Comentario número 2',
       },
       {
-        centroInstalacion: 'centro3',
-        nombre: 'Nombre3',
-        comentarios: 'Comentario número 3',
+        installationCentre: 'centro3',
+        name: 'Nombre3',
+        comments: 'Comentario número 3',
       },
     ];
     return instalaciones;

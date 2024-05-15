@@ -1,14 +1,14 @@
 export interface RatiosMaquinaria {
-  dateDesde: Date;
-  dateHasta: Date;
-  matricula:string;
-  centro: string;
+  dateFrom: Date;
+  dateUntil: Date;
+  tuition:string;
+  centre: string;
   repairs: number;
-  seguro: number;
-  impuesto: number;
-  amortizaciones: number;
-  financieros: number;
-  tasa: number;
+  insurance: number;
+  tax: number;
+  amortization: number;
+  financial: number;
+  rate: number;
   ratio: number;
-  divisa: string;
+  currency: string;
 }
