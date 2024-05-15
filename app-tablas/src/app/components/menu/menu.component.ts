@@ -266,6 +266,12 @@ export class MenuComponent {
           path: 'niveles-accion',
           n: Math.round(Math.random() * 100),
         },
+        {
+          class: 'fas fa-sort-amount-up',
+          name: 'Niveles',
+          path: 'niveles',
+          n: Math.round(Math.random() * 100),
+        },
       ],
     },
   ];

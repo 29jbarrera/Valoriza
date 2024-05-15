@@ -28,6 +28,7 @@ import { RepostajeVehiculosComponent } from './pages/management/repostaje-vehicu
 import { FamiliasSubfamiliasComponent } from './pages/administration/familias-subfamilias/familias-subfamilias.component';
 import { LimiteAvisosComponent } from './pages/administration/limite-avisos/limite-avisos.component';
 import { NivelesAccionComponent } from './pages/administration/niveles-accion/niveles-accion.component';
+import { NivelesComponent } from './pages/administration/niveles/niveles.component';
 
 export const routes: Routes = [
   {
@@ -118,6 +119,10 @@ export const routes: Routes = [
       {
         path: 'niveles-accion',
         component: NivelesAccionComponent,
+      },
+      {
+        path: 'niveles',
+        component: NivelesComponent,
       },
     ],
   },

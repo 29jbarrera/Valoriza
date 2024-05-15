@@ -1,0 +1,95 @@
+<div class="Table">
+  <p-table [value]="niveles || []" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header">
+      <tr>
+        <th></th>
+        <th pSortableColumn="code">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="code"
+              class="filter"
+              placeholder="Código"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="code" />
+          </div>
+        </th>
+        <th pSortableColumn="frequency">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="frequency"
+              class="filter"
+              placeholder="Frecuencia"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="frequency" />
+          </div>
+        </th>
+        <th pSortableColumn="type">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="type"
+              class="filter"
+              placeholder="Tipo"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="type" />
+          </div>
+        </th>
+        <th pSortableColumn="average">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="average"
+              class="filter"
+              placeholder="Media"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="average" />
+          </div>
+        </th>
+        <th pSortableColumn="periodic">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="periodic"
+              class="filter"
+              placeholder="Es Periódico"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="periodic" />
+          </div>
+        </th>
+        <th pSortableColumn="startDate">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="startDate"
+              class="filter"
+              placeholder="Fecha Inicio"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="startDate" />
+          </div>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-niveles>
+      <tr class="body-table">
+        <td>
+          <i class="fas fa-pen"></i>
+        </td>
+        <td>{{ niveles.code }}</td>
+        <td>{{ niveles.frequency }}</td>
+        <td>{{ niveles.type }}</td>
+        <td>{{ niveles.average }}</td>
+        <td>{{ niveles.periodic }}</td>
+        <td>{{ niveles.startDate }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <p>Resultado totales: {{ niveles?.length || 0 }}</p>
+</div>
