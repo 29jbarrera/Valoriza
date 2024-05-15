@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angul
 import { CommonModule } from '@angular/common';
 
 import { StockService } from '../../../../service/stock.service';
-
 import { Stock } from '../../../../Interfaces/stock.interface';
 
 import { TableModule } from 'primeng/table';
@@ -34,11 +33,6 @@ import { ButtonModule } from 'primeng/button';
     ReactiveFormsModule,
     ButtonModule,
     FormsModule,
-    // FormlyModule.configure({
-    //   validationMessages: [
-    //     { name: 'required', message: 'This field is required' },
-    //   ],
-    // }),
     FormlyModule,
     FormlyPrimeNGModule,
   ],
@@ -55,29 +49,23 @@ export class StockTableComponent implements OnInit {
   fields: FormlyFieldConfig[] = [{
     key: 'email',
     type: 'input',
-    // templateOptions: {
-    //   type: 'email',
-    //   label: 'Email Address',
-    //   placeholder: 'Enter email',
-    //   required: true,
-    // }
   }];
   constructor(private StockService: StockService, private fb: FormBuilder) {
     this.searchForm = this.fb.group({
-      nombreCentro: [''],
-      nombreReferenciaMaterial: [''],
-      descripcionRefMaterial: [''],
-      cantidad: [''],
-      importe: [''],
-      divisa: [''],
+      centerName: [''],
+      nameMaterialReference: [''],
+      descriptionMaterialReference: [''],
+      quantity: [''],
+      amount: [''],
+      currency: [''],
     });
   }
 
   ngOnInit() {
-    this.actualizarTabla();
+    this.updateTable();
   }
 
-  async actualizarTabla() {
+  async updateTable() {
     this.stock = await this.StockService.getStock();
   }
 

@@ -45,25 +45,25 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './tacografos-table.component.css',
 })
 export class TacografosTableComponent implements OnInit {
-  tacografos: Tacografo[] | undefined;
+  tacografos: Tacografo[] = [];
   searchForm: FormGroup;
 
   constructor (private TacografosService: TacografosService, private fb: FormBuilder){
     this.searchForm = this.fb.group({
-      maquinaria:[''],
+      machinery:[''],
       center:[''],
       delegation:[''],
       family:[''],
       subFamily:[''],
-      dateProx:[''],
+      nextDate:[''],
     });
   }
 
   ngOnInit() {
-    this.actualizarTabla();
+    this.updateTable();
   }
 
-  async actualizarTabla() {
+  async updateTable() {
     this.tacografos = await this.TacografosService.getTacografos();
   }
 }

@@ -1,7 +1,7 @@
 <div class="Table">
   <p-table
     #dt
-    [value]="tasasCentro || []"
+    [value]="tasasCentro"
     dataKey="id"
     [rowsPerPageOptions]="[5, 10, 20]"
     [tableStyle]="{ width: '100%' }"
@@ -10,28 +10,28 @@
     <ng-template pTemplate="header">
       <tr>
         <th></th>
-        <th pSortableColumn="dateDesde">
+        <th pSortableColumn="dateForm">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="dateDesde"
+              field="dateForm"
               class="filter"
               placeholder="Fecha desde"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="dateDesde" />
+            <p-sortIcon class="order" field="dateForm" />
           </div>
         </th>
-        <th pSortableColumn="dateHasta">
+        <th pSortableColumn="dateUntil">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="dateHasta"
+              field="dateUntil"
               class="filter"
               placeholder="Fecha hasta"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="dateHasta" />
+            <p-sortIcon class="order" field="dateUntil" />
           </div>
         </th>
         <th pSortableColumn="delegation">
@@ -102,8 +102,8 @@
         <td>
           <i class="fas fa-pen"></i>
         </td>
-        <td>{{ tasasCentro.dateDesde }}</td>
-        <td>{{ tasasCentro.dateHasta }}</td>
+        <td>{{ tasasCentro.dateForm }}</td>
+        <td>{{ tasasCentro.dateUntil }}</td>
         <td>{{ tasasCentro.delegation }}</td>
         <td>{{ tasasCentro.code }}</td>
         <td>{{ tasasCentro.name }}</td>
@@ -112,4 +112,6 @@
       </tr>
     </ng-template>
   </p-table>
+  <p>Resultado totales: {{ tasasCentro.length || 0 }}</p>
+
 </div>

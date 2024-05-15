@@ -45,7 +45,7 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './reparaciones-centro-table.component.css'
 })
 export class ReparacionesCentroTableComponent implements OnInit {
-  reparacionesCentro: ReparacionesCentro[] | undefined;
+  reparacionesCentro: ReparacionesCentro[] = [];
   searchForm: FormGroup;
 
   constructor (private ReparacionesCentroService: ReparacionesCentroService, private fb: FormBuilder){
@@ -58,10 +58,10 @@ export class ReparacionesCentroTableComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.actualizarTabla();
+    this.updateTable();
   }
 
-  async actualizarTabla() {
+  async updateTable() {
     this.reparacionesCentro = await this.ReparacionesCentroService.getReparacionesCentro();
   }
 }

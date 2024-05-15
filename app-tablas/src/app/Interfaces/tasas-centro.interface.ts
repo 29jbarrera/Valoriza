@@ -1,6 +1,6 @@
 export interface TasasCentro {
-  dateDesde: Date;
-  dateHasta: Date;
+  dateForm: Date;
+  dateUntil: Date;
   delegation: string;
   code: string;
   name: string;

@@ -1,16 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-  rand,
-  randAmount,
-  randArn,
-  randBrand,
-  randCompanyName,
-  randCurrencyName,
-  randProductDescription,
-  randVehicleManufacturer,
-  randVehicleModel,
-  seed,
-} from '@ngneat/falso';
+import { rand, randAmount, randCurrencyName } from '@ngneat/falso';
 
 import { Tasas } from '../Interfaces/tasas.interface';
 
@@ -27,21 +16,21 @@ export class TasasService {
     );
     for (let i = 0; i < 100; i++) {
       tasas.push({
-        dateDesde: randomDate,
-        dateHasta: randomDate,
-        centroMaquina: randCurrencyName(),
-        subFamilia: randCurrencyName(),
-        matricula: randCurrencyName(),
-        bastidor: randCurrencyName(),
-        tasaTotal: randAmount({ min: 1, max: 20 }),
-        tasaChasis: randAmount({ min: 1, max: 20 }),
-        divisa: randCurrencyName(),
-        implemento1: randCurrencyName(),
-        tasa1: randAmount({ min: 1, max: 20 }),
-        divisa1: randCurrencyName(),
-        implemento2: randCurrencyName(),
-        tasa2: randAmount({ min: 1, max: 20 }),
-        divisa2: randCurrencyName(),
+        dateFrom: randomDate,
+        dateUntil: randomDate,
+        machineCentre: randCurrencyName(),
+        subFamily: randCurrencyName(),
+        tuition: randCurrencyName(),
+        frame: randCurrencyName(),
+        totalRate: randAmount({ min: 1, max: 20 }),
+        chassisRate: randAmount({ min: 1, max: 20 }),
+        currency: randCurrencyName(),
+        implement1: randCurrencyName(),
+        rate1: randAmount({ min: 1, max: 20 }),
+        currency1: randCurrencyName(),
+        implement2: randCurrencyName(),
+        rate2: randAmount({ min: 1, max: 20 }),
+        currency2: randCurrencyName(),
       });
     }
     return tasas;

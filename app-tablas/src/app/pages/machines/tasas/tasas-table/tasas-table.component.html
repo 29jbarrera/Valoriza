@@ -1,7 +1,7 @@
 <div class="Table">
   <p-table
     #dt
-    [value]="tasas || []"
+    [value]="tasas"
     dataKey="id"
     [rowsPerPageOptions]="[5, 10, 20]"
     [tableStyle]="{ width: '100%' }"
@@ -10,184 +10,184 @@
     <ng-template pTemplate="header">
       <tr>
         <th></th>
-        <th pSortableColumn="dateDesde">
+        <th pSortableColumn="dateFrom">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="dateDesde"
+              field="dateFrom"
               class="filter"
               placeholder="Fecha desde"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="dateDesde" />
+            <p-sortIcon class="order" field="dateFrom" />
           </div>
         </th>
-        <th pSortableColumn="dateHasta">
+        <th pSortableColumn="dateUntil">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="dateHasta"
+              field="dateUntil"
               class="filter"
               placeholder="Fecha hasta"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="dateHasta" />
+            <p-sortIcon class="order" field="dateUntil" />
           </div>
         </th>
-        <th pSortableColumn="centroMaquina">
+        <th pSortableColumn="machineCentre">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="centroMaquina"
+              field="machineCentre"
               class="filter"
               placeholder="Centro Máquina"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="centroMaquina" />
+            <p-sortIcon class="order" field="machineCentre" />
           </div>
         </th>
-        <th pSortableColumn="subFamilia">
+        <th pSortableColumn="subFamily">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="subFamilia"
+              field="subFamily"
               class="filter"
               placeholder="Subfamilia"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="subFamilia" />
+            <p-sortIcon class="order" field="subFamily" />
           </div>
         </th>
-        <th pSortableColumn="matricula">
+        <th pSortableColumn="tuition">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="matricula"
+              field="tuition"
               class="filter"
               placeholder="Matrícula"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="matricula" />
+            <p-sortIcon class="order" field="tuition" />
           </div>
         </th>
-        <th pSortableColumn="bastidor">
+        <th pSortableColumn="frame">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="bastidor"
+              field="frame"
               class="filter"
               placeholder="Bastidor"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="bastidor" />
+            <p-sortIcon class="order" field="frame" />
           </div>
         </th>
-        <th pSortableColumn="tasaTotal">
+        <th pSortableColumn="totalRate">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="tasaTotal"
+              field="totalRate"
               class="filter"
               placeholder="Tasa total"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="tasaTotal" />
+            <p-sortIcon class="order" field="totalRate" />
           </div>
         </th>
-        <th pSortableColumn="tasaChasis">
+        <th pSortableColumn="chassisRate">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="tasaChasis"
+              field="chassisRate"
               class="filter"
               placeholder="Tasa chasis"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="tasaChasis" />
+            <p-sortIcon class="order" field="chassisRate" />
           </div>
         </th>
-        <th pSortableColumn="divisa">
+        <th pSortableColumn="currency">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="divisa"
+              field="currency"
               class="filter"
               placeholder="Divisa"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="divisa" />
+            <p-sortIcon class="order" field="currency" />
           </div>
         </th>
-        <th pSortableColumn="implemento1">
+        <th pSortableColumn="implement1">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="implemento1"
+              field="implement1"
               class="filter"
               placeholder="Implemento 1"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="implemento1" />
+            <p-sortIcon class="order" field="implement1" />
           </div>
         </th>
-        <th pSortableColumn="tasa1">
+        <th pSortableColumn="rate1">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="tasa1"
+              field="rate1"
               class="filter"
               placeholder="Tasa 1"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="tasa1" />
+            <p-sortIcon class="order" field="rate1" />
           </div>
         </th>
-        <th pSortableColumn="divisa1">
+        <th pSortableColumn="currency1">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="divisa1"
+              field="currency1"
               class="filter"
               placeholder="Divisa 1"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="divisa1" />
+            <p-sortIcon class="order" field="currency1" />
           </div>
         </th>
-        <th pSortableColumn="implemento2">
+        <th pSortableColumn="implement2">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="implemento2"
+              field="implement2"
               class="filter"
               placeholder="Implemento 2"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="implemento2" />
+            <p-sortIcon class="order" field="implement2" />
           </div>
         </th>
-        <th pSortableColumn="tasa2">
+        <th pSortableColumn="rate2">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="tasa2"
+              field="rate2"
               class="filter"
               placeholder="Tasa 2"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="tasa2" />
+            <p-sortIcon class="order" field="rate2" />
           </div>
         </th>
-        <th pSortableColumn="divisa2">
+        <th pSortableColumn="currency2">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="divisa2"
+              field="currency2"
               class="filter"
               placeholder="Divisa 2"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="divisa2" />
+            <p-sortIcon class="order" field="currency2" />
           </div>
         </th>
         <th></th>
@@ -199,22 +199,24 @@
         <td>
           <i class="fas fa-pen"></i>
         </td>
-        <td>{{ tasas.dateDesde }}</td>
-        <td>{{ tasas.dateHasta }}</td>
-        <td>{{ tasas.centroMaquina }}</td>
-        <td>{{ tasas.subFamilia }}</td>
-        <td>{{ tasas.matricula }}</td>
-        <td>{{ tasas.bastidor }}</td>
-        <td>{{ tasas.tasaTotal }}</td>
-        <td>{{ tasas.tasaChasis }}</td>
-        <td>{{ tasas.divisa }}</td>
-        <td>{{ tasas.implemento1 }}</td>
-        <td>{{ tasas.tasa1 }}</td>
-        <td>{{ tasas.divisa1 }}</td>
-        <td>{{ tasas.implemento2 }}</td>
-        <td>{{ tasas.tasa2 }}</td>
-        <td>{{ tasas.divisa2 }}</td>
+        <td>{{ tasas.dateFrom }}</td>
+        <td>{{ tasas.dateUntil }}</td>
+        <td>{{ tasas.machineCentre }}</td>
+        <td>{{ tasas.subFamily }}</td>
+        <td>{{ tasas.tuition }}</td>
+        <td>{{ tasas.frame }}</td>
+        <td>{{ tasas.totalRate }}</td>
+        <td>{{ tasas.chassisRate }}</td>
+        <td>{{ tasas.currency }}</td>
+        <td>{{ tasas.implement1 }}</td>
+        <td>{{ tasas.rate1 }}</td>
+        <td>{{ tasas.currency1 }}</td>
+        <td>{{ tasas.implement2 }}</td>
+        <td>{{ tasas.rate2 }}</td>
+        <td>{{ tasas.currency2 }}</td>
       </tr>
     </ng-template>
   </p-table>
+  <p>Resultado totales: {{ tasas.length || 0 }}</p>
+
 </div>

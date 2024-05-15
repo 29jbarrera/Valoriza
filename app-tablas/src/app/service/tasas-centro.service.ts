@@ -20,8 +20,8 @@ export class TasasCentroService {
     const randomDate = new Date(rand([new Date().getTime()]) as number);
     for (let i = 0; i < 100; i++) {
       tasasCentro.push({
-        dateDesde: randomDate,
-        dateHasta: randomDate,
+        dateForm: randomDate,
+        dateUntil: randomDate,
         delegation: randCurrencyName(),
         code: randCompanyName(),
         name: randCurrencyName(),

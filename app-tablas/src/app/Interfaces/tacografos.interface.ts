@@ -1,8 +1,8 @@
 export interface Tacografo{
-  maquinaria: string,
+  machinery: string,
   center: string,
   delegation: string,
   family: string,
   subFamily: string,
-  dateProx:Date,
+  nextDate:Date,
 }

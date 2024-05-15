@@ -45,34 +45,34 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './tasas-table.component.css',
 })
 export class TasasTableComponent implements OnInit {
-  tasas: Tasas[] | undefined;
+  tasas: Tasas[] = [];
   searchForm: FormGroup;
 
   constructor(private TasasService: TasasService, private fb: FormBuilder) {
     this.searchForm = this.fb.group({
-      dateDesde: [''],
-      dateHasta: [''],
-      centroMaquina: [''],
-      subFamilia: [''],
-      matricula: [''],
-      bastidor: [''],
-      tasaTotal: [''],
-      tasaChasis: [''],
-      divisa: [''],
-      implemento1: [''],
-      tasa1: [''],
-      divisa1: [''],
-      implemento2: [''],
-      tasa2: [''],
-      divisa2: [''],
+      dateFrom: [''],
+      dateUntil: [''],
+      machineCentre: [''],
+      subFamily: [''],
+      tuition: [''],
+      frame: [''],
+      totalRate: [''],
+      chassisRate: [''],
+      currency: [''],
+      implement1: [''],
+      rate1: [''],
+      currency1: [''],
+      implement2: [''],
+      rate2: [''],
+      currency2: [''],
     });
   }
 
   ngOnInit() {
-    this.actualizarTabla();
+    this.updateTable();
   }
 
-  async actualizarTabla() {
+  async updateTable() {
     this.tasas = await this.TasasService.getTasas();
   }
 }

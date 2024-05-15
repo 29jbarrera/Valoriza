@@ -15,22 +15,24 @@ import {
 import { Tacografo } from '../Interfaces/tacografos.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TacografosService {
-  constructor() { }
+  constructor() {}
 
   async getTacografos(): Promise<Tacografo[]> {
     const tacografos: Tacografo[] = [];
-    const randomDate = new Date(rand([new Date(2020, 0, 1).getTime(), new Date().getTime()]) as number);
+    const randomDate = new Date(
+      rand([new Date(2020, 0, 1).getTime(), new Date().getTime()]) as number
+    );
     for (let i = 0; i < 100; i++) {
       tacografos.push({
-        maquinaria: randVehicleManufacturer(),
+        machinery: randVehicleManufacturer(),
         center: randArn(),
         delegation: randCurrencyName(),
         family: randCurrencyName(),
         subFamily: randCurrencyName(),
-        dateProx: randomDate,
+        nextDate: randomDate,
       });
     }
 

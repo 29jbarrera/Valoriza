@@ -45,7 +45,7 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './tasas-centro-table.component.css',
 })
 export class TasasCentroTableComponent implements OnInit {
-  tasasCentro: TasasCentro[] | undefined;
+  tasasCentro: TasasCentro[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -53,8 +53,8 @@ export class TasasCentroTableComponent implements OnInit {
     private fb: FormBuilder
   ) {
     this.searchForm = this.fb.group({
-      dateDesde: [''],
-      dateHasta: [''],
+      dateForm: [''],
+      dateUntil: [''],
       delegation: [''],
       code: [''],
       name: [''],
@@ -65,10 +65,10 @@ export class TasasCentroTableComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.actualizarTabla();
+    this.updateTable();
   }
 
-  async actualizarTabla() {
+  async updateTable() {
     this.tasasCentro = await this.TasasCentroService.getTasasCentro();
   }
 }

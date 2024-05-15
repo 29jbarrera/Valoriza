@@ -1,7 +1,7 @@
 <div class="Table">
   <p-table
     #dt
-    [value]="reparacionesCentro || []"
+    [value]="reparacionesCentro"
     dataKey="id"
     [rowsPerPageOptions]="[5, 10, 20]"
     [tableStyle]="{ width: '100%' }"
@@ -73,4 +73,6 @@
     </tr>
   </ng-template>
   </p-table>
+  <p>Resultado totales: {{ reparacionesCentro.length || 0 }}</p>
+
 </div>

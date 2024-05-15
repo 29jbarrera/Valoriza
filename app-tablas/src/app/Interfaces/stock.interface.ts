@@ -1,8 +1,8 @@
 export interface Stock {
-  nombreCentro: string;
-  nombreReferenciaMaterial: string;
-  descripcionRefMaterial: string;
-  cantidad: number;
-  importe: number;
-  divisa: string;
+  centerName: string;
+  nameMaterialReference: string;
+  descriptionMaterialReference: string;
+  quantity: number;
+  amount: number;
+  currency: string;
 }

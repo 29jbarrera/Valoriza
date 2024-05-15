@@ -8,7 +8,6 @@ import {
 import { CommonModule } from '@angular/common';
 
 import { ReparacionesService } from '../../../../service/reparaciones.service';
-
 import { Reparaciones } from '../../../../Interfaces/reparaciones.interface';
 
 import { TableModule } from 'primeng/table';
@@ -46,29 +45,29 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './reparaciones-table.component.css',
 })
 export class ReparacionesTableComponent implements OnInit {
-  reparaciones: Reparaciones[] | undefined;
+  reparaciones: Reparaciones[] = [];
   searchForm: FormGroup;
 
   constructor (private ReparacionesService: ReparacionesService, private fb: FormBuilder){
     this.searchForm = this.fb.group({
-      centroReparador:[''],
-      maquinaria:[''],
-      tipoActuacion:[''],
-      tipoMantenimiento:[''],
+      repairCentre:[''],
+      machinery:[''],
+      typeAction:[''],
+      typeMaintenance:[''],
       date:[''],
-      proveedor:[''],
-      albaran:[''],
+      supplier:[''],
+      deliveryNote:[''],
       cost:[''],
-      divisa:[''],
+      currency:[''],
       description:[''],
     });
   }
 
   ngOnInit() {
-    this.actualizarTabla();
+    this.updateTable();
   }
 
-  async actualizarTabla() {
+  async updateTable() {
     this.reparaciones = await this.ReparacionesService.getReparaciones();
   }
 }

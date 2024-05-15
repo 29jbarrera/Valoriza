@@ -1,7 +1,7 @@
 <div class="Table">
   <p-table
     #dt
-    [value]="tacografos || []"
+    [value]="tacografos"
     dataKey="id"
     [rowsPerPageOptions]="[5, 10, 20]"
     [tableStyle]="{ width: '100%' }"
@@ -10,16 +10,16 @@
     <ng-template pTemplate="header">
       <tr>
         <th></th>
-        <th pSortableColumn="maquinaria">
+        <th pSortableColumn="machinery">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="maquinaria"
+              field="machinery"
               class="filter"
               placeholder="Maquinaria"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="maquinaria" />
+            <p-sortIcon class="order" field="machinery" />
           </div>
         </th>
         <th pSortableColumn="center">
@@ -70,16 +70,16 @@
             <p-sortIcon class="order" field="subFamily" />
           </div>
         </th>
-        <th pSortableColumn="dateProx">
+        <th pSortableColumn="nextDate">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="dateProx"
+              field="nextDate"
               class="filter"
               placeholder="Fecha Próxima"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="dateProx" />
+            <p-sortIcon class="order" field="nextDate" />
           </div>
         </th>
       </tr>
@@ -90,13 +90,15 @@
         <td>
           <i class="fas fa-pen"></i>
         </td>
-        <td>{{ tacografos.maquinaria }}</td>
+        <td>{{ tacografos.machinery }}</td>
         <td>{{ tacografos.center }}</td>
         <td>{{ tacografos.delegation }}</td>
         <td>{{ tacografos.family }}</td>
         <td>{{ tacografos.subFamily }}</td>
-        <td>{{ tacografos.dateProx }}</td>
+        <td>{{ tacografos.nextDate }}</td>
       </tr>
     </ng-template>
   </p-table>
+  <p>Resultado totales: {{ tacografos.length || 0 }}</p>
+
 </div>

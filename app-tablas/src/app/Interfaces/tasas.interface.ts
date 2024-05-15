@@ -1,17 +1,17 @@
 export interface Tasas{
-  dateDesde: Date;
-  dateHasta: Date;
-  centroMaquina: string;
-  subFamilia: string;
-  matricula: string;
-  bastidor: string;
-  tasaTotal: number;
-  tasaChasis: number;
-  divisa: string;
-  implemento1: string;
-  tasa1:number;
-  divisa1: string;
-  implemento2:string;
-  tasa2:number;
-  divisa2:string;
+  dateFrom: Date;
+  dateUntil: Date;
+  machineCentre: string;
+  subFamily: string;
+  tuition: string;
+  frame: string;
+  totalRate: number;
+  chassisRate: number;
+  currency: string;
+  implement1: string;
+  rate1:number;
+  currency1: string;
+  implement2:string;
+  rate2:number;
+  currency2:string;
 }

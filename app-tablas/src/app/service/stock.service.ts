@@ -1,15 +1,10 @@
 import { Injectable } from '@angular/core';
 import {
-  rand,
   randAmount,
   randArn,
-  randBrand,
-  randCompanyName,
   randCurrencyName,
-  randProductDescription,
   randVehicleManufacturer,
   randVehicleModel,
-  seed,
 } from '@ngneat/falso';
 
 import { Stock } from '../Interfaces/stock.interface';
@@ -25,12 +20,12 @@ export class StockService {
 
     for (let i = 0; i < 100; i++) {
       stock.push({
-        nombreCentro: randVehicleManufacturer(),
-        nombreReferenciaMaterial: randArn(),
-        descripcionRefMaterial: randVehicleModel(),
-        cantidad: randAmount({ min: 1, max: 20 }),
-        importe: randAmount({ min: 10, max: 100 }),
-        divisa: randCurrencyName(),
+        centerName: randVehicleManufacturer(),
+        nameMaterialReference: randArn(),
+        descriptionMaterialReference: randVehicleModel(),
+        quantity: randAmount({ min: 1, max: 20 }),
+        amount: randAmount({ min: 10, max: 100 }),
+        currency: randCurrencyName(),
       });
     }
     return stock;
