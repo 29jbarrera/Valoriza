@@ -16,7 +16,7 @@ export class RepostajesService {
     for (let i = 0; i < 100; i++) {
       repostajeMaquinaria.push({
         center: randCurrencyName(),
-        matricula: randArn(),
+        tuition: randArn(),
         date: randomDate,
         amount: randAmount(),
         fuelType: 'Diesel',

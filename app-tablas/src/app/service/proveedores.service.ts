@@ -18,7 +18,7 @@ export class ProveedoresService {
     const proveedores: Proveedores[] = [];
     for (let i = 0; i < 100; i++) {
       proveedores.push({
-        DocIdentificacion: randCurrencyName(),
+        DocIdentification: randCurrencyName(),
         name: randCompanyName(),
         address: randBrand(),
         phone: randAmount({ min: 10000000, max: 999999999 }),

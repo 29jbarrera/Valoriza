@@ -24,8 +24,8 @@ export class ImpuestosService {
       impuestos.push({
         center: randCurrencyName(),
         description: randProductDescription(),
-        matricula: randVehicleModel(),
-        impuesto: randAmount({ min: 0, max: 1 }),
+        tuition: randVehicleModel(),
+        tax: randAmount({ min: 0, max: 1 }),
         currency: 'EUR',
         date: randomDate,
       });

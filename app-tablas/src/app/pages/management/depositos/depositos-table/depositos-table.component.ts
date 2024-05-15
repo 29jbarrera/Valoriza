@@ -45,7 +45,7 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './depositos-table.component.css',
 })
 export class DepositosTableComponent implements OnInit {
-  depositos: Depositos[] | undefined;
+  depositos: Depositos[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -60,10 +60,10 @@ export class DepositosTableComponent implements OnInit {
     });
   }
   ngOnInit() {
-    this.actualizarTabla();
+    this.updateTable();
   }
 
-  async actualizarTabla() {
+  async updateTable() {
     this.depositos = await this.DepositosService.getDepositos();
   }
 }

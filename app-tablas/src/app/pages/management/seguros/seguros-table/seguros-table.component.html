@@ -1,5 +1,5 @@
 <div class="Table">
-  <p-table [value]="seguros || []" [tableStyle]="{ 'min-width': '50rem' }">
+  <p-table [value]="seguros" [tableStyle]="{ 'min-width': '50rem' }">
     <ng-template pTemplate="header">
       <tr>
         <th></th>
@@ -27,16 +27,16 @@
             <p-sortIcon class="order" field="machines" />
           </div>
         </th>
-        <th pSortableColumn="aseguradora">
+        <th pSortableColumn="insuranceCompany">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="aseguradora"
+              field="insuranceCompany"
               class="filter"
               placeholder="Aseguradora"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="aseguradora" />
+            <p-sortIcon class="order" field="insuranceCompany" />
           </div>
         </th>
         <th pSortableColumn="state">
@@ -144,7 +144,7 @@
         </td>
         <td>{{ seguros.center }}</td>
         <td>{{ seguros.machines }}</td>
-        <td>{{ seguros.aseguradora }}</td>
+        <td>{{ seguros.insuranceCompany }}</td>
         <td>{{ seguros.state }}</td>
         <td>{{ seguros.type }}</td>
         <td>{{ seguros.numberPoliza }}</td>
@@ -155,5 +155,5 @@
         <td>{{ seguros.comment }}</td>
     </ng-template>
   </p-table>
-  <p>Resultado totales: {{ seguros?.length || 0 }}</p>
+  <p>Resultado totales: {{ seguros.length || 0 }}</p>
 </div>

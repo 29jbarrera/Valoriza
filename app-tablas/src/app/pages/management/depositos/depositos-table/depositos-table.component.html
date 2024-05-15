@@ -1,5 +1,5 @@
 <div class="Table">
-  <p-table [value]="depositos || []" [tableStyle]="{ 'min-width': '50rem' }">
+  <p-table [value]="depositos" [tableStyle]="{ 'min-width': '50rem' }">
     <ng-template pTemplate="header">
       <tr>
         <th></th>
@@ -65,5 +65,5 @@
       </tr>
     </ng-template>
   </p-table>
-  <p>Resultado totales: {{ depositos?.length || 0 }}</p>
+  <p>Resultado totales: {{ depositos.length || 0 }}</p>
 </div>

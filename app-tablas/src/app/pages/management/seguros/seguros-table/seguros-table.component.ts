@@ -45,7 +45,7 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './seguros-table.component.css',
 })
 export class SegurosTableComponent implements OnInit {
-  seguros: Seguros[] | undefined;
+  seguros: Seguros[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -55,7 +55,7 @@ export class SegurosTableComponent implements OnInit {
     this.searchForm = this.fb.group({
       center: [''],
       machines: [''],
-      aseguradora: [''],
+      insuranceCompany: [''],
       state: [],
       type: [''],
       numberPoliza: [''],
@@ -67,10 +67,10 @@ export class SegurosTableComponent implements OnInit {
     });
   }
   ngOnInit() {
-    this.actualizarTabla();
+    this.updateTable();
   }
 
-  async actualizarTabla() {
+  async updateTable() {
     this.seguros = await this.SegurosService.getSeguros();
     SegurosService
   }

@@ -45,7 +45,7 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './impuestos-table.component.css',
 })
 export class ImpuestosTableComponent implements OnInit {
-  impuestos: Impuestos[] | undefined;
+  impuestos: Impuestos[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -55,17 +55,17 @@ export class ImpuestosTableComponent implements OnInit {
     this.searchForm = this.fb.group({
       center: [''],
       description: [''],
-      matricula: [''],
-      impuesto: [],
+      tuition: [''],
+      tax: [''],
       currency: [''],
       date: [''],
     });
   }
   ngOnInit() {
-    this.actualizarTabla();
+    this.updateTable();
   }
 
-  async actualizarTabla() {
+  async updateTable() {
     this.impuestos = await this.ImpuestosService.getImpuestos();
   }
 }

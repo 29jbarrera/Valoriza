@@ -1,18 +1,18 @@
 <div class="Table">
-  <p-table [value]="proveedores || []" [tableStyle]="{ 'min-width': '50rem' }">
+  <p-table [value]="proveedores" [tableStyle]="{ 'min-width': '50rem' }">
     <ng-template pTemplate="header">
       <tr>
         <th></th>
-        <th pSortableColumn="DocIdentificacion">
+        <th pSortableColumn="DocIdentification">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="DocIdentificacion"
+              field="DocIdentification"
               class="filter"
               placeholder="Doc. Identificación "
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="DocIdentificacion" />
+            <p-sortIcon class="order" field="DocIdentification" />
           </div>
         </th>
         <th pSortableColumn="name">
@@ -82,7 +82,7 @@
         <td>
           <i class="fas fa-pen"></i>
         </td>
-        <td>{{ proveedores.DocIdentificacion }}</td>
+        <td>{{ proveedores.DocIdentification }}</td>
         <td>{{ proveedores.name }}</td>
         <td>{{ proveedores.address }}</td>
         <td>{{ proveedores.phone }}</td>
@@ -91,5 +91,5 @@
       </tr>
     </ng-template>
   </p-table>
-  <p>Resultado totales: {{ proveedores?.length || 0 }}</p>
+  <p>Resultado totales: {{ proveedores.length || 0 }}</p>
 </div>

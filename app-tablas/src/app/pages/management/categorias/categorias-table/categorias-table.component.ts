@@ -45,7 +45,7 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './categorias-table.component.css',
 })
 export class CategoriasTableComponent implements OnInit {
-  categorias: Categorias[] | undefined;
+  categorias: Categorias[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -58,10 +58,10 @@ export class CategoriasTableComponent implements OnInit {
     });
   }
   ngOnInit() {
-    this.actualizarTabla();
+    this.updateTable();
   }
 
-  async actualizarTabla() {
+  async updateTable() {
     this.categorias = await this.CategoriasService.getCategorias();
   }
 }

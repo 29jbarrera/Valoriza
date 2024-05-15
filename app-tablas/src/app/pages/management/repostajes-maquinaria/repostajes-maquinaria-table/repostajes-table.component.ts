@@ -45,7 +45,7 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './repostajes-table.component.css',
 })
 export class RepostajesMaquinariaTableComponent implements OnInit {
-  repostaje: RepostajeMaquinaria[] | undefined;
+  repostaje: RepostajeMaquinaria[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -54,7 +54,7 @@ export class RepostajesMaquinariaTableComponent implements OnInit {
   ) {
     this.searchForm = this.fb.group({
       center: [''],
-      matricula: [''],
+      tuition: [''],
       date: [''],
       amount: [],
       fuelType: [''],
@@ -62,10 +62,10 @@ export class RepostajesMaquinariaTableComponent implements OnInit {
     });
   }
   ngOnInit() {
-    this.actualizarTabla();
+    this.updateTable();
   }
 
-  async actualizarTabla() {
+  async updateTable() {
     this.repostaje = await this.RepostajesService.getRepostajes();
   }
 }

@@ -1,5 +1,5 @@
 <div class="Table">
-  <p-table [value]="categorias || []" [tableStyle]="{ 'min-width': '50rem' }">
+  <p-table [value]="categorias" [tableStyle]="{ 'min-width': '50rem' }">
     <ng-template pTemplate="header">
       <tr>
         <th></th>
@@ -40,5 +40,5 @@
       </tr>
     </ng-template>
   </p-table>
-  <p>Resultado totales: {{ categorias?.length || 0 }}</p>
+  <p>Resultado totales: {{ categorias.length || 0 }}</p>
 </div>

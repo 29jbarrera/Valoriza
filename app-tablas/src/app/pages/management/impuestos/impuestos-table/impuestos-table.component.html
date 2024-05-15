@@ -1,5 +1,5 @@
 <div class="Table">
-  <p-table [value]="impuestos || []" [tableStyle]="{ 'min-width': '50rem' }">
+  <p-table [value]="impuestos" [tableStyle]="{ 'min-width': '50rem' }">
     <ng-template pTemplate="header">
       <tr>
         <th></th>
@@ -27,28 +27,28 @@
             <p-sortIcon class="order" field="description" />
           </div>
         </th>
-        <th pSortableColumn="matricula">
+        <th pSortableColumn="tuition">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="matricula"
+              field="tuition"
               class="filter"
               placeholder="Matrícula"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="matricula" />
+            <p-sortIcon class="order" field="tuition" />
           </div>
         </th>
-        <th pSortableColumn="impuesto">
+        <th pSortableColumn="tax">
           <div class="flex align-items-center">
             <p-columnFilter
               type="text"
-              field="impuesto"
+              field="tax"
               class="filter"
               placeholder="Impuesto"
               [showClearButton]="false"
             />
-            <p-sortIcon class="order" field="impuesto" />
+            <p-sortIcon class="order" field="tax" />
           </div>
         </th>
         <th pSortableColumn="currency">
@@ -84,12 +84,12 @@
         </td>
         <td>{{ impuestos.center }}</td>
         <td>{{ impuestos.description }}</td>
-        <td>{{ impuestos.matricula }}</td>
-        <td>{{ impuestos.impuesto }}</td>
+        <td>{{ impuestos.tuition }}</td>
+        <td>{{ impuestos.tax }}</td>
         <td>{{ impuestos.currency }}</td>
         <td>{{ impuestos.date }}</td>
       </tr>
     </ng-template>
   </p-table>
-  <p>Resultado totales: {{ impuestos?.length || 0 }}</p>
+  <p>Resultado totales: {{ impuestos.length || 0 }}</p>
 </div>

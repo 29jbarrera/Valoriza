@@ -45,7 +45,7 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './proveedores-table.component.css',
 })
 export class ProveedoresTableComponent implements OnInit {
-  proveedores: Proveedores[] | undefined;
+  proveedores: Proveedores[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -53,7 +53,7 @@ export class ProveedoresTableComponent implements OnInit {
     private fb: FormBuilder
   ) {
     this.searchForm = this.fb.group({
-      DocIdentificacion: [''],
+      DocIdentification: [''],
       name: [''],
       address: [''],
       phone: [],
@@ -62,10 +62,10 @@ export class ProveedoresTableComponent implements OnInit {
     });
   }
   ngOnInit() {
-    this.actualizarTabla();
+    this.updateTable();
   }
 
-  async actualizarTabla() {
+  async updateTable() {
     this.proveedores = await this.ProveedoresService.getProveedores();
   }
 }

@@ -1,6 +1,6 @@
 export interface CambioCentro {
   selected: boolean;
-  matriculaMaquinaria: string;
+  machineryTuition : string;
   centerCode: number;
   centerName: string;
   destinationCenterCode: number;

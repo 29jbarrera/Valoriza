@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
 import { MaterialesTableComponent } from './materiales-table/materiales-table.component';
+import { HeaderComponent } from '../../../components/header/header.component';
 
 @Component({
   selector: 'app-materiales',
   standalone: true,
-  imports: [MaterialesTableComponent],
+  imports: [MaterialesTableComponent, HeaderComponent],
   templateUrl: './materiales.component.html',
-  styleUrl: './materiales.component.css'
+  styleUrl: './materiales.component.css',
 })
-export class MaterialesComponent {
-
-}
+export class MaterialesComponent {}

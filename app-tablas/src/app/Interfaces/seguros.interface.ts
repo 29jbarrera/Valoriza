@@ -1,7 +1,7 @@
 export interface Seguros {
   center: string;
   machines: string;
-  aseguradora: string;
+  insuranceCompany: string;
   state: string;
   type: string;
   numberPoliza: number;

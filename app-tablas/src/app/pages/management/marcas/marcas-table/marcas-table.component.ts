@@ -45,7 +45,7 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './marcas-table.component.css',
 })
 export class MarcasTableComponent implements OnInit {
-  marcas: Marcas[] | undefined;
+  marcas: Marcas[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -57,10 +57,10 @@ export class MarcasTableComponent implements OnInit {
     });
   }
   ngOnInit() {
-    this.actualizarTabla();
+    this.updateTable();
   }
 
-  async actualizarTabla() {
+  async updateTable() {
     this.marcas = await this.MarcasService.getMarcas();
   }
 }

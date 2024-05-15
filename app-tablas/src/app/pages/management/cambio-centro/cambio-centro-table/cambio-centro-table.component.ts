@@ -44,7 +44,7 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './cambio-centro-table.component.css',
 })
 export class CambioCentroTableComponent implements OnInit {
-  cambioCentro: CambioCentro[] | undefined;
+  cambioCentro: CambioCentro[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -53,7 +53,7 @@ export class CambioCentroTableComponent implements OnInit {
   ) {
     this.searchForm = this.fb.group({
       selected: [''],
-      matriculaMaquinaria: [''],
+      machineryTuition: [''],
       centerCode: [''],
       centerName: [],
       destinationCenterCode: [''],
@@ -61,10 +61,10 @@ export class CambioCentroTableComponent implements OnInit {
     });
   }
   ngOnInit() {
-    this.actualizarTabla();
+    this.updateTable();
   }
 
-  async actualizarTabla() {
+  async updateTable() {
     this.cambioCentro = await this.CambioCentroService.getCambioCentro();
   }
 }

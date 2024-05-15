@@ -45,7 +45,7 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './repostaje-vehiculos-table.component.css',
 })
 export class RepostajeVehiculosTableComponent implements OnInit {
-  repostajeVehiculos: RepostajeVehiculos[] | undefined;
+  repostajeVehiculos: RepostajeVehiculos[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -64,10 +64,10 @@ export class RepostajeVehiculosTableComponent implements OnInit {
     });
   }
   ngOnInit() {
-    this.actualizarTabla();
+    this.updateTable();
   }
 
-  async actualizarTabla() {
+  async updateTable() {
     this.repostajeVehiculos =
       await this.RepostajeVehiculosService.getRepostajeVehiculos();
   }

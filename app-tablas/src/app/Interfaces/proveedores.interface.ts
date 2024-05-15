@@ -1,5 +1,5 @@
 export interface Proveedores{
-  DocIdentificacion:string;
+  DocIdentification:string;
   name:string;
   address: string;
   phone:number;

@@ -1,6 +1,6 @@
 export interface RepostajeMaquinaria {
   center: string;
-  matricula: string;
+  tuition: string;
   date: Date;
   amount: number;
   fuelType: string;

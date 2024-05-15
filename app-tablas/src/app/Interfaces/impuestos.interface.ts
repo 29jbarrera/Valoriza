@@ -1,8 +1,8 @@
 export interface Impuestos {
   center: string;
   description: string;
-  matricula: string;
-  impuesto: number;
+  tuition : string;
+  tax: number;
   currency: string;
   date: Date;
 }

@@ -14,7 +14,7 @@ export class CambioCentroService {
     for (let i = 0; i < 100; i++) {
       cambioCentro.push({
         selected: true,
-        matriculaMaquinaria: randArn(),
+        machineryTuition: randArn(),
         centerCode: randAmount(),
         centerName: randCompanyName(),
         destinationCenterCode: randAmount(),

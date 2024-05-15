@@ -44,7 +44,7 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './materiales-table.component.css',
 })
 export class MaterialesTableComponent implements OnInit {
-  materiales: Materiales[] | undefined;
+  materiales: Materiales[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -58,10 +58,10 @@ export class MaterialesTableComponent implements OnInit {
     });
   }
   ngOnInit() {
-    this.actualizarTabla();
+    this.updateTable();
   }
 
-  async actualizarTabla() {
+  async updateTable() {
     this.materiales = await this.MaterialesService.getMateriales();
   }
 }

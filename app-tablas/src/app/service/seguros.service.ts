@@ -25,7 +25,7 @@ export class SegurosService {
       seguros.push({
         center: randCurrencyName(),
         machines: randArn(),
-        aseguradora: randCurrencyName(),
+        insuranceCompany: randCurrencyName(),
         state: randCurrencyName(),
         type: randVehicleModel(),
         numberPoliza: randAmount(),
