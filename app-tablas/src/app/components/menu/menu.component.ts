@@ -278,6 +278,12 @@ export class MenuComponent {
           path: 'globales',
           n: Math.round(Math.random() * 100),
         },
+        {
+          class: 'fas fa-calculator',
+          name: 'Unidades',
+          path: 'unidades',
+          n: Math.round(Math.random() * 100),
+        },
       ],
     },
   ];

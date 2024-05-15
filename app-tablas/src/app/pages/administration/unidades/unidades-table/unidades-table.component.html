@@ -1,0 +1,56 @@
+<div class="Table">
+  <p-table [value]="unidades || []" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header">
+      <tr>
+        <th></th>
+        <th pSortableColumn="fuelType">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="fuelType"
+              class="filter"
+              placeholder="Tipo combustible"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="fuelType" />
+          </div>
+        </th>
+        <th pSortableColumn="units">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="units"
+              class="filter"
+              placeholder="Unidades"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="units" />
+          </div>
+        </th>
+        <th pSortableColumn="symbol">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="symbol"
+              class="filter"
+              placeholder="Símbolo"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="symbol" />
+          </div>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-unidades>
+      <tr class="body-table">
+        <td>
+          <i class="fas fa-pen"></i>
+        </td>
+        <td>{{ unidades.fuelType }}</td>
+        <td>{{ unidades.units }}</td>
+        <td>{{ unidades.symbol }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <p>Resultado totales: {{ unidades?.length || 0 }}</p>
+</div>

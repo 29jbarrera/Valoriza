@@ -30,6 +30,7 @@ import { LimiteAvisosComponent } from './pages/administration/limite-avisos/limi
 import { NivelesAccionComponent } from './pages/administration/niveles-accion/niveles-accion.component';
 import { NivelesComponent } from './pages/administration/niveles/niveles.component';
 import { TablasGlobalesComponent } from './pages/administration/tablas-globales/tablas-globales.component';
+import { UnidadesComponent } from './pages/administration/unidades/unidades.component';
 
 export const routes: Routes = [
   {
@@ -128,6 +129,10 @@ export const routes: Routes = [
       {
         path: 'globales',
         component: TablasGlobalesComponent,
+      },
+      {
+        path: 'unidades',
+        component: UnidadesComponent,
       },
     ],
   },
