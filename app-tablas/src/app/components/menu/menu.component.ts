@@ -272,6 +272,12 @@ export class MenuComponent {
           path: 'niveles',
           n: Math.round(Math.random() * 100),
         },
+        {
+          class: 'fas fa-globe',
+          name: 'Tablas Globales',
+          path: 'globales',
+          n: Math.round(Math.random() * 100),
+        },
       ],
     },
   ];

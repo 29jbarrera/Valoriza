@@ -1,0 +1,82 @@
+<div class="Table">
+  <p-table [value]="globales || []" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header">
+      <tr>
+        <th></th>
+        <th pSortableColumn="name">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="name"
+              class="filter"
+              placeholder="Nombre"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="name" />
+          </div>
+        </th>
+        <th pSortableColumn="codeLength">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="codeLength"
+              class="filter"
+              placeholder="Longitud Código"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="codeLength" />
+          </div>
+        </th>
+        <th pSortableColumn="accessType">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="accessType"
+              class="filter"
+              placeholder="Tipo Acceso"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="accessType" />
+          </div>
+        </th>
+        <th pSortableColumn="session">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="session"
+              class="filter"
+              placeholder="Por Sesión"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="session" />
+          </div>
+        </th>
+        <th pSortableColumn="task">
+          <div class="flex align-items-center">
+            <p-columnFilter
+              type="text"
+              field="task"
+              class="filter"
+              placeholder="Tarea"
+              [showClearButton]="false"
+            />
+            <p-sortIcon class="order" field="task" />
+          </div>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-globales>
+      <tr class="body-table">
+        <td>
+          <i class="fas fa-pen"></i>
+        </td>
+        <td>{{ globales.name }}</td>
+        <td>{{ globales.codeLength }}</td>
+        <td>{{ globales.accessType }}</td>
+        <td>{{ globales.session }}</td>
+        <td>{{ globales.task }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <p>Resultado totales: {{ globales?.length || 0 }}</p>
+</div>

@@ -29,6 +29,7 @@ import { FamiliasSubfamiliasComponent } from './pages/administration/familias-su
 import { LimiteAvisosComponent } from './pages/administration/limite-avisos/limite-avisos.component';
 import { NivelesAccionComponent } from './pages/administration/niveles-accion/niveles-accion.component';
 import { NivelesComponent } from './pages/administration/niveles/niveles.component';
+import { TablasGlobalesComponent } from './pages/administration/tablas-globales/tablas-globales.component';
 
 export const routes: Routes = [
   {
@@ -123,6 +124,10 @@ export const routes: Routes = [
       {
         path: 'niveles',
         component: NivelesComponent,
+      },
+      {
+        path: 'globales',
+        component: TablasGlobalesComponent,
       },
     ],
   },
