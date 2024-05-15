@@ -45,7 +45,7 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './niveles-table.component.css',
 })
 export class NivelesTableComponent implements OnInit {
-  niveles: Niveles[] | undefined;
+  niveles: Niveles[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -62,10 +62,10 @@ export class NivelesTableComponent implements OnInit {
     });
   }
   ngOnInit() {
-    this.actualizarTabla();
+    this.updateTable();
   }
 
-  async actualizarTabla() {
+  async updateTable() {
     this.niveles = await this.NivelesService.getNiveles();
   }
 }

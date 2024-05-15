@@ -45,7 +45,7 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './familias-subfamilias-table.component.css',
 })
 export class FamiliasSubfamiliasTableComponent implements OnInit {
-  familiasSubfamilias: FamiliasSubfamilias[] | undefined;
+  familiasSubfamilias: FamiliasSubfamilias[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -57,10 +57,10 @@ export class FamiliasSubfamiliasTableComponent implements OnInit {
     });
   }
   ngOnInit() {
-    this.actualizarTabla();
+    this.updateTable();
   }
 
-  async actualizarTabla() {
+  async updateTable() {
     this.familiasSubfamilias =
       await this.FamiliasSubfamiliasService.getFamiliasSubfamilias();
   }

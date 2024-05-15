@@ -45,7 +45,7 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './limite-avisos-table.component.css',
 })
 export class LimiteAvisosTableComponent implements OnInit {
-  limiteAvisos: LimiteAvisos[] | undefined;
+  limiteAvisos: LimiteAvisos[] = []
   searchForm: FormGroup;
 
   constructor(
@@ -59,10 +59,10 @@ export class LimiteAvisosTableComponent implements OnInit {
     });
   }
   ngOnInit() {
-    this.actualizarTabla();
+    this.updateTable();
   }
 
-  async actualizarTabla() {
+  async updateTable() {
     this.limiteAvisos = await this.LimiteAvisosService.getLimiteAvisos();
   }
 }

@@ -45,7 +45,7 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './unidades-table.component.css'
 })
 export class UnidadesTableComponent implements OnInit {
-  unidades: Unidades[] | undefined;
+  unidades: Unidades[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -59,10 +59,10 @@ export class UnidadesTableComponent implements OnInit {
     });
   }
   ngOnInit() {
-    this.actualizarTabla();
+    this.updateTable();
   }
 
-  async actualizarTabla() {
+  async updateTable() {
     this.unidades = await this.UnidadesService.getGastosTaller();
   }
 }

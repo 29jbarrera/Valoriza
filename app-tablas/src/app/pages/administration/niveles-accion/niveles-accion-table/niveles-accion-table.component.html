@@ -1,6 +1,6 @@
 <div class="Table">
   <p-table
-    [value]="nivelesAccion || []"
+    [value]="nivelesAccion"
     [tableStyle]="{ 'min-width': '50rem' }"
   >
     <ng-template pTemplate="header">
@@ -42,5 +42,5 @@
       </tr>
     </ng-template>
   </p-table>
-  <p>Resultado totales: {{ nivelesAccion?.length || 0 }}</p>
+  <p>Resultado totales: {{ nivelesAccion.length || 0 }}</p>
 </div>

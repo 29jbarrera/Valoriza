@@ -1,6 +1,6 @@
 <div class="Table">
   <p-table
-    [value]="familiasSubfamilias || []"
+    [value]="familiasSubfamilias"
     [tableStyle]="{ 'min-width': '50rem' }"
   >
     <ng-template pTemplate="header">
@@ -29,5 +29,5 @@
       </tr>
     </ng-template>
   </p-table>
-  <p>Resultado totales: {{ familiasSubfamilias?.length || 0 }}</p>
+  <p>Resultado totales: {{ familiasSubfamilias.length || 0 }}</p>
 </div>

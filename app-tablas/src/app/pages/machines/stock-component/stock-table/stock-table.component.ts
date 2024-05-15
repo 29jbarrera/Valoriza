@@ -46,7 +46,7 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './stock-table.component.css',
 })
 export class StockTableComponent implements OnInit {
-  stock: Stock[] | undefined;
+  stock: Stock[] = [];
   searchForm: FormGroup;
 
 

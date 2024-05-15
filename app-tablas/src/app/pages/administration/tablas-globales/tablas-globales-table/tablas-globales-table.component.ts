@@ -45,7 +45,7 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './tablas-globales-table.component.css'
 })
 export class TablasGlobalesTableComponent implements OnInit {
-  globales: Globales[] | undefined;
+  globales: Globales[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -61,10 +61,10 @@ export class TablasGlobalesTableComponent implements OnInit {
     });
   }
   ngOnInit() {
-    this.actualizarTabla();
+    this.updateTable();
   }
 
-  async actualizarTabla() {
+  async updateTable() {
     this.globales = await this.TablaGlobalesService.getGlobales();
   }
 }

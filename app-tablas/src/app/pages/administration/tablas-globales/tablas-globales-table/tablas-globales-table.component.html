@@ -1,5 +1,5 @@
 <div class="Table">
-  <p-table [value]="globales || []" [tableStyle]="{ 'min-width': '50rem' }">
+  <p-table [value]="globales" [tableStyle]="{ 'min-width': '50rem' }">
     <ng-template pTemplate="header">
       <tr>
         <th></th>
@@ -78,5 +78,5 @@
       </tr>
     </ng-template>
   </p-table>
-  <p>Resultado totales: {{ globales?.length || 0 }}</p>
+  <p>Resultado totales: {{ globales.length || 0 }}</p>
 </div>

@@ -1,7 +1,7 @@
 <div class="Table">
   <p-table
     #dt
-    [value]="stock || []"
+    [value]="stock"
     dataKey="id"
     [rowsPerPageOptions]="[5, 10, 20]"
     [tableStyle]="{ width: '100%' }"
@@ -119,5 +119,5 @@
       </tr>
     </ng-template>
   </p-table>
-  <p>Resultado totales: {{ stock?.length || 0 }}</p>
+  <p>Resultado totales: {{ stock.length || 0 }}</p>
 </div>
