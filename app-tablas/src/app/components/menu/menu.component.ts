@@ -246,8 +246,15 @@ export class MenuComponent {
     },
     {
       name: 'Administración',
-      path: 'machines',
-      items: [],
+      path: 'administration',
+      items: [
+        {
+          class: 'fas fa-users',
+          name: 'Familias y Subfamilias',
+          path: 'familias-subfamilias',
+          n: Math.round(Math.random() * 100),
+        },
+      ],
     },
   ];
 

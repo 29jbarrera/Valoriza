@@ -25,6 +25,7 @@ import { ProveedoresComponent } from './pages/management/proveedores/proveedores
 import { MaterialesComponent } from './pages/management/materiales/materiales.component';
 import { CambioCentroComponent } from './pages/management/cambio-centro/cambio-centro.component';
 import { RepostajeVehiculosComponent } from './pages/management/repostaje-vehiculos/repostaje-vehiculos.component';
+import { FamiliasSubfamiliasComponent } from './pages/administration/familias-subfamilias/familias-subfamilias.component';
 
 export const routes: Routes = [
   {
@@ -98,6 +99,15 @@ export const routes: Routes = [
       {
         path: 'cambio-centro',
         component: CambioCentroComponent,
+      },
+    ],
+  },
+  {
+    path: 'administration',
+    children: [
+      {
+        path: 'familias-subfamilias',
+        component: FamiliasSubfamiliasComponent,
       },
     ],
   },
