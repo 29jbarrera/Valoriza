@@ -3,9 +3,9 @@
   flex-direction: column;
   padding: 10px;
   font-size: 14px;
-  background-color: #e2e2e23e;
+  background-color: #FFF;
   border-radius: 8px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-right: 10px;
   margin-left: 10px;
 }

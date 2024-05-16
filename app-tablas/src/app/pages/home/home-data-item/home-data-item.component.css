@@ -14,9 +14,9 @@ summary{
   display: flex;
   margin: 0 auto;
   margin-bottom: 20px;
-  width: 90%;
+  width: 95%;
   padding: 10px;
-  background-color: #e2e2e23e;
+  background-color: #FFF;
   border-radius: 8px;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
 }

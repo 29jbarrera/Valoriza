@@ -1,14 +1,15 @@
-.app-card-information-container{
-  width: 100%;
+.app-card-information-container {
+  margin: 0 auto;
+  width: 97%;
+  display: flex;
+}
+
+.app-card-list-container {
+  margin: 0 auto;
+  width: 97%;
   display: flex;
 }
 
 .app-card {
-  width: 100%;
   flex: 1;
 }
-
-.app-card-list-container{
-  display: flex;
-}
-
