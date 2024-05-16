@@ -5,9 +5,11 @@
   font-size: 14px;
   background-color: #FFF;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-right: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
   margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .card-header {
