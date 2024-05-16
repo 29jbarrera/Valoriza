@@ -11,6 +11,5 @@ import { CommonModule } from '@angular/common';
 })
 export class CardListComponent {
   @Input() title: string = '';
-  @Input() data: { text: string; date: string | null; icon: string | null }[] =
-    [{ text: '', date: '', icon: '' }];
+  @Input() data: { text: string; date: string | null; icon: string | null }[] = [];
 }

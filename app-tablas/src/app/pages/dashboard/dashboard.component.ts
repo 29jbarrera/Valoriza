@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { CardInformationComponent } from '../card-information/card-information.component';
-import { CardListComponent } from '../card-list/card-list.component';
+import { CardInformationComponent } from '../../components/card-information/card-information.component';
+import { CardListComponent } from '../../components/card-list/card-list.component';
 
 @Component({
   selector: 'app-dashboard',

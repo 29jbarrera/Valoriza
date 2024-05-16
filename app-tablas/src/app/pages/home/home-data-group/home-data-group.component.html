@@ -1,0 +1,22 @@
+<div class="data-group">
+  <div class="data-group-header">{{ title }}</div>
+  <div class="data-group-body">
+    <ng-container *ngFor="let item of data">
+      <div class="custom-data-item">
+        <div class="custom-icon">
+          <img [src]="item.icon" alt="Icon">
+        </div>
+        <div class="custom-details">
+          <div class="custom-title">{{ item.title }}</div>
+          <div class="custom-description">{{ item.description }}</div>
+        </div>
+      </div>
+    <app-home-data-item *ngFor="let item of data"
+                         [icon]="item.icon"
+                         [title]="item.title"
+                         [description]="item.description">
+    </app-home-data-item>
+    </ng-container>
+  </div>
+</div>
+

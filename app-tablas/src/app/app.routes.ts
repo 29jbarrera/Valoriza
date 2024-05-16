@@ -31,11 +31,15 @@ import { NivelesAccionComponent } from './pages/administration/niveles-accion/ni
 import { NivelesComponent } from './pages/administration/niveles/niveles.component';
 import { TablasGlobalesComponent } from './pages/administration/tablas-globales/tablas-globales.component';
 import { UnidadesComponent } from './pages/administration/unidades/unidades.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { HomeComponent } from './pages/home/home.component';
 
 export const routes: Routes = [
   {
     path: 'dashboard', component: DashboardComponent
+  },
+  {
+    path: 'home', component: HomeComponent
   },
   {
     path: 'machines',

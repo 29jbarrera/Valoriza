@@ -1,0 +1,19 @@
+.data-group {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.data-group-header {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+.data-group-body {
+  display: flex;
+  flex-direction: column;
+}
