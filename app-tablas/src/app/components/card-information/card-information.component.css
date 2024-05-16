@@ -3,6 +3,12 @@
   justify-content: center;
   align-items: center;
   padding: 10px;
+  background-color: #e2e2e23e;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 40px;
 }
 
 .card img {
