@@ -4,7 +4,7 @@
 @import "primeicons/primeicons.css";
 
 :root {
-  --color-primary: #172d55;
+  --color-primary: #0f2b34;
   --color-secondary: #68acd1;
   --color-background-grey: #eaeaea;
 }
@@ -167,7 +167,7 @@ overflow: hidden;
         color: #3cad2d;
         border-radius: 5px;
       }
-      
+
     }
     td{
         border-right: 1px solid #ddd;
@@ -181,15 +181,15 @@ overflow: hidden;
       overflow: hidden;
     }
     tr:nth-child(even){
-      
+
 
      td{
       background-color: #eeeeee;
-     
+
      }
     }
   }
-  
+
 }
 
 .app-kom-custom-form-colum {

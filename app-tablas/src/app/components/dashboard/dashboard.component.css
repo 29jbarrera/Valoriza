@@ -1,0 +1,14 @@
+.app-card-information-container{
+  width: 100%;
+  display: flex;
+}
+
+.app-card {
+  width: 100%;
+  flex: 1;
+}
+
+.app-card-list-container{
+  display: flex;
+}
+
