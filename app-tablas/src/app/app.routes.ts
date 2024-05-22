@@ -33,121 +33,131 @@ import { TablasGlobalesComponent } from './pages/administration/tablas-globales/
 import { UnidadesComponent } from './pages/administration/unidades/unidades.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { HomeComponent } from './pages/home/home.component';
+import { AuthenticatedComponent } from './pages/authenticated/authenticated.component';
 
 export const routes: Routes = [
   {
-    path: 'dashboard', component: DashboardComponent
+    path: 'dashboard',
+    component: DashboardComponent,
   },
   {
-    path: 'home', component: HomeComponent
+    path: 'home',
+    component: HomeComponent,
   },
   {
-    path: 'machines',
-    children: [
-      // 1º Vuelta
-      {
-        path: 'horometros-kilometros',
-        component: HorometrosKilometrosComponent,
-      },
-      // TODO
-      { path: 'preventivo', component: PreventivoComponent },
-      { path: 'reparaciones', component: ReparacionesComponent },
-      { path: 'reparaciones-centro', component: ReparacionesCentroComponent },
-      // 1º Vuelta
-      { path: 'gastos-taller', component: GastosComponent },
-      // TODO
-      { path: 'tasas', component: TasasComponent },
-      { path: 'tasas-centro', component: TasasCentrosComponent },
-      { path: 'ratios-maquinaria', component: RatiosMaquinariaComponent },
-      { path: 'ratios-centro', component: RatiosCentroComponent },
-      { path: 'instalaciones', component: InstalacionesComponent },
-      { path: 'itvs', component: ItvsComponent },
-      { path: 'tacografos', component: TacografosComponent },
-      // 1º Vuelta
-      { path: 'gnc', component: GncComponent },
-      { path: 'gruas', component: GruasComponent },
-      { path: 'stock', component: StockComponent },
-    ],
-  },
-  {
-    path: 'management',
+    path: 'authenticated',
+    component: AuthenticatedComponent,
     children: [
       {
-        path: 'seguros',
-        component: SegurosComponent,
-      },
-      { path: 'partes-trabajo',
-       component: PartesTrabajoComponent
-      },
-      {
-        path: 'marcas',
-        component: MarcasComponent,
-      },
-      {
-        path: 'categorias',
-        component: CategoriasComponent,
-      },
-      {
-        path: 'impuestos',
-        component: ImpuestosComponent,
-      },
-      {
-        path: 'depositos',
-        component: DepositosComponent,
-      },
-      {
-        path: 'repostajes-maquinaria',
-        component: RepostajesMaquinariaComponent,
-      },
-      {
-        path: 'repostajes-vehiculos',
-        component: RepostajeVehiculosComponent,
-      },
-      {
-        path: 'proveedores',
-        component: ProveedoresComponent,
+        path: 'machines',
+        children: [
+          // 1º Vuelta
+          {
+            path: 'horometros-kilometros',
+            component: HorometrosKilometrosComponent,
+          },
+          // TODO
+          { path: 'preventivo', component: PreventivoComponent },
+          { path: 'reparaciones', component: ReparacionesComponent },
+          {
+            path: 'reparaciones-centro',
+            component: ReparacionesCentroComponent,
+          },
+          // 1º Vuelta
+          { path: 'gastos-taller', component: GastosComponent },
+          // TODO
+          { path: 'tasas', component: TasasComponent },
+          { path: 'tasas-centro', component: TasasCentrosComponent },
+          { path: 'ratios-maquinaria', component: RatiosMaquinariaComponent },
+          { path: 'ratios-centro', component: RatiosCentroComponent },
+          { path: 'instalaciones', component: InstalacionesComponent },
+          { path: 'itvs', component: ItvsComponent },
+          { path: 'tacografos', component: TacografosComponent },
+          // 1º Vuelta
+          { path: 'gnc', component: GncComponent },
+          { path: 'gruas', component: GruasComponent },
+          { path: 'stock', component: StockComponent },
+        ],
       },
       {
-        path: 'materiales',
-        component: MaterialesComponent,
+        path: 'management',
+        children: [
+          {
+            path: 'seguros',
+            component: SegurosComponent,
+          },
+          { path: 'partes-trabajo', component: PartesTrabajoComponent },
+          {
+            path: 'marcas',
+            component: MarcasComponent,
+          },
+          {
+            path: 'categorias',
+            component: CategoriasComponent,
+          },
+          {
+            path: 'impuestos',
+            component: ImpuestosComponent,
+          },
+          {
+            path: 'depositos',
+            component: DepositosComponent,
+          },
+          {
+            path: 'repostajes-maquinaria',
+            component: RepostajesMaquinariaComponent,
+          },
+          {
+            path: 'repostajes-vehiculos',
+            component: RepostajeVehiculosComponent,
+          },
+          {
+            path: 'proveedores',
+            component: ProveedoresComponent,
+          },
+          {
+            path: 'materiales',
+            component: MaterialesComponent,
+          },
+          {
+            path: 'cambio-centro',
+            component: CambioCentroComponent,
+          },
+        ],
       },
       {
-        path: 'cambio-centro',
-        component: CambioCentroComponent,
-      },
-    ],
-  },
-  {
-    path: 'administration',
-    children: [
-      {
-        path: 'familias-subfamilias',
-        component: FamiliasSubfamiliasComponent,
-      },
-      {
-        path: 'limite-avisos',
-        component: LimiteAvisosComponent,
-      },
-      {
-        path: 'niveles-accion',
-        component: NivelesAccionComponent,
-      },
-      {
-        path: 'niveles',
-        component: NivelesComponent,
-      },
-      {
-        path: 'globales',
-        component: TablasGlobalesComponent,
-      },
-      {
-        path: 'unidades',
-        component: UnidadesComponent,
+        path: 'administration',
+        children: [
+          {
+            path: 'familias-subfamilias',
+            component: FamiliasSubfamiliasComponent,
+          },
+          {
+            path: 'limite-avisos',
+            component: LimiteAvisosComponent,
+          },
+          {
+            path: 'niveles-accion',
+            component: NivelesAccionComponent,
+          },
+          {
+            path: 'niveles',
+            component: NivelesComponent,
+          },
+          {
+            path: 'globales',
+            component: TablasGlobalesComponent,
+          },
+          {
+            path: 'unidades',
+            component: UnidadesComponent,
+          },
+        ],
       },
     ],
   },
   {
     path: '**',
-    redirectTo: 'machines/stock',
+    redirectTo: 'authenticated/machines/stock',
   },
 ];

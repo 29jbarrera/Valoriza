@@ -33,48 +33,48 @@ export class MenuComponent {
     //   path: 'machines',
     //   items: [],
     // },
-    {
-      name: 'Maquinaria',
-      path: 'machines',
-      items: [
-        {
-          class: 'fas fa-car',
-          name: 'Equipamiento',
-          path: 'stock1',
-          n: Math.round(Math.random() * 100),
-        },
-        {
-          class: 'fas fa-money-bill-wave',
-          name: 'Seguro e impuesto',
-          path: 'stock2',
-          n: Math.round(Math.random() * 100),
-        },
-        {
-          class: 'fas fa-gas-pump',
-          name: 'Mantenimiento',
-          path: 'stock2',
-          n: Math.round(Math.random() * 100),
-        },
-        {
-          class: 'fas fa-car',
-          name: 'ITVs',
-          path: 'itvs',
-          n: Math.round(Math.random() * 100),
-        },
-        {
-          class: 'fas fa-book',
-          name: 'Documentacion',
-          path: 'stock2',
-          n: Math.round(Math.random() * 100),
-        },
-        {
-          class: 'fas fa-images',
-          name: 'Imagenes',
-          path: 'stock2',
-          n: Math.round(Math.random() * 100),
-        },
-      ],
-    },
+    // {
+    //   name: 'Maquinaria',
+    //   path: 'machines',
+    //   items: [
+    //     {
+    //       class: 'fas fa-car',
+    //       name: 'Equipamiento',
+    //       path: 'stock1',
+    //       n: Math.round(Math.random() * 100),
+    //     },
+    //     {
+    //       class: 'fas fa-money-bill-wave',
+    //       name: 'Seguro e impuesto',
+    //       path: 'stock2',
+    //       n: Math.round(Math.random() * 100),
+    //     },
+    //     {
+    //       class: 'fas fa-gas-pump',
+    //       name: 'Mantenimiento',
+    //       path: 'stock2',
+    //       n: Math.round(Math.random() * 100),
+    //     },
+    //     {
+    //       class: 'fas fa-car',
+    //       name: 'ITVs',
+    //       path: 'itvs',
+    //       n: Math.round(Math.random() * 100),
+    //     },
+    //     {
+    //       class: 'fas fa-book',
+    //       name: 'Documentacion',
+    //       path: 'stock2',
+    //       n: Math.round(Math.random() * 100),
+    //     },
+    //     {
+    //       class: 'fas fa-images',
+    //       name: 'Imagenes',
+    //       path: 'stock2',
+    //       n: Math.round(Math.random() * 100),
+    //     },
+    //   ],
+    // },
     {
       name: 'Mantenimiento',
       path: 'machines',
@@ -302,6 +302,6 @@ export class MenuComponent {
   }
 
   navigate(item: any, item2: any) {
-    this.router.navigate([item.path, item2.path]);
+    this.router.navigate(['authenticated', item.path, item2.path]);
   }
 }

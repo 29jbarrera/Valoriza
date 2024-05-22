@@ -1,0 +1,26 @@
+.Main{
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    .content{
+        overflow-y: scroll;
+        flex:1
+    }
+}
+
+
+.Navigation{
+    flex:1;
+    flex-direction: row;
+    display: flex;
+    background-color: blue;
+}
+
+
+
