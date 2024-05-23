@@ -13,7 +13,7 @@ import { InstalacionesService } from '../../../../service/instalaciones.service'
   standalone: true,
   imports: [TableModule, CommonModule],
   templateUrl: './instalaciones-table.component.html',
-  styleUrl: './instalaciones-table.component.css'
+  styleUrl: './instalaciones-table.component.scss'
 })
 export class InstalacionesTableComponent implements OnInit {
   instalaciones: Instalaciones[] = [];

@@ -12,7 +12,7 @@ import { TableModule } from 'primeng/table';
   standalone: true,
   imports: [TableModule, CommonModule],
   templateUrl: './itvs-table.component.html',
-  styleUrl: './itvs-table.component.css'
+  styleUrl: './itvs-table.component.scss'
 })
 export class ItvsTableComponent implements OnInit {
   itvs: Itvs[] = [];

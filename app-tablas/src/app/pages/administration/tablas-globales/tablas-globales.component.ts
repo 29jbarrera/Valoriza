@@ -7,7 +7,7 @@ import { HeaderComponent } from '../../../components/header/header.component';
   standalone: true,
   imports: [TablasGlobalesTableComponent, HeaderComponent],
   templateUrl: './tablas-globales.component.html',
-  styleUrl: './tablas-globales.component.css'
+  styleUrl: './tablas-globales.component.scss'
 })
 export class TablasGlobalesComponent {
 

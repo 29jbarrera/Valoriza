@@ -9,7 +9,7 @@ import { HomeDataItemComponent } from '../home-data-item/home-data-item.componen
   standalone: true,
   imports: [InputTextModule, CommonModule, HomeDataItemComponent],
   templateUrl: './home-data-group.component.html',
-  styleUrl: './home-data-group.component.css',
+  styleUrl: './home-data-group.component.scss',
 })
 export class HomeDataGroupComponent {
   @Input() title: string = '';

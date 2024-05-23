@@ -13,6 +13,6 @@ import { HeaderComponent } from '../../../components/header/header.component';
     HorometrosKilometrosTableComponent,
   ],
   templateUrl: './horometros-kilometros.component.html',
-  styleUrl: './horometros-kilometros.component.css',
+  styleUrl: './horometros-kilometros.component.scss',
 })
 export class HorometrosKilometrosComponent {}

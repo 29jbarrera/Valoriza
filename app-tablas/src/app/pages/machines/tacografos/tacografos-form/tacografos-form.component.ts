@@ -23,6 +23,6 @@ import { TreeSelectModule } from 'primeng/treeselect';
     TreeSelectModule,
   ],
   templateUrl: './tacografos-form.component.html',
-  styleUrl: './tacografos-form.component.css',
+  styleUrl: './tacografos-form.component.scss',
 })
 export class TacografosFormComponent {}

@@ -41,7 +41,7 @@ import { ButtonModule } from 'primeng/button';
     FormlyPrimeNGModule,
   ],
   templateUrl: './materiales-table.component.html',
-  styleUrl: './materiales-table.component.css',
+  styleUrl: './materiales-table.component.scss',
 })
 export class MaterialesTableComponent implements OnInit {
   materiales: Materiales[] = [];

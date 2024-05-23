@@ -42,7 +42,7 @@ import { ButtonModule } from 'primeng/button';
     FormlyPrimeNGModule,
   ],
   templateUrl: './proveedores-table.component.html',
-  styleUrl: './proveedores-table.component.css',
+  styleUrl: './proveedores-table.component.scss',
 })
 export class ProveedoresTableComponent implements OnInit {
   proveedores: Proveedores[] = [];

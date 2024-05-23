@@ -42,7 +42,7 @@ import { ButtonModule } from 'primeng/button';
     FormlyPrimeNGModule,
   ],
   templateUrl: './preventivo-table.component.html',
-  styleUrl: './preventivo-table.component.css',
+  styleUrl: './preventivo-table.component.scss',
 })
 export class PreventivoTableComponent implements OnInit {
   preventivo: Preventivo[] = [];

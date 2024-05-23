@@ -42,7 +42,7 @@ import { ButtonModule } from 'primeng/button';
     FormlyPrimeNGModule,
   ],
   templateUrl: './categorias-table.component.html',
-  styleUrl: './categorias-table.component.css',
+  styleUrl: './categorias-table.component.scss',
 })
 export class CategoriasTableComponent implements OnInit {
   categorias: Categorias[] = [];

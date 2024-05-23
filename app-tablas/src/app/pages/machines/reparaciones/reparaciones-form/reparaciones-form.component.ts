@@ -23,6 +23,6 @@ import { TreeSelectModule } from 'primeng/treeselect';
     TreeSelectModule,
   ],
   templateUrl: './reparaciones-form.component.html',
-  styleUrl: './reparaciones-form.component.css',
+  styleUrl: './reparaciones-form.component.scss',
 })
 export class ReparacionesFormComponent {}

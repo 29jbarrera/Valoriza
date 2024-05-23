@@ -7,7 +7,7 @@ import { HeaderComponent } from '../../../components/header/header.component';
   standalone: true,
   imports: [SegurosTableComponent, HeaderComponent],
   templateUrl: './seguros.component.html',
-  styleUrl: './seguros.component.css'
+  styleUrl: './seguros.component.scss'
 })
 export class SegurosComponent {
 

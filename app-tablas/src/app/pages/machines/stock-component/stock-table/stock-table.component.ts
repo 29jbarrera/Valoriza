@@ -37,7 +37,7 @@ import { ButtonModule } from 'primeng/button';
     FormlyPrimeNGModule,
   ],
   templateUrl: './stock-table.component.html',
-  styleUrl: './stock-table.component.css',
+  styleUrl: './stock-table.component.scss',
 })
 export class StockTableComponent implements OnInit {
   stock: Stock[] = [];

@@ -7,7 +7,7 @@ import { InputTextModule } from 'primeng/inputtext';
   standalone: true,
   imports: [InputTextModule, ButtonModule],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css',
+  styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
   @Input() title: string = '';

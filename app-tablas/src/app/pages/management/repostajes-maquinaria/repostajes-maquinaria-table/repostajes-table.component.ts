@@ -42,7 +42,7 @@ import { ButtonModule } from 'primeng/button';
     FormlyPrimeNGModule,
   ],
   templateUrl: './repostajes-table.component.html',
-  styleUrl: './repostajes-table.component.css',
+  styleUrl: './repostajes-table.component.scss',
 })
 export class RepostajesMaquinariaTableComponent implements OnInit {
   repostaje: RepostajeMaquinaria[] = [];

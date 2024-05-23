@@ -8,6 +8,6 @@ import { HeaderComponent } from '../../../../components/header/header.component'
   standalone: true,
   imports: [StockFormComponent, StockTableComponent, HeaderComponent],
   templateUrl: './stock.component.html',
-  styleUrl: './stock.component.css',
+  styleUrl: './stock.component.scss',
 })
 export class StockComponent {}

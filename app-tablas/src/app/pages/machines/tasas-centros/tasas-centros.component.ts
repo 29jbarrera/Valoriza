@@ -12,6 +12,6 @@ import { HeaderComponent } from '../../../components/header/header.component';
     HeaderComponent,
   ],
   templateUrl: './tasas-centros.component.html',
-  styleUrl: './tasas-centros.component.css',
+  styleUrl: './tasas-centros.component.scss',
 })
 export class TasasCentrosComponent {}

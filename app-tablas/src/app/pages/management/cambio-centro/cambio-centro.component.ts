@@ -7,7 +7,7 @@ import { HeaderComponent } from '../../../components/header/header.component';
   standalone: true,
   imports: [CambioCentroTableComponent, HeaderComponent],
   templateUrl: './cambio-centro.component.html',
-  styleUrl: './cambio-centro.component.css'
+  styleUrl: './cambio-centro.component.scss'
 })
 export class CambioCentroComponent {
 

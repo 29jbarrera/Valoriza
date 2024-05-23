@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './doc.component.html',
-  styleUrl: './doc.component.css'
+  styleUrl: './doc.component.scss'
 })
 export class DocComponent {
 

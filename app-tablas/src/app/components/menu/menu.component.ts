@@ -24,7 +24,7 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
     LogotypeComponent,
   ],
   templateUrl: './menu.component.html',
-  styleUrl: './menu.component.css',
+  styleUrl: './menu.component.scss',
 })
 export class MenuComponent {
   menu_items = [

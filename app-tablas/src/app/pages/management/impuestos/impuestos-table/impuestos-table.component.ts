@@ -42,7 +42,7 @@ import { ButtonModule } from 'primeng/button';
     FormlyPrimeNGModule,
   ],
   templateUrl: './impuestos-table.component.html',
-  styleUrl: './impuestos-table.component.css',
+  styleUrl: './impuestos-table.component.scss',
 })
 export class ImpuestosTableComponent implements OnInit {
   impuestos: Impuestos[] = [];

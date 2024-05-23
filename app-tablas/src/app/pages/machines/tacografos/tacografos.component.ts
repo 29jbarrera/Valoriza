@@ -8,6 +8,6 @@ import { HeaderComponent } from '../../../components/header/header.component';
   standalone: true,
   imports: [TacografosFormComponent, TacografosTableComponent, HeaderComponent],
   templateUrl: './tacografos.component.html',
-  styleUrl: './tacografos.component.css',
+  styleUrl: './tacografos.component.scss',
 })
 export class TacografosComponent {}

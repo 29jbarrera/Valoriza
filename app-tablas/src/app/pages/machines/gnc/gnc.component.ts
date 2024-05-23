@@ -9,6 +9,6 @@ import { HeaderComponent } from '../../../components/header/header.component';
   standalone: true,
   imports: [GncFormComponent, GncTableComponent, HeaderComponent],
   templateUrl: './gnc.component.html',
-  styleUrl: './gnc.component.css',
+  styleUrl: './gnc.component.scss',
 })
 export class GncComponent {}

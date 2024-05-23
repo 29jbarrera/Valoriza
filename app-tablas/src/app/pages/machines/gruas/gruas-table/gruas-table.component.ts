@@ -12,7 +12,7 @@ import { TableModule } from 'primeng/table';
   standalone: true,
   imports: [TableModule, CommonModule],
   templateUrl: './gruas-table.component.html',
-  styleUrl: './gruas-table.component.css',
+  styleUrl: './gruas-table.component.scss',
 })
 export class GruasTableComponent implements OnInit {
   gruas: Gruas[] = [];

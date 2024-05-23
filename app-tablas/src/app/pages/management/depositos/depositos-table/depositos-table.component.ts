@@ -42,7 +42,7 @@ import { ButtonModule } from 'primeng/button';
     FormlyPrimeNGModule,
   ],
   templateUrl: './depositos-table.component.html',
-  styleUrl: './depositos-table.component.css',
+  styleUrl: './depositos-table.component.scss',
 })
 export class DepositosTableComponent implements OnInit {
   depositos: Depositos[] = [];

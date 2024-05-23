@@ -8,6 +8,6 @@ import { HeaderComponent } from '../../../components/header/header.component';
   standalone: true,
   imports: [ItvsFormComponent, ItvsTableComponent, HeaderComponent],
   templateUrl: './itvs.component.html',
-  styleUrl: './itvs.component.css',
+  styleUrl: './itvs.component.scss',
 })
 export class ItvsComponent {}

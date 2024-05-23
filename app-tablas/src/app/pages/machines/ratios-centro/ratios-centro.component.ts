@@ -12,6 +12,6 @@ import { HeaderComponent } from '../../../components/header/header.component';
     HeaderComponent,
   ],
   templateUrl: './ratios-centro.component.html',
-  styleUrl: './ratios-centro.component.css',
+  styleUrl: './ratios-centro.component.scss',
 })
 export class RatiosCentroComponent {}

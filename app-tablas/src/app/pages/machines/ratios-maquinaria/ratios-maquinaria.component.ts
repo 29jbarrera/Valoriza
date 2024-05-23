@@ -12,6 +12,6 @@ import { HeaderComponent } from '../../../components/header/header.component';
     HeaderComponent,
   ],
   templateUrl: './ratios-maquinaria.component.html',
-  styleUrl: './ratios-maquinaria.component.css',
+  styleUrl: './ratios-maquinaria.component.scss',
 })
 export class RatiosMaquinariaComponent {}

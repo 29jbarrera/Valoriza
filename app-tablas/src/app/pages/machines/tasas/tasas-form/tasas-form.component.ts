@@ -23,6 +23,6 @@ import { TreeSelectModule } from 'primeng/treeselect';
     TreeSelectModule,
   ],
   templateUrl: './tasas-form.component.html',
-  styleUrl: './tasas-form.component.css',
+  styleUrl: './tasas-form.component.scss',
 })
 export class TasasFormComponent {}

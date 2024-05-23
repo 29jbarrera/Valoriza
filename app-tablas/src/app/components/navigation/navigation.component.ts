@@ -7,7 +7,7 @@ import { DocComponent } from '../../doc/doc.component';
   standalone: true,
   imports: [MenuComponent, DocComponent],
   templateUrl: './navigation.component.html',
-  styleUrl: './navigation.component.css'
+  styleUrl: './navigation.component.scss'
 })
 export class NavigationComponent {
 

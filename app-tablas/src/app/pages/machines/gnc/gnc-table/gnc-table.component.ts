@@ -42,7 +42,7 @@ import { ButtonModule } from 'primeng/button';
     FormlyPrimeNGModule,
   ],
   templateUrl: './gnc-table.component.html',
-  styleUrl: './gnc-table.component.css',
+  styleUrl: './gnc-table.component.scss',
 })
 export class GncTableComponent implements OnInit {
   gnc: Gnc[] = [];

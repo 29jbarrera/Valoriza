@@ -42,7 +42,7 @@ import { ButtonModule } from 'primeng/button';
     FormlyPrimeNGModule,
   ],
   templateUrl: './tasas-table.component.html',
-  styleUrl: './tasas-table.component.css',
+  styleUrl: './tasas-table.component.scss',
 })
 export class TasasTableComponent implements OnInit {
   tasas: Tasas[] = [];

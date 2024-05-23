@@ -42,7 +42,7 @@ import { ButtonModule } from 'primeng/button';
     FormlyPrimeNGModule,
   ],
   templateUrl: './seguros-table.component.html',
-  styleUrl: './seguros-table.component.css',
+  styleUrl: './seguros-table.component.scss',
 })
 export class SegurosTableComponent implements OnInit {
   seguros: Seguros[] = [];

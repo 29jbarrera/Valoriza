@@ -42,7 +42,7 @@ import { ButtonModule } from 'primeng/button';
     FormlyPrimeNGModule,
   ],
   templateUrl: './ratios-centro-table.component.html',
-  styleUrl: './ratios-centro-table.component.css',
+  styleUrl: './ratios-centro-table.component.scss',
 })
 export class RatiosCentroTableComponent implements OnInit {
   ratiosCentro: RatiosCentro[] = [];

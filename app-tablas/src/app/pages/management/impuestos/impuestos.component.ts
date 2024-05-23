@@ -7,7 +7,7 @@ import { HeaderComponent } from '../../../components/header/header.component';
   standalone: true,
   imports: [ImpuestosTableComponent, HeaderComponent],
   templateUrl: './impuestos.component.html',
-  styleUrl: './impuestos.component.css'
+  styleUrl: './impuestos.component.scss'
 })
 export class ImpuestosComponent {
 

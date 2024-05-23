@@ -12,7 +12,7 @@ import { HorometrosKilometros } from '../../../../Interfaces/horometros-kilometr
   standalone: true,
   imports: [TableModule, CommonModule],
   templateUrl: './horometros-kilometros-table.component.html',
-  styleUrl: './horometros-kilometros-table.component.css',
+  styleUrl: './horometros-kilometros-table.component.scss',
 })
 export class HorometrosKilometrosTableComponent implements OnInit {
   horometrosKilometros: HorometrosKilometros[] = [];

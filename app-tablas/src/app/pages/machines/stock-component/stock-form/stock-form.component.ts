@@ -30,7 +30,7 @@ const className =
     ButtonModule
   ],
   templateUrl: './stock-form.component.html',
-  styleUrl: './stock-form.component.css',
+  styleUrl: './stock-form.component.scss',
 })
 export class StockFormComponent {
   form = new FormGroup({});

@@ -7,6 +7,6 @@ import { HeaderComponent } from '../../../components/header/header.component';
   standalone: true,
   imports: [RepostajeVehiculosTableComponent, HeaderComponent],
   templateUrl: './repostaje-vehiculos.component.html',
-  styleUrl: './repostaje-vehiculos.component.css',
+  styleUrl: './repostaje-vehiculos.component.scss',
 })
 export class RepostajeVehiculosComponent {}

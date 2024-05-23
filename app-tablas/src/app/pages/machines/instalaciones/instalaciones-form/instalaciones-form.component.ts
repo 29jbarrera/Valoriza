@@ -10,6 +10,6 @@ import { ButtonModule } from 'primeng/button';
   standalone: true,
   imports: [InputMaskModule, InputTextModule, InputNumberModule, ButtonModule],
   templateUrl: './instalaciones-form.component.html',
-  styleUrl: './instalaciones-form.component.css',
+  styleUrl: './instalaciones-form.component.scss',
 })
 export class InstalacionesFormComponent {}

@@ -15,6 +15,6 @@ import { CalendarModule } from 'primeng/calendar';
     CalendarModule,
   ],
   templateUrl: './gruas-form.component.html',
-  styleUrl: './gruas-form.component.css',
+  styleUrl: './gruas-form.component.scss',
 })
 export class GruasFormComponent {}
