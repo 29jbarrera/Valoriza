@@ -23,7 +23,7 @@ import { TreeSelectModule } from 'primeng/treeselect';
     TreeSelectModule,
   ],
   templateUrl: './ratios-maquinaria-form.component.html',
-  styleUrl: './ratios-maquinaria-form.component.css'
+  styleUrl: './ratios-maquinaria-form.component.scss'
 })
 export class RatiosMaquinariaFormComponent {
 

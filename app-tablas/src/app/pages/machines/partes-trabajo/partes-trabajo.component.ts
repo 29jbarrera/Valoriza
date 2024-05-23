@@ -8,6 +8,6 @@ import { HeaderComponent } from '../../../components/header/header.component';
   standalone: true,
   imports: [PartesFormComponent, PartesTableComponent, HeaderComponent],
   templateUrl: './partes-trabajo.component.html',
-  styleUrl: './partes-trabajo.component.css',
+  styleUrl: './partes-trabajo.component.scss',
 })
 export class PartesTrabajoComponent {}

@@ -7,6 +7,6 @@ import { HeaderComponent } from '../../../components/header/header.component';
   standalone: true,
   imports: [DepositosTableComponent, HeaderComponent],
   templateUrl: './depositos.component.html',
-  styleUrl: './depositos.component.css',
+  styleUrl: './depositos.component.scss',
 })
 export class DepositosComponent {}

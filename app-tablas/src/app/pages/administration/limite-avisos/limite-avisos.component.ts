@@ -7,7 +7,7 @@ import { HeaderComponent } from '../../../components/header/header.component';
   standalone: true,
   imports: [LimiteAvisosTableComponent, HeaderComponent],
   templateUrl: './limite-avisos.component.html',
-  styleUrl: './limite-avisos.component.css'
+  styleUrl: './limite-avisos.component.scss'
 })
 export class LimiteAvisosComponent {
 

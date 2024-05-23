@@ -42,7 +42,7 @@ import { ButtonModule } from 'primeng/button';
     FormlyPrimeNGModule,
   ],
   templateUrl: './familias-subfamilias-table.component.html',
-  styleUrl: './familias-subfamilias-table.component.css',
+  styleUrl: './familias-subfamilias-table.component.scss',
 })
 export class FamiliasSubfamiliasTableComponent implements OnInit {
   familiasSubfamilias: FamiliasSubfamilias[] = [];

@@ -7,7 +7,7 @@ import { HeaderComponent } from '../../../components/header/header.component';
   standalone: true,
   imports: [NivelesTableComponent, HeaderComponent],
   templateUrl: './niveles.component.html',
-  styleUrl: './niveles.component.css'
+  styleUrl: './niveles.component.scss'
 })
 export class NivelesComponent {
 

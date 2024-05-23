@@ -8,7 +8,7 @@ import { HeaderComponent } from '../../../components/header/header.component';
   standalone: true,
   imports: [RepostajesMaquinariaTableComponent, HeaderComponent],
   templateUrl: './repostajes.component.html',
-  styleUrl: './repostajes.component.css'
+  styleUrl: './repostajes.component.scss'
 })
 export class RepostajesMaquinariaComponent {
 

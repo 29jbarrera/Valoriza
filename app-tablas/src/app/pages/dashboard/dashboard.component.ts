@@ -7,7 +7,7 @@ import { CardListComponent } from '../../components/card-list/card-list.componen
   standalone: true,
   imports: [CardInformationComponent, CardListComponent],
   templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.css',
+  styleUrl: './dashboard.component.scss',
 })
 export class DashboardComponent {
   dates = [

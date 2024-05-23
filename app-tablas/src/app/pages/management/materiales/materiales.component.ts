@@ -7,6 +7,6 @@ import { HeaderComponent } from '../../../components/header/header.component';
   standalone: true,
   imports: [MaterialesTableComponent, HeaderComponent],
   templateUrl: './materiales.component.html',
-  styleUrl: './materiales.component.css',
+  styleUrl: './materiales.component.scss',
 })
 export class MaterialesComponent {}

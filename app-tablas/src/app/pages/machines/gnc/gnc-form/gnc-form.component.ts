@@ -21,6 +21,6 @@ import { ButtonModule } from 'primeng/button';
     ButtonModule,
   ],
   templateUrl: './gnc-form.component.html',
-  styleUrl: './gnc-form.component.css',
+  styleUrl: './gnc-form.component.scss',
 })
 export class GncFormComponent {}

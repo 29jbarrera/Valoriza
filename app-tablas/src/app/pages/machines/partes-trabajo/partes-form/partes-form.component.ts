@@ -23,6 +23,6 @@ import { TreeSelectModule } from 'primeng/treeselect';
     TreeSelectModule,
   ],
   templateUrl: './partes-form.component.html',
-  styleUrl: './partes-form.component.css',
+  styleUrl: './partes-form.component.scss',
 })
 export class PartesFormComponent {}

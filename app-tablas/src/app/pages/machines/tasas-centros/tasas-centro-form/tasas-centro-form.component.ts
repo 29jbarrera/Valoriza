@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './tasas-centro-form.component.html',
-  styleUrl: './tasas-centro-form.component.css'
+  styleUrl: './tasas-centro-form.component.scss'
 })
 export class TasasCentroFormComponent {
 

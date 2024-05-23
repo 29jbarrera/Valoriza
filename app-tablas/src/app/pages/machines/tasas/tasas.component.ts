@@ -8,6 +8,6 @@ import { HeaderComponent } from '../../../components/header/header.component';
   standalone: true,
   imports: [TasasFormComponent, TasasTableComponent, HeaderComponent],
   templateUrl: './tasas.component.html',
-  styleUrl: './tasas.component.css',
+  styleUrl: './tasas.component.scss',
 })
 export class TasasComponent {}

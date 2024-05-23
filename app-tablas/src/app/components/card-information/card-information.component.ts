@@ -6,7 +6,7 @@ import { InputTextModule } from 'primeng/inputtext';
   standalone: true,
   imports: [InputTextModule],
   templateUrl: './card-information.component.html',
-  styleUrl: './card-information.component.css'
+  styleUrl: './card-information.component.scss'
 })
 export class CardInformationComponent {
 @Input() image: string = '';

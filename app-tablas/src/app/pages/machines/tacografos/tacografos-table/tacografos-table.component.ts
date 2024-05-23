@@ -42,7 +42,7 @@ import { ButtonModule } from 'primeng/button';
     FormlyPrimeNGModule,
   ],
   templateUrl: './tacografos-table.component.html',
-  styleUrl: './tacografos-table.component.css',
+  styleUrl: './tacografos-table.component.scss',
 })
 export class TacografosTableComponent implements OnInit {
   tacografos: Tacografo[] = [];

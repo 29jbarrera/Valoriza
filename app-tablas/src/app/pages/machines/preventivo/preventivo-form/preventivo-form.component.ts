@@ -22,7 +22,7 @@ import { CommonModule } from '@angular/common';
     CommonModule,
   ],
   templateUrl: './preventivo-form.component.html',
-  styleUrl: './preventivo-form.component.css',
+  styleUrl: './preventivo-form.component.scss',
 })
 export class PreventivoFormComponent {
   time: Date[] | undefined;

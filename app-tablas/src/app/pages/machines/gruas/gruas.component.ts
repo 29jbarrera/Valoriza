@@ -9,6 +9,6 @@ import { HeaderComponent } from '../../../components/header/header.component';
   standalone: true,
   imports: [GruasFormComponent, GruasTableComponent, HeaderComponent],
   templateUrl: './gruas.component.html',
-  styleUrl: './gruas.component.css',
+  styleUrl: './gruas.component.scss',
 })
 export class GruasComponent {}

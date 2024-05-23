@@ -42,7 +42,7 @@ import { ButtonModule } from 'primeng/button';
     FormlyPrimeNGModule,
   ],
   templateUrl: './niveles-table.component.html',
-  styleUrl: './niveles-table.component.css',
+  styleUrl: './niveles-table.component.scss',
 })
 export class NivelesTableComponent implements OnInit {
   niveles: Niveles[] = [];

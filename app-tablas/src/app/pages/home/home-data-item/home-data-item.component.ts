@@ -7,7 +7,7 @@ import { InputTextModule } from 'primeng/inputtext';
   standalone: true,
   imports: [InputTextModule, CommonModule],
   templateUrl: './home-data-item.component.html',
-  styleUrl: './home-data-item.component.css'
+  styleUrl: './home-data-item.component.scss'
 })
 export class HomeDataItemComponent {
 @Input() icon: string = '';

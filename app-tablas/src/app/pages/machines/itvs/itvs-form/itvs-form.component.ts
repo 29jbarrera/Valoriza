@@ -23,6 +23,6 @@ import { TreeSelectModule } from 'primeng/treeselect';
     TreeSelectModule
   ],
   templateUrl: './itvs-form.component.html',
-  styleUrl: './itvs-form.component.css',
+  styleUrl: './itvs-form.component.scss',
 })
 export class ItvsFormComponent {}

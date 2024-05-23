@@ -21,6 +21,6 @@ import { ButtonModule } from 'primeng/button';
     ButtonModule,
   ],
   templateUrl: './gastos-form.component.html',
-  styleUrl: './gastos-form.component.css',
+  styleUrl: './gastos-form.component.scss',
 })
 export class GastosFormComponent {}

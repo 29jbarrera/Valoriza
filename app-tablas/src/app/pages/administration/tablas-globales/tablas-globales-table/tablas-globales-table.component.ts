@@ -42,7 +42,7 @@ import { ButtonModule } from 'primeng/button';
     FormlyPrimeNGModule,
   ],
   templateUrl: './tablas-globales-table.component.html',
-  styleUrl: './tablas-globales-table.component.css'
+  styleUrl: './tablas-globales-table.component.scss'
 })
 export class TablasGlobalesTableComponent implements OnInit {
   globales: Globales[] = [];

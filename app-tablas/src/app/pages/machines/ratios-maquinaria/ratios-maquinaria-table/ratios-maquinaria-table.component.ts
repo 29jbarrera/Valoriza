@@ -42,7 +42,7 @@ import { ButtonModule } from 'primeng/button';
     FormlyPrimeNGModule,
   ],
   templateUrl: './ratios-maquinaria-table.component.html',
-  styleUrl: './ratios-maquinaria-table.component.css',
+  styleUrl: './ratios-maquinaria-table.component.scss',
 })
 export class RatiosMaquinariaTableComponent implements OnInit {
   ratiosMaquinaria: RatiosMaquinaria[] = [];

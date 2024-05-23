@@ -43,7 +43,7 @@ import { ButtonModule } from 'primeng/button';
     FormlyPrimeNGModule,
   ],
   templateUrl: './gastos-table.component.html',
-  styleUrl: './gastos-table.component.css',
+  styleUrl: './gastos-table.component.scss',
 })
 export class GastosTableComponent implements OnInit {
   gastosTaller: GastosTaller[] = [];

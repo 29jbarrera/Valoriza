@@ -42,7 +42,7 @@ import { ButtonModule } from 'primeng/button';
     FormlyPrimeNGModule,
   ],
   templateUrl: './limite-avisos-table.component.html',
-  styleUrl: './limite-avisos-table.component.css',
+  styleUrl: './limite-avisos-table.component.scss',
 })
 export class LimiteAvisosTableComponent implements OnInit {
   limiteAvisos: LimiteAvisos[] = []

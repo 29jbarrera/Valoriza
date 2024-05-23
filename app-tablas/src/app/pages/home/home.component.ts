@@ -7,7 +7,7 @@ import { HomeDataItemComponent } from './home-data-item/home-data-item.component
   standalone: true,
   imports: [HomeDataGroupComponent, HomeDataItemComponent],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css',
+  styleUrl: './home.component.scss',
 })
 export class HomeComponent {
   dataInspecciones: { icon: string; title: string; description: string }[] = [

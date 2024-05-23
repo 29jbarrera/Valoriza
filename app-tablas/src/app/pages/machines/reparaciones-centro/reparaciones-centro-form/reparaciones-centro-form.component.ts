@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './reparaciones-centro-form.component.html',
-  styleUrl: './reparaciones-centro-form.component.css'
+  styleUrl: './reparaciones-centro-form.component.scss'
 })
 export class ReparacionesCentroFormComponent {
 

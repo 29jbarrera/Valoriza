@@ -42,7 +42,7 @@ import { ButtonModule } from 'primeng/button';
     FormlyPrimeNGModule,
   ],
   templateUrl: './marcas-table.component.html',
-  styleUrl: './marcas-table.component.css',
+  styleUrl: './marcas-table.component.scss',
 })
 export class MarcasTableComponent implements OnInit {
   marcas: Marcas[] = [];

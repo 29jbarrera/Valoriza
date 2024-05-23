@@ -42,7 +42,7 @@ import { ButtonModule } from 'primeng/button';
     FormlyPrimeNGModule,
   ],
   templateUrl: './reparaciones-centro-table.component.html',
-  styleUrl: './reparaciones-centro-table.component.css'
+  styleUrl: './reparaciones-centro-table.component.scss'
 })
 export class ReparacionesCentroTableComponent implements OnInit {
   reparacionesCentro: ReparacionesCentro[] = [];

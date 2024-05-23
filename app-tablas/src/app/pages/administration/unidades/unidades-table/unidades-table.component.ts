@@ -42,7 +42,7 @@ import { ButtonModule } from 'primeng/button';
     FormlyPrimeNGModule,
   ],
   templateUrl: './unidades-table.component.html',
-  styleUrl: './unidades-table.component.css'
+  styleUrl: './unidades-table.component.scss'
 })
 export class UnidadesTableComponent implements OnInit {
   unidades: Unidades[] = [];

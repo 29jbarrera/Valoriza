@@ -23,6 +23,6 @@ import { TreeSelectModule } from 'primeng/treeselect';
     TreeSelectModule,
   ],
   templateUrl: './ratios-centro-form.component.html',
-  styleUrl: './ratios-centro-form.component.css',
+  styleUrl: './ratios-centro-form.component.scss',
 })
 export class RatiosCentroFormComponent {}

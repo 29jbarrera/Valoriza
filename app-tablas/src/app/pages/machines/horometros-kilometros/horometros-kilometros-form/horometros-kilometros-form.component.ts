@@ -23,7 +23,7 @@ import { TreeSelectModule } from 'primeng/treeselect';
     TreeSelectModule
   ],
   templateUrl: './horometros-kilometros-form.component.html',
-  styleUrl: './horometros-kilometros-form.component.css',
+  styleUrl: './horometros-kilometros-form.component.scss',
 })
 export class HorometrosKilometrosFormComponent {
 nodes: []|undefined;

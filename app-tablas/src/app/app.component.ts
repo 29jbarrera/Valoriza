@@ -37,10 +37,9 @@ import { FormlyModule } from '@ngx-formly/core';
     HeaderComponent,
     ReactiveFormsModule,
     //
-
   ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+  styleUrl: './app.component.scss',
 })
 export class AppComponent {
   title = 'app-tablas';

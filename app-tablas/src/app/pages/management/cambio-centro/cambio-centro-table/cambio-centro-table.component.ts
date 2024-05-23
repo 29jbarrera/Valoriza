@@ -41,7 +41,7 @@ import { ButtonModule } from 'primeng/button';
     FormlyPrimeNGModule,
   ],
   templateUrl: './cambio-centro-table.component.html',
-  styleUrl: './cambio-centro-table.component.css',
+  styleUrl: './cambio-centro-table.component.scss',
 })
 export class CambioCentroTableComponent implements OnInit {
   cambioCentro: CambioCentro[] = [];

@@ -13,6 +13,6 @@ import { HeaderComponent } from '../../../components/header/header.component';
     HeaderComponent,
   ],
   templateUrl: './instalaciones.component.html',
-  styleUrl: './instalaciones.component.css',
+  styleUrl: './instalaciones.component.scss',
 })
 export class InstalacionesComponent {}

@@ -9,6 +9,6 @@ import { HeaderComponent } from '../../../components/header/header.component';
   standalone: true,
   imports: [PreventivoFormComponent, PreventivoTableComponent, HeaderComponent],
   templateUrl: './preventivo.component.html',
-  styleUrl: './preventivo.component.css',
+  styleUrl: './preventivo.component.scss',
 })
 export class PreventivoComponent {}

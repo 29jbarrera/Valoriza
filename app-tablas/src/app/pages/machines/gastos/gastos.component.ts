@@ -9,6 +9,6 @@ import { HeaderComponent } from '../../../components/header/header.component';
   standalone: true,
   imports: [GastosFormComponent, GastosTableComponent, HeaderComponent],
   templateUrl: './gastos.component.html',
-  styleUrl: './gastos.component.css',
+  styleUrl: './gastos.component.scss',
 })
 export class GastosComponent {}

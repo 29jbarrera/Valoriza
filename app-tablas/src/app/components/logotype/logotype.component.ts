@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './logotype.component.html',
-  styleUrl: './logotype.component.css'
+  styleUrl: './logotype.component.scss'
 })
 export class LogotypeComponent {
 

@@ -7,7 +7,7 @@ import { HeaderComponent } from '../../../components/header/header.component';
   standalone: true,
   imports: [FamiliasSubfamiliasTableComponent,HeaderComponent],
   templateUrl: './familias-subfamilias.component.html',
-  styleUrl: './familias-subfamilias.component.css'
+  styleUrl: './familias-subfamilias.component.scss'
 })
 export class FamiliasSubfamiliasComponent {
 

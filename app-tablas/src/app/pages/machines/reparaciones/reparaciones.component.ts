@@ -12,6 +12,6 @@ import { HeaderComponent } from '../../../components/header/header.component';
     HeaderComponent,
   ],
   templateUrl: './reparaciones.component.html',
-  styleUrl: './reparaciones.component.css',
+  styleUrl: './reparaciones.component.scss',
 })
 export class ReparacionesComponent {}
