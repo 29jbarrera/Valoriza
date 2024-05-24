@@ -1,6 +1,6 @@
 import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 import { provideRouter } from '@angular/router';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { routes } from './app.routes';
 import { FormlyModule } from '@ngx-formly/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 export const appConfig: ApplicationConfig = {
   providers: [
     importProvidersFrom([
+      BrowserAnimationsModule,
       FormlyModule.forRoot({
         validationMessages: [
           { name: 'required', message: 'This field is required' },
