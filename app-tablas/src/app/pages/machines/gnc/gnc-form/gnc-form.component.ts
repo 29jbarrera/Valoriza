@@ -7,6 +7,7 @@ import { CalendarModule } from 'primeng/calendar';
 import { InputGroupModule } from 'primeng/inputgroup';
 import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 import { ButtonModule } from 'primeng/button';
+import { DropdownModule } from 'primeng/dropdown';
 
 @Component({
   selector: 'app-gnc-form',
@@ -19,6 +20,7 @@ import { ButtonModule } from 'primeng/button';
     InputGroupAddonModule,
     InputGroupModule,
     ButtonModule,
+    DropdownModule,
   ],
   templateUrl: './gnc-form.component.html',
   styleUrl: './gnc-form.component.scss',

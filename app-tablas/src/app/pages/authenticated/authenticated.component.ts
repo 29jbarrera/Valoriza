@@ -8,6 +8,6 @@ import { MapComponent } from '../../components/map/map.component';
   standalone: true,
   imports: [RouterOutlet, NavigationComponent, MapComponent],
   templateUrl: './authenticated.component.html',
-  styleUrl: './authenticated.component.css',
+  styleUrl: './authenticated.component.scss',
 })
 export class AuthenticatedComponent {}
