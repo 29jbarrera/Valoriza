@@ -1,4 +1,6 @@
 .Dock {
+  height: 100%;
+  display: flex;
   background: rgb(15, 43, 52);
   .selected-item {
     background-color: #3bad2d;
