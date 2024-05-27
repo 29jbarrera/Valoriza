@@ -24,7 +24,7 @@ export class NavigationComponent {
     this.deployed_menu = !this.deployed_menu;
 
     if (this.deployed_menu) {
-      button.style.left = '290px';
+      button.style.left = '355px';
     } else {
       button.style.left = '60px';
     }
