@@ -18,6 +18,8 @@
     "@angular/platform-browser": "^17.3.0",
     "@angular/platform-browser-dynamic": "^17.3.0",
     "@angular/router": "^17.3.0",
+    "@azure/msal-angular": "^3.0.17",
+    "@azure/msal-browser": "^3.14.0",
     "@ngneat/falso": "^7.2.0",
     "@ngx-formly/core": "^6.3.0",
     "@ngx-formly/primeng": "^6.3.0",
