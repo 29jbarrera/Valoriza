@@ -10,7 +10,7 @@ import { ItvsComponent } from './pages/machines/itvs/itvs.component';
 import { PreventivoComponent } from './pages/machines/preventivo/preventivo.component';
 import { ReparacionesComponent } from './pages/machines/reparaciones/reparaciones.component';
 import { ReparacionesCentroComponent } from './pages/machines/reparaciones-centro/reparaciones-centro.component';
-import { PartesTrabajoComponent } from './pages/machines/partes-trabajo/partes-trabajo.component';
+import { PartesTrabajoComponent } from './pages/management/partes-trabajo/partes-trabajo.component';
 import { TasasComponent } from './pages/machines/tasas/tasas.component';
 import { TasasCentrosComponent } from './pages/machines/tasas-centros/tasas-centros.component';
 import { RatiosMaquinariaComponent } from './pages/machines/ratios-maquinaria/ratios-maquinaria.component';
