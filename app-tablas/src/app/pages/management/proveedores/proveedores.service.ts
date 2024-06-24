@@ -7,7 +7,7 @@ import {
   randProductDescription,
 } from '@ngneat/falso';
 
-import { Proveedores } from '../Interfaces/proveedores.interface';
+import { Proveedores } from './type';
 
 @Injectable({
   providedIn: 'root',
