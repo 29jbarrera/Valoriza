@@ -48,7 +48,7 @@
             />
           </div>
         </th>
-        <th pSortableColumn="common">
+        <th class="col-1" pSortableColumn="common">
           <div>
             <p-sortIcon class="order" field="common" />
             Común
@@ -73,7 +73,7 @@
         <td>{{ depositos.center }}</td>
         <td>{{ depositos.description }}</td>
         <td>{{ depositos.capacity }}</td>
-        <td>{{ depositos.common }}</td>
+        <td class="text-center"><p-tableCheckbox [value]="depositos.common" /></td>
       </tr>
     </ng-template>
     <ng-template pTemplate="footer">

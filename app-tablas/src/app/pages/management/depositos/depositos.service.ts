@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { randAmount, randArn, randCurrencyName } from '@ngneat/falso';
 
-import { Depositos } from '../Interfaces/depositos.interface';
+import { Depositos } from './type';
 
 @Injectable({
   providedIn: 'root',
