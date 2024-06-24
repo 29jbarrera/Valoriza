@@ -1,80 +1,86 @@
-<div class="Table">
+<div class="col-12 km-table-valoriza-app">
   <p-table
     #dt
     [value]="stock"
     dataKey="id"
+    styleClass="p-datatable-sm"
     [rowsPerPageOptions]="[5, 10, 20]"
-    [tableStyle]="{ width: '100%' }"
+    [paginator]="true"
     [rows]="5"
   >
     <ng-template pTemplate="header">
       <tr>
         <th></th>
         <th pSortableColumn="centerName">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="centerName" />
+            Centro
             <p-columnFilter
+              class="filter"
               type="text"
               field="centerName"
-              class="filter"
-              placeholder="Centro"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="centerName" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="nameMaterialReference">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="nameMaterialReference" />
+            Material
             <p-columnFilter
+              class="filter"
               type="text"
               field="nameMaterialReference"
-              placeholder="Material"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="nameMaterialReference" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="descriptionMaterialReference">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="descriptionMaterialReference" />
+            Descripción
             <p-columnFilter
+              class="filter"
               type="text"
               field="descriptionMaterialReference"
-              placeholder="Referencia"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="descriptionMaterialReference" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="quantity">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="quantity" />
+            Cantidad
             <p-columnFilter
+              class="filter"
               type="text"
               field="quantity"
-              placeholder="Cantidad"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="quantity" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="amount">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="amount" />
+            Importe
             <p-columnFilter
+              class="filter"
               type="text"
               field="amount"
-              placeholder="Importe"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="amount" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="currency">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="currency" />
+            Divisa
             <p-columnFilter
+              class="filter"
               type="text"
               field="currency"
-              placeholder="Divisa"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="currency" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
       </tr>
@@ -92,6 +98,15 @@
         <td>{{ stock.currency }}</td>
       </tr>
     </ng-template>
+    <ng-template pTemplate="footer">
+      <tr>
+        <td colspan="7">
+          <div class="pl-2">
+            Resultado totales:
+            <span class="font-bold">{{ stock.length || 0 }}</span>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
   </p-table>
-  <p>Resultado totales: {{ stock.length || 0 }}</p>
 </div>

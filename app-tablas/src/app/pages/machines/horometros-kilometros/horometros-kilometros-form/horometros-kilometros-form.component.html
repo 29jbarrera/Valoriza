@@ -1,153 +1,170 @@
-<form>
-  <div class="form-row1">
-    <div class="form-group1">
-      <label>Centro</label>
-      <input
-        class="input-form"
-        id="centro"
-        type="text"
-        pInputText
-        formControlName="centro"
-      />
+<form class="col-12">
+  <div
+    class="p-2 grid mx-2 surface-ground border-round-xl surface-border border-2 border-dashed"
+  >
+    <!-- Centro -->
+    <div class="col-12 lg:col-4">
+      <div class="text-left text-xs mb-2 pl-1 font-light text-700">Centro</div>
+      <span class="p-input-icon-left w-full">
+        <i class="fa fa-building"></i>
+        <input
+          type="text"
+          class="w-full input-text-valoriza"
+          placeholder="Introduce centro..."
+          pInputText
+        />
+      </span>
     </div>
 
-    <div class="form-group1">
-      <label></label>
-      <input
-        type="text"
-        pInputText
-        pInputText
-        [disabled]="true"
-        id="disabled"
-      />
-    </div>
-  </div>
-
-  <div class="form-row2">
-    <div class="form-group2">
-      <label>Familia</label>
-      <p-treeSelect
-        class="md:w-20rem w-full"
-        containerStyleClass="w-full"
-        placeholder="-"
-        id="familia"
-        formControlName="familia"
-      />
-    </div>
-  </div>
-
-  <div class="form-row3">
-    <div class="form-group3">
-      <label>Maquinaria</label>
-      <input
-        class="input-form"
-        id="maquinaria"
-        pInputText
-        formControlName="maquinaria"
-      />
+    <!-- Familia -->
+    <div class="col-12 lg:col-4">
+      <div class="text-left text-xs mb-2 pl-1 font-light text-700">Familia</div>
+      <p-dropdown
+        placeholder="Selecciona familia..."
+        [options]="[
+          { label: 'Todas', value: 0 },
+          { label: 'Familia 1', value: 1 },
+          { label: 'Familia 2', value: 2 }
+        ]"
+        optionLabel="label"
+        optionValue="value"
+        styleClass="w-full dropdown-valoriza"
+        [showClear]="true"
+      ></p-dropdown>
     </div>
 
-    <div class="form-group3">
-      <label></label>
-      <input
-        type="text"
-        pInputText
-        pInputText
-        [disabled]="true"
-        id="disabled"
-      />
+    <!-- Maquinaria -->
+    <div class="col-12 lg:col-4">
+      <div class="text-left text-xs mb-2 pl-1 font-light text-700">
+        Maquinaria
+      </div>
+      <span class="p-input-icon-left w-full">
+        <i class="fa fa-building"></i>
+        <input
+          type="text"
+          class="w-full input-text-valoriza"
+          placeholder="Introduce maquinaria..."
+          pInputText
+        />
+      </span>
     </div>
-  </div>
 
-  <div class="form-row4">
-    <div class="form-group4">
-      <label>Fecha desde</label>
+    
+
+    <!-- Fecha desde -->
+    <div class="col-12 lg:col-6">
+      <div class="text-left text-xs mb-2 pl-1 font-light text-700">
+        Fecha desde
+      </div>
       <p-calendar
-        placeholder="mm/dd/yyyy"
-        class="input-form"
-        id="fecha-desde"
+        selectionMode="single"
+        [firstDayOfWeek]="1"
+        styleClass="w-full input-calendar-valoriza"
         [showIcon]="true"
-        inputId="icondisplay"
-        formControlName="fechaDesde"
-      />
+        dateFormat="dd/mm/yy"
+        placeholder="dd/mm/yy"
+        pRipple
+      ></p-calendar>
     </div>
-  </div>
-
-  <div class="form-row5">
-    <div class="form-group5">
-      <label>Fecha hasta</label>
+    <!-- Fecha hasta -->
+    <div class="col-12 lg:col-6">
+      <div class="text-left text-xs mb-2 pl-1 font-light text-700">
+        Fecha hasta
+      </div>
       <p-calendar
-        placeholder="mm/dd/yyyy"
-        class="input-form"
-        id="fecha-hasta"
+        selectionMode="single"
+        [firstDayOfWeek]="1"
+        styleClass="w-full input-calendar-valoriza"
         [showIcon]="true"
-        inputId="icondisplay"
-        formControlName="fechaHasta"
-      />
+        dateFormat="dd/mm/yy"
+        placeholder="dd/mm/yy"
+        pRipple
+      ></p-calendar>
     </div>
-  </div>
 
-  <div class="form-row6">
-    <div class="form-group6">
-      <label>Horas desde</label>
+    <!-- Hora desde -->
+    <div class="col-12 lg:col-6">
+      <div class="text-left text-xs mb-2 pl-1 font-light text-700">
+        Hora desde
+      </div>
       <p-calendar
-        class="input-form"
-        id="horas-desde"
+        selectionMode="single"
+        [firstDayOfWeek]="1"
+        styleClass="w-full input-calendar-valoriza"
+        [showIcon]="true"
+        placeholder="HH:MM"
         [timeOnly]="true"
-        inputId="calendar-timeonly"
-        formControlName="horasDesde"
-      />
+        pRipple
+      ></p-calendar>
     </div>
-
-    <div class="form-group6">
-      <label>Kilómetros desde</label>
-      <p-inputNumber
-        class="input-form"
-        id="km-desde"
-        inputId="km"
-        suffix=" km"
-        formControlName="kmDesde"
-      />
-    </div>
-  </div>
-
-  <div class="form-row7">
-    <div class="form-group7">
-      <label>Horas hasta</label>
+    <!-- Fecha hasta -->
+    <div class="col-12 lg:col-6">
+      <div class="text-left text-xs mb-2 pl-1 font-light text-700">
+        Hora hasta
+      </div>
       <p-calendar
-        class="input-form"
-        id="fecha-desde"
+        selectionMode="single"
+        [firstDayOfWeek]="1"
+        styleClass="w-full input-calendar-valoriza"
+        [showIcon]="true"
+        placeholder="HH:MM"
         [timeOnly]="true"
-        inputId="calendar-timeonly"
-        formControlName="fechaDesde"
-      />
+        pRipple
+      ></p-calendar>
     </div>
 
-    <div class="form-group7">
-      <label>Kilometros hasta</label>
-      <p-inputNumber
-        class="input-form"
-        id="km-desde"
-        inputId="km"
-        suffix=" km"
-        formControlName="kmHasta"
-      />
-    </div>
-  </div>
-
-  <div class="form-buttons">
-    <div class="form-button">
-      <p-button
-        type="reset"
-        label="Limpiar búsqueda"
-        [raised]="true"
-        severity="secondary"
-        class="limpiar"
-      ></p-button>
+    <!-- KM Desde -->
+    <div class="col-12 lg:col-6">
+      <div class="text-left text-xs mb-2 pl-1 font-light text-700">
+        KM/s Desde
+      </div>
+      <span class="p-input-icon-left w-full">
+        <i class="fa fa-building"></i>
+        <input
+          id="centro"
+          type="text"
+          class="w-full input-text-valoriza"
+          placeholder="Introduce Km/s..."
+          pInputText
+        />
+      </span>
     </div>
 
-    <div class="form-button">
-      <p-button type="button" label="Buscar" [raised]="true"></p-button>
+    <!-- KM Hasta -->
+    <div class="col-12 lg:col-6">
+      <div class="text-left text-xs mb-2 pl-1 font-light text-700">
+        KM/s Hasta
+      </div>
+      <span class="p-input-icon-left w-full">
+        <i class="fa fa-building"></i>
+        <input
+          id="centro"
+          type="text"
+          class="w-full input-text-valoriza"
+          placeholder="Introduce km/s..."
+          pInputText
+        />
+      </span>
+    </div>
+
+    <!-- Botones -->
+    <div class="col-12">
+      <div
+        class="flex flex-column lg:flex-row lg:justify-content-end gap-3 align-items-center justify-content-center"
+      >
+        <button
+          pButton
+          type="reset"
+          label="Limpiar búsqueda"
+          class="km-button-secondary-valoriza-app"
+        ></button>
+        <button
+          pButton
+          type="button"
+          label="Buscar"
+          class="km-button-primary-valoriza-app"
+        ></button>
+      </div>
     </div>
   </div>
 </form>
