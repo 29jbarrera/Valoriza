@@ -1,54 +1,63 @@
-<div class="Table">
-  <p-table [value]="depositos" [tableStyle]="{ 'min-width': '50rem' }">
+<div class="col-12 km-table-valoriza-app">
+  <p-table
+    #dt
+    [value]="depositos"
+    dataKey="id"
+    styleClass="p-datatable-sm"
+    [rowsPerPageOptions]="[5, 10, 20]"
+    [paginator]="true"
+    [rows]="5"
+  >
     <ng-template pTemplate="header">
       <tr>
         <th></th>
+        <th></th>
         <th pSortableColumn="center">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="center" />
+            Centro
             <p-columnFilter
               type="text"
               field="center"
               class="filter"
-              placeholder="Centro"
-              [showClearButton]="false"
+              display="menu"
             />
-            <p-sortIcon class="order" field="center" />
           </div>
         </th>
         <th pSortableColumn="description">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="description" />
+            Descripción
             <p-columnFilter
               type="text"
               field="description"
               class="filter"
-              placeholder="Descripción"
-              [showClearButton]="false"
+              display="menu"
             />
-            <p-sortIcon class="order" field="description" />
           </div>
         </th>
         <th pSortableColumn="capacity">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="capacity" />
+            Capacidad
             <p-columnFilter
               type="text"
               field="capacity"
               class="filter"
-              placeholder="Capacidad"
-              [showClearButton]="false"
+              display="menu"
             />
-            <p-sortIcon class="order" field="capacity" />
           </div>
         </th>
         <th pSortableColumn="common">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="common" />
+            Común
             <p-columnFilter
               type="text"
               field="common"
               class="filter"
-              placeholder="Común"
-              [showClearButton]="false"
+              display="menu"
             />
-            <p-sortIcon class="order" field="common" />
           </div>
         </th>
       </tr>
@@ -58,12 +67,24 @@
         <td>
           <i class="fas fa-pen"></i>
         </td>
+        <td>
+          <i class="fas fa-trash"></i>
+        </td>
         <td>{{ depositos.center }}</td>
         <td>{{ depositos.description }}</td>
         <td>{{ depositos.capacity }}</td>
         <td>{{ depositos.common }}</td>
       </tr>
     </ng-template>
+    <ng-template pTemplate="footer">
+      <tr>
+        <td colspan="6">
+          <div class="pl-2">
+            Resultado totales:
+            <span class="font-bold">{{ depositos.length || 0 }}</span>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
   </p-table>
-  <p>Resultado totales: {{ depositos.length || 0 }}</p>
 </div>

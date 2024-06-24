@@ -1,78 +1,87 @@
-<div class="Table">
-  <p-table [value]="cambioCentro" [tableStyle]="{ 'min-width': '50rem' }">
+<div class="col-12 km-table-valoriza-app">
+  <p-table
+    #dt
+    [value]="cambioCentro"
+    dataKey="id"
+    styleClass="p-datatable-sm"
+    [rowsPerPageOptions]="[5, 10, 20]"
+    [paginator]="true"
+    [rows]="5"
+  >
     <ng-template pTemplate="header">
       <tr>
         <th></th>
+        <th></th>
         <th pSortableColumn="selected">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="selected" />
+            Seleccionado
             <p-columnFilter
               type="text"
               field="selected"
               class="filter"
-              placeholder="Seleccionado"
-              [showClearButton]="false"
+              display="menu"
             />
-            <p-sortIcon class="order" field="selected" />
           </div>
         </th>
         <th pSortableColumn="machineryTuition">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="machineryTuition" />
+            Matrícula Maquinaria
             <p-columnFilter
               type="text"
               field="machineryTuition"
               class="filter"
-              placeholder="Matrícula Maquinaria"
-              [showClearButton]="false"
+              display="menu"
             />
-            <p-sortIcon class="order" field="machineryTuition" />
           </div>
         </th>
         <th pSortableColumn="centerCode">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="centerCode" />
+            Código Centro
             <p-columnFilter
               type="text"
               field="centerCode"
               class="filter"
-              placeholder="Código centro"
-              [showClearButton]="false"
+              display="menu"
             />
-            <p-sortIcon class="order" field="centerCode" />
           </div>
         </th>
         <th pSortableColumn="centerName">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="centerName" />
+            Nombre Centro
             <p-columnFilter
               type="text"
               field="centerName"
               class="filter"
-              placeholder="Nombre Centro"
-              [showClearButton]="false"
+              display="menu"
             />
-            <p-sortIcon class="order" field="centerName" />
           </div>
         </th>
         <th pSortableColumn="destinationCenterCode">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="destinationCenterCode" />
+            Código centro destino
             <p-columnFilter
               type="text"
               field="destinationCenterCode"
               class="filter"
-              placeholder="Código centro destino"
-              [showClearButton]="false"
+              display="menu"
             />
-            <p-sortIcon class="order" field="destinationCenterCode" />
           </div>
         </th>
         <th pSortableColumn="destinationCenterName">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="destinationCenterName" />
+            Nombre centro destino
             <p-columnFilter
               type="text"
               field="destinationCenterName"
               class="filter"
-              placeholder="Nombre centro destino"
-              [showClearButton]="false"
+              display="menu"
             />
-            <p-sortIcon class="order" field="destinationCenterName" />
           </div>
         </th>
       </tr>
@@ -82,6 +91,9 @@
         <td>
           <i class="fas fa-pen"></i>
         </td>
+        <td>
+          <i class="fas fa-trash"></i>
+        </td>
         <td>{{ cambioCentro.selected }}</td>
         <td>{{ cambioCentro.machineryTuition }}</td>
         <td>{{ cambioCentro.centerCode }}</td>
@@ -90,6 +102,15 @@
         <td>{{ cambioCentro.destinationCenterName }}</td>
       </tr>
     </ng-template>
+    <ng-template pTemplate="footer">
+      <tr>
+        <td colspan="8">
+          <div class="pl-2">
+            Resultado totales:
+            <span class="font-bold">{{ cambioCentro.length || 0 }}</span>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
   </p-table>
-  <p>Resultado totales: {{ cambioCentro.length || 0 }}</p>
 </div>
