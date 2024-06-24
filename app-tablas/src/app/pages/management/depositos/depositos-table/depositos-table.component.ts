@@ -7,8 +7,8 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { Depositos } from '../../../../Interfaces/depositos.interface';
-import { DepositosService } from '../../../../service/depositos.service';
+import { Depositos } from '../type';
+import { DepositosService } from '../depositos.service';
 
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
