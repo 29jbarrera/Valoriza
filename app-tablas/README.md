@@ -26,10 +26,34 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-## LAYOUT PAGES
+## 1. LAYOUT PAGES
 
 <section class="container-router-outlet">
   <app-header title="Ratios Maquinaria" description=""> </app-header>
   <app-ratios-maquinaria-form></app-ratios-maquinaria-form>
   <app-ratios-maquinaria-table></app-ratios-maquinaria-table>
 </section>
+
+## 2. LAYOUT PAGE FORM
+
+<form class="col-12">
+  <div
+    class="p-2 grid mx-2 surface-ground border-round-xl surface-border border-2 border-dashed"
+  >
+    <!-- CONTENIDO AQUI DEL FORMULARIO -->
+  </div>
+</form>
+
+## 3. LAYOUT PAGE TABLE
+<div class="col-12 km-table-valoriza-app">
+
+  // INDICAR ESOS ATRIBUTOS AL COMPONENTE p-table
+  <p-table
+    styleClass="p-datatable-sm"
+    [rowsPerPageOptions]="[5, 10, 20]"
+    [paginator]="true"
+    [rows]="5"
+  >
+    <!-- CONTENIDO TABLA -->
+  </p-table>
+</div>
