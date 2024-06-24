@@ -7,8 +7,8 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { RepostajeMaquinaria } from '../../../../Interfaces/repostajes-maquinaria.interface';
-import { RepostajesService } from '../../../../service/repostajes-maquinaria.service';
+import { RepostajeMaquinaria } from '../type';
+import { RepostajesService } from '../repostajes-maquinaria.service';
 
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';

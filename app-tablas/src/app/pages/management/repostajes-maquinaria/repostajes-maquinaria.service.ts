@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { rand, randAmount, randArn, randCurrencyName } from '@ngneat/falso';
 
-import { RepostajeMaquinaria } from '../Interfaces/repostajes-maquinaria.interface';
+import { RepostajeMaquinaria } from './type';
 
 @Injectable({
   providedIn: 'root',
