@@ -7,8 +7,8 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { CambioCentro } from '../../../../Interfaces/cambioCentro.interface';
-import { CambioCentroService } from '../../../../service/cambio-centro.service';
+import { CambioCentro } from '../type';
+import { CambioCentroService } from '../cambio-centro.service';
 
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
