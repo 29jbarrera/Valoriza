@@ -1,97 +1,98 @@
-<div class="Table">
+<div class="col-12 km-table-valoriza-app">
   <p-table
     #dt
     [value]="tasasCentro"
     dataKey="id"
+    styleClass="p-datatable-sm"
     [rowsPerPageOptions]="[5, 10, 20]"
-    [tableStyle]="{ width: '100%' }"
+    [paginator]="true"
     [rows]="5"
   >
     <ng-template pTemplate="header">
       <tr>
         <th></th>
-        <th pSortableColumn="dateForm">
-          <div class="flex align-items-center">
+        <th pSortableColumn="dateFrom">
+          <div>
+            <p-sortIcon class="order" field="dateFrom" />
+            Desde
             <p-columnFilter
-              type="text"
-              field="dateForm"
               class="filter"
-              placeholder="Fecha desde"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="dateForm" />
+              type="text"
+              field="dateFrom"
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="dateUntil">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="dateUntil" />
+            Desde
             <p-columnFilter
+              class="filter"
               type="text"
               field="dateUntil"
-              class="filter"
-              placeholder="Fecha hasta"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="dateUntil" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="delegation">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="delegation" />
+            Delegación
             <p-columnFilter
+              class="filter"
               type="text"
               field="delegation"
-              class="filter"
-              placeholder="Delegación"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="delegation" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="code">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="code" />
+            Codigo
             <p-columnFilter
+              class="filter"
               type="text"
               field="code"
-              class="filter"
-              placeholder="Código"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="code" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="name">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="name" />
+            Nombre
             <p-columnFilter
+              class="filter"
               type="text"
               field="name"
-              class="filter"
-              placeholder="Nombre"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="name" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="cost">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="cost" />
+            Coste
             <p-columnFilter
+              class="filter"
               type="text"
               field="cost"
-              class="filter"
-              placeholder="Coste"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="cost" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="currency">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="currency" />
+            Divisa
             <p-columnFilter
+              class="filter"
               type="text"
               field="currency"
-              class="filter"
-              placeholder="Divisa"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="currency" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
       </tr>
@@ -111,7 +112,15 @@
         <td>{{ tasasCentro.currency }}</td>
       </tr>
     </ng-template>
+    <ng-template pTemplate="footer">
+      <tr>
+        <td colspan="7">
+          <div class="pl-2">
+            Resultado totales:
+            <span class="font-bold">{{ tasasCentro.length || 0 }}</span>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
   </p-table>
-  <p>Resultado totales: {{ tasasCentro.length || 0 }}</p>
-
 </div>
