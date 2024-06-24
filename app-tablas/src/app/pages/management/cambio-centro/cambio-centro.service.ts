@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { randAmount, randArn, randCompanyName } from '@ngneat/falso';
 
-import { CambioCentro } from '../Interfaces/cambioCentro.interface';
+import { CambioCentro } from './type';
 
 @Injectable({
   providedIn: 'root',
