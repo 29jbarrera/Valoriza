@@ -8,6 +8,7 @@ import { InputGroupModule } from 'primeng/inputgroup';
 import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 import { ButtonModule } from 'primeng/button';
 import { TreeSelectModule } from 'primeng/treeselect';
+import { DropdownModule } from 'primeng/dropdown';
 
 @Component({
   selector: 'app-horometros-kilometros-form',
@@ -20,7 +21,8 @@ import { TreeSelectModule } from 'primeng/treeselect';
     InputGroupAddonModule,
     InputGroupModule,
     ButtonModule,
-    TreeSelectModule
+    TreeSelectModule,
+    DropdownModule
   ],
   templateUrl: './horometros-kilometros-form.component.html',
   styleUrl: './horometros-kilometros-form.component.scss',

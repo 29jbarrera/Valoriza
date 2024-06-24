@@ -7,6 +7,7 @@ import { CalendarModule } from 'primeng/calendar';
 import { TreeSelectModule } from 'primeng/treeselect';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { DropdownModule } from 'primeng/dropdown';
 
 @Component({
   selector: 'app-preventivo-form',
@@ -20,6 +21,7 @@ import { CommonModule } from '@angular/common';
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
+    DropdownModule
   ],
   templateUrl: './preventivo-form.component.html',
   styleUrl: './preventivo-form.component.scss',
