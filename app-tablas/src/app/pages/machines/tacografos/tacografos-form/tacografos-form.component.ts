@@ -8,6 +8,7 @@ import { InputGroupModule } from 'primeng/inputgroup';
 import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 import { ButtonModule } from 'primeng/button';
 import { TreeSelectModule } from 'primeng/treeselect';
+import { DropdownModule } from 'primeng/dropdown';
 
 @Component({
   selector: 'app-tacografos-form',
@@ -21,6 +22,7 @@ import { TreeSelectModule } from 'primeng/treeselect';
     InputGroupModule,
     ButtonModule,
     TreeSelectModule,
+    DropdownModule
   ],
   templateUrl: './tacografos-form.component.html',
   styleUrl: './tacografos-form.component.scss',
