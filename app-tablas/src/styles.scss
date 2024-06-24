@@ -260,7 +260,7 @@ body {
         border-top-right-radius: 10px;
       }
     }
-    td:first-child {
+    td:first-child, td:nth-child(2) {
       width: 30px;
       min-width: 30px;
       padding: 0 !important;
@@ -280,6 +280,7 @@ body {
         border: 1px solid #3cad2d48;
         color: #3cad2d;
         border-radius: 5px;
+        cursor: pointer;
       }
     }
     td:last-child {

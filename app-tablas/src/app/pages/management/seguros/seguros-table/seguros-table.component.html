@@ -1,138 +1,147 @@
-<div class="Table">
-  <p-table [value]="seguros" [tableStyle]="{ 'min-width': '50rem' }">
+<div class="col-12 km-table-valoriza-app">
+  <p-table
+    #dt
+    [value]="seguros"
+    dataKey="id"
+    styleClass="p-datatable-sm"
+    [rowsPerPageOptions]="[5, 10, 20]"
+    [paginator]="true"
+    [rows]="5"
+  >
     <ng-template pTemplate="header">
       <tr>
         <th></th>
+        <th></th>
         <th pSortableColumn="center">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="center" />
+            Centro
             <p-columnFilter
               type="text"
               field="center"
               class="filter"
-              placeholder="Centro"
-              [showClearButton]="false"
+              display="menu"
             />
-            <p-sortIcon class="order" field="center" />
           </div>
         </th>
         <th pSortableColumn="machines">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="machines" />
+            Maquinaria
             <p-columnFilter
               type="text"
               field="machines"
               class="filter"
-              placeholder="Maquinaria"
-              [showClearButton]="false"
+              display="menu"
             />
-            <p-sortIcon class="order" field="machines" />
           </div>
         </th>
         <th pSortableColumn="insuranceCompany">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="insuranceCompany" />
+            Aseguradora
             <p-columnFilter
               type="text"
               field="insuranceCompany"
               class="filter"
-              placeholder="Aseguradora"
-              [showClearButton]="false"
+              display="menu"
             />
-            <p-sortIcon class="order" field="insuranceCompany" />
           </div>
         </th>
         <th pSortableColumn="state">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="state" />
+            Estado
             <p-columnFilter
               type="text"
               field="state"
               class="filter"
-              placeholder="Estado"
-              [showClearButton]="false"
+              display="menu"
             />
-            <p-sortIcon class="order" field="state" />
           </div>
         </th>
         <th pSortableColumn="type">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="type" />
+            Tipo
             <p-columnFilter
               type="text"
               field="type"
               class="filter"
-              placeholder="Tipo"
-              [showClearButton]="false"
+              display="menu"
             />
-            <p-sortIcon class="order" field="type" />
           </div>
         </th>
         <th pSortableColumn="numberPoliza">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="numberPoliza" />
+            Nº Póliza
             <p-columnFilter
               type="text"
               field="numberPoliza"
               class="filter"
-              placeholder="Nº Póliza"
-              [showClearButton]="false"
+              display="menu"
             />
-            <p-sortIcon class="order" field="numberPoliza" />
           </div>
         </th>
         <th pSortableColumn="startDate">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="startDate" />
+            Fecha inicio
             <p-columnFilter
               type="text"
               field="startDate"
               class="filter"
-              placeholder="Fecha inicio"
-              [showClearButton]="false"
+              display="menu"
             />
-            <p-sortIcon class="order" field="startDate" />
           </div>
         </th>
         <th pSortableColumn="endDate">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="endDate" />
+            Fecha fin
             <p-columnFilter
               type="text"
               field="endDate"
               class="filter"
-              placeholder="Fecha fin"
-              [showClearButton]="false"
+              display="menu"
             />
-            <p-sortIcon class="order" field="endDate" />
           </div>
         </th>
         <th pSortableColumn="amount">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="amount" />
+            Importe
             <p-columnFilter
               type="text"
               field="amount"
               class="filter"
-              placeholder="Importe"
-              [showClearButton]="false"
+              display="menu"
             />
-            <p-sortIcon class="order" field="amount" />
           </div>
         </th>
         <th pSortableColumn="currency">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="currency" />
+            Divisa
             <p-columnFilter
               type="text"
               field="currency"
               class="filter"
-              placeholder="Divisa"
-              [showClearButton]="false"
+              display="menu"
             />
-            <p-sortIcon class="order" field="currency" />
           </div>
         </th>
         <th pSortableColumn="comment">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="comment" />
+            Comentario
             <p-columnFilter
               type="text"
               field="comment"
               class="filter"
-              placeholder="Comentario"
-              [showClearButton]="false"
+              display="menu"
             />
-            <p-sortIcon class="order" field="comment" />
           </div>
         </th>
       </tr>
@@ -141,6 +150,9 @@
       <tr class="body-table">
         <td>
           <i class="fas fa-pen"></i>
+        </td>
+        <td>
+          <i class="fas fa-trash"></i>
         </td>
         <td>{{ seguros.center }}</td>
         <td>{{ seguros.machines }}</td>
@@ -153,7 +165,17 @@
         <td>{{ seguros.amount }}</td>
         <td>{{ seguros.currency }}</td>
         <td>{{ seguros.comment }}</td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="footer">
+      <tr>
+        <td colspan="7">
+          <div class="pl-2">
+            Resultado totales:
+            <span class="font-bold">{{ seguros.length || 0 }}</span>
+          </div>
+        </td>
+      </tr>
     </ng-template>
   </p-table>
-  <p>Resultado totales: {{ seguros.length || 0 }}</p>
 </div>
