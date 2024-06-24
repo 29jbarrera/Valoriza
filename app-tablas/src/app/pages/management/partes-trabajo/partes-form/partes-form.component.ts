@@ -7,7 +7,7 @@ import { CalendarModule } from 'primeng/calendar';
 import { InputGroupModule } from 'primeng/inputgroup';
 import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 import { ButtonModule } from 'primeng/button';
-import { TreeSelectModule } from 'primeng/treeselect';
+import { DropdownModule } from 'primeng/dropdown';
 
 @Component({
   selector: 'app-partes-form',
@@ -20,7 +20,7 @@ import { TreeSelectModule } from 'primeng/treeselect';
     InputGroupAddonModule,
     InputGroupModule,
     ButtonModule,
-    TreeSelectModule,
+    DropdownModule
   ],
   templateUrl: './partes-form.component.html',
   styleUrl: './partes-form.component.scss',

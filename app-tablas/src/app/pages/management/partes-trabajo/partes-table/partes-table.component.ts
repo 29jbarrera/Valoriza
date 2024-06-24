@@ -7,8 +7,8 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { PartesService } from '../../../../service/partes.service';
-import { Partes } from '../../../../Interfaces/parte.interface';
+import { PartesService } from '../partes.service';
+import { Partes } from '../type';
 
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
