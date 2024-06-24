@@ -272,6 +272,9 @@ body {
       padding: 0 !important;
       margin: 0 !important;
       position: relative;
+    }
+
+    td:first-child {
       i {
         justify-content: center;
         align-items: center;
@@ -289,6 +292,26 @@ body {
         cursor: pointer;
       }
     }
+
+    td:nth-child(2){
+      i {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        position: absolute;
+        top: 2px;
+        bottom: 2px;
+        right: 2px;
+        left: 2px;
+        font-size: 17px;
+        background-color: #ad2d2d1f;
+        border: 1px solid #ad2d2d48;
+        color: #ad2d2d;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    }
+
     td:last-child {
       border-right: none;
     }
