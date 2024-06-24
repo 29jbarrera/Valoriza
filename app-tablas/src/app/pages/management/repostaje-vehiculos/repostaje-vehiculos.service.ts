@@ -13,7 +13,7 @@ import {
   seed,
 } from '@ngneat/falso';
 
-import { RepostajeVehiculos } from '../Interfaces/repostajes-vehiculos.interface';
+import { RepostajeVehiculos } from './type';
 
 @Injectable({
   providedIn: 'root'
