@@ -2,7 +2,8 @@
   <p-table
     #dt
     [value]="depositos"
-    dataKey="id"
+    [(selection)]="selectDepositos" 
+    dataKey="center"
     styleClass="p-datatable-sm"
     [rowsPerPageOptions]="[5, 10, 20]"
     [paginator]="true"
@@ -73,7 +74,7 @@
         <td>{{ depositos.center }}</td>
         <td>{{ depositos.description }}</td>
         <td>{{ depositos.capacity }}</td>
-        <td class="text-center"><p-tableCheckbox [value]="depositos.common" /></td>
+        <td class="text-center"><p-tableCheckbox [value]="depositos" /></td>
       </tr>
     </ng-template>
     <ng-template pTemplate="footer">

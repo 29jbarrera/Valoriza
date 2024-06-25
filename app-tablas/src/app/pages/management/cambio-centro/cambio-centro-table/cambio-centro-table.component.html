@@ -2,7 +2,8 @@
   <p-table
     #dt
     [value]="cambioCentro"
-    dataKey="id"
+    [(selection)]="selectCambioCentro" 
+    dataKey="centerCode"
     styleClass="p-datatable-sm"
     [rowsPerPageOptions]="[5, 10, 20]"
     [paginator]="true"
@@ -94,7 +95,7 @@
         <td>
           <i class="fas fa-trash"></i>
         </td>
-        <td class="text-center"><p-tableCheckbox [value]="cambioCentro.selected" /></td>
+        <td class="text-center"><p-tableCheckbox [value]="cambioCentro" /></td>
         <td>{{ cambioCentro.machineryTuition }}</td>
         <td>{{ cambioCentro.centerCode }}</td>
         <td>{{ cambioCentro.centerName }}</td>

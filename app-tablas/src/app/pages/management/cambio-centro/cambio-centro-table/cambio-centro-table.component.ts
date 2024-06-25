@@ -45,6 +45,7 @@ import { ButtonModule } from 'primeng/button';
 })
 export class CambioCentroTableComponent implements OnInit {
   cambioCentro: CambioCentro[] = [];
+  selectCambioCentro: CambioCentro[] = [];
   searchForm: FormGroup;
 
   constructor(

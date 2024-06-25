@@ -46,6 +46,7 @@ import { ButtonModule } from 'primeng/button';
 })
 export class DepositosTableComponent implements OnInit {
   depositos: Depositos[] = [];
+  selectDepositos: Depositos[] = [];
   searchForm: FormGroup;
 
   constructor(
