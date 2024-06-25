@@ -11,6 +11,7 @@
     <ng-template pTemplate="header">
       <tr>
         <th></th>
+        <th></th>
         <th pSortableColumn="repairCentre">
           <div>
             <p-sortIcon class="order" field="repairCentre" />
@@ -139,6 +140,9 @@
         <td>
           <i class="fas fa-pen"></i>
         </td>
+        <td>
+          <i class="fas fa-trash"></i>
+        </td>
         <td>{{ reparaciones.repairCentre }}</td>
         <td>{{ reparaciones.machinery }}</td>
         <td>{{ reparaciones.typeAction }}</td>
@@ -153,7 +157,7 @@
     </ng-template>
     <ng-template pTemplate="footer">
       <tr>
-        <td colspan="7">
+        <td colspan="12">
           <div class="pl-2">
             Resultado totales:
             <span class="font-bold">{{ reparaciones.length || 0 }}</span>

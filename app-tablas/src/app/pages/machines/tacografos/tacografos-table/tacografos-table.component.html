@@ -11,6 +11,7 @@
     <ng-template pTemplate="header">
       <tr>
         <th></th>
+        <th></th>
         <th pSortableColumn="machinery">
           <div>
             <p-sortIcon class="order" field="machinery" />
@@ -91,6 +92,9 @@
         <td>
           <i class="fas fa-pen"></i>
         </td>
+        <td>
+          <i class="fas fa-trash"></i>
+        </td>
         <td>{{ tacografos.machinery }}</td>
         <td>{{ tacografos.center }}</td>
         <td>{{ tacografos.delegation }}</td>
@@ -101,7 +105,7 @@
     </ng-template>
     <ng-template pTemplate="footer">
       <tr>
-        <td colspan="7">
+        <td colspan="8">
           <div class="pl-2">
             Resultado totales:
             <span class="font-bold">{{ tacografos.length || 0 }}</span>

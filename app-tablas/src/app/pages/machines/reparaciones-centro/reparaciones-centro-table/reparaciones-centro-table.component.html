@@ -11,6 +11,7 @@
     <ng-template pTemplate="header">
       <tr>
         <th></th>
+        <th></th>
         <th pSortableColumn="code">
           <div>
             <p-sortIcon class="order" field="code" />
@@ -66,6 +67,9 @@
       <tr class="body-table">
         <td>
           <i class="fas fa-pen"></i>
+        </td>
+        <td>
+          <i class="fas fa-trash"></i>
         </td>
         <td>{{ reparacionesCentro.code }}</td>
         <td>{{ reparacionesCentro.name }}</td>

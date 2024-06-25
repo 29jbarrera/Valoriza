@@ -11,6 +11,7 @@
     <ng-template pTemplate="header">
       <tr>
         <th></th>
+        <th></th>
         <th pSortableColumn="dateFrom">
           <div>
             <p-sortIcon class="order" field="dateFrom" />
@@ -200,6 +201,9 @@
         <td>
           <i class="fas fa-pen"></i>
         </td>
+        <td>
+          <i class="fas fa-trash"></i>
+        </td>
         <td>{{ tasas.dateFrom  | date : "dd/MM/yyyy"}}</td>
         <td>{{ tasas.dateUntil | date : "dd/MM/yyyy" }}</td>
         <td>{{ tasas.machineCentre }}</td>
@@ -219,7 +223,7 @@
     </ng-template>
     <ng-template pTemplate="footer">
       <tr>
-        <td colspan="7">
+        <td colspan="16">
           <div class="pl-2">
             Resultado totales:
             <span class="font-bold">{{ tasas.length || 0 }}</span>
