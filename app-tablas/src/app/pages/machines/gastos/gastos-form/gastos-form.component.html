@@ -1,171 +1,248 @@
-<form>
-  <div class="form-row1">
-    <div class="form-group">
-      <label>Delegación</label>
-      <input
-        class="input-form"
-        id="delegacion"
-        type="text"
-        pInputText
-        formControlName="delegacion"
-      />
-    </div>
-  </div>
+<form class="col-12">
+  <div
+    class="p-2 grid mx-2 surface-ground border-round-xl surface-border border-2 border-dashed">
 
-  <div class="form-row2">
-    <div class="form-group">
-      <label>Código centro</label>
-      <p-inputGroup>
-        <input type="text" pInputText />
+    <div class="col-12 lg:col-4">
+      <div class="text-left text-xs mb-2 pl-1 font-light text-700">
+        Delegación
+      </div>
+      <span class="p-input-icon-left w-full">
+        <i class="fa fa-building"></i>
+        <input
+          id="delegation"
+          formControlName="delegation"
+          type="text"
+          class="w-full input-text-valoriza"
+          placeholder="Introduce delegación..."
+          pInputText
+        />
+      </span>
+    </div>
+
+    <div class="col-12 lg:col-4">
+      <div class="text-left text-xs mb-2 pl-1 font-light text-700">
+        Código centro
+      </div>
+      <span class="p-input-icon-left w-full">
+        <i class="fa fa-building"></i>
+        <input
+          type="number"
+          class="w-full input-text-valoriza"
+          placeholder="Introduce delegación..."
+          pInputText
+        />
+      </span>
+    </div>
+
+    <div class="col-12 lg:col-4">
+      <div class="text-left text-xs mb-2 pl-1 font-light text-700">
+        Nombre centro
+      </div>
+      <span class="p-input-icon-left w-full">
+        <i class="fa fa-building"></i>
+        <input
+          id="centerProvider"
+          formControlName="centerProvider"
+          type="text"
+          class="w-full input-text-valoriza"
+          placeholder=""
+          pInputText
+          disabled
+        />
+      </span>
+    </div>
+
+    <div class="col-12 lg:col-4">
+      <div class="text-left text-xs mb-2 pl-1 font-light text-700">
+          Código proveedor
+      </div>
+      <span class="p-input-icon-left w-full">
+        <i class="fa fa-building"></i>
+        <input
+          type="number"
+          class="w-full input-text-valoriza"
+          placeholder="Introduce código proveedor..."
+          pInputText
+        />
+      </span>
+    </div>
+
+    <div class="col-12 lg:col-4">
+      <div class="text-left text-xs mb-2 pl-1 font-light text-700">
+        Divisa
+      </div>
+      <p-dropdown
+        id="maintenanceType"
+        formControlName="maintenanceType"
+        placeholder="Selecciona tipo de divisa..."
+        [options]="[
+          { label: 'Todas', value: 0 },
+          { label: 'Divisa 1', value: 1 },
+          { label: 'Divisa 2', value: 2 }
+        ]"
+        optionLabel="label"
+        optionValue="value"
+        styleClass="w-full dropdown-valoriza"
+        [showClear]="true">
+    </p-dropdown>
+    </div>
+
+    <div class="col-12 lg:col-4">
+      <div class="text-left text-xs mb-2 pl-1 font-light text-700">
+        Nombre
+      </div>
+      <span class="p-input-icon-left w-full">
+        <i class="fa fa-building"></i>
+        <input
+          id=""
+          formControlName=""
+          type="text"
+          class="w-full input-text-valoriza"
+          placeholder=""
+          pInputText
+          disabled
+        />
+      </span>
+    </div>
+
+    <div class="col-12 lg:col-4">
+      <div class="text-left text-xs mb-2 pl-1 font-light text-700">
+        Referencia material
+      </div>
+      <span class="p-input-icon-left w-full">
+        <i class="fa fa-building"></i>
+        <input
+          id="materialReference"
+          formControlName="materialReference"
+          type="text"
+          class="w-full input-text-valoriza"
+          placeholder="Introduce referencia material..."
+          pInputText
+        />
+      </span>
+    </div>
+
+    <div class="col-12 lg:col-4">
+      <div class="text-left text-xs mb-2 pl-1 font-light text-700">
+        Descripción referencia material
+      </div>
+      <span class="p-input-icon-left w-full">
+        <i class="fa fa-building"></i>
+        <input
+          id="descriptionRefMaterial"
+          formControlName="descriptionRefMaterial"
+          type="text"
+          class="w-full input-text-valoriza"
+          placeholder="Introduce descripción referencia material..."
+          pInputText
+        />
+      </span>
+    </div>
+
+    <div class="col-12 lg:col-4">
+      <div class="text-left text-xs mb-2 pl-1 font-light text-700">
+        Albarán
+      </div>
+      <span class="p-input-icon-left w-full">
+        <i class="fa fa-building"></i>
+        <input
+          id="deliveryNote"
+          formControlName="deliveryNote"
+          type="text"
+          class="w-full input-text-valoriza"
+          placeholder=""
+          pInputText
+        />
+      </span>
+    </div>
+
+    <div class="col-12 lg:col-6">
+      <div class="text-left text-xs mb-2 pl-1 font-light text-700">
+        Fecha desde
+      </div>
+      <span class="p-input-icon-left w-full">
+        <i class="fa fa-building"></i>
+        <p-calendar
+          selectionMode="single"
+          [firstDayOfWeek]="1"
+          styleClass="w-full input-calendar-valoriza"
+          [showIcon]="true"
+          dateFormat="dd/mm/yy"
+          placeholder="dd/mm/yy"
+          pRipple
+        />
+      </span>
+    </div>
+
+    <div class="col-12 lg:col-6">
+      <div class="text-left text-xs mb-2 pl-1 font-light text-700">
+          Importe desde
+      </div>
+      <span class="p-input-icon-left w-full">
+        <i class="fa fa-building"></i>
+        <input
+          id="amount"
+          formControlName="amount"
+          type="number"
+          class="w-full input-text-valoriza"
+          placeholder="Introduce cantidad desde..."
+          pInputText
+        />
+      </span>
+    </div>
+
+    <div class="col-12 lg:col-6">
+      <div class="text-left text-xs mb-2 pl-1 font-light text-700">
+        Fecha hasta
+      </div>
+      <span class="p-input-icon-left w-full">
+        <i class="fa fa-building"></i>
+        <p-calendar
+          selectionMode="single"
+          [firstDayOfWeek]="1"
+          styleClass="w-full input-calendar-valoriza"
+          [showIcon]="true"
+          dateFormat="dd/mm/yy"
+          placeholder="dd/mm/yy"
+          pRipple
+        />
+      </span>
+    </div>
+
+    <div class="col-12 lg:col-6">
+      <div class="text-left text-xs mb-2 pl-1 font-light text-700">
+          Importe hasta
+      </div>
+      <span class="p-input-icon-left w-full">
+        <i class="fa fa-building"></i>
+        <input
+          id="amount"
+          formControlName="amount"
+          type="number"
+          class="w-full input-text-valoriza"
+          placeholder="Introduce cantidad hasta..."
+          pInputText
+        />
+      </span>
+    </div>
+
+    <div class="col-12">
+      <div
+        class="flex flex-column lg:flex-row lg:justify-content-end gap-3 align-items-center justify-content-center">
         <button
-          type="button"
           pButton
-          icon="pi pi-search"
-          class="p-button"
-        ></button>
-      </p-inputGroup>
-    </div>
-
-    <div class="form-group">
-      <label>Nombre centro</label>
-      <input
-        class="input-form"
-        id="nombre-centro"
-        type="text"
-        pInputText
-        [disabled]="true"
-        formControlName="nombre-centro"
-      />
-    </div>
-
-    <div class="form-group">
-      <label>Código proveedor</label>
-      <input
-        class="input-form"
-        id="codigo-proveedor"
-        pInputText
-        formControlName="codigo-proveedor"
-      />
-    </div>
-
-    <div class="form-group">
-      <label>Divisa</label>
-      <input
-        class="input-form"
-        id="divisa"
-        pInputText
-        formControlName="divisa"
-      />
-    </div>
-
-    <div class="form-group">
-      <label>Nombre</label>
-      <input
-        class="input-form"
-        id="nombre-centro"
-        type="text"
-        pInputText
-        [disabled]="true"
-        formControlName="nombre-centro"
-      />
-    </div>
-  </div>
-
-  <div class="form-row3">
-    <div class="form-group">
-      <label>Referencia material</label>
-      <input
-        class="input-form"
-        id="ref-material"
-        pInputText
-        formControlName="ref-material"
-      />
-    </div>
-
-    <div class="form-group">
-      <label>Descripción referencia material</label>
-      <input
-        class="input-form"
-        id="descripcion-ref-material"
-        pInputText
-        formControlName="descripcion-ref-material"
-      />
-    </div>
-
-    <div class="form-group">
-      <label>Albarán</label>
-      <input
-        class="input-form"
-        id="albaran"
-        pInputText
-        formControlName="albaran"
-      />
-    </div>
-  </div>
-
-  <div class="form-row4">
-    <div class="form-group">
-      <label>Fecha desde</label>
-      <p-calendar
-        placeholder="mm/dd/yyyy"
-        class="input-form"
-        id="fecha-desde"
-        [showIcon]="true"
-        inputId="icondisplay"
-        formControlName="fechaDesde"
-      />
-    </div>
-
-    <div class="form-group">
-      <label>Fecha hasta</label>
-      <p-calendar
-        placeholder="mm/dd/yyyy"
-        class="input-form"
-        id="fecha-hasta"
-        [showIcon]="true"
-        inputId="icondisplay"
-        formControlName="fechaHasta"
-      />
-    </div>
-  </div>
-
-  <div class="form-row5">
-    <div class="form-group">
-      <label>Importe desde</label>
-      <p-inputNumber
-        mode="currency"
-        inputId="currency-germany"
-        currency="EUR"
-        locale="de-DE"
-        formControlName="importeHasta"
-      />
-    </div>
-
-    <div class="form-group">
-      <label>Importe hasta</label>
-      <p-inputNumber
-        mode="currency"
-        inputId="currency-germany"
-        currency="EUR"
-        locale="de-DE"
-        formControlName="importeDesde"
-      />
-    </div>
-  </div>
-
-  <div class="form-buttons">
-    <div class="form-button">
-      <p-button
-        type="reset"
-        label="Limpiar búsqueda" [raised]="true" severity="secondary"
-        class="limpiar"
-      ></p-button>
-    </div>
-
-    <div class="form-button">
-      <p-button type="button"
-      label="Buscar" [raised]="true"
-      ></p-button>
+          type="reset"
+          label="Limpiar búsqueda"
+          class="km-button-secondary-valoriza-app">
+      </button>
+        <button
+          pButton
+          type="button"
+          label="Buscar"
+          class="km-button-primary-valoriza-app">
+      </button>
+      </div>
     </div>
   </div>
 </form>
+<form>

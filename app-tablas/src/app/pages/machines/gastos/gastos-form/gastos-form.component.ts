@@ -7,6 +7,7 @@ import { CalendarModule } from 'primeng/calendar';
 import { InputGroupModule } from 'primeng/inputgroup';
 import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 import { ButtonModule } from 'primeng/button';
+import { DropdownModule } from 'primeng/dropdown';
 
 @Component({
   selector: 'app-gastos-form',
@@ -19,6 +20,7 @@ import { ButtonModule } from 'primeng/button';
     InputGroupAddonModule,
     InputGroupModule,
     ButtonModule,
+    DropdownModule
   ],
   templateUrl: './gastos-form.component.html',
   styleUrl: './gastos-form.component.scss',

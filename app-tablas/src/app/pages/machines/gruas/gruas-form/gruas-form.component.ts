@@ -4,6 +4,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputMaskModule } from 'primeng/inputmask';
 import { CalendarModule } from 'primeng/calendar';
+import { DropdownModule } from 'primeng/dropdown';
 
 @Component({
   selector: 'app-gruas-form',
@@ -13,6 +14,7 @@ import { CalendarModule } from 'primeng/calendar';
     InputNumberModule,
     InputTextModule,
     CalendarModule,
+    DropdownModule
   ],
   templateUrl: './gruas-form.component.html',
   styleUrl: './gruas-form.component.scss',
