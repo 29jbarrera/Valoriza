@@ -21,6 +21,8 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { ButtonModule } from 'primeng/button';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
 
 @Component({
   selector: 'app-limite-avisos-table',
@@ -40,9 +42,11 @@ import { ButtonModule } from 'primeng/button';
     FormsModule,
     FormlyModule,
     FormlyPrimeNGModule,
+    ConfirmDialogModule
   ],
   templateUrl: './limite-avisos-table.component.html',
   styleUrl: './limite-avisos-table.component.scss',
+  providers:[ConfirmationService]
 })
 export class LimiteAvisosTableComponent implements OnInit {
   limiteAvisos: LimiteAvisos[] = []
@@ -50,7 +54,8 @@ export class LimiteAvisosTableComponent implements OnInit {
 
   constructor(
     private LimiteAvisosService: LimiteAvisosService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private _confirmationService: ConfirmationService,
   ) {
     this.searchForm = this.fb.group({
       code: [''],
@@ -64,5 +69,28 @@ export class LimiteAvisosTableComponent implements OnInit {
 
   async updateTable() {
     this.limiteAvisos = await this.LimiteAvisosService.getLimiteAvisos();
+  }
+
+  // TODO: EDITAR OBJETO BACKEND
+  async edit(limiteAvisos: LimiteAvisos) {
+    console.error('Edit object:', limiteAvisos);
+  }
+
+  // TODO: ELIMINAR OBJETO BACKEND
+  async delete(limiteAvisos: LimiteAvisos){
+    console.error('Delete object,', limiteAvisos);
+  }
+
+  async confirm_delete(limiteAvisos: LimiteAvisos) {
+    this._confirmationService.confirm({
+      message: '¿Estás seguro de que quieres eliminar esta fila?',
+      header: 'Eliminar fila de Límite avisos',
+      icon: 'pi pi-times-circle',
+      rejectButtonStyleClass: 'p-button-text',
+      acceptButtonStyleClass: 'p-button-danger',
+      accept: () => {
+        this.delete(limiteAvisos);
+      },
+    });
   }
 }

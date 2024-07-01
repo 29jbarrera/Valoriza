@@ -21,6 +21,8 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { ButtonModule } from 'primeng/button';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
 
 @Component({
   selector: 'app-unidades-table',
@@ -40,9 +42,11 @@ import { ButtonModule } from 'primeng/button';
     FormsModule,
     FormlyModule,
     FormlyPrimeNGModule,
+    ConfirmDialogModule
   ],
   templateUrl: './unidades-table.component.html',
-  styleUrl: './unidades-table.component.scss'
+  styleUrl: './unidades-table.component.scss',
+  providers:[ConfirmationService]
 })
 export class UnidadesTableComponent implements OnInit {
   unidades: Unidades[] = [];
@@ -50,7 +54,8 @@ export class UnidadesTableComponent implements OnInit {
 
   constructor(
     private UnidadesService: UnidadesService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private _confirmationService: ConfirmationService,
   ) {
     this.searchForm = this.fb.group({
       fuelType: [''],
@@ -65,5 +70,28 @@ export class UnidadesTableComponent implements OnInit {
   async updateTable() {
     this.unidades = await this.UnidadesService.getGastosTaller();
   }
+
+    // TODO: EDITAR OBJETO BACKEND
+    async edit(unidades: Unidades) {
+      console.error('Edit object:', unidades);
+    }
+  
+    // TODO: ELIMINAR OBJETO BACKEND
+    async delete(unidades: Unidades){
+      console.error('Delete object,', unidades);
+    }
+  
+    async confirm_delete(unidades: Unidades) {
+      this._confirmationService.confirm({
+        message: '¿Estás seguro de que quieres eliminar esta fila?',
+        header: 'Eliminar fila de unidades',
+        icon: 'pi pi-times-circle',
+        rejectButtonStyleClass: 'p-button-text',
+        acceptButtonStyleClass: 'p-button-danger',
+        accept: () => {
+          this.delete(unidades);
+        },
+      });
+    }
 }
 

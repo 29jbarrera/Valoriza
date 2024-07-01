@@ -21,6 +21,8 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { ButtonModule } from 'primeng/button';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
 
 @Component({
   selector: 'app-familias-subfamilias-table',
@@ -40,9 +42,11 @@ import { ButtonModule } from 'primeng/button';
     FormsModule,
     FormlyModule,
     FormlyPrimeNGModule,
+    ConfirmDialogModule
   ],
   templateUrl: './familias-subfamilias-table.component.html',
   styleUrl: './familias-subfamilias-table.component.scss',
+  providers:[ConfirmationService]
 })
 export class FamiliasSubfamiliasTableComponent implements OnInit {
   familiasSubfamilias: FamiliasSubfamilias[] = [];
@@ -50,7 +54,8 @@ export class FamiliasSubfamiliasTableComponent implements OnInit {
 
   constructor(
     private FamiliasSubfamiliasService: FamiliasSubfamiliasService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private _confirmationService: ConfirmationService,
   ) {
     this.searchForm = this.fb.group({
       description: [''],
@@ -63,5 +68,28 @@ export class FamiliasSubfamiliasTableComponent implements OnInit {
   async updateTable() {
     this.familiasSubfamilias =
       await this.FamiliasSubfamiliasService.getFamiliasSubfamilias();
+  }
+
+  // TODO: EDITAR OBJETO BACKEND
+  async edit(familiasSubfamilias: FamiliasSubfamilias) {
+    console.error('Edit object:', familiasSubfamilias);
+  }
+
+  // TODO: ELIMINAR OBJETO BACKEND
+  async delete(familiasSubfamilias: FamiliasSubfamilias){
+    console.error('Delete object,', familiasSubfamilias);
+  }
+
+  async confirm_delete(familiasSubfamilias: FamiliasSubfamilias) {
+    this._confirmationService.confirm({
+      message: '¿Estás seguro de que quieres eliminar esta fila?',
+      header: 'Eliminar fila de Familias y Subfamilias',
+      icon: 'pi pi-times-circle',
+      rejectButtonStyleClass: 'p-button-text',
+      acceptButtonStyleClass: 'p-button-danger',
+      accept: () => {
+        this.delete(familiasSubfamilias);
+      },
+    });
   }
 }

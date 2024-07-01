@@ -21,6 +21,8 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { ButtonModule } from 'primeng/button';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
 
 @Component({
   selector: 'app-niveles-accion-table',
@@ -40,9 +42,11 @@ import { ButtonModule } from 'primeng/button';
     FormsModule,
     FormlyModule,
     FormlyPrimeNGModule,
+    ConfirmDialogModule
   ],
   templateUrl: './niveles-accion-table.component.html',
   styleUrl: './niveles-accion-table.component.scss',
+  providers:[ConfirmationService]
 })
 export class NivelesAccionTableComponent implements OnInit {
   nivelesAccion: NivelesAccion[] = [];
@@ -50,7 +54,8 @@ export class NivelesAccionTableComponent implements OnInit {
 
   constructor(
     private NivelesAccionService: NivelesAccionService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private _confirmationService: ConfirmationService,
   ) {
     this.searchForm = this.fb.group({
       action: [''],
@@ -64,4 +69,27 @@ export class NivelesAccionTableComponent implements OnInit {
   async updateTable() {
     this.nivelesAccion = await this.NivelesAccionService.getNivelesAccion();
   }
+
+    // TODO: EDITAR OBJETO BACKEND
+    async edit(nivelesAccion: NivelesAccion) {
+      console.error('Edit object:', nivelesAccion);
+    }
+  
+    // TODO: ELIMINAR OBJETO BACKEND
+    async delete(nivelesAccion: NivelesAccion){
+      console.error('Delete object,', nivelesAccion);
+    }
+  
+    async confirm_delete(nivelesAccion: NivelesAccion) {
+      this._confirmationService.confirm({
+        message: '¿Estás seguro de que quieres eliminar esta fila?',
+        header: 'Eliminar fila de Niveles de acción',
+        icon: 'pi pi-times-circle',
+        rejectButtonStyleClass: 'p-button-text',
+        acceptButtonStyleClass: 'p-button-danger',
+        accept: () => {
+          this.delete(nivelesAccion);
+        },
+      });
+    }
 }
