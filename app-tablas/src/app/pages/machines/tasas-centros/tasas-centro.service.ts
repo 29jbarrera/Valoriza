@@ -7,7 +7,7 @@ import {
   randVehicleManufacturer,
 } from '@ngneat/falso';
 
-import { TasasCentro } from './../Interfaces/tasas-centro.interface';
+import { TasasCentro } from './type';
 
 @Injectable({
   providedIn: 'root',

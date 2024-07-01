@@ -7,8 +7,8 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { ReparacionesCentroService } from '../../../../service/reparaciones-centro.service';
-import { ReparacionesCentro } from '../../../../Interfaces/reparaciones-centro.interface';
+import { ReparacionesCentroService } from '../reparaciones-centro.service';
+import { ReparacionesCentro } from '../type';
 
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';

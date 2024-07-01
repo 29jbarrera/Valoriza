@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { Gruas } from '../Interfaces/gruas.interface';
+import { Gruas } from './type';
 
 @Injectable({
   providedIn: 'root',

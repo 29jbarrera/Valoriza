@@ -6,7 +6,7 @@ import {
   randCurrencyName,
 } from '@ngneat/falso';
 
-import { Gnc } from '../Interfaces/gnc.interface';
+import { Gnc } from './type';
 
 @Injectable({
   providedIn: 'root',

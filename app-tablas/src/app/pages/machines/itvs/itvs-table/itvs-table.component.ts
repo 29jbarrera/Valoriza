@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { Itvs } from '../../../../Interfaces/itvs.interface';
-import { ItvsService } from '../../../../service/itvs.service';
+import { Itvs } from '../type';
+import { ItvsService } from '../itvs.service';
 
 import { TableModule } from 'primeng/table';
 

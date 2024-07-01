@@ -4,8 +4,8 @@ import { CommonModule } from '@angular/common';
 
 import { TableModule } from 'primeng/table';
 
-import { Instalaciones } from '../../../../Interfaces/instalaciones.interface';
-import { InstalacionesService } from '../../../../service/instalaciones.service';
+import { Instalaciones } from '../type';
+import { InstalacionesService } from '../instalaciones.service';
 
 
 @Component({

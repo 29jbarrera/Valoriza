@@ -7,8 +7,8 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { Gnc } from '../../../../Interfaces/gnc.interface';
-import { GncService } from '../../../../service/gnc.service';
+import { Gnc } from '../type';
+import { GncService } from '../gnc.service';
 
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';

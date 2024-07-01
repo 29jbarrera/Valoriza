@@ -2,17 +2,11 @@ import { Injectable } from '@angular/core';
 import {
   rand,
   randAmount,
-  randArn,
-  randBrand,
   randCompanyName,
   randCurrencyName,
-  randProductDescription,
-  randVehicleManufacturer,
-  randVehicleModel,
-  seed,
 } from '@ngneat/falso';
 
-import { RatiosCentro } from '../Interfaces/ratiosCentro.interface';
+import { RatiosCentro } from './type';
 
 @Injectable({
   providedIn: 'root',

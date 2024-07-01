@@ -7,7 +7,7 @@ import {
   randCurrencyName,
 } from '@ngneat/falso';
 
-import { RatiosMaquinaria } from '../Interfaces/ratiosMaquinaria.interface';
+import { RatiosMaquinaria } from './type';
 
 @Injectable({
   providedIn: 'root',

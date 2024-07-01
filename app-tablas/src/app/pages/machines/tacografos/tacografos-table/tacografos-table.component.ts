@@ -7,8 +7,8 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { TacografosService } from '../../../../service/tacografos.service';
-import { Tacografo } from '../../../../Interfaces/tacografos.interface';
+import { TacografosService } from '../tacografos.service';
+import { Tacografo } from '../type';
 
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';

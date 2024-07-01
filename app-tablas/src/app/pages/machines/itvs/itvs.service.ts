@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Itvs } from '../Interfaces/itvs.interface';
+import { Itvs } from './type';
 
 @Injectable({
   providedIn: 'root',

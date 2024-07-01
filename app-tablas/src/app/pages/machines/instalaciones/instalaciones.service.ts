@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Instalaciones } from '../Interfaces/instalaciones.interface';
+import { Instalaciones } from './type';
 
 @Injectable({
   providedIn: 'root',

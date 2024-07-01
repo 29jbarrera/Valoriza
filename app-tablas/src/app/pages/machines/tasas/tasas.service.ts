@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { rand, randAmount, randCurrencyName } from '@ngneat/falso';
 
-import { Tasas } from '../Interfaces/tasas.interface';
+import { Tasas } from './type';
 
 @Injectable({
   providedIn: 'root',

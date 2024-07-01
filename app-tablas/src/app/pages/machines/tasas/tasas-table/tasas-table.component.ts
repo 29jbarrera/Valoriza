@@ -7,8 +7,8 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { TasasService } from '../../../../service/tasas.service';
-import { Tasas } from '../../../../Interfaces/tasas.interface';
+import { TasasService } from '../tasas.service';
+import { Tasas } from '../type';
 
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';

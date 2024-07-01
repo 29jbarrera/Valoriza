@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HorometrosKilometros } from '../Interfaces/horometros-kilometros.interface';
+import { HorometrosKilometros } from './type';
 
 import {
   rand,

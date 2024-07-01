@@ -4,8 +4,8 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 
 import { TableModule } from 'primeng/table';
 
-import { HorometrosKilometrosService } from '../../../../service/horometros-kilometros.service';
-import { HorometrosKilometros } from '../../../../Interfaces/horometros-kilometros.interface';
+import { HorometrosKilometrosService } from '../horometros-kilometros.service';
+import { HorometrosKilometros } from '../type';
 
 @Component({
   selector: 'app-horometros-kilometros-table',

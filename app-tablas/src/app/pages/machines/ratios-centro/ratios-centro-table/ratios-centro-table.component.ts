@@ -7,8 +7,8 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { RatiosCentro } from '../../../../Interfaces/ratiosCentro.interface';
-import { RatiosCentroService } from '../../../../service/ratios-centro.service';
+import { RatiosCentro } from '../type';
+import { RatiosCentroService } from '../ratios-centro.service';
 
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';

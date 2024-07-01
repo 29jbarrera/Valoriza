@@ -7,9 +7,9 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { GastosTaller } from '../../../../Interfaces/gastos-taller.interface';
+import { GastosTaller } from '../type';
 
-import { GastosTallerService } from '../../../../service/gastos-taller.service';
+import { GastosService } from '../gastos.service';
 
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
@@ -50,7 +50,7 @@ export class GastosTableComponent implements OnInit {
   searchForm: FormGroup;
 
   constructor(
-    private GastosTallerService: GastosTallerService,
+    private GastosService: GastosService,
     private fb: FormBuilder
   ) {
     this.searchForm = this.fb.group({
@@ -74,6 +74,6 @@ export class GastosTableComponent implements OnInit {
   }
 
   async updateTable() {
-    this.gastosTaller = await this.GastosTallerService.getGastosTaller();
+    this.gastosTaller = await this.GastosService.getGastos();
   }
 }

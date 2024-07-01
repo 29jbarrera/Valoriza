@@ -7,8 +7,8 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { RatiosMaquinaria } from '../../../../Interfaces/ratiosMaquinaria.interface';
-import { RatiosMaquinariaService } from '../../../../service/ratios-maquinaria.service';
+import { RatiosMaquinaria } from '../type';
+import { RatiosMaquinariaService } from '../ratios-maquinaria.service';
 
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';

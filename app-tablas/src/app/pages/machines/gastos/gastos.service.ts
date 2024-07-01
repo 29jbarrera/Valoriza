@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { rand, randAmount, randArn, randCurrencyName } from '@ngneat/falso';
 
-import { GastosTaller } from '../Interfaces/gastos-taller.interface';
+import { GastosTaller } from './type';
 
 @Injectable({
   providedIn: 'root',
 })
-export class GastosTallerService {
+export class GastosService {
   constructor() {}
 
-  async getGastosTaller(): Promise<GastosTaller[]> {
+  async getGastos(): Promise<GastosTaller[]> {
     const gastosTaller: GastosTaller[] = [];
     const randomDate = new Date(
       rand([new Date(2020, 0, 1).getTime(), new Date().getTime()]) as number

@@ -12,7 +12,7 @@ import {
   seed,
 } from '@ngneat/falso';
 
-import { Tacografo } from '../Interfaces/tacografos.interface';
+import { Tacografo } from './type';
 
 @Injectable({
   providedIn: 'root',

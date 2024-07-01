@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Gruas } from '../Interfaces/gruas.interface';
+import { Gruas } from '../pages/machines/gruas/type';
 
 @Pipe({
   name: 'filtrogruas',

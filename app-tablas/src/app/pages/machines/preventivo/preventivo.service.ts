@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Preventivo } from '../Interfaces/preventivo.interface';
+import { Preventivo } from './type';
 
 @Injectable({
   providedIn: 'root',

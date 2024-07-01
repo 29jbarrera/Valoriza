@@ -12,7 +12,7 @@ import {
   seed,
 } from '@ngneat/falso';
 
-import { ReparacionesCentro } from '../Interfaces/reparaciones-centro.interface';
+import { ReparacionesCentro } from './type';
 @Injectable({
   providedIn: 'root'
 })

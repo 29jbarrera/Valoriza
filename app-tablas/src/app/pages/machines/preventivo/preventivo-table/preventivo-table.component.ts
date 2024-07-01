@@ -7,8 +7,8 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { PreventivoService } from '../../../../service/preventivo.service';
-import { Preventivo } from '../../../../Interfaces/preventivo.interface';
+import { PreventivoService } from '../preventivo.service';
+import { Preventivo } from '../type';
 
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
