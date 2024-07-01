@@ -1,6 +1,6 @@
 export interface Itvs {
   machinery: string;
-  centre: string;
+  center: string;
   delegation: string;
   family: string;
   subfamily: string;

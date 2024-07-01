@@ -11,7 +11,7 @@ export class ItvsService {
     const itvs: Itvs[] = [
       {
         machinery: 'maquinaria 1',
-        centre: 'centro 1',
+        center: 'centro 1',
         delegation: 'delegación 1',
         family: 'familia 1',
         subfamily: 'subfamilia',
@@ -20,7 +20,7 @@ export class ItvsService {
       },
       {
         machinery: 'maquinaria 2',
-        centre: 'centro 2',
+        center: 'centro 2',
         delegation: 'delegación 2',
         family: 'familia 2',
         subfamily: 'subfamilia 2',
@@ -29,7 +29,7 @@ export class ItvsService {
       },
       {
         machinery: 'maquinaria 3',
-        centre: 'centro 3',
+        center: 'centro 3',
         delegation: 'delegación 3',
         family: 'familia 3',
         subfamily: 'subfamilia 3',

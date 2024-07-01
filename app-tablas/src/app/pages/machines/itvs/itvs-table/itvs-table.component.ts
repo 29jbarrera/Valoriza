@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 import { Itvs } from '../type';
@@ -13,10 +18,17 @@ import { ConfirmationService } from 'primeng/api';
 @Component({
   selector: 'app-itvs-table',
   standalone: true,
-  imports: [TableModule, CommonModule, ButtonModule, ConfirmDialogModule],
+  imports: [
+    TableModule,
+    CommonModule,
+    ButtonModule,
+    ConfirmDialogModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   templateUrl: './itvs-table.component.html',
   styleUrl: './itvs-table.component.scss',
-  providers:[ConfirmationService]
+  providers: [ConfirmationService],
 })
 export class ItvsTableComponent implements OnInit {
   itvs: Itvs[] = [];
@@ -25,8 +37,8 @@ export class ItvsTableComponent implements OnInit {
   constructor(
     private ItvsService: ItvsService,
     private fb: FormBuilder,
-    private _confirmationService: ConfirmationService,
-  ){
+    private _confirmationService: ConfirmationService
+  ) {
     this.searchForm = this.fb.group({
       machinery: [''],
       centre: [''],
@@ -34,16 +46,16 @@ export class ItvsTableComponent implements OnInit {
       family: [''],
       subfamily: [''],
       nextDate: [''],
-      comments: ['']
+      comments: [''],
     });
   }
-ngOnInit(){
-  this.updateTable();
-}
+  ngOnInit() {
+    this.updateTable();
+  }
 
-async updateTable(){
-  this.itvs = await this.ItvsService.getItvs();
-}
+  async updateTable() {
+    this.itvs = await this.ItvsService.getItvs();
+  }
 
   // TODO: EDITAR OBJETO BACKEND
   async edit(itvs: Itvs) {
@@ -51,14 +63,14 @@ async updateTable(){
   }
 
   // TODO: ELIMINAR OBJETO BACKEND
-  async delete(itvs: Itvs){
+  async delete(itvs: Itvs) {
     console.error('Delete object,', itvs);
   }
 
   async confirm_delete(itvs: Itvs) {
     this._confirmationService.confirm({
       message: '¿Estás seguro de que quieres eliminar esta fila?',
-      header: 'Eliminar fila de Familias y Subfamilias',
+      header: 'Eliminar fila de Itvs',
       icon: 'pi pi-times-circle',
       rejectButtonStyleClass: 'p-button-text',
       acceptButtonStyleClass: 'p-button-danger',
