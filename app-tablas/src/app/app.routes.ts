@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { StockComponent } from './pages/machines/stock-component/stock/stock.component';
+import { StockComponent } from './pages/machines/stock/stock.component';
 import { GruasComponent } from './pages/machines/gruas/gruas.component';
 import { GncComponent } from './pages/machines/gnc/gnc.component';
 import { GastosComponent } from './pages/machines/gastos/gastos.component';

@@ -7,7 +7,7 @@ import {
   randVehicleModel,
 } from '@ngneat/falso';
 
-import { Stock } from '../Interfaces/stock.interface';
+import { Stock } from './type';
 
 @Injectable({
   providedIn: 'root',

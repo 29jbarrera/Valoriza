@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { StockService } from '../../../../service/stock.service';
-import { Stock } from '../../../../Interfaces/stock.interface';
+import { StockService } from '../stock.service';
+import { Stock } from '../type';
 
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
