@@ -7,8 +7,8 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { Niveles } from '../../../../Interfaces/niveles.interface';
-import { NivelesService } from '../../../../service/niveles.service';
+import { Niveles } from '../type';
+import { NivelesService } from '../niveles.service';
 
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';

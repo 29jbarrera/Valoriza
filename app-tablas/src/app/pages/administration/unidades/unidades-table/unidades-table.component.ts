@@ -7,8 +7,8 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { Unidades } from '../../../../Interfaces/unidades.interface';
-import { UnidadesService } from '../../../../service/unidades.service';
+import { Unidades } from '../type';
+import { UnidadesService } from '../unidades.service';
 
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';

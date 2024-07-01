@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { randAmount, randBrand, randCurrencyName } from '@ngneat/falso';
 
-import { Globales } from '../Interfaces/globales.interface';
+import { Globales } from './type';
 
 @Injectable({
   providedIn: 'root',

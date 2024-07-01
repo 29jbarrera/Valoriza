@@ -7,8 +7,8 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { LimiteAvisos } from '../../../../Interfaces/limite-avisos.interface';
-import { LimiteAvisosService } from '../../../../service/limite-avisos.service';
+import { LimiteAvisos } from '../type';
+import { LimiteAvisosService } from '../limite-avisos.service';
 
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';

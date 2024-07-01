@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { rand, randAmount, randVehicleManufacturer } from '@ngneat/falso';
 
-import { Niveles } from '../Interfaces/niveles.interface';
+import { Niveles } from './type';
 
 @Injectable({
   providedIn: 'root',

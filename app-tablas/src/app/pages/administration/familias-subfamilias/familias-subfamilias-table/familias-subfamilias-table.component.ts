@@ -7,8 +7,8 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { FamiliasSubfamilias } from '../../../../Interfaces/Familias-subfamilias.interface';
-import { FamiliasSubfamiliasService } from '../../../../service/familias-subfamilias.service';
+import { FamiliasSubfamilias } from '../type';
+import { FamiliasSubfamiliasService } from '../familias-subfamilias.service';
 
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';

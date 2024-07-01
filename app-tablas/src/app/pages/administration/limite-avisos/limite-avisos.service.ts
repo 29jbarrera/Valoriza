@@ -5,7 +5,7 @@ import {
   randProductDescription,
 } from '@ngneat/falso';
 
-import { LimiteAvisos } from '../Interfaces/limite-avisos.interface';
+import { LimiteAvisos } from './type';
 
 @Injectable({
   providedIn: 'root',

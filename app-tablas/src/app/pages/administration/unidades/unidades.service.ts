@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { randCurrencyName, randVehicleModel } from '@ngneat/falso';
 
-import { Unidades } from '../Interfaces/unidades.interface';
+import { Unidades } from './type';
 
 @Injectable({
   providedIn: 'root',

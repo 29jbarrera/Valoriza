@@ -7,8 +7,8 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { Globales } from '../../../../Interfaces/globales.interface';
-import { TablaGlobalesService } from '../../../../service/tabla-globales.service';
+import { Globales } from '../type';
+import { TablaGlobalesService } from '../tabla-globales.service';
 
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';

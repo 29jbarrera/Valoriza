@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { randCurrencyName } from '@ngneat/falso';
 
-import { FamiliasSubfamilias } from '../Interfaces/Familias-subfamilias.interface';
+import { FamiliasSubfamilias } from './type';
 
 @Injectable({
   providedIn: 'root',
