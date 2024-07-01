@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { randCurrencyName, randVehicleModel } from '@ngneat/falso';
 
-import { NivelesAccion } from '../Interfaces/niveles-accion.interface';
+import { NivelesAccion } from './type';
 
 @Injectable({
   providedIn: 'root',
