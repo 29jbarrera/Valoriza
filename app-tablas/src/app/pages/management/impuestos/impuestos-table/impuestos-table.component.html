@@ -24,13 +24,13 @@
             />
           </div>
         </th>
-        <th pSortableColumn="description">
+        <th pSortableColumn="address">
           <div>
-            <p-sortIcon class="order" field="description" />
-            Descripción
+            <p-sortIcon class="order" field="address" />
+            Dirección
             <p-columnFilter
               type="text"
-              field="description"
+              field="address"
               class="filter"
               display="menu"
             />
@@ -95,7 +95,7 @@
           <i class="fas fa-trash"></i>
         </td>
         <td>{{ impuestos.center }}</td>
-        <td>{{ impuestos.description }}</td>
+        <td>{{ impuestos.address }}</td>
         <td>{{ impuestos.tuition }}</td>
         <td>{{ impuestos.tax }}</td>
         <td>{{ impuestos.currency }}</td>

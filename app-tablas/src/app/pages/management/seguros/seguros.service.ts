@@ -8,7 +8,7 @@ import {
   randVehicleModel,
 } from '@ngneat/falso';
 
-import { Seguros } from '../Interfaces/seguros.interface';
+import { Seguros } from './type';
 
 @Injectable({
   providedIn: 'root',

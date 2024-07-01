@@ -7,8 +7,8 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { Impuestos } from '../../../../Interfaces/impuestos.interface';
-import { ImpuestosService } from '../../../../service/impuestos.service';
+import { Impuestos } from '../type';
+import { ImpuestosService } from '../impuestos.service';
 
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
@@ -54,7 +54,7 @@ export class ImpuestosTableComponent implements OnInit {
   ) {
     this.searchForm = this.fb.group({
       center: [''],
-      description: [''],
+      address: [''],
       tuition: [''],
       tax: [''],
       currency: [''],

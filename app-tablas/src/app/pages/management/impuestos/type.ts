@@ -1,6 +1,6 @@
 export interface Impuestos {
   center: string;
-  description: string;
+  address: string;
   tuition : string;
   tax: number;
   currency: string;

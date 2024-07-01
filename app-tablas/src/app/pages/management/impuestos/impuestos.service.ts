@@ -7,7 +7,7 @@ import {
   randVehicleModel,
 } from '@ngneat/falso';
 
-import { Impuestos } from '../Interfaces/impuestos.interface';
+import { Impuestos } from './type';
 
 @Injectable({
   providedIn: 'root',
@@ -23,7 +23,7 @@ export class ImpuestosService {
     for (let i = 0; i < 100; i++) {
       impuestos.push({
         center: randCurrencyName(),
-        description: randProductDescription(),
+        address: randProductDescription(),
         tuition: randVehicleModel(),
         tax: randAmount({ min: 0, max: 1 }),
         currency: 'EUR',
