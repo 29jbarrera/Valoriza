@@ -21,6 +21,8 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { ButtonModule } from 'primeng/button';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
 
 @Component({
   selector: 'app-impuestos-table',
@@ -40,9 +42,11 @@ import { ButtonModule } from 'primeng/button';
     FormsModule,
     FormlyModule,
     FormlyPrimeNGModule,
+    ConfirmDialogModule,
   ],
   templateUrl: './impuestos-table.component.html',
   styleUrl: './impuestos-table.component.scss',
+  providers:[ConfirmationService]
 })
 export class ImpuestosTableComponent implements OnInit {
   impuestos: Impuestos[] = [];
@@ -50,7 +54,8 @@ export class ImpuestosTableComponent implements OnInit {
 
   constructor(
     private ImpuestosService: ImpuestosService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private _confirmationService: ConfirmationService,
   ) {
     this.searchForm = this.fb.group({
       center: [''],
@@ -68,4 +73,27 @@ export class ImpuestosTableComponent implements OnInit {
   async updateTable() {
     this.impuestos = await this.ImpuestosService.getImpuestos();
   }
+
+    // TODO: EDITAR OBJETO BACKEND
+    async edit(impuestos: Impuestos) {
+      console.error('Edit object:', impuestos);
+    }
+  
+    // TODO: ELIMINAR OBJETO BACKEND
+    async delete(impuestos: Impuestos){
+      console.error('Delete object,', impuestos);
+    }
+  
+    async confirm_delete(impuestos: Impuestos) {
+      this._confirmationService.confirm({
+        message: '¿Estás seguro de que quieres eliminar esta fila?',
+        header: 'Eliminar fila de impuestos',
+        icon: 'pi pi-times-circle',
+        rejectButtonStyleClass: 'p-button-text',
+        acceptButtonStyleClass: 'p-button-danger',
+        accept: () => {
+          this.delete(impuestos);
+        },
+      });
+    }
 }

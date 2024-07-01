@@ -21,6 +21,8 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { ButtonModule } from 'primeng/button';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
 
 @Component({
   selector: 'app-categorias-table',
@@ -40,9 +42,11 @@ import { ButtonModule } from 'primeng/button';
     FormsModule,
     FormlyModule,
     FormlyPrimeNGModule,
+    ConfirmDialogModule
   ],
   templateUrl: './categorias-table.component.html',
   styleUrl: './categorias-table.component.scss',
+  providers:[ConfirmationService]
 })
 export class CategoriasTableComponent implements OnInit {
   categorias: Categorias[] = [];
@@ -50,7 +54,8 @@ export class CategoriasTableComponent implements OnInit {
 
   constructor(
     private CategoriasService: CategoriasService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private _confirmationService: ConfirmationService,
   ) {
     this.searchForm = this.fb.group({
       description: [''],
@@ -64,4 +69,27 @@ export class CategoriasTableComponent implements OnInit {
   async updateTable() {
     this.categorias = await this.CategoriasService.getCategorias();
   }
+
+    // TODO: EDITAR OBJETO BACKEND
+    async edit(categorias: Categorias) {
+      console.error('Edit object:', categorias);
+    }
+  
+    // TODO: ELIMINAR OBJETO BACKEND
+    async delete(categorias: Categorias){
+      console.error('Delete object,', categorias);
+    }
+  
+    async confirm_delete(categorias: Categorias) {
+      this._confirmationService.confirm({
+        message: '¿Estás seguro de que quieres eliminar esta fila?',
+        header: 'Eliminar fila de categorías',
+        icon: 'pi pi-times-circle',
+        rejectButtonStyleClass: 'p-button-text',
+        acceptButtonStyleClass: 'p-button-danger',
+        accept: () => {
+          this.delete(categorias);
+        },
+      });
+    }
 }

@@ -113,10 +113,10 @@
     <ng-template pTemplate="body" let-repostajeVehiculos>
       <tr class="body-table">
         <td>
-          <i class="fas fa-pen"></i>
+          <p-button icon="fas fa-pen" severity="success" [text]="true" (click)="edit(repostajeVehiculos)"/>
         </td>
         <td>
-          <i class="fas fa-trash"></i>
+          <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(repostajeVehiculos)"/>
         </td>
         <td>{{ repostajeVehiculos.centerMachine }}</td>
         <td>{{ repostajeVehiculos.deposit }}</td>
@@ -139,4 +139,5 @@
       </tr>
     </ng-template>
   </p-table>
+  <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
 </div>

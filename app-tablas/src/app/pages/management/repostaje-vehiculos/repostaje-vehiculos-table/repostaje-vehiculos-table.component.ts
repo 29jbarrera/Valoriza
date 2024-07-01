@@ -21,6 +21,8 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { ButtonModule } from 'primeng/button';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
 
 @Component({
   selector: 'app-repostaje-vehiculos-table',
@@ -40,9 +42,11 @@ import { ButtonModule } from 'primeng/button';
     FormsModule,
     FormlyModule,
     FormlyPrimeNGModule,
+    ConfirmDialogModule
   ],
   templateUrl: './repostaje-vehiculos-table.component.html',
   styleUrl: './repostaje-vehiculos-table.component.scss',
+  providers:[ConfirmationService]
 })
 export class RepostajeVehiculosTableComponent implements OnInit {
   repostajeVehiculos: RepostajeVehiculos[] = [];
@@ -50,7 +54,8 @@ export class RepostajeVehiculosTableComponent implements OnInit {
 
   constructor(
     private RepostajeVehiculosService: RepostajeVehiculosService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private _confirmationService: ConfirmationService,
   ) {
     this.searchForm = this.fb.group({
       centerMachine: [''],
@@ -71,4 +76,27 @@ export class RepostajeVehiculosTableComponent implements OnInit {
     this.repostajeVehiculos =
       await this.RepostajeVehiculosService.getRepostajeVehiculos();
   }
+
+    // TODO: EDITAR OBJETO BACKEND
+    async edit(repostajeVehiculos: RepostajeVehiculos) {
+      console.error('Edit object:', repostajeVehiculos);
+    }
+  
+    // TODO: ELIMINAR OBJETO BACKEND
+    async delete(repostajeVehiculos: RepostajeVehiculos){
+      console.error('Delete object,', repostajeVehiculos);
+    }
+  
+    async confirm_delete(repostajeVehiculos: RepostajeVehiculos) {
+      this._confirmationService.confirm({
+        message: '¿Estás seguro de que quieres eliminar esta fila?',
+        header: 'Eliminar fila de repostaje vehículos',
+        icon: 'pi pi-times-circle',
+        rejectButtonStyleClass: 'p-button-text',
+        acceptButtonStyleClass: 'p-button-danger',
+        accept: () => {
+          this.delete(repostajeVehiculos);
+        },
+      });
+    }
 }

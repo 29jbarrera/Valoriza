@@ -21,6 +21,8 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { ButtonModule } from 'primeng/button';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
 
 @Component({
   selector: 'app-proveedores-table',
@@ -40,9 +42,11 @@ import { ButtonModule } from 'primeng/button';
     FormsModule,
     FormlyModule,
     FormlyPrimeNGModule,
+    ConfirmDialogModule
   ],
   templateUrl: './proveedores-table.component.html',
   styleUrl: './proveedores-table.component.scss',
+  providers:[ConfirmationService]
 })
 export class ProveedoresTableComponent implements OnInit {
   proveedores: Proveedores[] = [];
@@ -50,7 +54,8 @@ export class ProveedoresTableComponent implements OnInit {
 
   constructor(
     private ProveedoresService: ProveedoresService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private _confirmationService: ConfirmationService,
   ) {
     this.searchForm = this.fb.group({
       DocIdentification: [''],
@@ -67,5 +72,28 @@ export class ProveedoresTableComponent implements OnInit {
 
   async updateTable() {
     this.proveedores = await this.ProveedoresService.getProveedores();
+  }
+
+  // TODO: EDITAR OBJETO BACKEND
+  async edit(proveedores: Proveedores) {
+    console.error('Edit object:', proveedores);
+  }
+
+  // TODO: ELIMINAR OBJETO BACKEND
+  async delete(proveedores: Proveedores){
+    console.error('Delete object,', proveedores);
+  }
+
+  async confirm_delete(proveedores: Proveedores) {
+    this._confirmationService.confirm({
+      message: '¿Estás seguro de que quieres eliminar esta fila?',
+      header: 'Eliminar fila de proveedores',
+      icon: 'pi pi-times-circle',
+      rejectButtonStyleClass: 'p-button-text',
+      acceptButtonStyleClass: 'p-button-danger',
+      accept: () => {
+        this.delete(proveedores);
+      },
+    });
   }
 }

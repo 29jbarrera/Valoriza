@@ -21,6 +21,9 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { ButtonModule } from 'primeng/button';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
+
 @Component({
   selector: 'app-cambio-centro-table',
   standalone: true,
@@ -39,9 +42,11 @@ import { ButtonModule } from 'primeng/button';
     FormsModule,
     FormlyModule,
     FormlyPrimeNGModule,
+    ConfirmDialogModule
   ],
   templateUrl: './cambio-centro-table.component.html',
   styleUrl: './cambio-centro-table.component.scss',
+  providers:[ConfirmationService]
 })
 export class CambioCentroTableComponent implements OnInit {
   cambioCentro: CambioCentro[] = [];
@@ -50,7 +55,8 @@ export class CambioCentroTableComponent implements OnInit {
 
   constructor(
     private CambioCentroService: CambioCentroService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private _confirmationService: ConfirmationService,
   ) {
     this.searchForm = this.fb.group({
       selected: [''],
@@ -68,5 +74,28 @@ export class CambioCentroTableComponent implements OnInit {
   async updateTable() {
     this.cambioCentro = await this.CambioCentroService.getCambioCentro();
   }
+
+    // TODO: EDITAR OBJETO BACKEND
+    async edit(cambioCentro: CambioCentro) {
+      console.error('Edit object:', cambioCentro);
+    }
+  
+    // TODO: ELIMINAR OBJETO BACKEND
+    async delete(cambioCentro: CambioCentro){
+      console.error('Delete object,', cambioCentro);
+    }
+  
+    async confirm_delete(cambioCentro: CambioCentro) {
+      this._confirmationService.confirm({
+        message: '¿Estás seguro de que quieres eliminar esta fila?',
+        header: 'Eliminar fila de cambios centros',
+        icon: 'pi pi-times-circle',
+        rejectButtonStyleClass: 'p-button-text',
+        acceptButtonStyleClass: 'p-button-danger',
+        accept: () => {
+          this.delete(cambioCentro);
+        },
+      });
+    }
 }
 

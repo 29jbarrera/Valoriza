@@ -21,6 +21,8 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { ButtonModule } from 'primeng/button';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
 
 @Component({
   selector: 'app-partes-table',
@@ -40,15 +42,21 @@ import { ButtonModule } from 'primeng/button';
     FormsModule,
     FormlyModule,
     FormlyPrimeNGModule,
+    ConfirmDialogModule,
   ],
   templateUrl: './partes-table.component.html',
   styleUrl: './partes-table.component.scss',
+  providers: [ConfirmationService],
 })
 export class PartesTableComponent implements OnInit {
   partes: Partes[] = [];
   searchForm: FormGroup;
 
-  constructor(private PartesService: PartesService, private fb: FormBuilder) {
+  constructor(
+    private PartesService: PartesService,
+    private fb: FormBuilder,
+    private _confirmationService: ConfirmationService
+  ) {
     this.searchForm = this.fb.group({
       centerName: [''],
       delegation: [''],
@@ -67,4 +75,27 @@ export class PartesTableComponent implements OnInit {
   async updateTable() {
     this.partes = await this.PartesService.getPartes();
   }
+
+    // TODO: EDITAR OBJETO BACKEND
+    async edit(partes: Partes) {
+      console.error('Edit object:', partes);
+    }
+  
+    // TODO: ELIMINAR OBJETO BACKEND
+    async delete(partes: Partes){
+      console.error('Delete object,', partes);
+    }
+  
+    async confirm_delete(partes: Partes) {
+      this._confirmationService.confirm({
+        message: '¿Estás seguro de que quieres eliminar esta fila?',
+        header: 'Eliminar fila de partes de trabajo',
+        icon: 'pi pi-times-circle',
+        rejectButtonStyleClass: 'p-button-text',
+        acceptButtonStyleClass: 'p-button-danger',
+        accept: () => {
+          this.delete(partes);
+        },
+      });
+    }
 }

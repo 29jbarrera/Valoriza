@@ -21,6 +21,8 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { ButtonModule } from 'primeng/button';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
 
 @Component({
   selector: 'app-marcas-table',
@@ -40,9 +42,11 @@ import { ButtonModule } from 'primeng/button';
     FormsModule,
     FormlyModule,
     FormlyPrimeNGModule,
+    ConfirmDialogModule
   ],
   templateUrl: './marcas-table.component.html',
   styleUrl: './marcas-table.component.scss',
+  providers:[ConfirmationService]
 })
 export class MarcasTableComponent implements OnInit {
   marcas: Marcas[] = [];
@@ -50,7 +54,8 @@ export class MarcasTableComponent implements OnInit {
 
   constructor(
     private MarcasService: MarcasService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private _confirmationService: ConfirmationService,
   ) {
     this.searchForm = this.fb.group({
       name: [''],
@@ -63,5 +68,28 @@ export class MarcasTableComponent implements OnInit {
   async updateTable() {
     this.marcas = await this.MarcasService.getMarcas();
   }
+
+    // TODO: EDITAR OBJETO BACKEND
+    async edit(marcas: Marcas) {
+      console.error('Edit object:', marcas);
+    }
+  
+    // TODO: ELIMINAR OBJETO BACKEND
+    async delete(marcas: Marcas){
+      console.error('Delete object,', marcas);
+    }
+  
+    async confirm_delete(marcas: Marcas) {
+      this._confirmationService.confirm({
+        message: '¿Estás seguro de que quieres eliminar esta fila?',
+        header: 'Eliminar fila de marcas',
+        icon: 'pi pi-times-circle',
+        rejectButtonStyleClass: 'p-button-text',
+        acceptButtonStyleClass: 'p-button-danger',
+        accept: () => {
+          this.delete(marcas);
+        },
+      });
+    }
 }
 

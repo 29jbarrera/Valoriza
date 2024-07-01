@@ -21,6 +21,9 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { ButtonModule } from 'primeng/button';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
+
 @Component({
   selector: 'app-materiales-table',
   standalone: true,
@@ -39,9 +42,11 @@ import { ButtonModule } from 'primeng/button';
     FormsModule,
     FormlyModule,
     FormlyPrimeNGModule,
+    ConfirmDialogModule
   ],
   templateUrl: './materiales-table.component.html',
   styleUrl: './materiales-table.component.scss',
+  providers:[ConfirmationService]
 })
 export class MaterialesTableComponent implements OnInit {
   materiales: Materiales[] = [];
@@ -49,7 +54,8 @@ export class MaterialesTableComponent implements OnInit {
 
   constructor(
     private MaterialesService: MaterialesService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private _confirmationService: ConfirmationService,
   ) {
     this.searchForm = this.fb.group({
       reference: [''],
@@ -64,5 +70,28 @@ export class MaterialesTableComponent implements OnInit {
   async updateTable() {
     this.materiales = await this.MaterialesService.getMateriales();
   }
+
+    // TODO: EDITAR OBJETO BACKEND
+    async edit(materiales: Materiales) {
+      console.error('Edit object:', materiales);
+    }
+  
+    // TODO: ELIMINAR OBJETO BACKEND
+    async delete(materiales: Materiales){
+      console.error('Delete object,', materiales);
+    }
+  
+    async confirm_delete(materiales: Materiales) {
+      this._confirmationService.confirm({
+        message: '¿Estás seguro de que quieres eliminar esta fila?',
+        header: 'Eliminar fila de materiales',
+        icon: 'pi pi-times-circle',
+        rejectButtonStyleClass: 'p-button-text',
+        acceptButtonStyleClass: 'p-button-danger',
+        accept: () => {
+          this.delete(materiales);
+        },
+      });
+    }
 }
 
