@@ -21,6 +21,8 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { ButtonModule } from 'primeng/button';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
 
 @Component({
   selector: 'app-ratios-centro-table',
@@ -40,27 +42,33 @@ import { ButtonModule } from 'primeng/button';
     FormsModule,
     FormlyModule,
     FormlyPrimeNGModule,
+    ConfirmDialogModule,
   ],
   templateUrl: './ratios-centro-table.component.html',
   styleUrl: './ratios-centro-table.component.scss',
+  providers: [ConfirmationService],
 })
 export class RatiosCentroTableComponent implements OnInit {
   ratiosCentro: RatiosCentro[] = [];
   searchForm: FormGroup;
 
-  constructor (private RatiosCentroService: RatiosCentroService, private fb: FormBuilder){
+  constructor(
+    private RatiosCentroService: RatiosCentroService,
+    private fb: FormBuilder,
+    private _confirmationService: ConfirmationService
+  ) {
     this.searchForm = this.fb.group({
-      dateFrom:[''],
-      dateUntil:[''],
-      centre:[''],
-      repairs:[''],
-      insurance:[''],
-      tax:[''],
-      Amortization:[''],
-      financial:[''],
-      rate:[''],
-      ratio:[''],
-      currency:[''],
+      dateFrom: [''],
+      dateUntil: [''],
+      centre: [''],
+      repairs: [''],
+      insurance: [''],
+      tax: [''],
+      Amortization: [''],
+      financial: [''],
+      rate: [''],
+      ratio: [''],
+      currency: [''],
     });
   }
 
@@ -71,4 +79,27 @@ export class RatiosCentroTableComponent implements OnInit {
   async updateTable() {
     this.ratiosCentro = await this.RatiosCentroService.getRatios();
   }
+
+    // TODO: EDITAR OBJETO BACKEND
+    async edit(ratiosCentro: RatiosCentro) {
+      console.error('Edit object:', ratiosCentro);
+    }
+  
+    // TODO: ELIMINAR OBJETO BACKEND
+    async delete(ratiosCentro: RatiosCentro){
+      console.error('Delete object,', ratiosCentro);
+    }
+  
+    async confirm_delete(ratiosCentro: RatiosCentro) {
+      this._confirmationService.confirm({
+        message: '¿Estás seguro de que quieres eliminar esta fila?',
+        header: 'Eliminar fila de ratios centro',
+        icon: 'pi pi-times-circle',
+        rejectButtonStyleClass: 'p-button-text',
+        acceptButtonStyleClass: 'p-button-danger',
+        accept: () => {
+          this.delete(ratiosCentro);
+        },
+      });
+    }
 }

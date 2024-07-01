@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 import { StockService } from '../stock.service';
@@ -16,6 +21,8 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormlyFieldConfig, FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { ButtonModule } from 'primeng/button';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
 
 @Component({
   selector: 'app-stock-table',
@@ -35,22 +42,29 @@ import { ButtonModule } from 'primeng/button';
     FormsModule,
     FormlyModule,
     FormlyPrimeNGModule,
+    ConfirmDialogModule,
   ],
   templateUrl: './stock-table.component.html',
   styleUrl: './stock-table.component.scss',
+  providers: [ConfirmationService],
 })
 export class StockTableComponent implements OnInit {
   stock: Stock[] = [];
   searchForm: FormGroup;
 
-
   form = new FormGroup({});
   model = { email: '' };
-  fields: FormlyFieldConfig[] = [{
-    key: 'email',
-    type: 'input',
-  }];
-  constructor(private StockService: StockService, private fb: FormBuilder) {
+  fields: FormlyFieldConfig[] = [
+    {
+      key: 'email',
+      type: 'input',
+    },
+  ];
+  constructor(
+    private StockService: StockService,
+    private fb: FormBuilder,
+    private _confirmationService: ConfirmationService
+  ) {
     this.searchForm = this.fb.group({
       centerName: [''],
       nameMaterialReference: [''],
@@ -75,8 +89,31 @@ export class StockTableComponent implements OnInit {
     }
   }
 
-  caca(dt:any) {
-    console.log(dt)
-    console.log(dt.exportCSV())
+  caca(dt: any) {
+    console.log(dt);
+    console.log(dt.exportCSV());
   }
+
+    // TODO: EDITAR OBJETO BACKEND
+    async edit(stock: Stock) {
+      console.error('Edit object:', stock);
+    }
+  
+    // TODO: ELIMINAR OBJETO BACKEND
+    async delete(stock: Stock){
+      console.error('Delete object,', stock);
+    }
+  
+    async confirm_delete(stock: Stock) {
+      this._confirmationService.confirm({
+        message: '¿Estás seguro de que quieres eliminar esta fila?',
+        header: 'Eliminar fila de stock',
+        icon: 'pi pi-times-circle',
+        rejectButtonStyleClass: 'p-button-text',
+        acceptButtonStyleClass: 'p-button-danger',
+        accept: () => {
+          this.delete(stock);
+        },
+      });
+    }
 }

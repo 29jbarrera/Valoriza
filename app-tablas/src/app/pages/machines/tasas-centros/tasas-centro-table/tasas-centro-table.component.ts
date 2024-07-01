@@ -21,6 +21,8 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { ButtonModule } from 'primeng/button';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
 
 @Component({
   selector: 'app-tasas-centro-table',
@@ -40,9 +42,11 @@ import { ButtonModule } from 'primeng/button';
     FormsModule,
     FormlyModule,
     FormlyPrimeNGModule,
+    ConfirmDialogModule
   ],
   templateUrl: './tasas-centro-table.component.html',
   styleUrl: './tasas-centro-table.component.scss',
+  providers:[ConfirmationService]
 })
 export class TasasCentroTableComponent implements OnInit {
   tasasCentro: TasasCentro[] = [];
@@ -50,7 +54,8 @@ export class TasasCentroTableComponent implements OnInit {
 
   constructor(
     private TasasCentroService: TasasCentroService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private _confirmationService: ConfirmationService,
   ) {
     this.searchForm = this.fb.group({
       dateForm: [''],
@@ -71,4 +76,27 @@ export class TasasCentroTableComponent implements OnInit {
   async updateTable() {
     this.tasasCentro = await this.TasasCentroService.getTasasCentro();
   }
+
+    // TODO: EDITAR OBJETO BACKEND
+    async edit(tasasCentro: TasasCentro) {
+      console.error('Edit object:', tasasCentro);
+    }
+  
+    // TODO: ELIMINAR OBJETO BACKEND
+    async delete(tasasCentro: TasasCentro){
+      console.error('Delete object,', tasasCentro);
+    }
+  
+    async confirm_delete(tasasCentro: TasasCentro) {
+      this._confirmationService.confirm({
+        message: '¿Estás seguro de que quieres eliminar esta fila?',
+        header: 'Eliminar fila de tasas centro',
+        icon: 'pi pi-times-circle',
+        rejectButtonStyleClass: 'p-button-text',
+        acceptButtonStyleClass: 'p-button-danger',
+        accept: () => {
+          this.delete(tasasCentro);
+        },
+      });
+    }
 }

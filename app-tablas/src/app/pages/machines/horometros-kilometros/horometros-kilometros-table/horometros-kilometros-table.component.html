@@ -110,22 +110,22 @@
         </th>
       </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-horonometrosKilometros>
+    <ng-template pTemplate="body" let-horometrosKilometros>
       <tr class="body-table">
         <td>
-          <i class="fas fa-pen"></i>
+          <p-button icon="fas fa-pen" severity="success" [text]="true" (click)="edit(horometrosKilometros)"/>
         </td>
         <td>
-          <i class="fas fa-trash"></i>
+          <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(horometrosKilometros)"/>
         </td>
-        <td>{{ horonometrosKilometros.machineCenter }}</td>
-        <td>{{ horonometrosKilometros.subFamily }}</td>
-        <td>{{ horonometrosKilometros.machinery }}</td>
-        <td>{{ horonometrosKilometros.brand }}</td>
-        <td>{{ horonometrosKilometros.model }}</td>
-        <td>{{ horonometrosKilometros.finalHorometer }}</td>
-        <td>{{ horonometrosKilometros.finalKM }}</td>
-        <td>{{ horonometrosKilometros.date | date: 'dd/MM/yyyy' }}</td>
+        <td>{{ horometrosKilometros.machineCenter }}</td>
+        <td>{{ horometrosKilometros.subFamily }}</td>
+        <td>{{ horometrosKilometros.machinery }}</td>
+        <td>{{ horometrosKilometros.brand }}</td>
+        <td>{{ horometrosKilometros.model }}</td>
+        <td>{{ horometrosKilometros.finalHorometer }}</td>
+        <td>{{ horometrosKilometros.finalKM }}</td>
+        <td>{{ horometrosKilometros.date | date: 'dd/MM/yyyy' }}</td>
       </tr>
     </ng-template>
     <ng-template pTemplate="footer">
@@ -139,4 +139,5 @@
       </tr>
     </ng-template>
   </p-table>
+  <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
 </div>

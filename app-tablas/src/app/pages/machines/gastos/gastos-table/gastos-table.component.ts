@@ -22,6 +22,8 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { ButtonModule } from 'primeng/button';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
 
 @Component({
   selector: 'app-gastos-table',
@@ -41,9 +43,11 @@ import { ButtonModule } from 'primeng/button';
     FormsModule,
     FormlyModule,
     FormlyPrimeNGModule,
+    ConfirmDialogModule
   ],
   templateUrl: './gastos-table.component.html',
   styleUrl: './gastos-table.component.scss',
+  providers:[ConfirmationService]
 })
 export class GastosTableComponent implements OnInit {
   gastosTaller: GastosTaller[] = [];
@@ -51,7 +55,8 @@ export class GastosTableComponent implements OnInit {
 
   constructor(
     private GastosService: GastosService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private _confirmationService: ConfirmationService,
   ) {
     this.searchForm = this.fb.group({
       centerProvider: [''],
@@ -75,5 +80,28 @@ export class GastosTableComponent implements OnInit {
 
   async updateTable() {
     this.gastosTaller = await this.GastosService.getGastos();
+  }
+
+   // TODO: EDITAR OBJETO BACKEND
+   async edit(gastosTaller: GastosTaller) {
+    console.error('Edit object:', gastosTaller);
+  }
+
+  // TODO: ELIMINAR OBJETO BACKEND
+  async delete(gastosTaller: GastosTaller){
+    console.error('Delete object,', gastosTaller);
+  }
+
+  async confirm_delete(gastosTaller: GastosTaller) {
+    this._confirmationService.confirm({
+      message: '¿Estás seguro de que quieres eliminar esta fila?',
+      header: 'Eliminar fila de gastos',
+      icon: 'pi pi-times-circle',
+      rejectButtonStyleClass: 'p-button-text',
+      acceptButtonStyleClass: 'p-button-danger',
+      accept: () => {
+        this.delete(gastosTaller);
+      },
+    });
   }
 }

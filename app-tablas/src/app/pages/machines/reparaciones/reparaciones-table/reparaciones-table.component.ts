@@ -21,6 +21,8 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { ButtonModule } from 'primeng/button';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
 
 @Component({
   selector: 'app-reparaciones-table',
@@ -40,26 +42,32 @@ import { ButtonModule } from 'primeng/button';
     FormsModule,
     FormlyModule,
     FormlyPrimeNGModule,
+    ConfirmDialogModule,
   ],
   templateUrl: './reparaciones-table.component.html',
   styleUrl: './reparaciones-table.component.scss',
+  providers:[ConfirmationService]
 })
 export class ReparacionesTableComponent implements OnInit {
   reparaciones: Reparaciones[] = [];
   searchForm: FormGroup;
 
-  constructor (private ReparacionesService: ReparacionesService, private fb: FormBuilder){
+  constructor(
+    private ReparacionesService: ReparacionesService,
+    private fb: FormBuilder,
+    private _confirmationService: ConfirmationService
+  ) {
     this.searchForm = this.fb.group({
-      repairCentre:[''],
-      machinery:[''],
-      typeAction:[''],
-      typeMaintenance:[''],
-      date:[''],
-      supplier:[''],
-      deliveryNote:[''],
-      cost:[''],
-      currency:[''],
-      description:[''],
+      repairCentre: [''],
+      machinery: [''],
+      typeAction: [''],
+      typeMaintenance: [''],
+      date: [''],
+      supplier: [''],
+      deliveryNote: [''],
+      cost: [''],
+      currency: [''],
+      description: [''],
     });
   }
 
@@ -69,5 +77,28 @@ export class ReparacionesTableComponent implements OnInit {
 
   async updateTable() {
     this.reparaciones = await this.ReparacionesService.getReparaciones();
+  }
+
+  // TODO: EDITAR OBJETO BACKEND
+  async edit(reparaciones: Reparaciones) {
+    console.error('Edit object:', reparaciones);
+  }
+
+  // TODO: ELIMINAR OBJETO BACKEND
+  async delete(reparaciones: Reparaciones) {
+    console.error('Delete object,', reparaciones);
+  }
+
+  async confirm_delete(reparaciones: Reparaciones) {
+    this._confirmationService.confirm({
+      message: '¿Estás seguro de que quieres eliminar esta fila?',
+      header: 'Eliminar fila de reparaciones',
+      icon: 'pi pi-times-circle',
+      rejectButtonStyleClass: 'p-button-text',
+      acceptButtonStyleClass: 'p-button-danger',
+      accept: () => {
+        this.delete(reparaciones);
+      },
+    });
   }
 }

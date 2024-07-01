@@ -199,10 +199,10 @@
     <ng-template pTemplate="body" let-tasas>
       <tr class="body-table">
         <td>
-          <i class="fas fa-pen"></i>
+          <p-button icon="fas fa-pen" severity="success" [text]="true" (click)="edit(tasas)"/>
         </td>
         <td>
-          <i class="fas fa-trash"></i>
+          <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(tasas)"/>
         </td>
         <td>{{ tasas.dateFrom  | date : "dd/MM/yyyy"}}</td>
         <td>{{ tasas.dateUntil | date : "dd/MM/yyyy" }}</td>
@@ -232,4 +232,5 @@
       </tr>
     </ng-template>
   </p-table>
+  <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
 </div>

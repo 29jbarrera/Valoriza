@@ -21,6 +21,8 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { ButtonModule } from 'primeng/button';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
 
 @Component({
   selector: 'app-preventivo-table',
@@ -40,9 +42,11 @@ import { ButtonModule } from 'primeng/button';
     FormsModule,
     FormlyModule,
     FormlyPrimeNGModule,
+    ConfirmDialogModule
   ],
   templateUrl: './preventivo-table.component.html',
   styleUrl: './preventivo-table.component.scss',
+  providers:[ConfirmationService]
 })
 export class PreventivoTableComponent implements OnInit {
   preventivo: Preventivo[] = [];
@@ -50,7 +54,8 @@ export class PreventivoTableComponent implements OnInit {
 
   constructor(
     private PreventivoService: PreventivoService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private _confirmationService: ConfirmationService,
   ) {
     this.searchForm = this.fb.group({
       machineCenter: [''],
@@ -70,5 +75,28 @@ export class PreventivoTableComponent implements OnInit {
   }
   async updateTable() {
     this.preventivo = await this.PreventivoService.getPreventivo();
+  }
+
+   // TODO: EDITAR OBJETO BACKEND
+   async edit(preventivo: Preventivo) {
+    console.error('Edit object:', preventivo);
+  }
+
+  // TODO: ELIMINAR OBJETO BACKEND
+  async delete(preventivo: Preventivo){
+    console.error('Delete object,', preventivo);
+  }
+
+  async confirm_delete(preventivo: Preventivo) {
+    this._confirmationService.confirm({
+      message: '¿Estás seguro de que quieres eliminar esta fila?',
+      header: 'Eliminar fila de mantenimiento de preventivos',
+      icon: 'pi pi-times-circle',
+      rejectButtonStyleClass: 'p-button-text',
+      acceptButtonStyleClass: 'p-button-danger',
+      accept: () => {
+        this.delete(preventivo);
+      },
+    });
   }
 }
