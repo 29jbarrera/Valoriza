@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { randCompanyName } from '@ngneat/falso';
 
-import { Marcas } from '../Interfaces/marcas.interface';
+import { Marcas } from './type';
 
 @Injectable({
   providedIn: 'root',

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { randProductDescription, randAmount } from '@ngneat/falso';
 
-import { Categorias } from '../Interfaces/categorias.interface';
+import { Categorias } from './type';
 
 @Injectable({
   providedIn: 'root',
