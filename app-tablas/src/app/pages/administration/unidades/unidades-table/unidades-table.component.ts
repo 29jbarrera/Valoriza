@@ -7,8 +7,8 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { Unidades } from '../../../../Interfaces/unidades.interface';
-import { UnidadesService } from '../../../../service/unidades.service';
+import { Unidades } from '../type';
+import { UnidadesService } from '../unidades.service';
 
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
@@ -21,6 +21,9 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { ButtonModule } from 'primeng/button';
+import { ToastModule } from 'primeng/toast';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-unidades-table',
@@ -40,9 +43,12 @@ import { ButtonModule } from 'primeng/button';
     FormsModule,
     FormlyModule,
     FormlyPrimeNGModule,
+    ConfirmDialogModule,
+    ToastModule,
   ],
   templateUrl: './unidades-table.component.html',
-  styleUrl: './unidades-table.component.scss'
+  styleUrl: './unidades-table.component.scss',
+  providers: [ConfirmationService, MessageService],
 })
 export class UnidadesTableComponent implements OnInit {
   unidades: Unidades[] = [];
@@ -50,7 +56,9 @@ export class UnidadesTableComponent implements OnInit {
 
   constructor(
     private UnidadesService: UnidadesService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private _confirmationService: ConfirmationService,
+    private messageService: MessageService
   ) {
     this.searchForm = this.fb.group({
       fuelType: [''],
@@ -65,5 +73,71 @@ export class UnidadesTableComponent implements OnInit {
   async updateTable() {
     this.unidades = await this.UnidadesService.getGastosTaller();
   }
-}
 
+  async confirm_edit(unidades: Unidades) {
+    try {
+      this.edit(unidades);
+
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Actualizado',
+        detail: 'Fila actualizada correctamente',
+        life: 3000,
+      });
+    } catch (error) {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Algo inesperado ocurrió',
+        life: 3000,
+      });
+    }
+  }
+
+  async edit(unidades: Unidades) {
+    // TODO: PETICIÓN A BACKEND PARA EDITAR
+    console.error('Edit object:', unidades);
+  }
+
+  async delete(unidades: Unidades) {
+    // TODO: PETICIÓN BACKEND PARA ELIMINAR
+    console.error('Delete object,', unidades);
+  }
+
+  async confirm_delete(unidades: Unidades) {
+    this._confirmationService.confirm({
+      message: '¿Estás seguro de que quieres eliminar esta fila?',
+      header: 'Eliminar fila de unidades',
+      icon: 'pi pi-times-circle',
+      rejectButtonStyleClass: 'p-button-text',
+      acceptButtonStyleClass: 'p-button-danger',
+
+      accept: async () => {
+        try {
+          await this.delete(unidades);
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Confirmado',
+            detail: 'Fila eliminada correctamente',
+            life: 3000,
+          });
+        } catch (error) {
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Algo inesperado ocurrió',
+            life: 3000,
+          });
+        }
+      },
+      reject: () => {
+        this.messageService.add({
+          severity: 'info',
+          summary: 'Cancelado',
+          detail: 'La acción fue cancelada',
+          life: 3000,
+        });
+      },
+    });
+  }
+}

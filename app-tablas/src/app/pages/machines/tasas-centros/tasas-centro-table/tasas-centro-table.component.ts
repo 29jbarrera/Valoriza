@@ -7,8 +7,8 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { TasasCentro } from '../../../../Interfaces/tasas-centro.interface';
-import { TasasCentroService } from '../../../../service/tasas-centro.service';
+import { TasasCentro } from '../type';
+import { TasasCentroService } from '../tasas-centro.service';
 
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
@@ -21,6 +21,9 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { ButtonModule } from 'primeng/button';
+import { ToastModule } from 'primeng/toast';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-tasas-centro-table',
@@ -40,9 +43,12 @@ import { ButtonModule } from 'primeng/button';
     FormsModule,
     FormlyModule,
     FormlyPrimeNGModule,
+    ConfirmDialogModule,
+    ToastModule,
   ],
   templateUrl: './tasas-centro-table.component.html',
   styleUrl: './tasas-centro-table.component.scss',
+  providers: [ConfirmationService, MessageService],
 })
 export class TasasCentroTableComponent implements OnInit {
   tasasCentro: TasasCentro[] = [];
@@ -50,7 +56,9 @@ export class TasasCentroTableComponent implements OnInit {
 
   constructor(
     private TasasCentroService: TasasCentroService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private _confirmationService: ConfirmationService,
+    private messageService: MessageService
   ) {
     this.searchForm = this.fb.group({
       dateForm: [''],
@@ -70,5 +78,72 @@ export class TasasCentroTableComponent implements OnInit {
 
   async updateTable() {
     this.tasasCentro = await this.TasasCentroService.getTasasCentro();
+  }
+
+  async confirm_edit(tasasCentro: TasasCentro) {
+    try {
+      this.edit(tasasCentro);
+
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Actualizado',
+        detail: 'Fila actualizada correctamente',
+        life: 3000,
+      });
+    } catch (error) {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Algo inesperado ocurrió',
+        life: 3000,
+      });
+    }
+  }
+
+  async edit(tasasCentro: TasasCentro) {
+    // TODO: PETICIÓN A BACKEND PARA EDITAR
+    console.error('Edit object:', tasasCentro);
+  }
+
+  async delete(tasasCentro: TasasCentro) {
+    // TODO: PETICIÓN BACKEND PARA ELIMINAR
+    console.error('Delete object,', tasasCentro);
+  }
+
+  async confirm_delete(tasasCentro: TasasCentro) {
+    this._confirmationService.confirm({
+      message: '¿Estás seguro de que quieres eliminar esta fila?',
+      header: 'Eliminar fila de tasas centro',
+      icon: 'pi pi-times-circle',
+      rejectButtonStyleClass: 'p-button-text',
+      acceptButtonStyleClass: 'p-button-danger',
+
+      accept: async () => {
+        try {
+          await this.delete(tasasCentro);
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Confirmado',
+            detail: 'Fila eliminada correctamente',
+            life: 3000,
+          });
+        } catch (error) {
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Algo inesperado ocurrió',
+            life: 3000,
+          });
+        }
+      },
+      reject: () => {
+        this.messageService.add({
+          severity: 'info',
+          summary: 'Cancelado',
+          detail: 'La acción fue cancelada',
+          life: 3000,
+        });
+      },
+    });
   }
 }

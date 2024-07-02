@@ -7,8 +7,8 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { Globales } from '../../../../Interfaces/globales.interface';
-import { TablaGlobalesService } from '../../../../service/tabla-globales.service';
+import { Globales } from '../type';
+import { TablaGlobalesService } from '../tabla-globales.service';
 
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
@@ -21,6 +21,9 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { ButtonModule } from 'primeng/button';
+import { ToastModule } from 'primeng/toast';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-tablas-globales-table',
@@ -40,9 +43,12 @@ import { ButtonModule } from 'primeng/button';
     FormsModule,
     FormlyModule,
     FormlyPrimeNGModule,
+    ConfirmDialogModule,
+    ToastModule,
   ],
   templateUrl: './tablas-globales-table.component.html',
-  styleUrl: './tablas-globales-table.component.scss'
+  styleUrl: './tablas-globales-table.component.scss',
+  providers: [ConfirmationService, MessageService],
 })
 export class TablasGlobalesTableComponent implements OnInit {
   globales: Globales[] = [];
@@ -50,7 +56,9 @@ export class TablasGlobalesTableComponent implements OnInit {
 
   constructor(
     private TablaGlobalesService: TablaGlobalesService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private _confirmationService: ConfirmationService,
+    private messageService: MessageService
   ) {
     this.searchForm = this.fb.group({
       name: [''],
@@ -67,5 +75,71 @@ export class TablasGlobalesTableComponent implements OnInit {
   async updateTable() {
     this.globales = await this.TablaGlobalesService.getGlobales();
   }
-}
 
+  async confirm_edit(globales: Globales) {
+    try {
+      this.edit(globales);
+
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Actualizado',
+        detail: 'Fila actualizada correctamente',
+        life: 3000,
+      });
+    } catch (error) {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Algo inesperado ocurrió',
+        life: 3000,
+      });
+    }
+  }
+
+  async edit(globales: Globales) {
+    // TODO: PETICIÓN A BACKEND PARA EDITAR
+    console.error('Edit object:', globales);
+  }
+
+  async delete(globales: Globales) {
+    // TODO: PETICIÓN BACKEND PARA ELIMINAR
+    console.error('Delete object,', globales);
+  }
+
+  async confirm_delete(globales: Globales) {
+    this._confirmationService.confirm({
+      message: '¿Estás seguro de que quieres eliminar esta fila?',
+      header: 'Eliminar fila de tablas globales',
+      icon: 'pi pi-times-circle',
+      rejectButtonStyleClass: 'p-button-text',
+      acceptButtonStyleClass: 'p-button-danger',
+
+      accept: async () => {
+        try {
+          await this.delete(globales);
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Confirmado',
+            detail: 'Fila eliminada correctamente',
+            life: 3000,
+          });
+        } catch (error) {
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Algo inesperado ocurrió',
+            life: 3000,
+          });
+        }
+      },
+      reject: () => {
+        this.messageService.add({
+          severity: 'info',
+          summary: 'Cancelado',
+          detail: 'La acción fue cancelada',
+          life: 3000,
+        });
+      },
+    });
+  }
+}

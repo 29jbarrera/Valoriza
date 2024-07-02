@@ -1,133 +1,135 @@
-<div class="Table">
+<div class="col-12 km-table-valoriza-app">
   <p-table
     #dt
     [value]="preventivo"
     dataKey="id"
+    styleClass="p-datatable-sm"
     [rowsPerPageOptions]="[5, 10, 20]"
-    [tableStyle]="{ width: '100%' }"
+    [paginator]="true"
     [rows]="5"
   >
     <ng-template pTemplate="header">
       <tr>
         <th></th>
+        <th></th>
         <th pSortableColumn="machineCenter">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="machineCenter" />
+            Centro
             <p-columnFilter
+              class="filter"
               type="text"
               field="machineCenter"
-              class="filter"
-              placeholder="Centro Máquina"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="machineCenter" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="subfamily">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="subfamily" />
+            SubFamilia
             <p-columnFilter
+              class="filter"
               type="text"
               field="subfamily"
-              class="filter"
-              placeholder="Subfamilia"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="subfamily" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="machinery">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="machinery" />
+            Maquinaria
             <p-columnFilter
+              class="filter"
               type="text"
               field="machinery"
-              class="filter"
-              placeholder="Maquinaria"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="machinery" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="level">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="level" />
+            Nivel
             <p-columnFilter
+              class="filter"
               type="text"
               field="level"
-              class="filter"
-              placeholder="Nivel"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="level" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="position">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="position" />
+            Posición
             <p-columnFilter
+              class="filter"
               type="text"
               field="position"
-              class="filter"
-              placeholder="Posición"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="position" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="horomMaint">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="horomMaint" />
+            Horom Maint
             <p-columnFilter
+              class="filter"
               type="text"
               field="horomMaint"
-              class="filter"
-              placeholder="Horom Mant"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="horomMaint" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="horomFinal">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="horomFinal" />
+            Horom Final
             <p-columnFilter
+              class="filter"
               type="text"
               field="horomFinal"
-              class="filter"
-              placeholder="Horóm Final"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="horomFinal" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="kmMaint">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="kmMaint" />
+            kmMaint
             <p-columnFilter
+              class="filter"
               type="text"
               field="kmMaint"
-              class="filter"
-              placeholder="Km Mant"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="kmMaint" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="KmFinal">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="KmFinal" />
+            KmFinal
             <p-columnFilter
+              class="filter"
               type="text"
               field="KmFinal"
-              class="filter"
-              placeholder="Km Final"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="KmFinal" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="date">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="date" />
+            Fecha
             <p-columnFilter
+              class="filter"
               type="text"
               field="date"
-              class="filter"
-              placeholder="Fecha"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="date" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
       </tr>
@@ -136,7 +138,10 @@
     <ng-template pTemplate="body" let-preventivo>
       <tr class="body-table">
         <td>
-          <i class="fas fa-pen"></i>
+          <p-button icon="fas fa-pen" severity="success" [text]="true" (click)="confirm_edit(preventivo)"/>
+        </td>
+        <td>
+          <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(preventivo)"/>
         </td>
         <td>{{ preventivo.machineCenter }}</td>
         <td>{{ preventivo.subfamily }}</td>
@@ -147,9 +152,20 @@
         <td>{{ preventivo.horomFinal }}</td>
         <td>{{ preventivo.kmMaint }}</td>
         <td>{{ preventivo.kmFinal }}</td>
-        <td>{{ preventivo.date }}</td>
+        <td>{{ preventivo.date | date: 'dd/MM/yyyy' }}</td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="footer">
+      <tr>
+        <td colspan="12">
+          <div class="pl-2">
+            Resultado totales:
+            <span class="font-bold">{{ preventivo.length || 0 }}</span>
+          </div>
+        </td>
       </tr>
     </ng-template>
   </p-table>
-  <p>Resultado totales: {{ preventivo.length || 0 }}</p>
+  <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+  <p-toast></p-toast>
 </div>

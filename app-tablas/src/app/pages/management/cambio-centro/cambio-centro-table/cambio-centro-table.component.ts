@@ -7,8 +7,8 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { CambioCentro } from '../../../../Interfaces/cambioCentro.interface';
-import { CambioCentroService } from '../../../../service/cambio-centro.service';
+import { CambioCentro } from '../type';
+import { CambioCentroService } from '../cambio-centro.service';
 
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
@@ -21,6 +21,10 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { ButtonModule } from 'primeng/button';
+import { ToastModule } from 'primeng/toast';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService, MessageService } from 'primeng/api';
+
 @Component({
   selector: 'app-cambio-centro-table',
   standalone: true,
@@ -39,17 +43,23 @@ import { ButtonModule } from 'primeng/button';
     FormsModule,
     FormlyModule,
     FormlyPrimeNGModule,
+    ConfirmDialogModule,
+    ToastModule,
   ],
   templateUrl: './cambio-centro-table.component.html',
   styleUrl: './cambio-centro-table.component.scss',
+  providers: [ConfirmationService, MessageService],
 })
 export class CambioCentroTableComponent implements OnInit {
   cambioCentro: CambioCentro[] = [];
+  selectCambioCentro: CambioCentro[] = [];
   searchForm: FormGroup;
 
   constructor(
     private CambioCentroService: CambioCentroService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private _confirmationService: ConfirmationService,
+    private messageService: MessageService
   ) {
     this.searchForm = this.fb.group({
       selected: [''],
@@ -67,5 +77,71 @@ export class CambioCentroTableComponent implements OnInit {
   async updateTable() {
     this.cambioCentro = await this.CambioCentroService.getCambioCentro();
   }
-}
 
+  async confirm_edit(cambioCentro: CambioCentro) {
+    try {
+      this.edit(cambioCentro);
+
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Actualizado',
+        detail: 'Fila actualizada correctamente',
+        life: 3000,
+      });
+    } catch (error) {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Algo inesperado ocurrió',
+        life: 3000,
+      });
+    }
+  }
+
+  async edit(cambioCentro: CambioCentro) {
+    // TODO: PETICIÓN A BACKEND PARA EDITAR
+    console.error('Edit object:', cambioCentro);
+  }
+
+  async delete(cambioCentro: CambioCentro) {
+    // TODO: PETICIÓN BACKEND PARA ELIMINAR
+    console.error('Delete object,', cambioCentro);
+  }
+
+  async confirm_delete(cambioCentro: CambioCentro) {
+    this._confirmationService.confirm({
+      message: '¿Estás seguro de que quieres eliminar esta fila?',
+      header: 'Eliminar fila de cambios centros',
+      icon: 'pi pi-times-circle',
+      rejectButtonStyleClass: 'p-button-text',
+      acceptButtonStyleClass: 'p-button-danger',
+
+      accept: async () => {
+        try {
+          await this.delete(cambioCentro);
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Confirmado',
+            detail: 'Fila eliminada correctamente',
+            life: 3000,
+          });
+        } catch (error) {
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Algo inesperado ocurrió',
+            life: 3000,
+          });
+        }
+      },
+      reject: () => {
+        this.messageService.add({
+          severity: 'info',
+          summary: 'Cancelado',
+          detail: 'La acción fue cancelada',
+          life: 3000,
+        });
+      },
+    });
+  }
+}

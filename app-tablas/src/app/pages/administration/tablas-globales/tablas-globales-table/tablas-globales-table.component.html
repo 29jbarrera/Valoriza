@@ -1,66 +1,74 @@
-<div class="Table">
-  <p-table [value]="globales" [tableStyle]="{ 'min-width': '50rem' }">
+<div class="col-12 km-table-valoriza-app">
+  <p-table
+    [value]="globales"
+    dataKey="id"
+    styleClass="p-datatable-sm"
+    [rowsPerPageOptions]="[5, 10, 20]"
+    [paginator]="true"
+    [rows]="5"
+  >
     <ng-template pTemplate="header">
       <tr>
         <th></th>
+        <th></th>
         <th pSortableColumn="name">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="name" />
+            Nombre
             <p-columnFilter
+              class="filter"
               type="text"
               field="name"
-              class="filter"
-              placeholder="Nombre"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="name" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="codeLength">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="codeLength" />
+            Longitud Codigo
             <p-columnFilter
+              class="filter"
               type="text"
               field="codeLength"
-              class="filter"
-              placeholder="Longitud Código"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="codeLength" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="accessType">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="accessType" />
+            Tipo Acceso
             <p-columnFilter
+              class="filter"
               type="text"
               field="accessType"
-              class="filter"
-              placeholder="Tipo Acceso"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="accessType" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="session">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="session" />
+            Sesiones
             <p-columnFilter
+              class="filter"
               type="text"
               field="session"
-              class="filter"
-              placeholder="Por Sesión"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="session" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="task">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="task" />
+            Tareas
             <p-columnFilter
+              class="filter"
               type="text"
               field="task"
-              class="filter"
-              placeholder="Tarea"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="task" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
       </tr>
@@ -68,7 +76,10 @@
     <ng-template pTemplate="body" let-globales>
       <tr class="body-table">
         <td>
-          <i class="fas fa-pen"></i>
+          <p-button icon="fas fa-pen" severity="success" [text]="true" (click)="confirm_edit(globales)"/>
+        </td>
+        <td>
+          <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(globales)"/>
         </td>
         <td>{{ globales.name }}</td>
         <td>{{ globales.codeLength }}</td>
@@ -77,6 +88,17 @@
         <td>{{ globales.task }}</td>
       </tr>
     </ng-template>
-  </p-table>
-  <p>Resultado totales: {{ globales.length || 0 }}</p>
+    <ng-template pTemplate="footer">
+      <tr>
+        <td colspan="7">
+          <div class="pl-2">
+            Resultado totales:
+            <span class="font-bold">{{ globales.length || 0 }}</span>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table> 
+  <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+  <p-toast></p-toast>
 </div>

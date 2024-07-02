@@ -8,6 +8,7 @@ import { InputGroupModule } from 'primeng/inputgroup';
 import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 import { ButtonModule } from 'primeng/button';
 import { TreeSelectModule } from 'primeng/treeselect';
+import { DropdownModule } from 'primeng/dropdown';
 
 @Component({
   selector: 'app-ratios-maquinaria-form',
@@ -21,10 +22,9 @@ import { TreeSelectModule } from 'primeng/treeselect';
     InputGroupModule,
     ButtonModule,
     TreeSelectModule,
+    DropdownModule,
   ],
   templateUrl: './ratios-maquinaria-form.component.html',
-  styleUrl: './ratios-maquinaria-form.component.scss'
+  styleUrl: './ratios-maquinaria-form.component.scss',
 })
-export class RatiosMaquinariaFormComponent {
-
-}
+export class RatiosMaquinariaFormComponent {}

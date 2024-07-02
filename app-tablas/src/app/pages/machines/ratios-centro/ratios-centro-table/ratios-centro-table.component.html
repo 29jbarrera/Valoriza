@@ -1,157 +1,162 @@
-<div class="Table">
+<div class="col-12 km-table-valoriza-app">
   <p-table
     #dt
     [value]="ratiosCentro"
     dataKey="id"
+    styleClass="p-datatable-sm"
     [rowsPerPageOptions]="[5, 10, 20]"
-    [tableStyle]="{ width: '100%' }"
+    [paginator]="true"
     [rows]="5"
   >
     <ng-template pTemplate="header">
       <tr>
         <th></th>
-        <th pSortableColumn="dateFrom">
-          <div class="flex align-items-center">
+        <th></th>
+        <th pSortableColumn="dateDesde">
+          <div>
+            <p-sortIcon class="order" field="dateDesde" />
+            Desde
             <p-columnFilter
-              type="text"
-              field="dateFrom"
               class="filter"
-              placeholder="Fecha desde"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="dateFrom" />
+              type="text"
+              field="dateDesde"
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="dateUntil">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="dateUntil" />
+            Hasta
             <p-columnFilter
+              class="filter"
               type="text"
               field="dateUntil"
-              class="filter"
-              placeholder="Fecha hasta"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="dateUntil" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="centre">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="centre" />
+            Centro
             <p-columnFilter
+              class="filter"
               type="text"
               field="centre"
-              class="filter"
-              placeholder="Centro"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="centre" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="repairs">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="repairs" />
+            Reparaciones
             <p-columnFilter
+              class="filter"
               type="text"
               field="repairs"
-              class="filter"
-              placeholder="Repaciones"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="repairs" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="insurance">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="insurance" />
+            Seguro
             <p-columnFilter
+              class="filter"
               type="text"
               field="insurance"
-              class="filter"
-              placeholder="Seguro"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="insurance" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="tax">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="tax" />
+            Impuesto
             <p-columnFilter
+              class="filter"
               type="text"
               field="tax"
-              class="filter"
-              placeholder="Impuesto"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="tax" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="Amortization">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="Amortization" />
+            Amortización
             <p-columnFilter
+              class="filter"
               type="text"
               field="Amortization"
-              class="filter"
-              placeholder="Amortizaciones"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="Amortization" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="financial">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="financial" />
+            Financiero
             <p-columnFilter
+              class="filter"
               type="text"
               field="financial"
-              class="filter"
-              placeholder="Financieros"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="financial" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="rate">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="rate" />
+            Rate
             <p-columnFilter
+              class="filter"
               type="text"
               field="rate"
-              class="filter"
-              placeholder="Tasa"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="rate" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="ratio">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="ratio" />
+            Ratio
             <p-columnFilter
+              class="filter"
               type="text"
               field="ratio"
-              class="filter"
-              placeholder="Ratio"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="ratio" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="currency">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="currency" />
+            Currency
             <p-columnFilter
+              class="filter"
               type="text"
               field="currency"
-              class="filter"
-              placeholder="Divisa"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="currency" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
       </tr>
     </ng-template>
 
     <ng-template pTemplate="body" let-ratiosCentro>
-      <tr class="body-table">
+      <tr>
         <td>
-          <i class="fas fa-pen"></i>
+          <p-button icon="fas fa-pen" severity="success" [text]="true" (click)="confirm_edit(ratiosCentro)"/>
         </td>
-        <td>{{ ratiosCentro.dateFrom }}</td>
-        <td>{{ ratiosCentro.dateUntil }}</td>
+        <td>
+          <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(ratiosCentro)"/>
+        </td>
+        <td>{{ ratiosCentro.dateFrom | date : "dd/MM/yyyy"}}</td>
+        <td>{{ ratiosCentro.dateUntil | date : "dd/MM/yyyy" }}</td>
         <td>{{ ratiosCentro.centre }}</td>
         <td>{{ ratiosCentro.repairs }}</td>
         <td>{{ ratiosCentro.insurance }}</td>
@@ -163,7 +168,17 @@
         <td>{{ ratiosCentro.currency }}</td>
       </tr>
     </ng-template>
+    <ng-template pTemplate="footer">
+      <tr>
+        <td colspan="14">
+          <div class="pl-2">
+            Resultado totales:
+            <span class="font-bold">{{ ratiosCentro.length || 0 }}</span>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
   </p-table>
-  <p>Resultado totales: {{ ratiosCentro.length || 0 }}</p>
-
+  <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+  <p-toast></p-toast>
 </div>

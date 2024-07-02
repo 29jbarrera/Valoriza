@@ -7,8 +7,8 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { Impuestos } from '../../../../Interfaces/impuestos.interface';
-import { ImpuestosService } from '../../../../service/impuestos.service';
+import { Impuestos } from '../type';
+import { ImpuestosService } from '../impuestos.service';
 
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
@@ -21,6 +21,9 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { ButtonModule } from 'primeng/button';
+import { ToastModule } from 'primeng/toast';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-impuestos-table',
@@ -40,9 +43,12 @@ import { ButtonModule } from 'primeng/button';
     FormsModule,
     FormlyModule,
     FormlyPrimeNGModule,
+    ConfirmDialogModule,
+    ToastModule,
   ],
   templateUrl: './impuestos-table.component.html',
   styleUrl: './impuestos-table.component.scss',
+  providers: [ConfirmationService, MessageService],
 })
 export class ImpuestosTableComponent implements OnInit {
   impuestos: Impuestos[] = [];
@@ -50,11 +56,13 @@ export class ImpuestosTableComponent implements OnInit {
 
   constructor(
     private ImpuestosService: ImpuestosService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private _confirmationService: ConfirmationService,
+    private messageService: MessageService
   ) {
     this.searchForm = this.fb.group({
       center: [''],
-      description: [''],
+      address: [''],
       tuition: [''],
       tax: [''],
       currency: [''],
@@ -67,5 +75,72 @@ export class ImpuestosTableComponent implements OnInit {
 
   async updateTable() {
     this.impuestos = await this.ImpuestosService.getImpuestos();
+  }
+
+  async confirm_edit(impuestos: Impuestos) {
+    try {
+      this.edit(impuestos);
+
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Actualizado',
+        detail: 'Fila actualizada correctamente',
+        life: 3000,
+      });
+    } catch (error) {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Algo inesperado ocurrió',
+        life: 3000,
+      });
+    }
+  }
+
+  async edit(impuestos: Impuestos) {
+    // TODO: PETICIÓN A BACKEND PARA EDITAR
+    console.error('Edit object:', impuestos);
+  }
+
+  async delete(impuestos: Impuestos) {
+    // TODO: PETICIÓN BACKEND PARA ELIMINAR
+    console.error('Delete object,', impuestos);
+  }
+
+  async confirm_delete(impuestos: Impuestos) {
+    this._confirmationService.confirm({
+      message: '¿Estás seguro de que quieres eliminar esta fila?',
+      header: 'Eliminar fila de impuestos',
+      icon: 'pi pi-times-circle',
+      rejectButtonStyleClass: 'p-button-text',
+      acceptButtonStyleClass: 'p-button-danger',
+
+      accept: async () => {
+        try {
+          await this.delete(impuestos);
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Confirmado',
+            detail: 'Fila eliminada correctamente',
+            life: 3000,
+          });
+        } catch (error) {
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Algo inesperado ocurrió',
+            life: 3000,
+          });
+        }
+      },
+      reject: () => {
+        this.messageService.add({
+          severity: 'info',
+          summary: 'Cancelado',
+          detail: 'La acción fue cancelada',
+          life: 3000,
+        });
+      },
+    });
   }
 }

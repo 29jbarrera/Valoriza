@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { ImpuestosTableComponent } from './impuestos-table/impuestos-table.component';
 import { HeaderComponent } from '../../../components/header/header.component';
+import { ImpuestosFormComponent } from './impuestos-form/impuestos-form.component';
+
 
 @Component({
   selector: 'app-impuestos',
   standalone: true,
-  imports: [ImpuestosTableComponent, HeaderComponent],
+  imports: [ImpuestosTableComponent, HeaderComponent, ImpuestosFormComponent],
   templateUrl: './impuestos.component.html',
   styleUrl: './impuestos.component.scss'
 })

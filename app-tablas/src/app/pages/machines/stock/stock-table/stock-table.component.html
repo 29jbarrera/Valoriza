@@ -1,0 +1,118 @@
+<div class="col-12 km-table-valoriza-app">
+  <p-table
+    #dt
+    [value]="stock"
+    dataKey="id"
+    styleClass="p-datatable-sm"
+    [rowsPerPageOptions]="[5, 10, 20]"
+    [paginator]="true"
+    [rows]="5"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th></th>
+        <th></th>
+        <th pSortableColumn="centerName">
+          <div>
+            <p-sortIcon class="order" field="centerName" />
+            Centro
+            <p-columnFilter
+              class="filter"
+              type="text"
+              field="centerName"
+              display="menu"
+            ></p-columnFilter>
+          </div>
+        </th>
+        <th pSortableColumn="nameMaterialReference">
+          <div>
+            <p-sortIcon class="order" field="nameMaterialReference" />
+            Material
+            <p-columnFilter
+              class="filter"
+              type="text"
+              field="nameMaterialReference"
+              display="menu"
+            ></p-columnFilter>
+          </div>
+        </th>
+        <th pSortableColumn="descriptionMaterialReference">
+          <div>
+            <p-sortIcon class="order" field="descriptionMaterialReference" />
+            Descripción
+            <p-columnFilter
+              class="filter"
+              type="text"
+              field="descriptionMaterialReference"
+              display="menu"
+            ></p-columnFilter>
+          </div>
+        </th>
+        <th pSortableColumn="quantity">
+          <div>
+            <p-sortIcon class="order" field="quantity" />
+            Cantidad
+            <p-columnFilter
+              class="filter"
+              type="text"
+              field="quantity"
+              display="menu"
+            ></p-columnFilter>
+          </div>
+        </th>
+        <th pSortableColumn="amount">
+          <div>
+            <p-sortIcon class="order" field="amount" />
+            Importe
+            <p-columnFilter
+              class="filter"
+              type="text"
+              field="amount"
+              display="menu"
+            ></p-columnFilter>
+          </div>
+        </th>
+        <th pSortableColumn="currency">
+          <div>
+            <p-sortIcon class="order" field="currency" />
+            Divisa
+            <p-columnFilter
+              class="filter"
+              type="text"
+              field="currency"
+              display="menu"
+            ></p-columnFilter>
+          </div>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-stock>
+      <tr class="body-table">
+        <td>
+          <p-button icon="fas fa-pen" severity="success" [text]="true" (click)="confirm_edit(stock)"/>
+        </td>
+        <td>
+          <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(stock)"/>
+        </td>
+        <td>{{ stock.centerName }}</td>
+        <td>{{ stock.nameMaterialReference }}</td>
+        <td>{{ stock.descriptionMaterialReference }}</td>
+        <td>{{ stock.quantity }}</td>
+        <td>{{ stock.amount }}</td>
+        <td>{{ stock.currency }}</td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="footer">
+      <tr>
+        <td colspan="8">
+          <div class="pl-2">
+            Resultado totales:
+            <span class="font-bold">{{ stock.length || 0 }}</span>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+  <p-toast></p-toast>
+</div>

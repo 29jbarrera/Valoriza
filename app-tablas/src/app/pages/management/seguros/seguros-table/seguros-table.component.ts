@@ -7,8 +7,8 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { Seguros } from '../../../../Interfaces/seguros.interface';
-import { SegurosService } from '../../../../service/seguros.service';
+import { Seguros } from '../type';
+import { SegurosService } from '../seguros.service';
 
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
@@ -21,6 +21,9 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { ButtonModule } from 'primeng/button';
+import { ToastModule } from 'primeng/toast';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-seguros-table',
@@ -40,9 +43,12 @@ import { ButtonModule } from 'primeng/button';
     FormsModule,
     FormlyModule,
     FormlyPrimeNGModule,
+    ConfirmDialogModule,
+    ToastModule,
   ],
   templateUrl: './seguros-table.component.html',
   styleUrl: './seguros-table.component.scss',
+  providers: [ConfirmationService, MessageService],
 })
 export class SegurosTableComponent implements OnInit {
   seguros: Seguros[] = [];
@@ -50,7 +56,9 @@ export class SegurosTableComponent implements OnInit {
 
   constructor(
     private SegurosService: SegurosService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private _confirmationService: ConfirmationService,
+    private messageService: MessageService
   ) {
     this.searchForm = this.fb.group({
       center: [''],
@@ -72,6 +80,72 @@ export class SegurosTableComponent implements OnInit {
 
   async updateTable() {
     this.seguros = await this.SegurosService.getSeguros();
-    SegurosService
+    SegurosService;
+  }
+
+  async confirm_edit(seguros: Seguros) {
+    try {
+      this.edit(seguros);
+
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Actualizado',
+        detail: 'Fila actualizada correctamente',
+        life: 3000,
+      });
+    } catch (error) {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Algo inesperado ocurrió',
+        life: 3000,
+      });
+    }
+  }
+
+  async edit(seguros: Seguros) {
+    // TODO: PETICIÓN A BACKEND PARA EDITAR
+    console.error('Edit object:', seguros);
+  }
+
+  async delete(seguros: Seguros) {
+    console.error('Delete object,', seguros);
+  }
+
+  async confirm_delete(seguros: Seguros) {
+    this._confirmationService.confirm({
+      message: '¿Estás seguro de que quieres eliminar esta fila?',
+      header: 'Eliminar fila de seguros',
+      icon: 'pi pi-times-circle',
+      rejectButtonStyleClass: 'p-button-text',
+      acceptButtonStyleClass: 'p-button-danger',
+
+       accept: async () => {
+        try {
+          await this.delete(seguros);
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Confirmado',
+            detail: 'Fila eliminada correctamente',
+            life: 3000,
+          });
+        } catch (error) {
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Algo inesperado ocurrió',
+            life: 3000,
+          });
+        }
+      },
+      reject: () => {
+        this.messageService.add({
+          severity: 'info',
+          summary: 'Cancelado',
+          detail: 'La acción fue cancelada',
+          life: 3000,
+        });
+      },
+    });
   }
 }

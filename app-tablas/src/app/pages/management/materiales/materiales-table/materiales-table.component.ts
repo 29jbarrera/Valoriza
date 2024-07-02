@@ -7,8 +7,8 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { Materiales } from '../../../../Interfaces/materiales.interface';
-import { MaterialesService } from '../../../../service/materiales.service';
+import { Materiales } from '../type';
+import { MaterialesService } from '../materiales.service';
 
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
@@ -21,6 +21,10 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { ButtonModule } from 'primeng/button';
+import { ToastModule } from 'primeng/toast';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService, MessageService } from 'primeng/api';
+
 @Component({
   selector: 'app-materiales-table',
   standalone: true,
@@ -39,9 +43,12 @@ import { ButtonModule } from 'primeng/button';
     FormsModule,
     FormlyModule,
     FormlyPrimeNGModule,
+    ConfirmDialogModule,
+    ToastModule,
   ],
   templateUrl: './materiales-table.component.html',
   styleUrl: './materiales-table.component.scss',
+  providers: [ConfirmationService, MessageService],
 })
 export class MaterialesTableComponent implements OnInit {
   materiales: Materiales[] = [];
@@ -49,7 +56,9 @@ export class MaterialesTableComponent implements OnInit {
 
   constructor(
     private MaterialesService: MaterialesService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private _confirmationService: ConfirmationService,
+    private messageService: MessageService
   ) {
     this.searchForm = this.fb.group({
       reference: [''],
@@ -64,5 +73,71 @@ export class MaterialesTableComponent implements OnInit {
   async updateTable() {
     this.materiales = await this.MaterialesService.getMateriales();
   }
-}
 
+  async confirm_edit(materiales: Materiales) {
+    try {
+      this.edit(materiales);
+
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Actualizado',
+        detail: 'Fila actualizada correctamente',
+        life: 3000,
+      });
+    } catch (error) {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Algo inesperado ocurrió',
+        life: 3000,
+      });
+    }
+  }
+
+  async edit(materiales: Materiales) {
+    // TODO: PETICIÓN A BACKEND PARA EDITAR
+    console.error('Edit object:', materiales);
+  }
+
+  async delete(materiales: Materiales) {
+    // TODO: PETICIÓN BACKEND PARA ELIMINAR
+    console.error('Delete object,', materiales);
+  }
+
+  async confirm_delete(materiales: Materiales) {
+    this._confirmationService.confirm({
+      message: '¿Estás seguro de que quieres eliminar esta fila?',
+      header: 'Eliminar fila de materiales',
+      icon: 'pi pi-times-circle',
+      rejectButtonStyleClass: 'p-button-text',
+      acceptButtonStyleClass: 'p-button-danger',
+
+       accept: async () => {
+        try {
+          await this.delete(materiales);
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Confirmado',
+            detail: 'Fila eliminada correctamente',
+            life: 3000,
+          });
+        } catch (error) {
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Algo inesperado ocurrió',
+            life: 3000,
+          });
+        }
+      },
+      reject: () => {
+        this.messageService.add({
+          severity: 'info',
+          summary: 'Cancelado',
+          detail: 'La acción fue cancelada',
+          life: 3000,
+        });
+      },
+    });
+  }
+}

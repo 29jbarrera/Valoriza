@@ -7,8 +7,8 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { PreventivoService } from '../../../../service/preventivo.service';
-import { Preventivo } from '../../../../Interfaces/preventivo.interface';
+import { PreventivoService } from '../preventivo.service';
+import { Preventivo } from '../type';
 
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
@@ -21,6 +21,9 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { ButtonModule } from 'primeng/button';
+import { ToastModule } from 'primeng/toast';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-preventivo-table',
@@ -40,9 +43,12 @@ import { ButtonModule } from 'primeng/button';
     FormsModule,
     FormlyModule,
     FormlyPrimeNGModule,
+    ConfirmDialogModule,
+    ToastModule,
   ],
   templateUrl: './preventivo-table.component.html',
   styleUrl: './preventivo-table.component.scss',
+  providers: [ConfirmationService, MessageService],
 })
 export class PreventivoTableComponent implements OnInit {
   preventivo: Preventivo[] = [];
@@ -50,7 +56,9 @@ export class PreventivoTableComponent implements OnInit {
 
   constructor(
     private PreventivoService: PreventivoService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private _confirmationService: ConfirmationService,
+    private messageService: MessageService
   ) {
     this.searchForm = this.fb.group({
       machineCenter: [''],
@@ -71,4 +79,72 @@ export class PreventivoTableComponent implements OnInit {
   async updateTable() {
     this.preventivo = await this.PreventivoService.getPreventivo();
   }
+
+  async confirm_edit(preventivo: Preventivo) {
+    try {
+      this.edit(preventivo);
+
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Actualizado',
+        detail: 'Fila actualizada correctamente',
+        life: 3000,
+      });
+    } catch (error) {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Algo inesperado ocurrió',
+        life: 3000,
+      });
+    }
+  }
+
+  async edit(preventivo: Preventivo) {
+    // TODO: PETICIÓN A BACKEND PARA EDITAR
+    console.error('Edit object:', preventivo);
+  }
+
+  async delete(preventivo: Preventivo) {
+    // TODO: PETICIÓN BACKEND PARA ELIMINAR
+    console.error('Delete object,', preventivo);
+  }
+
+  async confirm_delete(preventivo: Preventivo) {
+    this._confirmationService.confirm({
+      message: '¿Estás seguro de que quieres eliminar esta fila?',
+      header: 'Eliminar fila de mantenimiento de preventivos',
+      icon: 'pi pi-times-circle',
+      rejectButtonStyleClass: 'p-button-text',
+      acceptButtonStyleClass: 'p-button-danger',
+
+      accept: async () => {
+        try {
+          await this.delete(preventivo);
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Confirmado',
+            detail: 'Fila eliminada correctamente',
+            life: 3000,
+          });
+        } catch (error) {
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Algo inesperado ocurrió',
+            life: 3000,
+          });
+        }
+      },
+      reject: () => {
+        this.messageService.add({
+          severity: 'info',
+          summary: 'Cancelado',
+          detail: 'La acción fue cancelada',
+          life: 3000,
+        });
+      },
+    });
+  }
 }
+

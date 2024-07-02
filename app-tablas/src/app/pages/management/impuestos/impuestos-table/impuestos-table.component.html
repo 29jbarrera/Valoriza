@@ -1,78 +1,87 @@
-<div class="Table">
-  <p-table [value]="impuestos" [tableStyle]="{ 'min-width': '50rem' }">
+<div class="col-12 km-table-valoriza-app">
+  <p-table
+    #dt
+    [value]="impuestos"
+    dataKey="id"
+    styleClass="p-datatable-sm"
+    [rowsPerPageOptions]="[5, 10, 20]"
+    [paginator]="true"
+    [rows]="5"
+  >
     <ng-template pTemplate="header">
       <tr>
         <th></th>
+        <th></th>
         <th pSortableColumn="center">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="center" />
+            Centro
             <p-columnFilter
               type="text"
               field="center"
               class="filter"
-              placeholder="Centro"
-              [showClearButton]="false"
+              display="menu"
             />
-            <p-sortIcon class="order" field="center" />
           </div>
         </th>
-        <th pSortableColumn="description">
-          <div class="flex align-items-center">
+        <th pSortableColumn="address">
+          <div>
+            <p-sortIcon class="order" field="address" />
+            Dirección
             <p-columnFilter
               type="text"
-              field="description"
+              field="address"
               class="filter"
-              placeholder="Descripción"
-              [showClearButton]="false"
+              display="menu"
             />
-            <p-sortIcon class="order" field="description" />
           </div>
         </th>
         <th pSortableColumn="tuition">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="tuition" />
+            Matrícula
             <p-columnFilter
               type="text"
               field="tuition"
               class="filter"
-              placeholder="Matrícula"
-              [showClearButton]="false"
+              display="menu"
             />
-            <p-sortIcon class="order" field="tuition" />
           </div>
         </th>
         <th pSortableColumn="tax">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="tax" />
+            Impuesto
             <p-columnFilter
               type="text"
               field="tax"
               class="filter"
-              placeholder="Impuesto"
-              [showClearButton]="false"
+              display="menu"
             />
-            <p-sortIcon class="order" field="tax" />
           </div>
         </th>
         <th pSortableColumn="currency">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="currency" />
+            Divisa
             <p-columnFilter
               type="text"
               field="currency"
               class="filter"
-              placeholder="Divisa"
-              [showClearButton]="false"
+              display="menu"
             />
-            <p-sortIcon class="order" field="currency" />
           </div>
         </th>
         <th pSortableColumn="date">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="date" />
+            Fecha
             <p-columnFilter
               type="text"
               field="date"
               class="filter"
-              placeholder="Fecha"
-              [showClearButton]="false"
+              display="menu"
             />
-            <p-sortIcon class="order" field="date" />
           </div>
         </th>
       </tr>
@@ -80,16 +89,30 @@
     <ng-template pTemplate="body" let-impuestos>
       <tr class="body-table">
         <td>
-          <i class="fas fa-pen"></i>
+          <p-button icon="fas fa-pen" severity="success" [text]="true" (click)="confirm_edit(impuestos)"/>
+        </td>
+        <td>
+          <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(impuestos)"/>
         </td>
         <td>{{ impuestos.center }}</td>
-        <td>{{ impuestos.description }}</td>
+        <td>{{ impuestos.address }}</td>
         <td>{{ impuestos.tuition }}</td>
         <td>{{ impuestos.tax }}</td>
         <td>{{ impuestos.currency }}</td>
         <td>{{ impuestos.date }}</td>
       </tr>
     </ng-template>
+    <ng-template pTemplate="footer">
+      <tr>
+        <td colspan="8">
+          <div class="pl-2">
+            Resultado totales:
+            <span class="font-bold">{{ impuestos.length || 0 }}</span>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
   </p-table>
-  <p>Resultado totales: {{ impuestos.length || 0 }}</p>
+  <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+  <p-toast></p-toast>
 </div>

@@ -1,105 +1,111 @@
-<div class="Table">
+<div class="col-12 km-table-valoriza-app">
   <p-table
+    #dt
     [value]="repostajeVehiculos"
-    [tableStyle]="{ 'min-width': '50rem' }"
+    dataKey="id"
+    styleClass="p-datatable-sm"
+    [rowsPerPageOptions]="[5, 10, 20]"
+    [paginator]="true"
+    [rows]="5"
   >
     <ng-template pTemplate="header">
       <tr>
         <th></th>
+        <th></th>
         <th pSortableColumn="centerMachine">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="centerMachine" />
+            Centro Maquinas
             <p-columnFilter
               type="text"
               field="centerMachine"
               class="filter"
-              placeholder="Centro maquinas"
-              [showClearButton]="false"
+              display="menu"
             />
-            <p-sortIcon class="order" field="centerMachine" />
           </div>
         </th>
         <th pSortableColumn="deposit">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="deposit" />
+            Depósito
             <p-columnFilter
               type="text"
               field="deposit"
               class="filter"
-              placeholder="Depósito"
-              [showClearButton]="false"
+              display="menu"
             />
-            <p-sortIcon class="order" field="deposit" />
           </div>
         </th>
         <th pSortableColumn="machine">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="machine" />
+            Maquinaria
             <p-columnFilter
               type="text"
               field="machine"
               class="filter"
-              placeholder="Maquinaria"
-              [showClearButton]="false"
+              display="menu"
             />
-            <p-sortIcon class="order" field="machine" />
           </div>
         </th>
         <th pSortableColumn="bidon">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="bidon" />
+            Bidón
             <p-columnFilter
               type="text"
               field="bidon"
               class="filter"
-              placeholder="Bidón"
-              [showClearButton]="false"
+              display="menu"
             />
-            <p-sortIcon class="order" field="bidon" />
           </div>
         </th>
         <th pSortableColumn="date">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="date" />
+            Fecha
             <p-columnFilter
               type="text"
               field="date"
               class="filter"
-              placeholder="Fecha"
-              [showClearButton]="false"
+              display="menu"
             />
-            <p-sortIcon class="order" field="date" />
           </div>
         </th>
         <th pSortableColumn="amount">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="amount" />
+            Cantidad
             <p-columnFilter
               type="text"
               field="amount"
               class="filter"
-              placeholder="Cantidad"
-              [showClearButton]="false"
+              display="menu"
             />
-            <p-sortIcon class="order" field="amount" />
           </div>
         </th>
         <th pSortableColumn="account">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="account" />
+            Cuenta
             <p-columnFilter
               type="text"
               field="account"
               class="filter"
-              placeholder="Cuenta"
-              [showClearButton]="false"
+              display="menu"
             />
-            <p-sortIcon class="order" field="account" />
           </div>
         </th>
         <th pSortableColumn="card">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="card" />
+            Tarjeta
             <p-columnFilter
               type="text"
               field="card"
               class="filter"
-              placeholder="Tarjeta"
-              [showClearButton]="false"
+              display="menu"
             />
-            <p-sortIcon class="order" field="card" />
           </div>
         </th>
       </tr>
@@ -107,7 +113,10 @@
     <ng-template pTemplate="body" let-repostajeVehiculos>
       <tr class="body-table">
         <td>
-          <i class="fas fa-pen"></i>
+          <p-button icon="fas fa-pen" severity="success" [text]="true" (click)="confirm_edit(repostajeVehiculos)"/>
+        </td>
+        <td>
+          <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(repostajeVehiculos)"/>
         </td>
         <td>{{ repostajeVehiculos.centerMachine }}</td>
         <td>{{ repostajeVehiculos.deposit }}</td>
@@ -119,6 +128,17 @@
         <td>{{ repostajeVehiculos.card }}</td>
       </tr>
     </ng-template>
+    <ng-template pTemplate="footer">
+      <tr>
+        <td colspan="10">
+          <div class="pl-2">
+            Resultado totales:
+            <span class="font-bold">{{ repostajeVehiculos.length || 0 }}</span>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
   </p-table>
-  <p>Resultado totales: {{ repostajeVehiculos.length || 0 }}</p>
+  <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+  <p-toast></p-toast>
 </div>

@@ -1,42 +1,51 @@
-<div class="Table">
-  <p-table [value]="materiales" [tableStyle]="{ 'min-width': '50rem' }">
+<div class="col-12 km-table-valoriza-app">
+  <p-table
+    #dt
+    [value]="materiales"
+    dataKey="id"
+    styleClass="p-datatable-sm"
+    [rowsPerPageOptions]="[5, 10, 20]"
+    [paginator]="true"
+    [rows]="5"
+  >
     <ng-template pTemplate="header">
       <tr>
         <th></th>
+        <th></th>
         <th pSortableColumn="reference">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="reference" />
+            Referencia
             <p-columnFilter
               type="text"
               field="reference"
               class="filter"
-              placeholder="Referencia"
-              [showClearButton]="false"
+              display="menu"
             />
-            <p-sortIcon class="order" field="reference" />
           </div>
         </th>
         <th pSortableColumn="description">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="description" />
+            Descripción
             <p-columnFilter
               type="text"
               field="description"
               class="filter"
-              placeholder="Descripción"
-              [showClearButton]="false"
+              display="menu"
             />
-            <p-sortIcon class="order" field="description" />
           </div>
         </th>
         <th pSortableColumn="category">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="category" />
+            Categoría
             <p-columnFilter
               type="text"
               field="category"
               class="filter"
-              placeholder="Categoría"
-              [showClearButton]="false"
+              display="menu"
             />
-            <p-sortIcon class="order" field="category" />
           </div>
         </th>
       </tr>
@@ -44,13 +53,27 @@
     <ng-template pTemplate="body" let-materiales>
       <tr class="body-table">
         <td>
-          <i class="fas fa-pen"></i>
+          <p-button icon="fas fa-pen" severity="success" [text]="true" (click)="confirm_edit(materiales)"/>
+        </td>
+        <td>
+          <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(materiales)"/>
         </td>
         <td>{{ materiales.reference }}</td>
         <td>{{ materiales.description }}</td>
         <td>{{ materiales.category }}</td>
       </tr>
     </ng-template>
+    <ng-template pTemplate="footer">
+      <tr>
+        <td colspan="5">
+          <div class="pl-2">
+            Resultado totales:
+            <span class="font-bold">{{ materiales.length || 0 }}</span>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
   </p-table>
-  <p>Resultado totales: {{ materiales.length || 0 }}</p>
+  <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+  <p-toast></p-toast>
 </div>

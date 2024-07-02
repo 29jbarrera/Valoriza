@@ -163,6 +163,12 @@ export class MenuComponent {
           path: 'gnc',
           n: Math.round(Math.random() * 100),
         },
+        {
+          class: 'fas fa-car',
+          name: 'ITVs',
+          path: 'itvs',
+          n: Math.round(Math.random() * 100),
+        },
       ],
     },
     {
@@ -297,8 +303,8 @@ export class MenuComponent {
   constructor(private route: ActivatedRoute, private router: Router) {}
 
   get_if_path_is_active(item: any, item2: any) {
-    const path = item.path + '/' + item2.path;
-    return this.router.url.includes(path);
+    const path = '/authenticated/' + item.path + '/' + item2.path;
+    return path === this.router.url;
   }
 
   navigate(item: any, item2: any) {

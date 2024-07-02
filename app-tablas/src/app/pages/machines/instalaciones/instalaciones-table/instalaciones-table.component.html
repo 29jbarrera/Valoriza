@@ -1,50 +1,52 @@
-<div class="Table">
+<div class="col-12 km-table-valoriza-app">
   <p-table
     #dt
     [value]="instalaciones"
     dataKey="id"
+    styleClass="p-datatable-sm"
     [rowsPerPageOptions]="[5, 10, 20]"
-    [tableStyle]="{ width: '100%' }"
+    [paginator]="true"
     [rows]="5"
   >
     <ng-template pTemplate="header">
       <tr>
         <th></th>
+        <th></th>
         <th pSortableColumn="installationCentre">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="installationCentre" />
+            Centro
             <p-columnFilter
+              class="filter"
               type="text"
               field="installationCentre"
-              class="filter"
-              placeholder="Centro instalación"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="installationCentre" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="name">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="name" />
+            Nombre
             <p-columnFilter
+              class="filter"
               type="text"
               field="name"
-              class="filter"
-              placeholder="Nombre"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="name" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
 
         <th pSortableColumn="comments">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="comments" />
+            Comentarios
             <p-columnFilter
+              class="filter"
               type="text"
               field="comments"
-              class="filter"
-              placeholder="Comentarios"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="comments" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
       </tr>
@@ -53,13 +55,27 @@
     <ng-template pTemplate="body" let-instalaciones>
       <tr class="body-table">
         <td>
-          <i class="fas fa-pen"></i>
+          <p-button icon="fas fa-pen" severity="success" [text]="true" (click)="confirm_edit(instalaciones)"/>
+        </td>
+        <td>
+          <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(instalaciones)"/>
         </td>
         <td>{{ instalaciones.installationCentre }}</td>
         <td>{{ instalaciones.name }}</td>
         <td>{{ instalaciones.comments }}</td>
       </tr>
     </ng-template>
+    <ng-template pTemplate="footer">
+      <tr>
+        <td colspan="7">
+          <div class="pl-2">
+            Resultado totales:
+            <span class="font-bold">{{ instalaciones.length || 0 }}</span>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
   </p-table>
-  <p>Resultado totales: {{ instalaciones.length || 0 }}</p>
+  <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+  <p-toast></p-toast>
 </div>

@@ -1,44 +1,67 @@
-<div class="Table">
-  <p-table [value]="categorias" [tableStyle]="{ 'min-width': '50rem' }">
+<div class="col-12 km-table-valoriza-app">
+  <p-table
+    #dt
+    [value]="categorias"
+    dataKey="id"
+    styleClass="p-datatable-sm"
+    [rowsPerPageOptions]="[5, 10, 20]"
+    [paginator]="true"
+    [rows]="5"
+  >
     <ng-template pTemplate="header">
       <tr>
         <th></th>
+        <th></th>
         <th pSortableColumn="description">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="description" />
+            Descripción
             <p-columnFilter
               type="text"
               field="description"
               class="filter"
-              placeholder="Descripción"
-              [showClearButton]="false"
+              display="menu"
             />
-            <p-sortIcon class="order" field="description" />
           </div>
         </th>
         <th pSortableColumn="code">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="code" />
+            Código
             <p-columnFilter
               type="text"
               field="code"
               class="filter"
-              placeholder="Código"
-              [showClearButton]="false"
+              display="menu"
             />
-            <p-sortIcon class="order" field="code" />
           </div>
         </th>
       </tr>
     </ng-template>
 
     <ng-template pTemplate="body" let-categorias>
-      <tr class="body-table">
+      <tr>
         <td>
-          <i class="fas fa-pen"></i>
+          <p-button icon="fas fa-pen" severity="success" [text]="true" (click)="confirm_edit(categorias)"/>
+        </td>
+        <td>
+          <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(categorias)"/>
         </td>
         <td>{{ categorias.description }}</td>
         <td>{{ categorias.code }}</td>
       </tr>
     </ng-template>
+    <ng-template pTemplate="footer">
+      <tr>
+        <td colspan="7">
+          <div class="pl-2">
+            Resultado totales:
+            <span class="font-bold">{{ categorias.length || 0 }}</span>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
   </p-table>
-  <p>Resultado totales: {{ categorias.length || 0 }}</p>
+  <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+  <p-toast></p-toast>
 </div>

@@ -1,42 +1,50 @@
-<div class="Table">
-  <p-table [value]="limiteAvisos" [tableStyle]="{ 'min-width': '50rem' }">
+<div class="col-12 km-table-valoriza-app">
+  <p-table
+    [value]="limiteAvisos"
+    dataKey="id"
+    styleClass="p-datatable-sm"
+    [rowsPerPageOptions]="[5, 10, 20]"
+    [paginator]="true"
+    [rows]="5"
+  >
     <ng-template pTemplate="header">
       <tr>
         <th></th>
+        <th></th>
         <th pSortableColumn="code">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="code" />
+            Código
             <p-columnFilter
+              class="filter"
               type="text"
               field="code"
-              class="filter"
-              placeholder="Código"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="code" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="value">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="value" />
+            Valor
             <p-columnFilter
+              class="filter"
               type="text"
               field="value"
-              class="filter"
-              placeholder="Valor"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="value" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="description">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="description" />
+            Descripción
             <p-columnFilter
+              class="filter"
               type="text"
               field="description"
-              class="filter"
-              placeholder="Descripción"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="description" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
       </tr>
@@ -44,13 +52,27 @@
     <ng-template pTemplate="body" let-limiteAvisos>
       <tr class="body-table">
         <td>
-          <i class="fas fa-pen"></i>
+          <p-button icon="fas fa-pen" severity="success" [text]="true" (click)="confirm_edit(limiteAvisos)"/>
+        </td>
+        <td>
+          <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(limiteAvisos)"/>
         </td>
         <td>{{ limiteAvisos.code }}</td>
         <td>{{ limiteAvisos.value }}</td>
         <td>{{ limiteAvisos.description }}</td>
       </tr>
     </ng-template>
+    <ng-template pTemplate="footer">
+      <tr>
+        <td colspan="5">
+          <div class="pl-2">
+            Resultado totales:
+            <span class="font-bold">{{ limiteAvisos.length || 0 }}</span>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
   </p-table>
-  <p>Resultado totales: {{ limiteAvisos.length || 0 }}</p>
+  <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+  <p-toast></p-toast>
 </div>

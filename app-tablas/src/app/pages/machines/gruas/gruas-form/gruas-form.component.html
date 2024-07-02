@@ -1,104 +1,134 @@
-<form>
-  <div class="form-row">
-    <div class="form-group">
-      <label>Centro</label>
-      <input
-        class="input-form"
-        id="centro"
-        type="text"
-        pInputText
-        formControlName="centro"
-      />
+<form class="col-12">
+  <div
+    class="p-2 grid mx-2 surface-ground border-round-xl surface-border border-2 border-dashed">
+    <div class="col-12 lg:col-6">
+      <div class="text-left text-xs mb-2 pl-1 font-light text-700">Centro</div>
+      <span class="p-input-icon-left w-full">
+        <i class="fa fa-building"></i>
+        <input
+          id="center"
+          formControlName="center"
+          type="number"
+          class="w-full input-text-valoriza"
+          placeholder="Introduce centro..."
+          pInputText/>
+      </span>
     </div>
 
-    <div class="form-group">
-      <label>Nombre centro</label>
-      <input
-        class="input-form"
-        id="nombre-centro"
-        type="text"
-        pInputText
-        [disabled]="true"
-        formControlName="nombre-centro"
-      />
-    </div>
-  </div>
-
-  <div class="form-row-2">
-    <div class="form-group-2">
-      <label>Familia</label>
-      <input
-        class="input-form"
-        id="Familia"
-        pInputText
-        formControlName="Familia"
-      />
-    </div>
-  </div>
-
-  <div class="form-row">
-    <div class="form-group">
-      <label>Maquianria</label>
-      <input
-        class="input-form"
-        id="maquinaria"
-        pInputText
-        formControlName="maquinaria"
-      />
+    <div class="col-12 lg:col-6">
+      <div class="text-left text-xs mb-2 pl-1 font-light text-700">
+        Nombre Centro
+      </div>
+      <span class="p-input-icon-left w-full">
+        <i class="fa fa-building"></i>
+        <input
+          type="number"
+          class="w-full input-text-valoriza"
+          placeholder="Introduce centro..."
+          pInputText/>
+      </span>
     </div>
 
-    <div class="form-group">
-      <label>Bastidor</label>
-      <p-inputNumber
-        mode="currency"
-        inputId="Importe"
-        currency="EUR"
-        locale="de-DE"
-        class="input-form"
-        id="bastidor"
-        formControlName="bastidor"
-      />
-    </div>
-  </div>
-
-  <div class="form-row">
-    <div class="form-group">
-      <label>Fecha desde</label>
-      <p-calendar
-        placeholder="mm/dd/yyyy"
-        class="input-form"
-        id="fecha-desde"
-        [showIcon]="true"
-        inputId="icondisplay"
-        formControlName="fechaDesde"
-      />
+    <div class="col-12 lg:col-4">
+      <div class="text-left text-xs mb-2 pl-1 font-light text-700">Familia</div>
+      <p-dropdown
+        id="family"
+        formControlName="family"
+        placeholder="Selecciona tipo de familia..."
+        [options]="[
+          { label: 'Todas', value: 0 },
+          { label: 'Familia 1', value: 1 },
+          { label: 'Familia 2', value: 2 }
+        ]"
+        optionLabel="label"
+        optionValue="value"
+        styleClass="w-full dropdown-valoriza"
+        [showClear]="true">
+      </p-dropdown>
     </div>
 
-    <div class="form-group">
-      <label>Fecha hasta</label>
-      <p-inputMask
-        mask="99/99/9999"
-        placeholder="mm/dd/yyyy"
-        slotChar="mm/dd/yyyy"
-        class="input-form"
-        id="fecha-hasta"
-        formControlName="fechaHasta"
-      />
+    <div class="col-12 lg:col-4">
+      <div class="text-left text-xs mb-2 pl-1 font-light text-700">
+        Maquinaria
+      </div>
+      <span class="p-input-icon-left w-full">
+        <i class="fa fa-building"></i>
+        <input
+          id="machinery"
+          formControlName="machinery"
+          type="number"
+          class="w-full input-text-valoriza"
+          placeholder="Introduce maquinaria..."
+          pInputText/>
+      </span>
     </div>
-  </div>
-  <div class="form-buttons">
-    <p-button
-        type="reset"
-        label="Limpiar búsqueda" [raised]="true" severity="secondary"
-        class="limpiar"
-      ></p-button>
 
-    <div class="form-button">
-      <p-button type="button"
-      label="Buscar" [raised]="true"
-      ></p-button>
+    <div class="col-12 lg:col-4">
+      <div class="text-left text-xs mb-2 pl-1 font-light text-700">
+        Bastidor
+      </div>
+      <span class="p-input-icon-left w-full">
+        <i class="fa fa-building"></i>
+        <input
+          type="number"
+          class="w-full input-text-valoriza"
+          placeholder="Introduce bastidor..."
+          pInputText/>
+      </span>
+    </div>
+
+    <div class="col-12 lg:col-6">
+      <div class="text-left text-xs mb-2 pl-1 font-light text-700">
+        Fecha desde
+      </div>
+      <span class="p-input-icon-left w-full">
+        <i class="fa fa-building"></i>
+        <p-calendar
+          selectionMode="single"
+          [firstDayOfWeek]="1"
+          styleClass="w-full input-calendar-valoriza"
+          [showIcon]="true"
+          dateFormat="dd/mm/yy"
+          placeholder="dd/mm/yy"
+          pRipple
+        />
+      </span>
+    </div>
+
+    <div class="col-12 lg:col-6">
+      <div class="text-left text-xs mb-2 pl-1 font-light text-700">
+        Fecha hasta
+      </div>
+      <span class="p-input-icon-left w-full">
+        <i class="fa fa-building"></i>
+        <p-calendar
+          selectionMode="single"
+          [firstDayOfWeek]="1"
+          styleClass="w-full input-calendar-valoriza"
+          [showIcon]="true"
+          dateFormat="dd/mm/yy"
+          placeholder="dd/mm/yy"
+          pRipple/>
+      </span>
+    </div>
+
+    <div class="col-12">
+      <div
+        class="flex flex-column lg:flex-row lg:justify-content-end gap-3 align-items-center justify-content-center">
+        <button
+          pButton
+          type="reset"
+          label="Limpiar búsqueda"
+          class="km-button-secondary-valoriza-app">
+      </button>
+        <button
+          pButton
+          type="button"
+          label="Buscar"
+          class="km-button-primary-valoriza-app">
+      </button>
+      </div>
     </div>
   </div>
 </form>
 
-<hr />

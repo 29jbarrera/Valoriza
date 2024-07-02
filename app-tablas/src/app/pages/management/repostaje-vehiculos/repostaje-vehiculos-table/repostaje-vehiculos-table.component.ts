@@ -7,8 +7,8 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { RepostajeVehiculos } from '../../../../Interfaces/repostajes-vehiculos.interface';
-import { RepostajeVehiculosService } from '../../../../service/repostaje-vehiculos.service';
+import { RepostajeVehiculos } from '../type';
+import { RepostajeVehiculosService } from '../repostaje-vehiculos.service';
 
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
@@ -21,6 +21,9 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { ButtonModule } from 'primeng/button';
+import { ToastModule } from 'primeng/toast';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-repostaje-vehiculos-table',
@@ -40,9 +43,12 @@ import { ButtonModule } from 'primeng/button';
     FormsModule,
     FormlyModule,
     FormlyPrimeNGModule,
+    ConfirmDialogModule,
+    ToastModule,
   ],
   templateUrl: './repostaje-vehiculos-table.component.html',
   styleUrl: './repostaje-vehiculos-table.component.scss',
+  providers: [ConfirmationService, MessageService],
 })
 export class RepostajeVehiculosTableComponent implements OnInit {
   repostajeVehiculos: RepostajeVehiculos[] = [];
@@ -50,7 +56,9 @@ export class RepostajeVehiculosTableComponent implements OnInit {
 
   constructor(
     private RepostajeVehiculosService: RepostajeVehiculosService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private _confirmationService: ConfirmationService,
+    private messageService: MessageService
   ) {
     this.searchForm = this.fb.group({
       centerMachine: [''],
@@ -70,5 +78,72 @@ export class RepostajeVehiculosTableComponent implements OnInit {
   async updateTable() {
     this.repostajeVehiculos =
       await this.RepostajeVehiculosService.getRepostajeVehiculos();
+  }
+
+  async confirm_edit(repostajeVehiculos: RepostajeVehiculos) {
+    try {
+      this.edit(repostajeVehiculos);
+
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Actualizado',
+        detail: 'Fila actualizada correctamente',
+        life: 3000,
+      });
+    } catch (error) {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Algo inesperado ocurrió',
+        life: 3000,
+      });
+    }
+  }
+
+  async edit(repostajeVehiculos: RepostajeVehiculos) {
+    // TODO: PETICIÓN A BACKEND PARA EDITAR
+    console.error('Edit object:', repostajeVehiculos);
+  }
+
+  async delete(repostajeVehiculos: RepostajeVehiculos) {
+    // TODO: PETICIÓN BACKEND PARA ELIMINAR
+    console.error('Delete object,', repostajeVehiculos);
+  }
+
+  async confirm_delete(repostajeVehiculos: RepostajeVehiculos) {
+    this._confirmationService.confirm({
+      message: '¿Estás seguro de que quieres eliminar esta fila?',
+      header: 'Eliminar fila de repostaje vehículos',
+      icon: 'pi pi-times-circle',
+      rejectButtonStyleClass: 'p-button-text',
+      acceptButtonStyleClass: 'p-button-danger',
+
+      accept: async () => {
+        try {
+          await this.delete(repostajeVehiculos);
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Confirmado',
+            detail: 'Fila eliminada correctamente',
+            life: 3000,
+          });
+        } catch (error) {
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Algo inesperado ocurrió',
+            life: 3000,
+          });
+        }
+      },
+      reject: () => {
+        this.messageService.add({
+          severity: 'info',
+          summary: 'Cancelado',
+          detail: 'La acción fue cancelada',
+          life: 3000,
+        });
+      },
+    });
   }
 }

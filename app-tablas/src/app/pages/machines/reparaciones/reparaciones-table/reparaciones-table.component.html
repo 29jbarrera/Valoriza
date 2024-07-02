@@ -1,133 +1,135 @@
-<div class="Table">
+<div class="col-12 km-table-valoriza-app">
   <p-table
     #dt
     [value]="reparaciones"
     dataKey="id"
+    styleClass="p-datatable-sm"
     [rowsPerPageOptions]="[5, 10, 20]"
-    [tableStyle]="{ width: '100%' }"
+    [paginator]="true"
     [rows]="5"
   >
     <ng-template pTemplate="header">
       <tr>
         <th></th>
+        <th></th>
         <th pSortableColumn="repairCentre">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="repairCentre" />
+            Reparación
             <p-columnFilter
+              class="filter"
               type="text"
               field="repairCentre"
-              class="filter"
-              placeholder="Centro Reparador"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="repairCentre" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="machinery">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="machinery" />
+            Maquinaria
             <p-columnFilter
+              class="filter"
               type="text"
               field="machinery"
-              class="filter"
-              placeholder="Maquinaria"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="machinery" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="typeAction">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="typeAction" />
+            Tipo Acción
             <p-columnFilter
+              class="filter"
               type="text"
               field="typeAction"
-              class="filter"
-              placeholder="Tipo Actuación"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="typeAction" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="typeMaintenance">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="typeMaintenance" />
+            Tipo Mantenimiento
             <p-columnFilter
+              class="filter"
               type="text"
               field="typeMaintenance"
-              class="filter"
-              placeholder="Tipo Mantenimiento"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="typeMaintenance" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="date">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="date" />
+            Fecha
             <p-columnFilter
+              class="filter"
               type="text"
               field="date"
-              class="filter"
-              placeholder="Fecha"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="date" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="supplier">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="supplier" />
+            Proveedor
             <p-columnFilter
+              class="filter"
               type="text"
               field="supplier"
-              class="filter"
-              placeholder="Proveedor"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="supplier" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="deliveryNote">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="deliveryNote" />
+            Albaran
             <p-columnFilter
+              class="filter"
               type="text"
               field="deliveryNote"
-              class="filter"
-              placeholder="Albarán"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="deliveryNote" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="cost">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="cost" />
+            Coste
             <p-columnFilter
+              class="filter"
               type="text"
               field="cost"
-              class="filter"
-              placeholder="Coste"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="cost" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="currency">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="currency" />
+            Divisa
             <p-columnFilter
+              class="filter"
               type="text"
               field="currency"
-              class="filter"
-              placeholder="Divisa"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="currency" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="description">
-          <div class="flex align-items-center">
+          <div>
+            <p-sortIcon class="order" field="description" />
+            Descripción
             <p-columnFilter
+              class="filter"
               type="text"
               field="description"
-              class="filter"
-              placeholder="Descripción"
-              [showClearButton]="false"
-            />
-            <p-sortIcon class="order" field="description" />
+              display="menu"
+            ></p-columnFilter>
           </div>
         </th>
       </tr>
@@ -136,13 +138,16 @@
     <ng-template pTemplate="body" let-reparaciones>
       <tr class="body-table">
         <td>
-          <i class="fas fa-pen"></i>
+          <p-button icon="fas fa-pen" severity="success" [text]="true" (click)="confirm_edit(reparaciones)"/>
+        </td>
+        <td>
+          <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(reparaciones)"/>
         </td>
         <td>{{ reparaciones.repairCentre }}</td>
         <td>{{ reparaciones.machinery }}</td>
         <td>{{ reparaciones.typeAction }}</td>
         <td>{{ reparaciones.typeMaintenance }}</td>
-        <td>{{ reparaciones.date }}</td>
+        <td>{{ reparaciones.date | date : "dd/MM/yyyy" }}</td>
         <td>{{ reparaciones.supplier }}</td>
         <td>{{ reparaciones.deliveryNote }}</td>
         <td>{{ reparaciones.cost }}</td>
@@ -150,6 +155,17 @@
         <td>{{ reparaciones.description }}</td>
       </tr>
     </ng-template>
+    <ng-template pTemplate="footer">
+      <tr>
+        <td colspan="12">
+          <div class="pl-2">
+            Resultado totales:
+            <span class="font-bold">{{ reparaciones.length || 0 }}</span>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
   </p-table>
-  <p>Resultado totales: {{ reparaciones.length || 0 }}</p>
+  <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+  <p-toast></p-toast>
 </div>

@@ -7,8 +7,8 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { LimiteAvisos } from '../../../../Interfaces/limite-avisos.interface';
-import { LimiteAvisosService } from '../../../../service/limite-avisos.service';
+import { LimiteAvisos } from '../type';
+import { LimiteAvisosService } from '../limite-avisos.service';
 
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
@@ -21,6 +21,9 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { ButtonModule } from 'primeng/button';
+import { ToastModule } from 'primeng/toast';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-limite-avisos-table',
@@ -40,17 +43,22 @@ import { ButtonModule } from 'primeng/button';
     FormsModule,
     FormlyModule,
     FormlyPrimeNGModule,
+    ConfirmDialogModule,
+    ToastModule,
   ],
   templateUrl: './limite-avisos-table.component.html',
   styleUrl: './limite-avisos-table.component.scss',
+  providers: [ConfirmationService, MessageService],
 })
 export class LimiteAvisosTableComponent implements OnInit {
-  limiteAvisos: LimiteAvisos[] = []
+  limiteAvisos: LimiteAvisos[] = [];
   searchForm: FormGroup;
 
   constructor(
     private LimiteAvisosService: LimiteAvisosService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private _confirmationService: ConfirmationService,
+    private messageService: MessageService
   ) {
     this.searchForm = this.fb.group({
       code: [''],
@@ -64,5 +72,72 @@ export class LimiteAvisosTableComponent implements OnInit {
 
   async updateTable() {
     this.limiteAvisos = await this.LimiteAvisosService.getLimiteAvisos();
+  }
+
+  async confirm_edit(limiteAvisos: LimiteAvisos) {
+    try {
+      this.edit(limiteAvisos);
+
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Actualizado',
+        detail: 'Fila actualizada correctamente',
+        life: 3000,
+      });
+    } catch (error) {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Algo inesperado ocurrió',
+        life: 3000,
+      });
+    }
+  }
+
+  async edit(limiteAvisos: LimiteAvisos) {
+    // TODO: PETICIÓN A BACKEND PARA EDITAR
+    console.error('Edit object:', limiteAvisos);
+  }
+
+  async delete(limiteAvisos: LimiteAvisos) {
+    // TODO: ELIMINAR OBJETO BACKEND
+    console.error('Delete object,', limiteAvisos);
+  }
+
+  async confirm_delete(limiteAvisos: LimiteAvisos) {
+    this._confirmationService.confirm({
+      message: '¿Estás seguro de que quieres eliminar esta fila?',
+      header: 'Eliminar fila de Límite avisos',
+      icon: 'pi pi-times-circle',
+      rejectButtonStyleClass: 'p-button-text',
+      acceptButtonStyleClass: 'p-button-danger',
+
+      accept: async () => {
+        try {
+          await this.delete(limiteAvisos);
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Confirmado',
+            detail: 'Fila eliminada correctamente',
+            life: 3000,
+          });
+        } catch (error) {
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Algo inesperado ocurrió',
+            life: 3000,
+          });
+        }
+      },
+      reject: () => {
+        this.messageService.add({
+          severity: 'info',
+          summary: 'Cancelado',
+          detail: 'La acción fue cancelada',
+          life: 3000,
+        });
+      },
+    });
   }
 }
