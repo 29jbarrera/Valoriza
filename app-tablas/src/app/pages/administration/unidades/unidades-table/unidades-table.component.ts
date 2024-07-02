@@ -81,7 +81,7 @@ export class UnidadesTableComponent implements OnInit {
       this.messageService.add({
         severity: 'success',
         summary: 'Actualizado',
-        detail: 'Fila actualizada',
+        detail: 'Fila actualizada correctamente',
         life: 3000,
       });
     } catch (error) {
