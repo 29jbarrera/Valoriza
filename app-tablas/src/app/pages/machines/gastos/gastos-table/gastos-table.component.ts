@@ -25,6 +25,7 @@ import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { FilterGastosPipe } from '../gastos.pipe';
 
 @Component({
   selector: 'app-gastos-table',
@@ -46,14 +47,17 @@ import { ConfirmationService, MessageService } from 'primeng/api';
     FormlyPrimeNGModule,
     ConfirmDialogModule,
     ToastModule,
+    FilterGastosPipe,
   ],
   templateUrl: './gastos-table.component.html',
   styleUrl: './gastos-table.component.scss',
   providers: [ConfirmationService, MessageService],
 })
 export class GastosTableComponent implements OnInit {
-  gastosTaller: GastosTaller[] = [];
+  public gastosTaller: GastosTaller[] = [];
   searchForm: FormGroup;
+
+  public search_term: any = '';
 
   constructor(
     private GastosService: GastosService,
@@ -64,7 +68,10 @@ export class GastosTableComponent implements OnInit {
     this.searchForm = this.fb.group({
       centerProvider: [''],
       delegation: [''],
-      date: [''],
+      date: this.fb.group({
+        from: [''],
+        to: [''],
+      }),
       provider: [],
       amount: [''],
       currency: [''],
@@ -80,6 +87,13 @@ export class GastosTableComponent implements OnInit {
   ngOnInit() {
     this.updateTable();
   }
+
+  onSearch(searchTerm: any) {
+    this.search_term = searchTerm;
+    // Update the table with the new search term
+    this.updateTable();
+  }
+
 
   async updateTable() {
     this.gastosTaller = await this.GastosService.getGastos();
