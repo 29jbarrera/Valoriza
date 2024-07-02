@@ -21,8 +21,9 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { ButtonModule } from 'primeng/button';
+import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
-import { ConfirmationService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-tablas-globales-table',
@@ -42,11 +43,12 @@ import { ConfirmationService } from 'primeng/api';
     FormsModule,
     FormlyModule,
     FormlyPrimeNGModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    ToastModule,
   ],
   templateUrl: './tablas-globales-table.component.html',
   styleUrl: './tablas-globales-table.component.scss',
-  providers:[ConfirmationService]
+  providers: [ConfirmationService, MessageService],
 })
 export class TablasGlobalesTableComponent implements OnInit {
   globales: Globales[] = [];
@@ -56,6 +58,7 @@ export class TablasGlobalesTableComponent implements OnInit {
     private TablaGlobalesService: TablaGlobalesService,
     private fb: FormBuilder,
     private _confirmationService: ConfirmationService,
+    private messageService: MessageService
   ) {
     this.searchForm = this.fb.group({
       name: [''],
@@ -73,13 +76,33 @@ export class TablasGlobalesTableComponent implements OnInit {
     this.globales = await this.TablaGlobalesService.getGlobales();
   }
 
-   // TODO: EDITAR OBJETO BACKEND
-   async edit(globales: Globales) {
+  async confirm_edit(globales: Globales) {
+    try {
+      this.edit(globales);
+
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Actualizado',
+        detail: 'Fila actualizada',
+        life: 3000,
+      });
+    } catch (error) {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Algo inesperado ocurrió',
+        life: 3000,
+      });
+    }
+  }
+
+  async edit(globales: Globales) {
+    // TODO: PETICIÓN A BACKEND PARA EDITAR
     console.error('Edit object:', globales);
   }
 
-  // TODO: ELIMINAR OBJETO BACKEND
-  async delete(globales: Globales){
+  async delete(globales: Globales) {
+    // TODO: PETICIÓN BACKEND PARA ELIMINAR
     console.error('Delete object,', globales);
   }
 
@@ -90,10 +113,33 @@ export class TablasGlobalesTableComponent implements OnInit {
       icon: 'pi pi-times-circle',
       rejectButtonStyleClass: 'p-button-text',
       acceptButtonStyleClass: 'p-button-danger',
-      accept: () => {
-        this.delete(globales);
+
+      accept: async () => {
+        try {
+          await this.delete(globales);
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Confirmado',
+            detail: 'Fila eliminada correctamente',
+            life: 3000,
+          });
+        } catch (error) {
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Algo inesperado ocurrió',
+            life: 3000,
+          });
+        }
+      },
+      reject: () => {
+        this.messageService.add({
+          severity: 'info',
+          summary: 'Cancelado',
+          detail: 'La acción fue cancelada',
+          life: 3000,
+        });
       },
     });
   }
 }
-

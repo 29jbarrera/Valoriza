@@ -21,8 +21,9 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { ButtonModule } from 'primeng/button';
+import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
-import { ConfirmationService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-limite-avisos-table',
@@ -42,20 +43,22 @@ import { ConfirmationService } from 'primeng/api';
     FormsModule,
     FormlyModule,
     FormlyPrimeNGModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    ToastModule,
   ],
   templateUrl: './limite-avisos-table.component.html',
   styleUrl: './limite-avisos-table.component.scss',
-  providers:[ConfirmationService]
+  providers: [ConfirmationService, MessageService],
 })
 export class LimiteAvisosTableComponent implements OnInit {
-  limiteAvisos: LimiteAvisos[] = []
+  limiteAvisos: LimiteAvisos[] = [];
   searchForm: FormGroup;
 
   constructor(
     private LimiteAvisosService: LimiteAvisosService,
     private fb: FormBuilder,
     private _confirmationService: ConfirmationService,
+    private messageService: MessageService
   ) {
     this.searchForm = this.fb.group({
       code: [''],
@@ -71,13 +74,33 @@ export class LimiteAvisosTableComponent implements OnInit {
     this.limiteAvisos = await this.LimiteAvisosService.getLimiteAvisos();
   }
 
-  // TODO: EDITAR OBJETO BACKEND
+  async confirm_edit(limiteAvisos: LimiteAvisos) {
+    try {
+      this.edit(limiteAvisos);
+
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Actualizado',
+        detail: 'Fila actualizada',
+        life: 3000,
+      });
+    } catch (error) {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Algo inesperado ocurrió',
+        life: 3000,
+      });
+    }
+  }
+
   async edit(limiteAvisos: LimiteAvisos) {
+    // TODO: PETICIÓN A BACKEND PARA EDITAR
     console.error('Edit object:', limiteAvisos);
   }
 
-  // TODO: ELIMINAR OBJETO BACKEND
-  async delete(limiteAvisos: LimiteAvisos){
+  async delete(limiteAvisos: LimiteAvisos) {
+    // TODO: ELIMINAR OBJETO BACKEND
     console.error('Delete object,', limiteAvisos);
   }
 
@@ -88,8 +111,32 @@ export class LimiteAvisosTableComponent implements OnInit {
       icon: 'pi pi-times-circle',
       rejectButtonStyleClass: 'p-button-text',
       acceptButtonStyleClass: 'p-button-danger',
-      accept: () => {
-        this.delete(limiteAvisos);
+
+      accept: async () => {
+        try {
+          await this.delete(limiteAvisos);
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Confirmado',
+            detail: 'Fila eliminada correctamente',
+            life: 3000,
+          });
+        } catch (error) {
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Algo inesperado ocurrió',
+            life: 3000,
+          });
+        }
+      },
+      reject: () => {
+        this.messageService.add({
+          severity: 'info',
+          summary: 'Cancelado',
+          detail: 'La acción fue cancelada',
+          life: 3000,
+        });
       },
     });
   }
