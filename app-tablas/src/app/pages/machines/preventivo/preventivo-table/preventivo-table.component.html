@@ -138,7 +138,7 @@
     <ng-template pTemplate="body" let-preventivo>
       <tr class="body-table">
         <td>
-          <p-button icon="fas fa-pen" severity="success" [text]="true" (click)="edit(preventivo)"/>
+          <p-button icon="fas fa-pen" severity="success" [text]="true" (click)="confirm_edit(preventivo)"/>
         </td>
         <td>
           <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(preventivo)"/>
@@ -167,4 +167,5 @@
     </ng-template>
   </p-table>
   <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+  <p-toast></p-toast>
 </div>

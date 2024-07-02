@@ -21,8 +21,9 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { ButtonModule } from 'primeng/button';
+import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
-import { ConfirmationService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-tacografos-table',
@@ -43,10 +44,11 @@ import { ConfirmationService } from 'primeng/api';
     FormlyModule,
     FormlyPrimeNGModule,
     ConfirmDialogModule,
+    ToastModule,
   ],
   templateUrl: './tacografos-table.component.html',
   styleUrl: './tacografos-table.component.scss',
-  providers: [ConfirmationService],
+  providers: [ConfirmationService, MessageService],
 })
 export class TacografosTableComponent implements OnInit {
   tacografos: Tacografo[] = [];
@@ -55,7 +57,8 @@ export class TacografosTableComponent implements OnInit {
   constructor(
     private TacografosService: TacografosService,
     private fb: FormBuilder,
-    private _confirmationService: ConfirmationService
+    private _confirmationService: ConfirmationService,
+    private messageService: MessageService
   ) {
     this.searchForm = this.fb.group({
       machinery: [''],
@@ -75,13 +78,33 @@ export class TacografosTableComponent implements OnInit {
     this.tacografos = await this.TacografosService.getTacografos();
   }
 
-   // TODO: EDITAR OBJETO BACKEND
-   async edit(tacografos: Tacografo) {
+  async confirm_edit(tacografos: Tacografo) {
+    try {
+      this.edit(tacografos);
+
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Actualizado',
+        detail: 'Fila actualizada correctamente',
+        life: 3000,
+      });
+    } catch (error) {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Algo inesperado ocurrió',
+        life: 3000,
+      });
+    }
+  }
+
+  async edit(tacografos: Tacografo) {
+    // TODO: PETICIÓN A BACKEND PARA EDITAR
     console.error('Edit object:', tacografos);
   }
 
-  // TODO: ELIMINAR OBJETO BACKEND
-  async delete(tacografos: Tacografo){
+  async delete(tacografos: Tacografo) {
+    // TODO: PETICIÓN BACKEND PARA ELIMINAR
     console.error('Delete object,', tacografos);
   }
 
@@ -92,8 +115,32 @@ export class TacografosTableComponent implements OnInit {
       icon: 'pi pi-times-circle',
       rejectButtonStyleClass: 'p-button-text',
       acceptButtonStyleClass: 'p-button-danger',
-      accept: () => {
-        this.delete(tacografos);
+
+      accept: async () => {
+        try {
+          await this.delete(tacografos);
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Confirmado',
+            detail: 'Fila eliminada correctamente',
+            life: 3000,
+          });
+        } catch (error) {
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Algo inesperado ocurrió',
+            life: 3000,
+          });
+        }
+      },
+      reject: () => {
+        this.messageService.add({
+          severity: 'info',
+          summary: 'Cancelado',
+          detail: 'La acción fue cancelada',
+          life: 3000,
+        });
       },
     });
   }

@@ -8,16 +8,24 @@ import { HorometrosKilometrosService } from '../horometros-kilometros.service';
 import { HorometrosKilometros } from '../type';
 
 import { ButtonModule } from 'primeng/button';
+import { ToastModule } from 'primeng/toast';
+
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
-import { ConfirmationService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-horometros-kilometros-table',
   standalone: true,
-  imports: [TableModule, CommonModule, ButtonModule, ConfirmDialogModule],
+  imports: [
+    TableModule,
+    CommonModule,
+    ButtonModule,
+    ConfirmDialogModule,
+    ToastModule,
+  ],
   templateUrl: './horometros-kilometros-table.component.html',
   styleUrl: './horometros-kilometros-table.component.scss',
-  providers:[ConfirmationService]
+  providers: [ConfirmationService, MessageService],
 })
 export class HorometrosKilometrosTableComponent implements OnInit {
   horometrosKilometros: HorometrosKilometros[] = [];
@@ -27,6 +35,7 @@ export class HorometrosKilometrosTableComponent implements OnInit {
     private HorometrosKilometrosService: HorometrosKilometrosService,
     private fb: FormBuilder,
     private _confirmationService: ConfirmationService,
+    private messageService: MessageService
   ) {
     this.searchForm = this.fb.group({
       machineCenter: [''],
@@ -48,13 +57,33 @@ export class HorometrosKilometrosTableComponent implements OnInit {
       await this.HorometrosKilometrosService.getHorometrosKilometros();
   }
 
-   // TODO: EDITAR OBJETO BACKEND
-   async edit(horometrosKilometros: HorometrosKilometros) {
+  async confirm_edit(horometrosKilometros: HorometrosKilometros) {
+    try {
+      this.edit(horometrosKilometros);
+
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Actualizado',
+        detail: 'Fila actualizada correctamente',
+        life: 3000,
+      });
+    } catch (error) {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Algo inesperado ocurrió',
+        life: 3000,
+      });
+    }
+  }
+
+  async edit(horometrosKilometros: HorometrosKilometros) {
+    // TODO: PETICIÓN A BACKEND PARA EDITAR
     console.error('Edit object:', horometrosKilometros);
   }
 
-  // TODO: ELIMINAR OBJETO BACKEND
-  async delete(horometrosKilometros: HorometrosKilometros){
+  async delete(horometrosKilometros: HorometrosKilometros) {
+    // TODO: PETICIÓN BACKEND PARA ELIMINAR
     console.error('Delete object,', horometrosKilometros);
   }
 
@@ -65,8 +94,32 @@ export class HorometrosKilometrosTableComponent implements OnInit {
       icon: 'pi pi-times-circle',
       rejectButtonStyleClass: 'p-button-text',
       acceptButtonStyleClass: 'p-button-danger',
-      accept: () => {
-        this.delete(horometrosKilometros);
+
+      accept: async () => {
+        try {
+          await this.delete(horometrosKilometros);
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Confirmado',
+            detail: 'Fila eliminada correctamente',
+            life: 3000,
+          });
+        } catch (error) {
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Algo inesperado ocurrió',
+            life: 3000,
+          });
+        }
+      },
+      reject: () => {
+        this.messageService.add({
+          severity: 'info',
+          summary: 'Cancelado',
+          detail: 'La acción fue cancelada',
+          life: 3000,
+        });
       },
     });
   }

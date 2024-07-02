@@ -22,8 +22,9 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { ButtonModule } from 'primeng/button';
+import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
-import { ConfirmationService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-gastos-table',
@@ -43,11 +44,12 @@ import { ConfirmationService } from 'primeng/api';
     FormsModule,
     FormlyModule,
     FormlyPrimeNGModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    ToastModule,
   ],
   templateUrl: './gastos-table.component.html',
   styleUrl: './gastos-table.component.scss',
-  providers:[ConfirmationService]
+  providers: [ConfirmationService, MessageService],
 })
 export class GastosTableComponent implements OnInit {
   gastosTaller: GastosTaller[] = [];
@@ -57,6 +59,7 @@ export class GastosTableComponent implements OnInit {
     private GastosService: GastosService,
     private fb: FormBuilder,
     private _confirmationService: ConfirmationService,
+    private messageService: MessageService
   ) {
     this.searchForm = this.fb.group({
       centerProvider: [''],
@@ -82,13 +85,33 @@ export class GastosTableComponent implements OnInit {
     this.gastosTaller = await this.GastosService.getGastos();
   }
 
-   // TODO: EDITAR OBJETO BACKEND
-   async edit(gastosTaller: GastosTaller) {
+  async confirm_edit(gastosTaller: GastosTaller) {
+    try {
+      this.edit(gastosTaller);
+
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Actualizado',
+        detail: 'Fila actualizada correctamente',
+        life: 3000,
+      });
+    } catch (error) {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Algo inesperado ocurrió',
+        life: 3000,
+      });
+    }
+  }
+
+  async edit(gastosTaller: GastosTaller) {
+    // TODO: PETICIÓN A BACKEND PARA EDITAR
     console.error('Edit object:', gastosTaller);
   }
 
-  // TODO: ELIMINAR OBJETO BACKEND
-  async delete(gastosTaller: GastosTaller){
+  async delete(gastosTaller: GastosTaller) {
+    // TODO: PETICIÓN BACKEND PARA ELIMINAR
     console.error('Delete object,', gastosTaller);
   }
 
@@ -99,8 +122,32 @@ export class GastosTableComponent implements OnInit {
       icon: 'pi pi-times-circle',
       rejectButtonStyleClass: 'p-button-text',
       acceptButtonStyleClass: 'p-button-danger',
-      accept: () => {
-        this.delete(gastosTaller);
+
+      accept: async () => {
+        try {
+          await this.delete(gastosTaller);
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Confirmado',
+            detail: 'Fila eliminada correctamente',
+            life: 3000,
+          });
+        } catch (error) {
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Algo inesperado ocurrió',
+            life: 3000,
+          });
+        }
+      },
+      reject: () => {
+        this.messageService.add({
+          severity: 'info',
+          summary: 'Cancelado',
+          detail: 'La acción fue cancelada',
+          life: 3000,
+        });
       },
     });
   }

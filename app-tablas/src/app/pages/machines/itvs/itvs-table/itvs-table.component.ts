@@ -12,8 +12,9 @@ import { ItvsService } from '../itvs.service';
 
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
+import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
-import { ConfirmationService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-itvs-table',
@@ -25,10 +26,11 @@ import { ConfirmationService } from 'primeng/api';
     ConfirmDialogModule,
     FormsModule,
     ReactiveFormsModule,
+    ToastModule,
   ],
   templateUrl: './itvs-table.component.html',
   styleUrl: './itvs-table.component.scss',
-  providers: [ConfirmationService],
+  providers: [ConfirmationService, MessageService],
 })
 export class ItvsTableComponent implements OnInit {
   itvs: Itvs[] = [];
@@ -37,7 +39,8 @@ export class ItvsTableComponent implements OnInit {
   constructor(
     private ItvsService: ItvsService,
     private fb: FormBuilder,
-    private _confirmationService: ConfirmationService
+    private _confirmationService: ConfirmationService,
+    private messageService: MessageService
   ) {
     this.searchForm = this.fb.group({
       machinery: [''],
@@ -57,13 +60,33 @@ export class ItvsTableComponent implements OnInit {
     this.itvs = await this.ItvsService.getItvs();
   }
 
-  // TODO: EDITAR OBJETO BACKEND
+  async confirm_edit(itvs: Itvs) {
+    try {
+      this.edit(itvs);
+
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Actualizado',
+        detail: 'Fila actualizada correctamente',
+        life: 3000,
+      });
+    } catch (error) {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Algo inesperado ocurrió',
+        life: 3000,
+      });
+    }
+  }
+
   async edit(itvs: Itvs) {
+    // TODO: PETICIÓN A BACKEND PARA EDITAR
     console.error('Edit object:', itvs);
   }
 
-  // TODO: ELIMINAR OBJETO BACKEND
   async delete(itvs: Itvs) {
+    // TODO: PETICIÓN BACKEND PARA ELIMINAR
     console.error('Delete object,', itvs);
   }
 
@@ -74,8 +97,32 @@ export class ItvsTableComponent implements OnInit {
       icon: 'pi pi-times-circle',
       rejectButtonStyleClass: 'p-button-text',
       acceptButtonStyleClass: 'p-button-danger',
-      accept: () => {
-        this.delete(itvs);
+
+      accept: async () => {
+        try {
+          await this.delete(itvs);
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Confirmado',
+            detail: 'Fila eliminada correctamente',
+            life: 3000,
+          });
+        } catch (error) {
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Algo inesperado ocurrió',
+            life: 3000,
+          });
+        }
+      },
+      reject: () => {
+        this.messageService.add({
+          severity: 'info',
+          summary: 'Cancelado',
+          detail: 'La acción fue cancelada',
+          life: 3000,
+        });
       },
     });
   }

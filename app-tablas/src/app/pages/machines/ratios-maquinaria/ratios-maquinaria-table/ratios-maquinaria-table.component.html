@@ -162,7 +162,7 @@
     <ng-template pTemplate="body" let-ratiosMaquinaria>
       <tr>
         <td>
-          <p-button icon="fas fa-pen" severity="success" [text]="true" (click)="edit(ratiosMaquinaria)"/>
+          <p-button icon="fas fa-pen" severity="success" [text]="true" (click)="confirm_edit(ratiosMaquinaria)"/>
         </td>
         <td>
           <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(ratiosMaquinaria)"/>
@@ -193,4 +193,5 @@
     </ng-template>
   </p-table>
   <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+  <p-toast></p-toast>
 </div>

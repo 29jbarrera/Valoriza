@@ -174,7 +174,7 @@
     <ng-template pTemplate="body" let-gastosTaller>
       <tr class="body-table">
         <td>
-          <p-button icon="fas fa-pen" severity="success" [text]="true" (click)="edit(gastosTaller)"/>
+          <p-button icon="fas fa-pen" severity="success" [text]="true" (click)="confirm_edit(gastosTaller)"/>
         </td>
         <td>
           <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(gastosTaller)"/>
@@ -206,4 +206,5 @@
     </ng-template>
   </p-table>
   <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+  <p-toast></p-toast>
 </div>

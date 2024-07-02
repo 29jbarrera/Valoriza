@@ -55,7 +55,7 @@
     <ng-template pTemplate="body" let-instalaciones>
       <tr class="body-table">
         <td>
-          <p-button icon="fas fa-pen" severity="success" [text]="true" (click)="edit(instalaciones)"/>
+          <p-button icon="fas fa-pen" severity="success" [text]="true" (click)="confirm_edit(instalaciones)"/>
         </td>
         <td>
           <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(instalaciones)"/>
@@ -77,4 +77,5 @@
     </ng-template>
   </p-table>
   <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+  <p-toast></p-toast>
 </div>

@@ -21,8 +21,9 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { ButtonModule } from 'primeng/button';
+import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
-import { ConfirmationService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-ratios-maquinaria-table',
@@ -43,10 +44,11 @@ import { ConfirmationService } from 'primeng/api';
     FormlyModule,
     FormlyPrimeNGModule,
     ConfirmDialogModule,
+    ToastModule,
   ],
   templateUrl: './ratios-maquinaria-table.component.html',
   styleUrl: './ratios-maquinaria-table.component.scss',
-  providers: [ConfirmationService],
+  providers: [ConfirmationService, MessageService],
 })
 export class RatiosMaquinariaTableComponent implements OnInit {
   ratiosMaquinaria: RatiosMaquinaria[] = [];
@@ -55,7 +57,8 @@ export class RatiosMaquinariaTableComponent implements OnInit {
   constructor(
     private RatiosMaquinariaService: RatiosMaquinariaService,
     private fb: FormBuilder,
-    private _confirmationService: ConfirmationService
+    private _confirmationService: ConfirmationService,
+    private messageService: MessageService
   ) {
     this.searchForm = this.fb.group({
       dateFrom: [''],
@@ -82,13 +85,33 @@ export class RatiosMaquinariaTableComponent implements OnInit {
       await this.RatiosMaquinariaService.getRatiosMaquinaria();
   }
 
-   // TODO: EDITAR OBJETO BACKEND
-   async edit(ratiosMaquinaria: RatiosMaquinaria) {
+  async confirm_edit(ratiosMaquinaria: RatiosMaquinaria) {
+    try {
+      this.edit(ratiosMaquinaria);
+
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Actualizado',
+        detail: 'Fila actualizada correctamente',
+        life: 3000,
+      });
+    } catch (error) {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Algo inesperado ocurrió',
+        life: 3000,
+      });
+    }
+  }
+
+  async edit(ratiosMaquinaria: RatiosMaquinaria) {
+    // TODO: PETICIÓN A BACKEND PARA EDITAR
     console.error('Edit object:', ratiosMaquinaria);
   }
 
-  // TODO: ELIMINAR OBJETO BACKEND
-  async delete(ratiosMaquinaria: RatiosMaquinaria){
+  async delete(ratiosMaquinaria: RatiosMaquinaria) {
+    // TODO: PETICIÓN BACKEND PARA ELIMINAR
     console.error('Delete object,', ratiosMaquinaria);
   }
 
@@ -99,9 +122,34 @@ export class RatiosMaquinariaTableComponent implements OnInit {
       icon: 'pi pi-times-circle',
       rejectButtonStyleClass: 'p-button-text',
       acceptButtonStyleClass: 'p-button-danger',
-      accept: () => {
-        this.delete(ratiosMaquinaria);
+
+      accept: async () => {
+        try {
+          await this.delete(ratiosMaquinaria);
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Confirmado',
+            detail: 'Fila eliminada correctamente',
+            life: 3000,
+          });
+        } catch (error) {
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Algo inesperado ocurrió',
+            life: 3000,
+          });
+        }
+      },
+      reject: () => {
+        this.messageService.add({
+          severity: 'info',
+          summary: 'Cancelado',
+          detail: 'La acción fue cancelada',
+          life: 3000,
+        });
       },
     });
   }
 }
+

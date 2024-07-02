@@ -21,8 +21,9 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormlyFieldConfig, FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { ButtonModule } from 'primeng/button';
+import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
-import { ConfirmationService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-stock-table',
@@ -43,10 +44,11 @@ import { ConfirmationService } from 'primeng/api';
     FormlyModule,
     FormlyPrimeNGModule,
     ConfirmDialogModule,
+    ToastModule,
   ],
   templateUrl: './stock-table.component.html',
   styleUrl: './stock-table.component.scss',
-  providers: [ConfirmationService],
+  providers: [ConfirmationService, MessageService],
 })
 export class StockTableComponent implements OnInit {
   stock: Stock[] = [];
@@ -63,7 +65,8 @@ export class StockTableComponent implements OnInit {
   constructor(
     private StockService: StockService,
     private fb: FormBuilder,
-    private _confirmationService: ConfirmationService
+    private _confirmationService: ConfirmationService,
+    private messageService: MessageService
   ) {
     this.searchForm = this.fb.group({
       centerName: [''],
@@ -94,26 +97,70 @@ export class StockTableComponent implements OnInit {
     console.log(dt.exportCSV());
   }
 
-    // TODO: EDITAR OBJETO BACKEND
-    async edit(stock: Stock) {
-      console.error('Edit object:', stock);
-    }
-  
-    // TODO: ELIMINAR OBJETO BACKEND
-    async delete(stock: Stock){
-      console.error('Delete object,', stock);
-    }
-  
-    async confirm_delete(stock: Stock) {
-      this._confirmationService.confirm({
-        message: '¿Estás seguro de que quieres eliminar esta fila?',
-        header: 'Eliminar fila de stock',
-        icon: 'pi pi-times-circle',
-        rejectButtonStyleClass: 'p-button-text',
-        acceptButtonStyleClass: 'p-button-danger',
-        accept: () => {
-          this.delete(stock);
-        },
+  async confirm_edit(stock: Stock) {
+    try {
+      this.edit(stock);
+
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Actualizado',
+        detail: 'Fila actualizada correctamente',
+        life: 3000,
+      });
+    } catch (error) {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Algo inesperado ocurrió',
+        life: 3000,
       });
     }
+  }
+
+  async edit(stock: Stock) {
+    // TODO: PETICIÓN A BACKEND PARA EDITAR
+    console.error('Edit object:', stock);
+  }
+
+  async delete(stock: Stock) {
+    // TODO: PETICIÓN BACKEND PARA ELIMINAR
+    console.error('Delete object,', stock);
+  }
+
+  async confirm_delete(stock: Stock) {
+    this._confirmationService.confirm({
+      message: '¿Estás seguro de que quieres eliminar esta fila?',
+      header: 'Eliminar fila de stock',
+      icon: 'pi pi-times-circle',
+      rejectButtonStyleClass: 'p-button-text',
+      acceptButtonStyleClass: 'p-button-danger',
+
+      accept: async () => {
+        try {
+          await this.delete(stock);
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Confirmado',
+            detail: 'Fila eliminada correctamente',
+            life: 3000,
+          });
+        } catch (error) {
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Algo inesperado ocurrió',
+            life: 3000,
+          });
+        }
+      },
+      reject: () => {
+        this.messageService.add({
+          severity: 'info',
+          summary: 'Cancelado',
+          detail: 'La acción fue cancelada',
+          life: 3000,
+        });
+      },
+    });
+  }
 }
