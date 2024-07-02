@@ -28,7 +28,7 @@
     <ng-template pTemplate="body" let-marcas>
       <tr>
         <td>
-          <p-button icon="fas fa-pen" severity="success" [text]="true" (click)="edit(marcas)"/>
+          <p-button icon="fas fa-pen" severity="success" [text]="true" (click)="confirm_edit(marcas)"/>
         </td>
         <td>
           <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(marcas)"/>
@@ -48,4 +48,5 @@
     </ng-template>
   </p-table>
   <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+  <p-toast></p-toast>
 </div>

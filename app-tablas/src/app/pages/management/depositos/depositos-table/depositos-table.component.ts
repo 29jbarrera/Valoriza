@@ -21,8 +21,9 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { ButtonModule } from 'primeng/button';
+import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
-import { ConfirmationService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-depositos-table',
@@ -42,11 +43,12 @@ import { ConfirmationService } from 'primeng/api';
     FormsModule,
     FormlyModule,
     FormlyPrimeNGModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    ToastModule,
   ],
   templateUrl: './depositos-table.component.html',
   styleUrl: './depositos-table.component.scss',
-  providers:[ConfirmationService]
+  providers: [ConfirmationService, MessageService],
 })
 export class DepositosTableComponent implements OnInit {
   depositos: Depositos[] = [];
@@ -57,6 +59,7 @@ export class DepositosTableComponent implements OnInit {
     private DepositosService: DepositosService,
     private fb: FormBuilder,
     private _confirmationService: ConfirmationService,
+    private messageService: MessageService
   ) {
     this.searchForm = this.fb.group({
       center: [''],
@@ -73,26 +76,70 @@ export class DepositosTableComponent implements OnInit {
     this.depositos = await this.DepositosService.getDepositos();
   }
 
-    // TODO: EDITAR OBJETO BACKEND
-    async edit(depositos: Depositos) {
-      console.error('Edit object:', depositos);
-    }
-  
-    // TODO: ELIMINAR OBJETO BACKEND
-    async delete(depositos: Depositos){
-      console.error('Delete object,', depositos);
-    }
-  
-    async confirm_delete(depositos: Depositos) {
-      this._confirmationService.confirm({
-        message: '¿Estás seguro de que quieres eliminar esta fila?',
-        header: 'Eliminar fila de depósitos',
-        icon: 'pi pi-times-circle',
-        rejectButtonStyleClass: 'p-button-text',
-        acceptButtonStyleClass: 'p-button-danger',
-        accept: () => {
-          this.delete(depositos);
-        },
+  async confirm_edit(depositos: Depositos) {
+    try {
+      this.edit(depositos);
+
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Actualizado',
+        detail: 'Fila actualizada correctamente',
+        life: 3000,
+      });
+    } catch (error) {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Algo inesperado ocurrió',
+        life: 3000,
       });
     }
+  }
+
+  async edit(depositos: Depositos) {
+    // TODO: PETICIÓN A BACKEND PARA EDITAR
+    console.error('Edit object:', depositos);
+  }
+
+  async delete(depositos: Depositos) {
+    // TODO: PETICIÓN BACKEND PARA ELIMINAR
+    console.error('Delete object,', depositos);
+  }
+
+  async confirm_delete(depositos: Depositos) {
+    this._confirmationService.confirm({
+      message: '¿Estás seguro de que quieres eliminar esta fila?',
+      header: 'Eliminar fila de depósitos',
+      icon: 'pi pi-times-circle',
+      rejectButtonStyleClass: 'p-button-text',
+      acceptButtonStyleClass: 'p-button-danger',
+
+      accept: async () => {
+        try {
+          await this.delete(depositos);
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Confirmado',
+            detail: 'Fila eliminada correctamente',
+            life: 3000,
+          });
+        } catch (error) {
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Algo inesperado ocurrió',
+            life: 3000,
+          });
+        }
+      },
+      reject: () => {
+        this.messageService.add({
+          severity: 'info',
+          summary: 'Cancelado',
+          detail: 'La acción fue cancelada',
+          life: 3000,
+        });
+      },
+    });
+  }
 }

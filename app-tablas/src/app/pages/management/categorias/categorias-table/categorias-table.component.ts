@@ -21,8 +21,9 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { ButtonModule } from 'primeng/button';
+import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
-import { ConfirmationService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-categorias-table',
@@ -42,11 +43,12 @@ import { ConfirmationService } from 'primeng/api';
     FormsModule,
     FormlyModule,
     FormlyPrimeNGModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    ToastModule,
   ],
   templateUrl: './categorias-table.component.html',
   styleUrl: './categorias-table.component.scss',
-  providers:[ConfirmationService]
+  providers: [ConfirmationService, MessageService],
 })
 export class CategoriasTableComponent implements OnInit {
   categorias: Categorias[] = [];
@@ -56,6 +58,7 @@ export class CategoriasTableComponent implements OnInit {
     private CategoriasService: CategoriasService,
     private fb: FormBuilder,
     private _confirmationService: ConfirmationService,
+    private messageService: MessageService
   ) {
     this.searchForm = this.fb.group({
       description: [''],
@@ -70,26 +73,70 @@ export class CategoriasTableComponent implements OnInit {
     this.categorias = await this.CategoriasService.getCategorias();
   }
 
-    // TODO: EDITAR OBJETO BACKEND
-    async edit(categorias: Categorias) {
-      console.error('Edit object:', categorias);
-    }
-  
-    // TODO: ELIMINAR OBJETO BACKEND
-    async delete(categorias: Categorias){
-      console.error('Delete object,', categorias);
-    }
-  
-    async confirm_delete(categorias: Categorias) {
-      this._confirmationService.confirm({
-        message: '¿Estás seguro de que quieres eliminar esta fila?',
-        header: 'Eliminar fila de categorías',
-        icon: 'pi pi-times-circle',
-        rejectButtonStyleClass: 'p-button-text',
-        acceptButtonStyleClass: 'p-button-danger',
-        accept: () => {
-          this.delete(categorias);
-        },
+  async confirm_edit(categorias: Categorias) {
+    try {
+      this.edit(categorias);
+
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Actualizado',
+        detail: 'Fila actualizada correctamente',
+        life: 3000,
+      });
+    } catch (error) {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Algo inesperado ocurrió',
+        life: 3000,
       });
     }
+  }
+
+  async edit(categorias: Categorias) {
+    // TODO: PETICIÓN A BACKEND PARA EDITAR
+    console.error('Edit object:', categorias);
+  }
+
+  async delete(categorias: Categorias) {
+    // TODO: PETICIÓN BACKEND PARA ELIMINAR
+    console.error('Delete object,', categorias);
+  }
+
+  async confirm_delete(categorias: Categorias) {
+    this._confirmationService.confirm({
+      message: '¿Estás seguro de que quieres eliminar esta fila?',
+      header: 'Eliminar fila de categorías',
+      icon: 'pi pi-times-circle',
+      rejectButtonStyleClass: 'p-button-text',
+      acceptButtonStyleClass: 'p-button-danger',
+
+      accept: async () => {
+        try {
+          await this.delete(categorias);
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Confirmado',
+            detail: 'Fila eliminada correctamente',
+            life: 3000,
+          });
+        } catch (error) {
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Algo inesperado ocurrió',
+            life: 3000,
+          });
+        }
+      },
+      reject: () => {
+        this.messageService.add({
+          severity: 'info',
+          summary: 'Cancelado',
+          detail: 'La acción fue cancelada',
+          life: 3000,
+        });
+      },
+    });
+  }
 }

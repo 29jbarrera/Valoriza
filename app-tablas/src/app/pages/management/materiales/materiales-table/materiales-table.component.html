@@ -53,7 +53,7 @@
     <ng-template pTemplate="body" let-materiales>
       <tr class="body-table">
         <td>
-          <p-button icon="fas fa-pen" severity="success" [text]="true" (click)="edit(materiales)"/>
+          <p-button icon="fas fa-pen" severity="success" [text]="true" (click)="confirm_edit(materiales)"/>
         </td>
         <td>
           <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(materiales)"/>
@@ -75,4 +75,5 @@
     </ng-template>
   </p-table>
   <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+  <p-toast></p-toast>
 </div>

@@ -21,8 +21,9 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { ButtonModule } from 'primeng/button';
+import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
-import { ConfirmationService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-repostajes-table',
@@ -42,11 +43,12 @@ import { ConfirmationService } from 'primeng/api';
     FormsModule,
     FormlyModule,
     FormlyPrimeNGModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    ToastModule,
   ],
   templateUrl: './repostajes-table.component.html',
   styleUrl: './repostajes-table.component.scss',
-  providers:[ConfirmationService]
+  providers: [ConfirmationService, MessageService],
 })
 export class RepostajesMaquinariaTableComponent implements OnInit {
   repostaje: RepostajeMaquinaria[] = [];
@@ -56,6 +58,7 @@ export class RepostajesMaquinariaTableComponent implements OnInit {
     private RepostajesService: RepostajesService,
     private fb: FormBuilder,
     private _confirmationService: ConfirmationService,
+    private messageService: MessageService
   ) {
     this.searchForm = this.fb.group({
       center: [''],
@@ -74,26 +77,70 @@ export class RepostajesMaquinariaTableComponent implements OnInit {
     this.repostaje = await this.RepostajesService.getRepostajes();
   }
 
-    // TODO: EDITAR OBJETO BACKEND
-    async edit(repostaje: RepostajeMaquinaria) {
-      console.error('Edit object:', repostaje);
-    }
-  
-    // TODO: ELIMINAR OBJETO BACKEND
-    async delete(repostaje: RepostajeMaquinaria){
-      console.error('Delete object,', repostaje);
-    }
-  
-    async confirm_delete(repostaje: RepostajeMaquinaria) {
-      this._confirmationService.confirm({
-        message: '¿Estás seguro de que quieres eliminar esta fila?',
-        header: 'Eliminar fila de repostajes maquinaria',
-        icon: 'pi pi-times-circle',
-        rejectButtonStyleClass: 'p-button-text',
-        acceptButtonStyleClass: 'p-button-danger',
-        accept: () => {
-          this.delete(repostaje);
-        },
+  async confirm_edit(repostaje: RepostajeMaquinaria) {
+    try {
+      this.edit(repostaje);
+
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Actualizado',
+        detail: 'Fila actualizada correctamente',
+        life: 3000,
+      });
+    } catch (error) {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Algo inesperado ocurrió',
+        life: 3000,
       });
     }
+  }
+
+  async edit(repostaje: RepostajeMaquinaria) {
+    // TODO: PETICIÓN A BACKEND PARA EDITAR
+    console.error('Edit object:', repostaje);
+  }
+
+  async delete(repostaje: RepostajeMaquinaria) {
+    // TODO: PETICIÓN BACKEND PARA ELIMINAR
+    console.error('Delete object,', repostaje);
+  }
+
+  async confirm_delete(repostaje: RepostajeMaquinaria) {
+    this._confirmationService.confirm({
+      message: '¿Estás seguro de que quieres eliminar esta fila?',
+      header: 'Eliminar fila de repostajes maquinaria',
+      icon: 'pi pi-times-circle',
+      rejectButtonStyleClass: 'p-button-text',
+      acceptButtonStyleClass: 'p-button-danger',
+
+      accept: async () => {
+        try {
+          await this.delete(repostaje);
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Confirmado',
+            detail: 'Fila eliminada correctamente',
+            life: 3000,
+          });
+        } catch (error) {
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Algo inesperado ocurrió',
+            life: 3000,
+          });
+        }
+      },
+      reject: () => {
+        this.messageService.add({
+          severity: 'info',
+          summary: 'Cancelado',
+          detail: 'La acción fue cancelada',
+          life: 3000,
+        });
+      },
+    });
+  }
 }

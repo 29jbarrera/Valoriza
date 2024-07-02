@@ -21,8 +21,9 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { ButtonModule } from 'primeng/button';
+import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
-import { ConfirmationService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-materiales-table',
@@ -42,11 +43,12 @@ import { ConfirmationService } from 'primeng/api';
     FormsModule,
     FormlyModule,
     FormlyPrimeNGModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    ToastModule,
   ],
   templateUrl: './materiales-table.component.html',
   styleUrl: './materiales-table.component.scss',
-  providers:[ConfirmationService]
+  providers: [ConfirmationService, MessageService],
 })
 export class MaterialesTableComponent implements OnInit {
   materiales: Materiales[] = [];
@@ -56,6 +58,7 @@ export class MaterialesTableComponent implements OnInit {
     private MaterialesService: MaterialesService,
     private fb: FormBuilder,
     private _confirmationService: ConfirmationService,
+    private messageService: MessageService
   ) {
     this.searchForm = this.fb.group({
       reference: [''],
@@ -71,27 +74,70 @@ export class MaterialesTableComponent implements OnInit {
     this.materiales = await this.MaterialesService.getMateriales();
   }
 
-    // TODO: EDITAR OBJETO BACKEND
-    async edit(materiales: Materiales) {
-      console.error('Edit object:', materiales);
-    }
-  
-    // TODO: ELIMINAR OBJETO BACKEND
-    async delete(materiales: Materiales){
-      console.error('Delete object,', materiales);
-    }
-  
-    async confirm_delete(materiales: Materiales) {
-      this._confirmationService.confirm({
-        message: '¿Estás seguro de que quieres eliminar esta fila?',
-        header: 'Eliminar fila de materiales',
-        icon: 'pi pi-times-circle',
-        rejectButtonStyleClass: 'p-button-text',
-        acceptButtonStyleClass: 'p-button-danger',
-        accept: () => {
-          this.delete(materiales);
-        },
+  async confirm_edit(materiales: Materiales) {
+    try {
+      this.edit(materiales);
+
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Actualizado',
+        detail: 'Fila actualizada correctamente',
+        life: 3000,
+      });
+    } catch (error) {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Algo inesperado ocurrió',
+        life: 3000,
       });
     }
-}
+  }
 
+  async edit(materiales: Materiales) {
+    // TODO: PETICIÓN A BACKEND PARA EDITAR
+    console.error('Edit object:', materiales);
+  }
+
+  async delete(materiales: Materiales) {
+    // TODO: PETICIÓN BACKEND PARA ELIMINAR
+    console.error('Delete object,', materiales);
+  }
+
+  async confirm_delete(materiales: Materiales) {
+    this._confirmationService.confirm({
+      message: '¿Estás seguro de que quieres eliminar esta fila?',
+      header: 'Eliminar fila de materiales',
+      icon: 'pi pi-times-circle',
+      rejectButtonStyleClass: 'p-button-text',
+      acceptButtonStyleClass: 'p-button-danger',
+
+       accept: async () => {
+        try {
+          await this.delete(materiales);
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Confirmado',
+            detail: 'Fila eliminada correctamente',
+            life: 3000,
+          });
+        } catch (error) {
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Algo inesperado ocurrió',
+            life: 3000,
+          });
+        }
+      },
+      reject: () => {
+        this.messageService.add({
+          severity: 'info',
+          summary: 'Cancelado',
+          detail: 'La acción fue cancelada',
+          life: 3000,
+        });
+      },
+    });
+  }
+}
