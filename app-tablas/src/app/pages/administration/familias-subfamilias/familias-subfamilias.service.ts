@@ -1,20 +1,24 @@
 import { Injectable } from '@angular/core';
-import { randCurrencyName } from '@ngneat/falso';
 
-import { FamiliasSubfamilias } from './type';
+import { lastValueFrom } from 'rxjs';
+import { FamiliaDto, FamiliaService } from '@valoriza/web-commons';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FamiliasSubfamiliasService {
-  constructor() {}
-  async getFamiliasSubfamilias(): Promise<FamiliasSubfamilias[]> {
-    const familiasSubfamilias: FamiliasSubfamilias[] = [];
-    for (let i = 0; i < 100; i++) {
-      familiasSubfamilias.push({
-        description: randCurrencyName(),
-      });
-    }
-    return familiasSubfamilias;
+  constructor(private _familiaService: FamiliaService) {}
+  async getFamiliasSubfamilias(): Promise<FamiliaDto[]> {
+    const response = await lastValueFrom(this._familiaService.apiV2FamiliaGet());
+    return response.results;
+
+
+    // const familiasSubfamilias: FamiliasSubfamilias[] = [];
+    // for (let i = 0; i < 100; i++) {
+    //   familiasSubfamilias.push({
+    //     description: randCurrencyName(),
+    //   });
+    // }
+    // return familiasSubfamilias;
   }
 }

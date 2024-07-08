@@ -12,14 +12,14 @@
       <tr>
         <th></th>
         <th></th>
-        <th pSortableColumn="description">
+        <th pSortableColumn="empresa.nombre">
           <div>
-            <p-sortIcon class="order" field="description" />
+            <p-sortIcon class="order" field="empresa.nombre" />
             Descripción
             <p-columnFilter
               class="filter"
               type="text"
-              field="description"
+              field="empresa.nombre"
               display="menu"
             ></p-columnFilter>
           </div>
@@ -34,7 +34,7 @@
         <td>
           <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(familiasSubfamilias)"/>
         </td>
-        <td>{{ familiasSubfamilias.description }}</td>
+        <td>{{ familiasSubfamilias.empresa.nombre }}</td>
       </tr>
     </ng-template>
     <ng-template pTemplate="footer">

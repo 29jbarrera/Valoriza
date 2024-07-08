@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { FamiliasSubfamilias } from '../type';
+import { FamiliaDto } from '@valoriza/web-commons';
 import { FamiliasSubfamiliasService } from '../familias-subfamilias.service';
 
 import { TableModule } from 'primeng/table';
@@ -51,7 +51,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
   providers: [ConfirmationService, MessageService],
 })
 export class FamiliasSubfamiliasTableComponent implements OnInit {
-  familiasSubfamilias: FamiliasSubfamilias[] = [];
+  familiasSubfamilias: FamiliaDto[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -73,7 +73,7 @@ export class FamiliasSubfamiliasTableComponent implements OnInit {
       await this.FamiliasSubfamiliasService.getFamiliasSubfamilias();
   }
 
-  async confirm_edit(familiasSubfamilias: FamiliasSubfamilias) {
+  async confirm_edit(familiasSubfamilias: FamiliaDto) {
     try {
       this.edit(familiasSubfamilias);
 
@@ -93,17 +93,17 @@ export class FamiliasSubfamiliasTableComponent implements OnInit {
     }
   }
 
-  async edit(familiasSubfamilias: FamiliasSubfamilias) {
+  async edit(familiasSubfamilias: FamiliaDto) {
     // TODO: PETICIÓN A BACKEND PARA EDITAR
     console.error('Edit object:', familiasSubfamilias);
   }
 
-  async delete(familiasSubfamilias: FamiliasSubfamilias) {
+  async delete(familiasSubfamilias: FamiliaDto) {
     // TODO: PETICIÓN BACKEND PARA ELIMINAR
     console.error('Delete object,', familiasSubfamilias);
   }
 
-  async confirm_delete(familiasSubfamilias: FamiliasSubfamilias) {
+  async confirm_delete(familiasSubfamilias: FamiliaDto) {
     this._confirmationService.confirm({
       message: '¿Estás seguro de que quieres eliminar esta fila?',
       header: 'Eliminar fila de Familias y Subfamilias',
