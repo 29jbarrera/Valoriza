@@ -12,50 +12,50 @@
       <tr>
         <th></th>
         <th></th>
-        <th pSortableColumn="code">
+        <th pSortableColumn="codEstado">
           <div>
-            <p-sortIcon class="order" field="code" />
+            <p-sortIcon class="order" field="codEstado" />
             Code
             <p-columnFilter
               class="filter"
               type="text"
-              field="code"
+              field="codEstado"
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="name">
+        <th pSortableColumn="nombre">
           <div>
-            <p-sortIcon class="order" field="name" />
+            <p-sortIcon class="order" field="nombre" />
             Nombre
             <p-columnFilter
               class="filter"
               type="text"
-              field="name"
+              field="nombre"
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="delegation">
+        <th pSortableColumn="reparacion.centro.nombre ">
           <div>
-            <p-sortIcon class="order" field="delegation" />
+            <p-sortIcon class="order" field="reparacion.centro.nombre " />
             Delegación
             <p-columnFilter
               class="filter"
               type="text"
-              field="delegation"
+              field="reparacion.centro.nombre "
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="cost">
+        <th pSortableColumn="maquinaria.impuesto.importe ">
           <div>
-            <p-sortIcon class="order" field="cost" />
+            <p-sortIcon class="order" field="maquinaria.impuesto.importe " />
             Coste
             <p-columnFilter
               class="filter"
               type="text"
-              field="cost"
+              field="maquinaria.impuesto.importe "
               display="menu"
             ></p-columnFilter>
           </div>
@@ -71,10 +71,10 @@
         <td>
           <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(reparacionesCentro)"/>
         </td>
-        <td>{{ reparacionesCentro.code }}</td>
-        <td>{{ reparacionesCentro.name }}</td>
-        <td>{{ reparacionesCentro.delegation }}</td>
-        <td>{{ reparacionesCentro.cost }}</td>
+        <td>{{ reparacionesCentro.codEstado }}</td>
+        <td>{{ reparacionesCentro.nombre }}</td>
+        <td>{{ reparacionesCentro.reparacion.centro.nombre }}</td>
+        <td>{{ reparacionesCentro.reparacion.maquinaria.impuesto.importe }}</td>
       </tr>
     </ng-template>
     <ng-template pTemplate="footer">

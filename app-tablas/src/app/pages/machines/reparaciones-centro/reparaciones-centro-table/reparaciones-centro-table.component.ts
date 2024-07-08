@@ -8,7 +8,7 @@ import {
 import { CommonModule } from '@angular/common';
 
 import { ReparacionesCentroService } from '../reparaciones-centro.service';
-import { ReparacionesCentro } from '../type';
+import { ReparacionesDocDto } from '@valoriza/web-commons';
 
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
@@ -51,7 +51,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
   providers: [ConfirmationService, MessageService],
 })
 export class ReparacionesCentroTableComponent implements OnInit {
-  reparacionesCentro: ReparacionesCentro[] = [];
+  reparacionesCentro: ReparacionesDocDto[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -77,7 +77,7 @@ export class ReparacionesCentroTableComponent implements OnInit {
       await this.ReparacionesCentroService.getReparacionesCentro();
   }
 
-  async confirm_edit(reparacionesCentro: ReparacionesCentro) {
+  async confirm_edit(reparacionesCentro: ReparacionesDocDto) {
     try {
       this.edit(reparacionesCentro);
 
@@ -97,17 +97,17 @@ export class ReparacionesCentroTableComponent implements OnInit {
     }
   }
 
-  async edit(reparacionesCentro: ReparacionesCentro) {
+  async edit(reparacionesCentro: ReparacionesDocDto) {
     // TODO: PETICIÓN A BACKEND PARA EDITAR
     console.error('Edit object:', reparacionesCentro);
   }
 
-  async delete(reparacionesCentro: ReparacionesCentro) {
+  async delete(reparacionesCentro: ReparacionesDocDto) {
     // TODO: PETICIÓN BACKEND PARA ELIMINAR
     console.error('Delete object,', reparacionesCentro);
   }
 
-  async confirm_delete(reparacionesCentro: ReparacionesCentro) {
+  async confirm_delete(reparacionesCentro: ReparacionesDocDto) {
     this._confirmationService.confirm({
       message: '¿Estás seguro de que quieres eliminar esta fila?',
       header: 'Eliminar fila de reparaciones centro',
