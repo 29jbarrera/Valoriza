@@ -12,38 +12,38 @@
       <tr>
         <th></th>
         <th></th>
-        <th pSortableColumn="machineCenter">
+        <th pSortableColumn="nombre">
           <div>
-            <p-sortIcon class="order" field="machineCenter" />
+            <p-sortIcon class="order" field="nombre" />
             Centro
             <p-columnFilter
               class="filter"
               type="text"
-              field="machineCenter"
+              field="nombre"
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="subFamily">
+        <th pSortableColumn="idSubfamilia">
           <div>
-            <p-sortIcon class="order" field="subfamily" />
+            <p-sortIcon class="order" field="idSubfamilia" />
             SubFamilia
             <p-columnFilter
               class="filter"
               type="text"
-              field="subfamily"
+              field="idSubfamilia"
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="machinery">
+        <th pSortableColumn="nombre">
           <div>
-            <p-sortIcon class="order" field="machinery" />
+            <p-sortIcon class="order" field="nombre" />
             Maquinaria
             <p-columnFilter
               class="filter"
               type="text"
-              field="machinery"
+              field="nombre"
               display="menu"
             ></p-columnFilter>
           </div>
@@ -68,8 +68,8 @@
               class="filter"
               type="text"
               field="model"
-              display="menu"
-            ></p-columnFilter>
+              display="menu">
+          </p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="finalHorometer">
@@ -80,32 +80,32 @@
               class="filter"
               type="text"
               field="finalHorometer"
-              display="menu"
-            ></p-columnFilter>
+              display="menu">
+          </p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="finalKM">
+        <th pSortableColumn="kilometros">
           <div>
-            <p-sortIcon class="order" field="finalKM" />
+            <p-sortIcon class="order" field="kilometros" />
             finalKM
             <p-columnFilter
               class="filter"
               type="text"
-              field="finalKM"
-              display="menu"
-            ></p-columnFilter>
+              field="kilometros"
+              display="menu">
+          </p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="date">
+        <th pSortableColumn="fecha">
           <div>
-            <p-sortIcon class="order" field="date" />
+            <p-sortIcon class="order" field="fecha" />
             Fecha
             <p-columnFilter
               class="filter"
               type="text"
-              field="date"
-              display="menu"
-            ></p-columnFilter>
+              field="fecha"
+              display="menu">
+          </p-columnFilter>
           </div>
         </th>
       </tr>
@@ -118,14 +118,15 @@
         <td>
           <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(horometrosKilometros)"/>
         </td>
-        <td>{{ horometrosKilometros.machineCenter }}</td>
-        <td>{{ horometrosKilometros.subFamily }}</td>
-        <td>{{ horometrosKilometros.machinery }}</td>
-        <td>{{ horometrosKilometros.brand }}</td>
-        <td>{{ horometrosKilometros.model }}</td>
-        <td>{{ horometrosKilometros.finalHorometer }}</td>
-        <td>{{ horometrosKilometros.finalKM }}</td>
-        <td>{{ horometrosKilometros.date | date: 'dd/MM/yyyy' }}</td>
+        <td>{{ horometrosKilometros.referencia.centro.nombre }}</td>
+        <td>{{ horometrosKilometros.referencia.maquinaria.idSubfamilia }}</td>
+        <td>{{ horometrosKilometros.referencia.maquinaria.empresa.nombre }}</td>
+                <!-- TODO: AÑADIR MARCA , MODELO , FINALHM-->
+        <td>{{ horometrosKilometros }}</td>
+        <td>{{ horometrosKilometros }}</td>
+        <td>{{ horometrosKilometros }}</td>
+        <td>{{ horometrosKilometros.kilometros }}</td>
+        <td>{{ horometrosKilometros.fecha}}</td>
       </tr>
     </ng-template>
     <ng-template pTemplate="footer">

@@ -5,13 +5,13 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { TableModule } from 'primeng/table';
 
 import { HorometrosKilometrosService } from '../horometros-kilometros.service';
-import { HorometrosKilometros } from '../type';
 
 import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
 
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { HmKmDto } from '@valoriza/web-commons';
 
 @Component({
   selector: 'app-horometros-kilometros-table',
@@ -28,7 +28,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
   providers: [ConfirmationService, MessageService],
 })
 export class HorometrosKilometrosTableComponent implements OnInit {
-  horometrosKilometros: HorometrosKilometros[] = [];
+  horometrosKilometros: HmKmDto[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -57,7 +57,7 @@ export class HorometrosKilometrosTableComponent implements OnInit {
       await this.HorometrosKilometrosService.getHorometrosKilometros();
   }
 
-  async confirm_edit(horometrosKilometros: HorometrosKilometros) {
+  async confirm_edit(horometrosKilometros: HmKmDto) {
     try {
       this.edit(horometrosKilometros);
 
@@ -77,17 +77,17 @@ export class HorometrosKilometrosTableComponent implements OnInit {
     }
   }
 
-  async edit(horometrosKilometros: HorometrosKilometros) {
+  async edit(horometrosKilometros: HmKmDto) {
     // TODO: PETICIÓN A BACKEND PARA EDITAR
     console.error('Edit object:', horometrosKilometros);
   }
 
-  async delete(horometrosKilometros: HorometrosKilometros) {
+  async delete(horometrosKilometros: HmKmDto) {
     // TODO: PETICIÓN BACKEND PARA ELIMINAR
     console.error('Delete object,', horometrosKilometros);
   }
 
-  async confirm_delete(horometrosKilometros: HorometrosKilometros) {
+  async confirm_delete(horometrosKilometros: HmKmDto) {
     this._confirmationService.confirm({
       message: '¿Estás seguro de que quieres eliminar esta fila?',
       header: 'Eliminar fila de Horómetros',
