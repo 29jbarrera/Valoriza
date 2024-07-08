@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { Niveles } from '../type';
+import { CreateNivelesMantenimientoDto } from '@valoriza/web-commons';
 import { NivelesService } from '../niveles.service';
 
 import { TableModule } from 'primeng/table';
@@ -51,7 +51,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
   providers: [ConfirmationService, MessageService],
 })
 export class NivelesTableComponent implements OnInit {
-  niveles: Niveles[] = [];
+  niveles: CreateNivelesMantenimientoDto[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -77,7 +77,7 @@ export class NivelesTableComponent implements OnInit {
     this.niveles = await this.NivelesService.getNiveles();
   }
 
-  async confirm_edit(niveles: Niveles) {
+  async confirm_edit(niveles: CreateNivelesMantenimientoDto) {
     try {
       this.edit(niveles);
 
@@ -97,17 +97,17 @@ export class NivelesTableComponent implements OnInit {
     }
   }
 
-  async edit(niveles: Niveles) {
+  async edit(niveles: CreateNivelesMantenimientoDto) {
     // TODO: PETICIÓN A BACKEND PARA EDITAR
     console.error('Edit object:', niveles);
   }
 
-  async delete(niveles: Niveles) {
+  async delete(niveles: CreateNivelesMantenimientoDto) {
     // TODO: PETICIÓN BACKEND PARA ELIMINAR
     console.error('Delete object,', niveles);
   }
 
-  async confirm_delete(niveles: Niveles) {
+  async confirm_delete(niveles: CreateNivelesMantenimientoDto) {
     this._confirmationService.confirm({
       message: '¿Estás seguro de que quieres eliminar esta fila?',
       header: 'Eliminar fila de Niveles',

@@ -11,74 +11,74 @@
       <tr>
         <th></th>
         <th></th>
-        <th pSortableColumn="code">
+        <th pSortableColumn="codigo">
           <div>
-            <p-sortIcon class="order" field="code" />
+            <p-sortIcon class="order" field="codigo" />
             Codigo
             <p-columnFilter
               class="filter"
               type="text"
-              field="code"
+              field="codigo"
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="frequency">
+        <th pSortableColumn="frecuencia">
           <div>
-            <p-sortIcon class="order" field="frequency" />
+            <p-sortIcon class="order" field="frecuencia" />
             Frecuencia
             <p-columnFilter
               class="filter"
               type="text"
-              field="frequency"
+              field="frecuencia"
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="type">
+        <th pSortableColumn="tipo">
           <div>
-            <p-sortIcon class="order" field="type" />
+            <p-sortIcon class="order" field="tipo" />
             Tipo
             <p-columnFilter
               class="filter"
               type="text"
-              field="type"
+              field="tipo"
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="average">
+        <th pSortableColumn="media">
           <div>
-            <p-sortIcon class="order" field="average" />
+            <p-sortIcon class="order" field="media" />
             Media
             <p-columnFilter
               class="filter"
               type="text"
-              field="average"
+              field="media"
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="periodic">
+        <th pSortableColumn="esPeriodico">
           <div>
-            <p-sortIcon class="order" field="periodic" />
+            <p-sortIcon class="order" field="esPeriodico" />
             Es Periódico
             <p-columnFilter
               class="filter"
               type="text"
-              field="periodic"
+              field="esPeriodico"
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="startDate">
+        <th pSortableColumn="fechaInicio">
           <div>
-            <p-sortIcon class="order" field="startDate" />
+            <p-sortIcon class="order" field="fechaInicio" />
             Fecha Inicio
             <p-columnFilter
               class="filter"
               type="text"
-              field="startDate"
+              field="fechaInicio"
               display="menu"
             ></p-columnFilter>
           </div>
@@ -93,12 +93,12 @@
         <td>
           <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(niveles)"/>
         </td>
-        <td>{{ niveles.code }}</td>
-        <td>{{ niveles.frequency }}</td>
-        <td>{{ niveles.type }}</td>
-        <td>{{ niveles.average }}</td>
-        <td>{{ niveles.periodic }}</td>
-        <td>{{ niveles.startDate }}</td>
+        <td>{{ niveles.codigo }}</td>
+        <td>{{ niveles.frecuencia }}</td>
+        <td>{{ niveles.tipo }}</td>
+        <td>{{ niveles.media }}</td>
+        <td>{{ niveles.esPeriodico }}</td>
+        <td>{{ niveles.fechaInicio }}</td>
       </tr>
     </ng-template>
     <ng-template pTemplate="footer">
