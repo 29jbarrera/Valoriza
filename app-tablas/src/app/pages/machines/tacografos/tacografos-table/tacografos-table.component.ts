@@ -8,7 +8,7 @@ import {
 import { CommonModule } from '@angular/common';
 
 import { TacografosService } from '../tacografos.service';
-import { Tacografo } from '../type';
+import { TacografoDto } from '@valoriza/web-commons';
 
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
@@ -51,7 +51,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
   providers: [ConfirmationService, MessageService],
 })
 export class TacografosTableComponent implements OnInit {
-  tacografos: Tacografo[] = [];
+  tacografos: TacografoDto[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -78,7 +78,7 @@ export class TacografosTableComponent implements OnInit {
     this.tacografos = await this.TacografosService.getTacografos();
   }
 
-  async confirm_edit(tacografos: Tacografo) {
+  async confirm_edit(tacografos: TacografoDto) {
     try {
       this.edit(tacografos);
 
@@ -98,17 +98,17 @@ export class TacografosTableComponent implements OnInit {
     }
   }
 
-  async edit(tacografos: Tacografo) {
+  async edit(tacografos: TacografoDto) {
     // TODO: PETICIÓN A BACKEND PARA EDITAR
     console.error('Edit object:', tacografos);
   }
 
-  async delete(tacografos: Tacografo) {
+  async delete(tacografos: TacografoDto) {
     // TODO: PETICIÓN BACKEND PARA ELIMINAR
     console.error('Delete object,', tacografos);
   }
 
-  async confirm_delete(tacografos: Tacografo) {
+  async confirm_delete(tacografos: TacografoDto) {
     this._confirmationService.confirm({
       message: '¿Estás seguro de que quieres eliminar esta fila?',
       header: 'Eliminar fila de tacógrafos',

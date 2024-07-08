@@ -95,12 +95,13 @@
         <td>
           <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(tacografos)"/>
         </td>
+        <!-- TODO: AÑADIR TIPOS CORRECTO DE OBJETO -->
         <td>{{ tacografos.machinery }}</td>
-        <td>{{ tacografos.center }}</td>
+        <td>{{ tacografos.maquinaria.idCentro }}</td>
         <td>{{ tacografos.delegation }}</td>
-        <td>{{ tacografos.family }}</td>
+        <td>{{ tacografos.maquinaria.familia }}</td>
         <td>{{ tacografos.subFamily }}</td>
-        <td>{{ tacografos.nextDate  | date : "dd/MM/yyyy"}}</td>
+        <td>{{ tacografos.nextDate}}</td>
       </tr>
     </ng-template>
     <ng-template pTemplate="footer">
