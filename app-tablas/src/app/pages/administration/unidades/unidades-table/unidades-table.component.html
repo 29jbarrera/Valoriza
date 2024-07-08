@@ -11,38 +11,38 @@
       <tr>
         <th></th>
         <th></th>
-        <th pSortableColumn="fuelType">
+        <th pSortableColumn="codTipoCombustible">
           <div>
-            <p-sortIcon class="order" field="fuelType" />
+            <p-sortIcon class="order" field="codTipoCombustible" />
             Tipo Combustible
             <p-columnFilter
               class="filter"
               type="text"
-              field="fuelType"
+              field="codTipoCombustible"
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="units">
+        <th pSortableColumn="idUnidadesMedida">
           <div>
-            <p-sortIcon class="order" field="fuelType" />
+            <p-sortIcon class="order" field="idUnidadesMedida" />
             Unidades
             <p-columnFilter
               class="filter"
               type="text"
-              field="fuelType"
+              field="idUnidadesMedida"
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="symbol">
+        <th pSortableColumn="codTipoCombustible">
           <div>
-            <p-sortIcon class="order" field="fuelType" />
+            <p-sortIcon class="order" field="codTipoCombustible" />
             Simbolo
             <p-columnFilter
               class="filter"
               type="text"
-              field="fuelType"
+              field="codTipoCombustible"
               display="menu"
             ></p-columnFilter>
           </div>
@@ -57,9 +57,9 @@
         <td>
           <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(unidades)"/>
         </td>
-        <td>{{ unidades.fuelType }}</td>
-        <td>{{ unidades.units }}</td>
-        <td>{{ unidades.symbol }}</td>
+        <td>{{ unidades.codTipoCombustible }}</td>
+        <td>{{ unidades.idUnidadesMedida }}</td>
+        <td>{{ unidades.codTipoCombustible }}</td>
       </tr>
     </ng-template>
     <ng-template pTemplate="footer">

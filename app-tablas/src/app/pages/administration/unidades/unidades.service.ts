@@ -1,22 +1,32 @@
 import { Injectable } from '@angular/core';
-import { randCurrencyName, randVehicleModel } from '@ngneat/falso';
 
-import { Unidades } from './type';
+import { lastValueFrom } from 'rxjs';
+import {
+  UnidadMedidaTiposCombustibleService,
+  UnidadesMedidaDto,
+} from '@valoriza/web-commons';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UnidadesService {
-  constructor() {}
-  async getGastosTaller(): Promise<Unidades[]> {
-    const unidades: Unidades[] = [];
-    for (let i = 0; i < 100; i++) {
-      unidades.push({
-        fuelType: randVehicleModel(),
-        units: randCurrencyName(),
-        symbol: randCurrencyName(),
-      });
-    }
-    return unidades;
+  constructor(
+    private _unidadMedidaTiposCombustibleService: UnidadMedidaTiposCombustibleService
+  ) {}
+  async getGastosTaller(): Promise<UnidadesMedidaDto[]> {
+    const response = await lastValueFrom(
+      this._unidadMedidaTiposCombustibleService.apiV2UnidadMedidaTiposCombustibleGet()
+    );
+    return response.results;
+
+    // const unidades: Unidades[] = [];
+    // for (let i = 0; i < 100; i++) {
+    //   unidades.push({
+    //     fuelType: randVehicleModel(),
+    //     units: randCurrencyName(),
+    //     symbol: randCurrencyName(),
+    //   });
+    // }
+    // return unidades;
   }
 }
