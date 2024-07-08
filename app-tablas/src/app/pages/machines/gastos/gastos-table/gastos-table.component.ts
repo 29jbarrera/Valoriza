@@ -23,7 +23,6 @@ import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { FilterGastosPipe } from '../gastos.pipe';
 import { GastosTallerDto } from '@valoriza/web-commons';
 
 @Component({
@@ -46,7 +45,6 @@ import { GastosTallerDto } from '@valoriza/web-commons';
     FormlyPrimeNGModule,
     ConfirmDialogModule,
     ToastModule,
-    FilterGastosPipe,
   ],
   templateUrl: './gastos-table.component.html',
   styleUrl: './gastos-table.component.scss',
