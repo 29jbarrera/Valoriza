@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { Globales } from '../type';
+import { XGlobalTableDto } from '@valoriza/web-commons';
 import { TablaGlobalesService } from '../tabla-globales.service';
 
 import { TableModule } from 'primeng/table';
@@ -51,7 +51,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
   providers: [ConfirmationService, MessageService],
 })
 export class TablasGlobalesTableComponent implements OnInit {
-  globales: Globales[] = [];
+  globales: XGlobalTableDto[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -76,7 +76,7 @@ export class TablasGlobalesTableComponent implements OnInit {
     this.globales = await this.TablaGlobalesService.getGlobales();
   }
 
-  async confirm_edit(globales: Globales) {
+  async confirm_edit(globales: XGlobalTableDto) {
     try {
       this.edit(globales);
 
@@ -96,17 +96,17 @@ export class TablasGlobalesTableComponent implements OnInit {
     }
   }
 
-  async edit(globales: Globales) {
+  async edit(globales: XGlobalTableDto) {
     // TODO: PETICIÓN A BACKEND PARA EDITAR
     console.error('Edit object:', globales);
   }
 
-  async delete(globales: Globales) {
+  async delete(globales: XGlobalTableDto) {
     // TODO: PETICIÓN BACKEND PARA ELIMINAR
     console.error('Delete object,', globales);
   }
 
-  async confirm_delete(globales: Globales) {
+  async confirm_delete(globales: XGlobalTableDto) {
     this._confirmationService.confirm({
       message: '¿Estás seguro de que quieres eliminar esta fila?',
       header: 'Eliminar fila de tablas globales',

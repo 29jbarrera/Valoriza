@@ -1,24 +1,26 @@
 import { Injectable } from '@angular/core';
-import { randAmount, randBrand, randCurrencyName } from '@ngneat/falso';
 
-import { Globales } from './type';
+import { XGlobalTableService, XGlobalTableDto } from '@valoriza/web-commons';
+import { lastValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TablaGlobalesService {
-  constructor() {}
-  async getGlobales(): Promise<Globales[]> {
-    const globales: Globales[] = [];
-    for (let i = 0; i < 100; i++) {
-      globales.push({
-        name: randCurrencyName(),
-        codeLength: randAmount(),
-        accessType: 'Limitado',
-        session: true,
-        task: randBrand(),
-      });
-    }
-    return globales;
+  constructor(private _xGlobalTableService: XGlobalTableService) {}
+  async getGlobales(): Promise<XGlobalTableDto[]> {
+    const response = await lastValueFrom(this._xGlobalTableService.apiV2XGlobalTableGet());
+    return response.results;
+    // const globales: Globales[] = [];
+    // for (let i = 0; i < 100; i++) {
+    //   globales.push({
+    //     name: randCurrencyName(),
+    //     codeLength: randAmount(),
+    //     accessType: 'Limitado',
+    //     session: true,
+    //     task: randBrand(),
+    //   });
+    // }
+    // return globales;
   }
 }
