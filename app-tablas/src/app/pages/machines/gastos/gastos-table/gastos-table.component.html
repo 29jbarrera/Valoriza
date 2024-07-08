@@ -179,18 +179,18 @@
         <td>
           <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(gastosTaller)"/>
         </td>
-        <td>{{ gastosTaller.centerProvider }}</td>
-        <td>{{ gastosTaller.delegation }}</td>
-        <td>{{ gastosTaller.date | date : "dd/MM/yyyy" }}</td>
-        <td>{{ gastosTaller.provider }}</td>
-        <td>{{ gastosTaller.amount }}</td>
-        <td>{{ gastosTaller.currency }}</td>
-        <td>{{ gastosTaller.materialReference }}</td>
-        <td>{{ gastosTaller.descriptionRefMaterial }}</td>
-        <td>{{ gastosTaller.quantity }}</td>
-        <td>{{ gastosTaller.switchableCost }}</td>
-        <td>{{ gastosTaller.description }}</td>
-        <td>{{ gastosTaller.deliveryNote }}</td>
+        <td>{{ gastosTaller.centro.codigo }}</td>
+        <td>{{ gastosTaller.empresa.nombre  }}</td>
+        <td>{{ gastosTaller.fecha }}</td>
+        <td>{{ gastosTaller.proveedor.empresa.nombre }}</td>
+        <td>{{ gastosTaller.importe }}</td>
+        <td>{{ gastosTaller.codMoneda }}</td>
+        <td>{{ gastosTaller.idReferenciaMaterial }}</td>
+        <td>{{ gastosTaller.descripcion }}</td>
+        <td>{{ gastosTaller.cantidad }}</td>
+        <td>{{ gastosTaller.gastoConmutable }}</td>
+        <td>{{ gastosTaller.descripcion }}</td>
+        <td>{{ gastosTaller.factura }}</td>
         <td>{{ gastosTaller.file }}</td>
       </tr>
     </ng-template>

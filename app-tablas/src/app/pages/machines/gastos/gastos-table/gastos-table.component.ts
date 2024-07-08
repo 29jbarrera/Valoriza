@@ -7,8 +7,6 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { GastosTaller } from '../type';
-
 import { GastosService } from '../gastos.service';
 
 import { TableModule } from 'primeng/table';
@@ -26,6 +24,7 @@ import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { FilterGastosPipe } from '../gastos.pipe';
+import { GastosTallerDto } from '@valoriza/web-commons';
 
 @Component({
   selector: 'app-gastos-table',
@@ -54,7 +53,7 @@ import { FilterGastosPipe } from '../gastos.pipe';
   providers: [ConfirmationService, MessageService],
 })
 export class GastosTableComponent implements OnInit {
-  public gastosTaller: GastosTaller[] = [];
+  public gastosTaller: GastosTallerDto[] = [];
   searchForm: FormGroup;
 
   public search_term: any = '';
@@ -94,12 +93,11 @@ export class GastosTableComponent implements OnInit {
     this.updateTable();
   }
 
-
   async updateTable() {
     this.gastosTaller = await this.GastosService.getGastos();
   }
 
-  async confirm_edit(gastosTaller: GastosTaller) {
+  async confirm_edit(gastosTaller: GastosTallerDto) {
     try {
       this.edit(gastosTaller);
 
@@ -119,17 +117,17 @@ export class GastosTableComponent implements OnInit {
     }
   }
 
-  async edit(gastosTaller: GastosTaller) {
+  async edit(gastosTaller: GastosTallerDto) {
     // TODO: PETICIÓN A BACKEND PARA EDITAR
     console.error('Edit object:', gastosTaller);
   }
 
-  async delete(gastosTaller: GastosTaller) {
+  async delete(gastosTaller: GastosTallerDto) {
     // TODO: PETICIÓN BACKEND PARA ELIMINAR
     console.error('Delete object,', gastosTaller);
   }
 
-  async confirm_delete(gastosTaller: GastosTaller) {
+  async confirm_delete(gastosTaller: GastosTallerDto) {
     this._confirmationService.confirm({
       message: '¿Estás seguro de que quieres eliminar esta fila?',
       header: 'Eliminar fila de gastos',
