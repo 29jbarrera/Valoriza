@@ -12,74 +12,74 @@
       <tr>
         <th></th>
         <th></th>
-        <th pSortableColumn="machinery">
+        <th pSortableColumn="maquinaria.matricula ">
           <div>
-            <p-sortIcon class="order" field="machinery" />
+            <p-sortIcon class="order" field="maquinaria.matricula " />
             Maquinaria
             <p-columnFilter
               class="filter"
               type="text"
-              field="machinery"
+              field="maquinaria.matricula "
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="centerName">
+        <th pSortableColumn="maquinaria.empresa.nombre">
           <div>
-            <p-sortIcon class="order" field="centerName" />
+            <p-sortIcon class="order" field="maquinaria.empresa.nombre" />
             Nombre del centro
             <p-columnFilter
               class="filter"
               type="text"
-              field="centerName"
+              field="maquinaria.empresa.nombre"
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="delegation">
+        <th pSortableColumn="maquinaria.empresa.direccion ">
           <div>
-            <p-sortIcon class="order" field="delegation" />
+            <p-sortIcon class="order" field="maquinaria.empresa.direccion " />
             Delegación
             <p-columnFilter
               class="filter"
               type="text"
-              field="delegation"
+              field="maquinaria.empresa.direccion "
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="family">
+        <th pSortableColumn="maquinaria.servicio ">
           <div>
-            <p-sortIcon class="order" field="family" />
+            <p-sortIcon class="order" field="maquinaria.servicio " />
             Familia
             <p-columnFilter
               class="filter"
               type="text"
-              field="family"
+              field="maquinaria.servicio "
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="subFamily">
+        <th pSortableColumn="maquinaria.subfamilia.changedAt">
           <div>
-            <p-sortIcon class="order" field="subFamily" />
+            <p-sortIcon class="order" field="maquinaria.subfamilia.changedAt" />
             Subfamilia
             <p-columnFilter
               class="filter"
               type="text"
-              field="subFamily"
+              field="maquinaria.subfamilia.changedAt"
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="nextDate">
+        <th pSortableColumn="maquinaria.seguro.fechaFin">
           <div>
-            <p-sortIcon class="order" field="nextDate" />
+            <p-sortIcon class="order" field="maquinaria.seguro.fechaFin" />
             Fecha Próxima
             <p-columnFilter
               class="filter"
               type="text"
-              field="nextDate"
+              field="maquinaria.seguro.fechaFin"
               display="menu"
             ></p-columnFilter>
           </div>
@@ -94,12 +94,12 @@
         <td>
           <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(gnc)"/>
         </td>
-        <td>{{ gnc.machinery }}</td>
-        <td>{{ gnc.centerName }}</td>
-        <td>{{ gnc.delegation }}</td>
-        <td>{{ gnc.family }}</td>
-        <td>{{ gnc.subFamily }}</td>
-        <td>{{ gnc.nextDate | date : "dd/MM/yyyy" }}</td>
+        <td>{{ gnc.maquinaria.matricula }}</td>
+        <td>{{ gnc.maquinaria.empresa.nombre }}</td>
+        <td>{{ gnc.maquinaria.empresa.direccion }}</td>
+        <td>{{ gnc.maquinaria.servicio }}</td>
+        <td>{{ gnc.maquinaria.subfamilia.changedAt }}</td>
+        <td>{{ gnc.maquinaria.seguro.fechaFin}}</td>
       </tr>
     </ng-template>
     <ng-template pTemplate="footer">

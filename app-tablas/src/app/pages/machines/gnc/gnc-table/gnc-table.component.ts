@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { Gnc } from '../type';
+import { GncDto } from '@valoriza/web-commons';
 import { GncService } from '../gnc.service';
 
 import { TableModule } from 'primeng/table';
@@ -24,6 +24,7 @@ import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService, MessageService } from 'primeng/api';
+
 
 @Component({
   selector: 'app-gnc-table',
@@ -51,7 +52,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
   providers: [ConfirmationService, MessageService],
 })
 export class GncTableComponent implements OnInit {
-  gnc: Gnc[] = [];
+  gnc: GncDto[] = [];
   searchForm: FormGroup;
   constructor(
     private GncService: GncService,
@@ -76,7 +77,7 @@ export class GncTableComponent implements OnInit {
     this.gnc = await this.GncService.getGnc();
   }
 
-  async confirm_edit(gnc: Gnc) {
+  async confirm_edit(gnc: GncDto) {
     try {
       this.edit(gnc);
 
@@ -96,17 +97,17 @@ export class GncTableComponent implements OnInit {
     }
   }
 
-  async edit(gnc: Gnc) {
+  async edit(gnc: GncDto) {
     // TODO: PETICIÓN A BACKEND PARA EDITAR
     console.error('Edit object:', gnc);
   }
 
-  async delete(gnc: Gnc) {
+  async delete(gnc: GncDto) {
     // TODO: PETICIÓN BACKEND PARA ELIMINAR
     console.error('Delete object,', gnc);
   }
 
-  async confirm_delete(gnc: Gnc) {
+  async confirm_delete(gnc: GncDto) {
     this._confirmationService.confirm({
       message: '¿Estás seguro de que quieres eliminar esta fila?',
       header: 'Eliminar fila de GNC',
