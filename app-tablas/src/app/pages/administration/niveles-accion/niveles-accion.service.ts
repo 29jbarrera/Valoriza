@@ -1,21 +1,31 @@
 import { Injectable } from '@angular/core';
-import { randCurrencyName, randVehicleModel } from '@ngneat/falso';
 
-import { NivelesAccion } from './type';
+import {
+  NivelesMantenimientoAccioneDto,
+  NivelesMantenimientoAccioneService,
+} from '@valoriza/web-commons';
+import { lastValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class NivelesAccionService {
-  constructor() {}
-  async getNivelesAccion(): Promise<NivelesAccion[]> {
-    const nivelesAccion: NivelesAccion[] = [];
-    for (let i = 0; i < 100; i++) {
-      nivelesAccion.push({
-        action: randCurrencyName(),
-        group: randVehicleModel(),
-      });
-    }
-    return nivelesAccion;
+  constructor(
+    private _nivelesMantenimientoAccionesService: NivelesMantenimientoAccioneService
+  ) {}
+  async getNivelesAccion(): Promise<NivelesMantenimientoAccioneDto[]> {
+    const response = await lastValueFrom(
+      this._nivelesMantenimientoAccionesService.apiV2NivelesMantenimientoAccioneGet()
+    );
+    return response.results;
+
+    // const nivelesAccion: NivelesAccion[] = [];
+    // for (let i = 0; i < 100; i++) {
+    //   nivelesAccion.push({
+    //     action: randCurrencyName(),
+    //     group: randVehicleModel(),
+    //   });
+    // }
+    // return nivelesAccion;
   }
 }

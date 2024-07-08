@@ -11,26 +11,26 @@
       <tr>
         <th></th>
         <th></th>
-        <th pSortableColumn="action">
+        <th pSortableColumn="idGrupo">
           <div>
-            <p-sortIcon class="order" field="action" />
+            <p-sortIcon class="order" field="idGrupo" />
             Acción
             <p-columnFilter
               class="filter"
               type="text"
-              field="action"
+              field="idGrupo"
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="group">
+        <th pSortableColumn="grupo.nombre ">
           <div>
-            <p-sortIcon class="order" field="group" />
+            <p-sortIcon class="order" field="grupo.nombre " />
             Grupo
             <p-columnFilter
               class="filter"
               type="text"
-              field="group"
+              field="grupo.nombre "
               display="menu"
             ></p-columnFilter>
           </div>
@@ -45,8 +45,8 @@
         <td>
           <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(nivelesAccion)"/>
         </td>
-        <td>{{ nivelesAccion.action }}</td>
-        <td>{{ nivelesAccion.group }}</td>
+        <td>{{ nivelesAccion.idGrupo }}</td>
+        <td>{{ nivelesAccion.grupo.nombre }}</td>
       </tr>
     </ng-template>
     <ng-template pTemplate="footer">

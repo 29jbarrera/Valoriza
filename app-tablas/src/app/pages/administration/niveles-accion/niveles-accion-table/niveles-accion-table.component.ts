@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { NivelesAccion } from '../type';
+import { NivelesMantenimientoAccioneDto } from '@valoriza/web-commons';
 import { NivelesAccionService } from '../niveles-accion.service';
 
 import { TableModule } from 'primeng/table';
@@ -51,7 +51,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
   providers: [ConfirmationService, MessageService],
 })
 export class NivelesAccionTableComponent implements OnInit {
-  nivelesAccion: NivelesAccion[] = [];
+  nivelesAccion: NivelesMantenimientoAccioneDto[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -73,7 +73,7 @@ export class NivelesAccionTableComponent implements OnInit {
     this.nivelesAccion = await this.NivelesAccionService.getNivelesAccion();
   }
 
-  async confirm_edit(nivelesAccion: NivelesAccion) {
+  async confirm_edit(nivelesAccion: NivelesMantenimientoAccioneDto) {
     try {
       this.edit(nivelesAccion);
 
@@ -93,17 +93,17 @@ export class NivelesAccionTableComponent implements OnInit {
     }
   }
 
-  async edit(nivelesAccion: NivelesAccion) {
+  async edit(nivelesAccion: NivelesMantenimientoAccioneDto) {
     // TODO: PETICIÓN A BACKEND PARA EDITAR
     console.error('Edit object:', nivelesAccion);
   }
 
-  async delete(nivelesAccion: NivelesAccion) {
+  async delete(nivelesAccion: NivelesMantenimientoAccioneDto) {
     // TODO: PETICIÓN BACKEND PARA ELIMINAR
     console.error('Delete object,', nivelesAccion);
   }
 
-  async confirm_delete(nivelesAccion: NivelesAccion) {
+  async confirm_delete(nivelesAccion: NivelesMantenimientoAccioneDto) {
     this._confirmationService.confirm({
       message: '¿Estás seguro de que quieres eliminar esta fila?',
       header: 'Eliminar fila de Niveles de acción',
