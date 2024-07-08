@@ -12,38 +12,38 @@
       <tr>
         <th></th>
         <th></th>
-        <th pSortableColumn="codTipoReparacion">
+        <th pSortableColumn="centro.nombre ">
           <div>
-            <p-sortIcon class="order" field="codTipoReparacion" />
-            Reparación
+            <p-sortIcon class="order" field="centro.nombre " />
+            Centro reparación
             <p-columnFilter
               class="filter"
               type="text"
-              field="codTipoReparacion"
+              field="centro.nombre "
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="idMaquinaria">
+        <th pSortableColumn="maquinaria.matricula ">
           <div>
-            <p-sortIcon class="order" field="idMaquinaria" />
+            <p-sortIcon class="order" field="maquinaria.matricula " />
             Maquinaria
             <p-columnFilter
               class="filter"
               type="text"
-              field="idMaquinaria"
+              field="maquinaria.matricula "
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="typeAction">
+        <th pSortableColumn="codTipoReparacion">
           <div>
-            <p-sortIcon class="order" field="typeAction" />
+            <p-sortIcon class="order" field="codTipoReparacion" />
             Tipo Acción
             <p-columnFilter
               class="filter"
               type="text"
-              field="typeAction"
+              field="codTipoReparacion"
               display="menu"
             ></p-columnFilter>
           </div>
@@ -143,10 +143,10 @@
         <td>
           <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(reparaciones)"/>
         </td>
+        <td>{{ reparaciones.centro.nombre }}</td>
+        <td>{{ reparaciones.maquinaria.matricula }}</td>
+        <!-- TODO: ADD TIPO DE MANTINIMIENTO Y  ALBARÁN -->
         <td>{{ reparaciones.codTipoReparacion }}</td>
-        <td>{{ reparaciones.idMaquinaria }}</td>
-        <!-- TODO: add tipo acción, tipo mantenimiento, albarán -->
-        <td>{{ reparaciones }}</td>
         <td>{{ reparaciones }}</td>
         <td>{{ reparaciones.fecha }}</td>
         <td>{{ reparaciones.proveedor.nombre }}</td>

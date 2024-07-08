@@ -12,14 +12,14 @@
       <tr>
         <th></th>
         <th></th>
-        <th pSortableColumn="codigo">
+        <th pSortableColumn="centro.nombre ">
           <div>
-            <p-sortIcon class="order" field="codigo" />
+            <p-sortIcon class="order" field="centro.nombre " />
             Centro
             <p-columnFilter
               class="filter"
               type="text"
-              field="codigo"
+              field="centro.nombre "
               display="menu"
             ></p-columnFilter>
           </div>
@@ -70,7 +70,7 @@
             (click)="confirm_delete(instalaciones)"
           />
         </td>
-        <td>{{ instalaciones.centro.codigo }}</td>
+        <td>{{ instalaciones.centro.nombre }}</td>
         <td>{{ instalaciones.nombre }}</td>
         <td>{{ instalaciones.comentarios }}</td>
       </tr>

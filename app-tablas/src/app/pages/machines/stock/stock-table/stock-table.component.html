@@ -12,38 +12,38 @@
       <tr>
         <th></th>
         <th></th>
-        <th pSortableColumn="codigo">
+        <th pSortableColumn="centro.grupoCentro.nombre">
           <div>
-            <p-sortIcon class="order" field="codigo" />
+            <p-sortIcon class="order" field="centro.grupoCentro.nombre" />
             Centro
             <p-columnFilter
               class="filter"
               type="text"
-              field="codigo"
+              field="centro.grupoCentro.nombre"
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="codigoCategoria">
+        <th pSortableColumn="referenciaMaterial.codigoCategoria ">
           <div>
-            <p-sortIcon class="order" field="codigoCategoria" />
+            <p-sortIcon class="order" field="referenciaMaterial.codigoCategoria " />
             Material
             <p-columnFilter
               class="filter"
               type="text"
-              field="codigoCategoria"
+              field="referenciaMaterial.codigoCategoria "
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="descripcion">
+        <th pSortableColumn="referenciaMaterial.descripcion">
           <div>
-            <p-sortIcon class="order" field="descripcion" />
+            <p-sortIcon class="order" field="referenciaMaterial.descripcion" />
             Descripción
             <p-columnFilter
               class="filter"
               type="text"
-              field="descripcion"
+              field="referenciaMaterial.descripcion"
               display="menu"
             ></p-columnFilter>
           </div>
@@ -94,7 +94,7 @@
         <td>
           <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(stock)"/>
         </td>
-        <td>{{ stock.centro.codigo }}</td>
+        <td>{{ stock.centro.grupoCentro.nombre }}</td>
         <td>{{ stock.referenciaMaterial.codigoCategoria }}</td>
         <td>{{ stock.referenciaMaterial.descripcion }}</td>
         <td>{{ stock.cantidad }}</td>

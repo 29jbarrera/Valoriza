@@ -12,147 +12,147 @@
       <tr>
         <th></th>
         <th></th>
-        <th pSortableColumn="centerProvider">
+        <th pSortableColumn="proveedor.empresa.nombre">
           <div>
-            <p-sortIcon class="order" field="centerProvider" />
-            Centro
+            <p-sortIcon class="order" field="proveedor.empresa.nombre" />
+            Centro proveedor
             <p-columnFilter
               class="filter"
               type="text"
-              field="centerProvider"
+              field="proveedor.empresa.nombre"
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
 
-        <th pSortableColumn="delegation">
+        <th pSortableColumn="empresa.nombre ">
           <div>
-            <p-sortIcon class="order" field="delegation" />
+            <p-sortIcon class="order" field="empresa.nombre " />
             Delegación
             <p-columnFilter
               class="filter"
               type="text"
-              field="delegation"
+              field="empresa.nombre "
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="date">
+        <th pSortableColumn="fecha">
           <div>
-            <p-sortIcon class="order" field="date" />
+            <p-sortIcon class="order" field="fecha" />
             Fecha
             <p-columnFilter
               class="filter"
               type="text"
-              field="date"
+              field="fecha"
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="provider">
+        <th pSortableColumn="proveedor.nombre ">
           <div>
-            <p-sortIcon class="order" field="provider" />
+            <p-sortIcon class="order" field="proveedor.nombre " />
             Proveedor
             <p-columnFilter
               class="filter"
               type="text"
-              field="provider"
+              field="proveedor.nombre "
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="amount">
+        <th pSortableColumn="importe">
           <div>
-            <p-sortIcon class="order" field="amount" />
+            <p-sortIcon class="order" field="importe" />
             Importe
             <p-columnFilter
               class="filter"
               type="text"
-              field="amount"
+              field="importe"
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="currency">
+        <th pSortableColumn="codMoneda">
           <div>
-            <p-sortIcon class="order" field="currency" />
+            <p-sortIcon class="order" field="codMoneda" />
             Divisa
             <p-columnFilter
               class="filter"
               type="text"
-              field="currency"
+              field="codMoneda"
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="materialReference">
+        <th pSortableColumn="idReferenciaMaterial">
           <div>
-            <p-sortIcon class="order" field="materialReference" />
+            <p-sortIcon class="order" field="idReferenciaMaterial" />
             Material Ref.
             <p-columnFilter
               class="filter"
               type="text"
-              field="materialReference"
+              field="idReferenciaMaterial"
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="descriptionRefMaterial">
+        <th pSortableColumn="descripcion">
           <div>
-            <p-sortIcon class="order" field="descriptionRefMaterial" />
+            <p-sortIcon class="order" field="descripcion" />
             Description Ref.
             <p-columnFilter
               class="filter"
               type="text"
-              field="descriptionRefMaterial"
+              field="descripcion"
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="quantity">
+        <th pSortableColumn="cantidad">
           <div>
-            <p-sortIcon class="order" field="quantity" />
+            <p-sortIcon class="order" field="cantidad" />
             Cantidad
             <p-columnFilter
               class="filter"
               type="text"
-              field="quantity"
+              field="cantidad"
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="switchableCost">
+        <th pSortableColumn="gastoConmutable">
           <div>
-            <p-sortIcon class="order" field="switchableCost" />
-            switchableCost
+            <p-sortIcon class="order" field="gastoConmutable" />
+            Gasto conmutable
             <p-columnFilter
               class="filter"
               type="text"
-              field="switchableCost"
+              field="gastoConmutable"
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="description">
+        <th pSortableColumn="descripcion">
           <div>
-            <p-sortIcon class="order" field="description" />
+            <p-sortIcon class="order" field="descripcion" />
             Descripción
             <p-columnFilter
               class="filter"
               type="text"
-              field="description"
+              field="descripcion"
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="deliveryNote">
+        <th pSortableColumn="factura">
           <div>
-            <p-sortIcon class="order" field="deliveryNote" />
+            <p-sortIcon class="order" field="factura" />
             Albarán
             <p-columnFilter
               class="filter"
               type="text"
-              field="deliveryNote"
+              field="factura"
               display="menu"
             ></p-columnFilter>
           </div>
@@ -179,10 +179,10 @@
         <td>
           <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(gastosTaller)"/>
         </td>
-        <td>{{ gastosTaller.centro.codigo }}</td>
+        <td>{{ gastosTaller.proveedor.empresa.nombre }}</td>
         <td>{{ gastosTaller.empresa.nombre  }}</td>
         <td>{{ gastosTaller.fecha }}</td>
-        <td>{{ gastosTaller.proveedor.empresa.nombre }}</td>
+        <td>{{ gastosTaller.proveedor.nombre }}</td>
         <td>{{ gastosTaller.importe }}</td>
         <td>{{ gastosTaller.codMoneda }}</td>
         <td>{{ gastosTaller.idReferenciaMaterial }}</td>
@@ -191,7 +191,7 @@
         <td>{{ gastosTaller.gastoConmutable }}</td>
         <td>{{ gastosTaller.descripcion }}</td>
         <td>{{ gastosTaller.factura }}</td>
-        <td>{{ gastosTaller.file }}</td>
+        <td>{{ gastosTaller }}</td>
       </tr>
     </ng-template>
     <ng-template pTemplate="footer">

@@ -12,50 +12,50 @@
       <tr>
         <th></th>
         <th></th>
-        <th pSortableColumn="machinery">
+        <th pSortableColumn="maquinaria.matricula ">
           <div>
-            <p-sortIcon class="order" field="machinery" />
+            <p-sortIcon class="order" field="maquinaria.matricula " />
             Maquinaria
             <p-columnFilter
               class="filter"
               type="text"
-              field="machinery"
+              field="maquinaria.matricula "
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="center">
+        <th pSortableColumn="centroCompra.nombre ">
           <div>
-            <p-sortIcon class="order" field="center" />
+            <p-sortIcon class="order" field="centroCompra.nombre " />
             Centro
             <p-columnFilter
               class="filter"
               type="text"
-              field="center"
+              field="centroCompra.nombre "
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="delegacion">
+        <th pSortableColumn="empresa.nombre">
           <div>
-            <p-sortIcon class="order" field="delegation" />
+            <p-sortIcon class="order" field="empresa.nombre" />
             Delegación
             <p-columnFilter
               class="filter"
               type="text"
-              field="delegation"
+              field="empresa.nombre"
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="family">
+        <th pSortableColumn="familia.empresa.nombre">
           <div>
-            <p-sortIcon class="order" field="family" />
+            <p-sortIcon class="order" field="familia.empresa.nombre" />
             Familia
             <p-columnFilter
               class="filter"
               type="text"
-              field="family"
+              field="familia.empresa.nombre"
               display="menu"
             ></p-columnFilter>
           </div>
@@ -72,14 +72,14 @@
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="nextDate">
+        <th pSortableColumn="fecha">
           <div>
-            <p-sortIcon class="order" field="nextDate" />
+            <p-sortIcon class="order" field="fecha" />
             Fecha Próxima
             <p-columnFilter
               class="filter"
               type="text"
-              field="nextDate"
+              field="fecha"
               display="menu"
             ></p-columnFilter>
           </div>
@@ -95,13 +95,13 @@
         <td>
           <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(tacografos)"/>
         </td>
-        <!-- TODO: AÑADIR TIPOS CORRECTO DE OBJETO -->
-        <td>{{ tacografos.machinery }}</td>
-        <td>{{ tacografos.maquinaria.idCentro }}</td>
-        <td>{{ tacografos.delegation }}</td>
-        <td>{{ tacografos.maquinaria.familia }}</td>
-        <td>{{ tacografos.subFamily }}</td>
-        <td>{{ tacografos.nextDate}}</td>
+        <td>{{ tacografos.maquinaria.matricula }}</td>
+        <td>{{ tacografos.maquinaria.centroCompra.nombre }}</td>
+        <td>{{ tacografos.empresa.nombre }}</td>
+        <td>{{ tacografos.maquinaria.familia.empresa.nombre }}</td>
+        <!-- TODO: AÑADIR SUBFAMILIA -->
+        <td>{{ tacografos }}</td>
+        <td>{{ tacografos.fecha}}</td>
       </tr>
     </ng-template>
     <ng-template pTemplate="footer">

@@ -12,38 +12,38 @@
       <tr>
         <th></th>
         <th></th>
-        <th pSortableColumn="machinery">
+        <th pSortableColumn="idGrua">
           <div>
-            <p-sortIcon class="order" field="machinery" />
+            <p-sortIcon class="order" field="idGrua" />
             Maquinaria
             <p-columnFilter
               class="filter"
               type="text"
-              field="machinery"
+              field="idGrua"
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="center">
+        <th pSortableColumn="nombre">
           <div>
-            <p-sortIcon class="order" field="center" />
+            <p-sortIcon class="order" field="nombre" />
             Centro
             <p-columnFilter
               class="filter"
               type="text"
-              field="center"
+              field="nombre"
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="delegation">
+        <th pSortableColumn="grua.idEmpresa ">
           <div>
-            <p-sortIcon class="order" field="delegation" />
+            <p-sortIcon class="order" field="grua.idEmpresa " />
             Delegación
             <p-columnFilter
               class="filter"
               type="text"
-              field="delegation"
+              field="grua.idEmpresa "
               display="menu"
             ></p-columnFilter>
           </div>
@@ -72,14 +72,14 @@
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="nextDate">
+        <th pSortableColumn="grua.fecha">
           <div>
-            <p-sortIcon class="order" field="nextDate" />
+            <p-sortIcon class="order" field="grua.fecha" />
             Fecha Próxima
             <p-columnFilter
               class="filter"
               type="text"
-              field="nextDate"
+              field="grua.fecha"
               display="menu"
             ></p-columnFilter>
           </div>
@@ -94,11 +94,12 @@
         <td>
           <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(gruas)"/>
         </td>
-        <td>{{ gruas.grua.idMaquinaria }}</td>
+        <td>{{ gruas.idGrua }}</td>
         <td>{{ gruas.nombre }}</td>
         <td>{{ gruas.grua.idEmpresa }}</td>
-        <td>{{ gruas.family }}</td>
-        <td>{{ gruas.subFamily }}</td>
+        <!-- TODO: ADD FAMILIA Y SUBFAMILIA -->
+        <td>{{ gruas }}</td>
+        <td>{{ gruas }}</td>
         <td>{{ gruas.grua.fecha }}</td>
       </tr>
     </ng-template>
