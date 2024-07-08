@@ -1,0 +1,1 @@
+docker run -v "$PWD/swagger.json:/app/schema.json" -p "5000:5000" jormaechea/open-api-mocker
