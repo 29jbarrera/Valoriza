@@ -12,26 +12,26 @@
       <tr>
         <th></th>
         <th></th>
-        <th pSortableColumn="repairCentre">
+        <th pSortableColumn="codTipoReparacion">
           <div>
-            <p-sortIcon class="order" field="repairCentre" />
+            <p-sortIcon class="order" field="codTipoReparacion" />
             Reparación
             <p-columnFilter
               class="filter"
               type="text"
-              field="repairCentre"
+              field="codTipoReparacion"
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="machinery">
+        <th pSortableColumn="idMaquinaria">
           <div>
-            <p-sortIcon class="order" field="machinery" />
+            <p-sortIcon class="order" field="idMaquinaria" />
             Maquinaria
             <p-columnFilter
               class="filter"
               type="text"
-              field="machinery"
+              field="idMaquinaria"
               display="menu"
             ></p-columnFilter>
           </div>
@@ -60,74 +60,74 @@
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="date">
+        <th pSortableColumn="fecha">
           <div>
-            <p-sortIcon class="order" field="date" />
+            <p-sortIcon class="order" field="fecha" />
             Fecha
             <p-columnFilter
               class="filter"
               type="text"
-              field="date"
+              field="fecha"
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="supplier">
+        <th pSortableColumn="proveedor.nombre">
           <div>
-            <p-sortIcon class="order" field="supplier" />
+            <p-sortIcon class="order" field="proveedor.nombre" />
             Proveedor
             <p-columnFilter
               class="filter"
               type="text"
-              field="supplier"
+              field="proveedor.nombre"
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="deliveryNote">
+        <th pSortableColumn="maquinaria.impuesto.importe">
           <div>
-            <p-sortIcon class="order" field="deliveryNote" />
+            <p-sortIcon class="order" field="maquinaria.impuesto.importe" />
             Albaran
             <p-columnFilter
               class="filter"
               type="text"
-              field="deliveryNote"
+              field="maquinaria.impuesto.importe"
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="cost">
+        <th pSortableColumn="maquinaria.impuesto.importe ">
           <div>
-            <p-sortIcon class="order" field="cost" />
+            <p-sortIcon class="order" field="maquinaria.impuesto.importe " />
             Coste
             <p-columnFilter
               class="filter"
               type="text"
-              field="cost"
+              field="maquinaria.impuesto.importe "
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="currency">
+        <th pSortableColumn="maquinaria.codMoneda ">
           <div>
-            <p-sortIcon class="order" field="currency" />
+            <p-sortIcon class="order" field="maquinaria.codMoneda " />
             Divisa
             <p-columnFilter
               class="filter"
               type="text"
-              field="currency"
+              field="maquinaria.codMoneda "
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="description">
+        <th pSortableColumn="comentarios">
           <div>
-            <p-sortIcon class="order" field="description" />
+            <p-sortIcon class="order" field="comentarios" />
             Descripción
             <p-columnFilter
               class="filter"
               type="text"
-              field="description"
+              field="comentarios"
               display="menu"
             ></p-columnFilter>
           </div>
@@ -143,16 +143,17 @@
         <td>
           <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(reparaciones)"/>
         </td>
-        <td>{{ reparaciones.repairCentre }}</td>
-        <td>{{ reparaciones.machinery }}</td>
-        <td>{{ reparaciones.typeAction }}</td>
-        <td>{{ reparaciones.typeMaintenance }}</td>
-        <td>{{ reparaciones.date | date : "dd/MM/yyyy" }}</td>
-        <td>{{ reparaciones.supplier }}</td>
-        <td>{{ reparaciones.deliveryNote }}</td>
-        <td>{{ reparaciones.cost }}</td>
-        <td>{{ reparaciones.currency }}</td>
-        <td>{{ reparaciones.description }}</td>
+        <td>{{ reparaciones.codTipoReparacion }}</td>
+        <td>{{ reparaciones.idMaquinaria }}</td>
+        <!-- TODO: add tipo acción, tipo mantenimiento, albarán -->
+        <td>{{ reparaciones }}</td>
+        <td>{{ reparaciones }}</td>
+        <td>{{ reparaciones.fecha }}</td>
+        <td>{{ reparaciones.proveedor.nombre }}</td>
+        <td>{{ reparaciones }}</td>
+        <td>{{ reparaciones.maquinaria.impuesto.importe }}</td>
+        <td>{{ reparaciones.maquinaria.codMoneda }}</td>
+        <td>{{ reparaciones.comentarios }}</td>
       </tr>
     </ng-template>
     <ng-template pTemplate="footer">

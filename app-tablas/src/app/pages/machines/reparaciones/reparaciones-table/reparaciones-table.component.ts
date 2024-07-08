@@ -8,7 +8,7 @@ import {
 import { CommonModule } from '@angular/common';
 
 import { ReparacionesService } from '../reparaciones.service';
-import { Reparaciones } from '../type';
+import { ReparacioneDto } from '@valoriza/web-commons';
 
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
@@ -51,7 +51,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
   providers: [ConfirmationService, MessageService],
 })
 export class ReparacionesTableComponent implements OnInit {
-  reparaciones: Reparaciones[] = [];
+  reparaciones: ReparacioneDto[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -82,7 +82,7 @@ export class ReparacionesTableComponent implements OnInit {
     this.reparaciones = await this.ReparacionesService.getReparaciones();
   }
 
-  async confirm_edit(reparaciones: Reparaciones) {
+  async confirm_edit(reparaciones: ReparacioneDto) {
     try {
       this.edit(reparaciones);
 
@@ -102,17 +102,17 @@ export class ReparacionesTableComponent implements OnInit {
     }
   }
 
-  async edit(reparaciones: Reparaciones) {
+  async edit(reparaciones: ReparacioneDto) {
     // TODO: PETICIÓN A BACKEND PARA EDITAR
     console.error('Edit object:', reparaciones);
   }
 
-  async delete(reparaciones: Reparaciones) {
+  async delete(reparaciones: ReparacioneDto) {
     // TODO: PETICIÓN BACKEND PARA ELIMINAR
     console.error('Delete object,', reparaciones);
   }
 
-  async confirm_delete(reparaciones: Reparaciones) {
+  async confirm_delete(reparaciones: ReparacioneDto) {
     this._confirmationService.confirm({
       message: '¿Estás seguro de que quieres eliminar esta fila?',
       header: 'Eliminar fila de reparaciones',
