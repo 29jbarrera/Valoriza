@@ -94,12 +94,12 @@
         <td>
           <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(gruas)"/>
         </td>
-        <td>{{ gruas.machinery }}</td>
-        <td>{{ gruas.center }}</td>
-        <td>{{ gruas.delegation }}</td>
+        <td>{{ gruas.grua.idMaquinaria }}</td>
+        <td>{{ gruas.nombre }}</td>
+        <td>{{ gruas.grua.idEmpresa }}</td>
         <td>{{ gruas.family }}</td>
         <td>{{ gruas.subFamily }}</td>
-        <td>{{ gruas.nextDate }}</td>
+        <td>{{ gruas.grua.fecha }}</td>
       </tr>
     </ng-template>
     <ng-template pTemplate="footer">

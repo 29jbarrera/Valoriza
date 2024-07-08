@@ -3,13 +3,13 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 import { GruasService } from '../gruas.service';
-import { Gruas } from '../type';
 
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { GruasDocDto } from '@valoriza/web-commons';
 
 @Component({
   selector: 'app-gruas-table',
@@ -26,7 +26,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
   providers: [ConfirmationService, MessageService],
 })
 export class GruasTableComponent implements OnInit {
-  gruas: Gruas[] = [];
+  gruas: GruasDocDto[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -53,7 +53,7 @@ export class GruasTableComponent implements OnInit {
     this.gruas = await this.GruasService.getGruas();
   }
 
-  async confirm_edit(gruas: Gruas) {
+  async confirm_edit(gruas: GruasDocDto) {
     try {
       this.edit(gruas);
 
@@ -73,17 +73,17 @@ export class GruasTableComponent implements OnInit {
     }
   }
 
-  async edit(gruas: Gruas) {
+  async edit(gruas: GruasDocDto) {
     // TODO: PETICIÓN A BACKEND PARA EDITAR
     console.error('Edit object:', gruas);
   }
 
-  async delete(gruas: Gruas) {
+  async delete(gruas: GruasDocDto) {
     // TODO: PETICIÓN BACKEND PARA ELIMINAR
     console.error('Delete object,', gruas);
   }
 
-  async confirm_delete(gruas: Gruas) {
+  async confirm_delete(gruas: GruasDocDto) {
     this._confirmationService.confirm({
       message: '¿Estás seguro de que quieres eliminar esta fila?',
       header: 'Eliminar fila de Grúas',
