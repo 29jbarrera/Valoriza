@@ -12,74 +12,74 @@
       <tr>
         <th></th>
         <th></th>
-        <th pSortableColumn="centerName">
+        <th pSortableColumn="codigo">
           <div>
-            <p-sortIcon class="order" field="centerName" />
+            <p-sortIcon class="order" field="codigo" />
             Centro
             <p-columnFilter
               class="filter"
               type="text"
-              field="centerName"
+              field="codigo"
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="nameMaterialReference">
+        <th pSortableColumn="codigoCategoria">
           <div>
-            <p-sortIcon class="order" field="nameMaterialReference" />
+            <p-sortIcon class="order" field="codigoCategoria" />
             Material
             <p-columnFilter
               class="filter"
               type="text"
-              field="nameMaterialReference"
+              field="codigoCategoria"
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="descriptionMaterialReference">
+        <th pSortableColumn="descripcion">
           <div>
-            <p-sortIcon class="order" field="descriptionMaterialReference" />
+            <p-sortIcon class="order" field="descripcion" />
             Descripción
             <p-columnFilter
               class="filter"
               type="text"
-              field="descriptionMaterialReference"
+              field="descripcion"
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="quantity">
+        <th pSortableColumn="cantidad">
           <div>
-            <p-sortIcon class="order" field="quantity" />
+            <p-sortIcon class="order" field="cantidad" />
             Cantidad
             <p-columnFilter
               class="filter"
               type="text"
-              field="quantity"
+              field="cantidad"
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="amount">
+        <th pSortableColumn="valor">
           <div>
-            <p-sortIcon class="order" field="amount" />
+            <p-sortIcon class="order" field="valor" />
             Importe
             <p-columnFilter
               class="filter"
               type="text"
-              field="amount"
+              field="valor"
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="currency">
+        <th pSortableColumn="codMoneda">
           <div>
-            <p-sortIcon class="order" field="currency" />
+            <p-sortIcon class="order" field="codMoneda" />
             Divisa
             <p-columnFilter
               class="filter"
               type="text"
-              field="currency"
+              field="codMoneda"
               display="menu"
             ></p-columnFilter>
           </div>
@@ -94,12 +94,12 @@
         <td>
           <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(stock)"/>
         </td>
-        <td>{{ stock.centerName }}</td>
-        <td>{{ stock.nameMaterialReference }}</td>
-        <td>{{ stock.descriptionMaterialReference }}</td>
-        <td>{{ stock.quantity }}</td>
-        <td>{{ stock.amount }}</td>
-        <td>{{ stock.currency }}</td>
+        <td>{{ stock.centro.codigo }}</td>
+        <td>{{ stock.referenciaMaterial.codigoCategoria }}</td>
+        <td>{{ stock.referenciaMaterial.descripcion }}</td>
+        <td>{{ stock.cantidad }}</td>
+        <td>{{ stock.valor }}</td>
+        <td>{{ stock.codMoneda }}</td>
       </tr>
     </ng-template>
     <ng-template pTemplate="footer">

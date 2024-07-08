@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { Instalaciones } from '../type';
 import { InstalacionesService } from '../instalaciones.service';
 
 import { TableModule } from 'primeng/table';
@@ -10,6 +9,7 @@ import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { InstalacioneDto } from '@valoriza/web-commons';
 
 @Component({
   selector: 'app-instalaciones-table',
@@ -26,7 +26,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
   providers: [ConfirmationService, MessageService],
 })
 export class InstalacionesTableComponent implements OnInit {
-  instalaciones: Instalaciones[] = [];
+  instalaciones: InstalacioneDto[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -49,7 +49,7 @@ export class InstalacionesTableComponent implements OnInit {
     this.instalaciones = await this.InstalacionesService.getInstalaciones();
   }
 
-  async confirm_edit(instalaciones: Instalaciones) {
+  async confirm_edit(instalaciones: InstalacioneDto) {
     try {
       this.edit(instalaciones);
 
@@ -69,17 +69,17 @@ export class InstalacionesTableComponent implements OnInit {
     }
   }
 
-  async edit(instalaciones: Instalaciones) {
+  async edit(instalaciones: InstalacioneDto) {
     // TODO: PETICIÓN A BACKEND PARA EDITAR
     console.error('Edit object:', instalaciones);
   }
 
-  async delete(instalaciones: Instalaciones) {
+  async delete(instalaciones: InstalacioneDto) {
     // TODO: PETICIÓN BACKEND PARA ELIMINAR
     console.error('Delete object,', instalaciones);
   }
 
-  async confirm_delete(instalaciones: Instalaciones) {
+  async confirm_delete(instalaciones: InstalacioneDto) {
     this._confirmationService.confirm({
       message: '¿Estás seguro de que quieres eliminar esta fila?',
       header: 'Eliminar fila de instalaciones',

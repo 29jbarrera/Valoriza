@@ -8,7 +8,6 @@ import {
 import { CommonModule } from '@angular/common';
 
 import { StockService } from '../stock.service';
-import { Stock } from '../type';
 
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
@@ -98,7 +97,7 @@ export class StockTableComponent implements OnInit {
     console.log(dt.exportCSV());
   }
 
-  async confirm_edit(stock: Stock) {
+  async confirm_edit(stock: StockDto) {
     try {
       this.edit(stock);
 
@@ -118,17 +117,17 @@ export class StockTableComponent implements OnInit {
     }
   }
 
-  async edit(stock: Stock) {
+  async edit(stock: StockDto) {
     // TODO: PETICIÓN A BACKEND PARA EDITAR
     console.error('Edit object:', stock);
   }
 
-  async delete(stock: Stock) {
+  async delete(stock: StockDto) {
     // TODO: PETICIÓN BACKEND PARA ELIMINAR
     console.error('Delete object,', stock);
   }
 
-  async confirm_delete(stock: Stock) {
+  async confirm_delete(stock: StockDto) {
     this._confirmationService.confirm({
       message: '¿Estás seguro de que quieres eliminar esta fila?',
       header: 'Eliminar fila de stock',

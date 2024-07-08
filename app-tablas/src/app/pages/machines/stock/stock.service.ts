@@ -1,15 +1,10 @@
 import { Injectable } from '@angular/core';
-import {
-  randAmount,
-  randArn,
-  randCurrencyName,
-  randVehicleManufacturer,
-  randVehicleModel,
-} from '@ngneat/falso';
 
-import { Stock } from './type';
 import { lastValueFrom } from 'rxjs';
-import { StockDto, StockService as StockServiceAG } from '@valoriza/web-commons';
+import {
+  StockDto,
+  StockService as StockServiceAG,
+} from '@valoriza/web-commons';
 @Injectable({
   providedIn: 'root',
 })

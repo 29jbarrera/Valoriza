@@ -12,39 +12,39 @@
       <tr>
         <th></th>
         <th></th>
-        <th pSortableColumn="installationCentre">
+        <th pSortableColumn="codigo">
           <div>
-            <p-sortIcon class="order" field="installationCentre" />
+            <p-sortIcon class="order" field="codigo" />
             Centro
             <p-columnFilter
               class="filter"
               type="text"
-              field="installationCentre"
+              field="codigo"
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="name">
+        <th pSortableColumn="nombre">
           <div>
-            <p-sortIcon class="order" field="name" />
+            <p-sortIcon class="order" field="nombre" />
             Nombre
             <p-columnFilter
               class="filter"
               type="text"
-              field="name"
+              field="nombre"
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
 
-        <th pSortableColumn="comments">
+        <th pSortableColumn="comentarios">
           <div>
-            <p-sortIcon class="order" field="comments" />
+            <p-sortIcon class="order" field="comentarios" />
             Comentarios
             <p-columnFilter
               class="filter"
               type="text"
-              field="comments"
+              field="comentarios"
               display="menu"
             ></p-columnFilter>
           </div>
@@ -55,14 +55,24 @@
     <ng-template pTemplate="body" let-instalaciones>
       <tr class="body-table">
         <td>
-          <p-button icon="fas fa-pen" severity="success" [text]="true" (click)="confirm_edit(instalaciones)"/>
+          <p-button
+            icon="fas fa-pen"
+            severity="success"
+            [text]="true"
+            (click)="confirm_edit(instalaciones)"
+          />
         </td>
         <td>
-          <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(instalaciones)"/>
+          <p-button
+            icon="fas fa-trash"
+            severity="danger"
+            [text]="true"
+            (click)="confirm_delete(instalaciones)"
+          />
         </td>
-        <td>{{ instalaciones.installationCentre }}</td>
-        <td>{{ instalaciones.name }}</td>
-        <td>{{ instalaciones.comments }}</td>
+        <td>{{ instalaciones.centro.codigo }}</td>
+        <td>{{ instalaciones.nombre }}</td>
+        <td>{{ instalaciones.comentarios }}</td>
       </tr>
     </ng-template>
     <ng-template pTemplate="footer">
@@ -76,6 +86,6 @@
       </tr>
     </ng-template>
   </p-table>
-  <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+  <p-confirmDialog [style]="{ width: '50vw' }"></p-confirmDialog>
   <p-toast></p-toast>
 </div>
