@@ -12,92 +12,92 @@
       <tr>
         <th></th>
         <th></th>
-        <th pSortableColumn="machinery">
+        <th pSortableColumn="maquinaria.matricula ">
           <div>
-            <p-sortIcon class="order" field="machinery" />
+            <p-sortIcon class="order" field="maquinaria.matricula " />
             Maquinaria
             <p-columnFilter
               class="filter"
               type="text"
-              field="machinery"
+              field="maquinaria.matricula "
               display="menu"
             />
           </div>
         </th>
 
-        <th pSortableColumn="center">
+        <th pSortableColumn="maquinaria.empresa.nombre ">
           <div>
-            <p-sortIcon class="order" field="center" />
+            <p-sortIcon class="order" field="maquinaria.empresa.nombre " />
             Centro
             <p-columnFilter
               class="filter"
               type="text"
-              field="center"
+              field="maquinaria.empresa.nombre "
               display="menu"
             />
           </div>
         </th>
 
-        <th pSortableColumn="delegation">
+        <th pSortableColumn="empresa.nombre ">
           <div>
-            <p-sortIcon class="order" field="delegation" />
+            <p-sortIcon class="order" field="empresa.nombre " />
             Delegación
             <p-columnFilter
               class="filter"
               type="text"
-              field="delegation"
+              field="empresa.nombre "
               display="menu"
             />
           </div>
         </th>
 
-        <th pSortableColumn="family">
+        <th pSortableColumn="maquinaria.familia.empresa.nombre ">
           <div>
-            <p-sortIcon class="order" field="family" />
+            <p-sortIcon class="order" field="maquinaria.familia.empresa.nombre " />
             Familia
             <p-columnFilter
               class="filter"
               type="text"
-              field="family"
+              field="maquinaria.familia.empresa.nombre "
               display="menu"
             />
           </div>
         </th>
 
-        <th pSortableColumn="subfamily">
+        <th pSortableColumn="maquinaria.subfamilia.empresa.nombre">
           <div>
-            <p-sortIcon class="order" field="subfamily" />
+            <p-sortIcon class="order" field="maquinaria.subfamilia.empresa.nombre" />
             SubFamilia
             <p-columnFilter
               class="filter"
               type="text"
-              field="subfamily"
+              field="maquinaria.subfamilia.empresa.nombre"
               display="menu"
             />
           </div>
         </th>
 
-        <th pSortableColumn="nextDate">
+        <th pSortableColumn="fechaProxima">
           <div>
-            <p-sortIcon class="order" field="nextDate" />
+            <p-sortIcon class="order" field="fechaProxima" />
             Fecha próxima
             <p-columnFilter
               class="filter"
               type="text"
-              field="nextDate"
+              field="fechaProxima"
               display="menu"
             />
           </div>
         </th>
 
-        <th pSortableColumn="comments">
+        <th pSortableColumn="maquinaria.comentarios">
           <div>
-            <p-sortIcon class="order" field="comments" />
+            <p-sortIcon class="order" field="maquinaria.comentarios" />
             Comentarios
             <p-columnFilter
               class="filter"
               type="text"
-              field="comments"
+              field="maquinaria.comentarios"
               display="menu"
             />
           </div>
@@ -112,13 +112,13 @@
         <td>
           <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(itvs)"/>
         </td>
-        <td>{{ itvs.machinery }}</td>
-        <td>{{ itvs.center }}</td>
-        <td>{{ itvs.delegation }}</td>
-        <td>{{ itvs.family }}</td>
-        <td>{{ itvs.subfamily }}</td>
-        <td>{{ itvs.nextDate }}</td>
-        <td>{{ itvs.comments }}</td>
+        <td>{{ itvs.maquinaria.matricula }}</td>
+        <td>{{ itvs.maquinaria.empresa.nombre }}</td>
+        <td>{{ itvs.empresa.nombre }}</td>
+        <td>{{ itvs.maquinaria.familia.empresa.nombre }}</td>
+        <td>{{ itvs.maquinaria.subfamilia.empresa.nombre }}</td>
+        <td>{{ itvs.fechaProxima }}</td>
+        <td>{{ itvs.maquinaria.comentarios }}</td>
       </tr>
     </ng-template>
     <ng-template pTemplate="footer">

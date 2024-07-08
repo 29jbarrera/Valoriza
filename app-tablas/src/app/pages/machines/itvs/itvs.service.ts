@@ -1,42 +1,23 @@
 import { Injectable } from '@angular/core';
-import { Itvs } from './type';
+
+import { lastValueFrom } from 'rxjs';
+import {
+  InspeccionesTecnicaDto,
+  InspeccionesTecnicaService,
+} from '@valoriza/web-commons';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ItvsService {
-  constructor() {}
+  constructor(
+    private _inspeccionesTecnicaService: InspeccionesTecnicaService
+  ) {}
 
-  async getItvs(): Promise<Itvs[]> {
-    const itvs: Itvs[] = [
-      {
-        machinery: 'maquinaria 1',
-        center: 'centro 1',
-        delegation: 'delegación 1',
-        family: 'familia 1',
-        subfamily: 'subfamilia',
-        nextDate: new Date('2024-05-11'),
-        comments: 'comentario 1',
-      },
-      {
-        machinery: 'maquinaria 2',
-        center: 'centro 2',
-        delegation: 'delegación 2',
-        family: 'familia 2',
-        subfamily: 'subfamilia 2',
-        nextDate: new Date('2024-05-12'),
-        comments: 'comentario 2',
-      },
-      {
-        machinery: 'maquinaria 3',
-        center: 'centro 3',
-        delegation: 'delegación 3',
-        family: 'familia 3',
-        subfamily: 'subfamilia 3',
-        nextDate: new Date('2024-05-13'),
-        comments: 'comentario 3',
-      },
-    ];
-    return itvs;
+  async getItvs(): Promise<InspeccionesTecnicaDto[]> {
+    const response = await lastValueFrom(
+      this._inspeccionesTecnicaService.apiV2InspeccionesTecnicaGet()
+    );
+    return response.results;
   }
 }

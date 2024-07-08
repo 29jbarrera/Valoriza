@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { Itvs } from '../type';
+import { InspeccionesTecnicaDto } from '@valoriza/web-commons';
 import { ItvsService } from '../itvs.service';
 
 import { TableModule } from 'primeng/table';
@@ -15,6 +15,7 @@ import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService, MessageService } from 'primeng/api';
+
 
 @Component({
   selector: 'app-itvs-table',
@@ -33,7 +34,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
   providers: [ConfirmationService, MessageService],
 })
 export class ItvsTableComponent implements OnInit {
-  itvs: Itvs[] = [];
+  itvs: InspeccionesTecnicaDto[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -60,7 +61,7 @@ export class ItvsTableComponent implements OnInit {
     this.itvs = await this.ItvsService.getItvs();
   }
 
-  async confirm_edit(itvs: Itvs) {
+  async confirm_edit(itvs: InspeccionesTecnicaDto) {
     try {
       this.edit(itvs);
 
@@ -80,17 +81,17 @@ export class ItvsTableComponent implements OnInit {
     }
   }
 
-  async edit(itvs: Itvs) {
+  async edit(itvs: InspeccionesTecnicaDto) {
     // TODO: PETICIÓN A BACKEND PARA EDITAR
     console.error('Edit object:', itvs);
   }
 
-  async delete(itvs: Itvs) {
+  async delete(itvs: InspeccionesTecnicaDto) {
     // TODO: PETICIÓN BACKEND PARA ELIMINAR
     console.error('Delete object,', itvs);
   }
 
-  async confirm_delete(itvs: Itvs) {
+  async confirm_delete(itvs: InspeccionesTecnicaDto) {
     this._confirmationService.confirm({
       message: '¿Estás seguro de que quieres eliminar esta fila?',
       header: 'Eliminar fila de Itvs',
