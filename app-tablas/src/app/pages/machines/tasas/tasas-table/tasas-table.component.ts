@@ -8,7 +8,7 @@ import {
 import { CommonModule } from '@angular/common';
 
 import { TasasService } from '../tasas.service';
-import { Tasas } from '../type';
+import { TasasHistoricoDto } from '@valoriza/web-commons';
 
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
@@ -51,7 +51,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
   providers: [ConfirmationService, MessageService],
 })
 export class TasasTableComponent implements OnInit {
-  tasas: Tasas[] = [];
+  tasas: TasasHistoricoDto[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -87,7 +87,7 @@ export class TasasTableComponent implements OnInit {
     this.tasas = await this.TasasService.getTasas();
   }
 
-  async confirm_edit(tasas: Tasas) {
+  async confirm_edit(tasas: TasasHistoricoDto) {
     try {
       this.edit(tasas);
 
@@ -107,17 +107,17 @@ export class TasasTableComponent implements OnInit {
     }
   }
 
-  async edit(tasas: Tasas) {
+  async edit(tasas: TasasHistoricoDto) {
     // TODO: PETICIÓN A BACKEND PARA EDITAR
     console.error('Edit object:', tasas);
   }
 
-  async delete(tasas: Tasas) {
+  async delete(tasas: TasasHistoricoDto) {
     // TODO: PETICIÓN BACKEND PARA ELIMINAR
     console.error('Delete object,', tasas);
   }
 
-  async confirm_delete(tasas: Tasas) {
+  async confirm_delete(tasas: TasasHistoricoDto) {
     this._confirmationService.confirm({
       message: '¿Estás seguro de que quieres eliminar esta fila?',
       header: 'Eliminar fila de tasas',
