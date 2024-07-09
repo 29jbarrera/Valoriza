@@ -20,4 +20,9 @@ export class ItvsService {
     );
     return response.results || [];
   }
+  async deleteItvs(itvsId: number) {
+    await lastValueFrom(
+      this._inspeccionesTecnicaService.apiV2InspeccionesTecnicaIdDelete(itvsId)
+    );
+  }
 }
