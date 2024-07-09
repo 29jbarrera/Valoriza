@@ -13,14 +13,10 @@ export class CategoriasService {
       this._categoriaService.apiV2CategoriaGet()
     );
     return response.results || [];
-
-    //   const categorias: Categorias[] = [];
-    //   for (let i = 0; i < 100; i++) {
-    //     categorias.push({
-    //       description: randProductDescription(),
-    //       code: randAmount(),
-    //     });
-    //   }
-    //   return categorias;
+  }
+  async deleteCategorias(categoriasId: number) {
+    await lastValueFrom(
+      this._categoriaService.apiV2CategoriaIdDelete(categoriasId)
+    );
   }
 }
