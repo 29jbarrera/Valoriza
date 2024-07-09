@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { RepostajeVehiculos } from '../type';
+import { RepostajeDto } from '@valoriza/web-commons';
 import { RepostajeVehiculosService } from '../repostaje-vehiculos.service';
 
 import { TableModule } from 'primeng/table';
@@ -24,6 +24,7 @@ import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService, MessageService } from 'primeng/api';
+
 
 @Component({
   selector: 'app-repostaje-vehiculos-table',
@@ -51,7 +52,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
   providers: [ConfirmationService, MessageService],
 })
 export class RepostajeVehiculosTableComponent implements OnInit {
-  repostajeVehiculos: RepostajeVehiculos[] = [];
+  repostajeVehiculos: RepostajeDto[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -80,7 +81,7 @@ export class RepostajeVehiculosTableComponent implements OnInit {
       await this.RepostajeVehiculosService.getRepostajeVehiculos();
   }
 
-  async confirm_edit(repostajeVehiculos: RepostajeVehiculos) {
+  async confirm_edit(repostajeVehiculos: RepostajeDto) {
     try {
       this.edit(repostajeVehiculos);
 
@@ -100,17 +101,17 @@ export class RepostajeVehiculosTableComponent implements OnInit {
     }
   }
 
-  async edit(repostajeVehiculos: RepostajeVehiculos) {
+  async edit(repostajeVehiculos: RepostajeDto) {
     // TODO: PETICIÓN A BACKEND PARA EDITAR
     console.error('Edit object:', repostajeVehiculos);
   }
 
-  async delete(repostajeVehiculos: RepostajeVehiculos) {
+  async delete(repostajeVehiculos: RepostajeDto) {
     // TODO: PETICIÓN BACKEND PARA ELIMINAR
     console.error('Delete object,', repostajeVehiculos);
   }
 
-  async confirm_delete(repostajeVehiculos: RepostajeVehiculos) {
+  async confirm_delete(repostajeVehiculos: RepostajeDto) {
     this._confirmationService.confirm({
       message: '¿Estás seguro de que quieres eliminar esta fila?',
       header: 'Eliminar fila de repostaje vehículos',

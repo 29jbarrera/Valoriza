@@ -6,43 +6,42 @@
     styleClass="p-datatable-sm"
     [rowsPerPageOptions]="[5, 10, 20]"
     [paginator]="true"
-    [rows]="5"
-  >
+    [rows]="5">
     <ng-template pTemplate="header">
       <tr>
         <th></th>
         <th></th>
-        <th pSortableColumn="centerMachine">
+        <th pSortableColumn="empresa.direccion ">
           <div>
-            <p-sortIcon class="order" field="centerMachine" />
+            <p-sortIcon class="order" field="empresa.direccion " />
             Centro Maquinas
             <p-columnFilter
               type="text"
-              field="centerMachine"
+              field="empresa.direccion "
               class="filter"
               display="menu"
             />
           </div>
         </th>
-        <th pSortableColumn="deposit">
+        <th pSortableColumn="deposito.centro.nombre ">
           <div>
-            <p-sortIcon class="order" field="deposit" />
+            <p-sortIcon class="order" field="deposito.centro.nombre " />
             Depósito
             <p-columnFilter
               type="text"
-              field="deposit"
+              field="deposito.centro.nombre "
               class="filter"
               display="menu"
             />
           </div>
         </th>
-        <th pSortableColumn="machine">
+        <th pSortableColumn="maquinaria.matricula ">
           <div>
-            <p-sortIcon class="order" field="machine" />
+            <p-sortIcon class="order" field="maquinaria.matricula " />
             Maquinaria
             <p-columnFilter
               type="text"
-              field="machine"
+              field="maquinaria.matricula "
               class="filter"
               display="menu"
             />
@@ -60,49 +59,49 @@
             />
           </div>
         </th>
-        <th pSortableColumn="date">
+        <th pSortableColumn="fecha">
           <div>
-            <p-sortIcon class="order" field="date" />
+            <p-sortIcon class="order" field="fecha" />
             Fecha
             <p-columnFilter
               type="text"
-              field="date"
+              field="fecha"
               class="filter"
               display="menu"
             />
           </div>
         </th>
-        <th pSortableColumn="amount">
+        <th pSortableColumn="cantidad">
           <div>
-            <p-sortIcon class="order" field="amount" />
+            <p-sortIcon class="order" field="cantidad" />
             Cantidad
             <p-columnFilter
               type="text"
-              field="amount"
+              field="cantidad"
               class="filter"
               display="menu"
             />
           </div>
         </th>
-        <th pSortableColumn="account">
+        <th pSortableColumn="cuenta">
           <div>
-            <p-sortIcon class="order" field="account" />
+            <p-sortIcon class="order" field="cuenta" />
             Cuenta
             <p-columnFilter
               type="text"
-              field="account"
+              field="cuenta"
               class="filter"
               display="menu"
             />
           </div>
         </th>
-        <th pSortableColumn="card">
+        <th pSortableColumn="tarjeta">
           <div>
-            <p-sortIcon class="order" field="card" />
+            <p-sortIcon class="order" field="tarjeta" />
             Tarjeta
             <p-columnFilter
               type="text"
-              field="card"
+              field="tarjeta"
               class="filter"
               display="menu"
             />
@@ -118,14 +117,14 @@
         <td>
           <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(repostajeVehiculos)"/>
         </td>
-        <td>{{ repostajeVehiculos.centerMachine }}</td>
-        <td>{{ repostajeVehiculos.deposit }}</td>
-        <td>{{ repostajeVehiculos.machine }}</td>
+        <td>{{ repostajeVehiculos.empresa.direccion }}</td>
+        <td>{{ repostajeVehiculos.deposito.centro.nombre }}</td>
+        <td>{{ repostajeVehiculos.maquinaria.matricula }}</td>
         <td>{{ repostajeVehiculos.bidon }}</td>
-        <td>{{ repostajeVehiculos.date }}</td>
-        <td>{{ repostajeVehiculos.amount }}</td>
-        <td>{{ repostajeVehiculos.account }}</td>
-        <td>{{ repostajeVehiculos.card }}</td>
+        <td>{{ repostajeVehiculos.fecha }}</td>
+        <td>{{ repostajeVehiculos.cantidad }}</td>
+        <td>{{ repostajeVehiculos.cuenta }}</td>
+        <td>{{ repostajeVehiculos.tarjeta }}</td>
       </tr>
     </ng-template>
     <ng-template pTemplate="footer">
