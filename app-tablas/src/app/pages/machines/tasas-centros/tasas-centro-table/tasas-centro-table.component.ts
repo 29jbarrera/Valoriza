@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { TasasCentro } from '../type';
+import { TasasHistoricoDto } from '@valoriza/web-commons';
 import { TasasCentroService } from '../tasas-centro.service';
 
 import { TableModule } from 'primeng/table';
@@ -51,7 +51,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
   providers: [ConfirmationService, MessageService],
 })
 export class TasasCentroTableComponent implements OnInit {
-  tasasCentro: TasasCentro[] = [];
+  tasasCentro: TasasHistoricoDto[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -80,7 +80,7 @@ export class TasasCentroTableComponent implements OnInit {
     this.tasasCentro = await this.TasasCentroService.getTasasCentro();
   }
 
-  async confirm_edit(tasasCentro: TasasCentro) {
+  async confirm_edit(tasasCentro: TasasHistoricoDto) {
     try {
       this.edit(tasasCentro);
 
@@ -100,17 +100,17 @@ export class TasasCentroTableComponent implements OnInit {
     }
   }
 
-  async edit(tasasCentro: TasasCentro) {
+  async edit(tasasCentro: TasasHistoricoDto) {
     // TODO: PETICIÓN A BACKEND PARA EDITAR
     console.error('Edit object:', tasasCentro);
   }
 
-  async delete(tasasCentro: TasasCentro) {
+  async delete(tasasCentro: TasasHistoricoDto) {
     // TODO: PETICIÓN BACKEND PARA ELIMINAR
     console.error('Delete object,', tasasCentro);
   }
 
-  async confirm_delete(tasasCentro: TasasCentro) {
+  async confirm_delete(tasasCentro: TasasHistoricoDto) {
     this._confirmationService.confirm({
       message: '¿Estás seguro de que quieres eliminar esta fila?',
       header: 'Eliminar fila de tasas centro',

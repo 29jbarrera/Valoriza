@@ -12,86 +12,86 @@
       <tr>
         <th></th>
         <th></th>
-        <th pSortableColumn="dateFrom">
+        <th pSortableColumn="seguro.fechaInicio ">
           <div>
-            <p-sortIcon class="order" field="dateFrom" />
+            <p-sortIcon class="order" field="seguro.fechaInicio " />
             Desde
             <p-columnFilter
               class="filter"
               type="text"
-              field="dateFrom"
+              field="seguro.fechaInicio "
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="dateUntil">
+        <th pSortableColumn="seguro.fechaFin ">
           <div>
-            <p-sortIcon class="order" field="dateUntil" />
+            <p-sortIcon class="order" field="seguro.fechaFin " />
             Desde
             <p-columnFilter
               class="filter"
               type="text"
-              field="dateUntil"
+              field="seguro.fechaFin "
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="delegation">
+        <th pSortableColumn="empresa.nombre ">
           <div>
-            <p-sortIcon class="order" field="delegation" />
+            <p-sortIcon class="order" field="empresa.nombre " />
             Delegación
             <p-columnFilter
               class="filter"
               type="text"
-              field="delegation"
+              field="empresa.nombre "
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="code">
+        <th pSortableColumn="empresa.codigo">
           <div>
-            <p-sortIcon class="order" field="code" />
+            <p-sortIcon class="order" field="empresa.codigo" />
             Codigo
             <p-columnFilter
               class="filter"
               type="text"
-              field="code"
+              field="empresa.codigo"
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="name">
+        <th pSortableColumn="servicio ">
           <div>
-            <p-sortIcon class="order" field="name" />
+            <p-sortIcon class="order" field="servicio " />
             Nombre
             <p-columnFilter
               class="filter"
               type="text"
-              field="name"
+              field="servicio "
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="cost">
+        <th pSortableColumn="impuesto.importe">
           <div>
-            <p-sortIcon class="order" field="cost" />
+            <p-sortIcon class="order" field="impuesto.importe" />
             Coste
             <p-columnFilter
               class="filter"
               type="text"
-              field="cost"
+              field="impuesto.importe"
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="currency">
+        <th pSortableColumn="codMoneda">
           <div>
-            <p-sortIcon class="order" field="currency" />
+            <p-sortIcon class="order" field="codMoneda" />
             Divisa
             <p-columnFilter
               class="filter"
               type="text"
-              field="currency"
+              field="codMoneda"
               display="menu"
             ></p-columnFilter>
           </div>
@@ -107,13 +107,13 @@
         <td>
           <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(tasasCentro)"/>
         </td>
-        <td>{{ tasasCentro.dateForm }}</td>
-        <td>{{ tasasCentro.dateUntil }}</td>
-        <td>{{ tasasCentro.delegation }}</td>
-        <td>{{ tasasCentro.code }}</td>
-        <td>{{ tasasCentro.name }}</td>
-        <td>{{ tasasCentro.cost }}</td>
-        <td>{{ tasasCentro.currency }}</td>
+        <td>{{ tasasCentro.maquinaria.seguro.fechaInicio }}</td>
+        <td>{{ tasasCentro.maquinaria.seguro.fechaFin }}</td>
+        <td>{{ tasasCentro.maquinaria.empresa.nombre }}</td>
+        <td>{{ tasasCentro.maquinaria.empresa.codigo }}</td>
+        <td>{{ tasasCentro.maquinaria.servicio }}</td>
+        <td>{{ tasasCentro.maquinaria.impuesto.importe }}</td>
+        <td>{{ tasasCentro.maquinaria.codMoneda }}</td>
       </tr>
     </ng-template>
     <ng-template pTemplate="footer">
