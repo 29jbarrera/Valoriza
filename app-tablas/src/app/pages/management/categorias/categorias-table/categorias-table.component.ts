@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { Categorias } from '../type';
+import { CategoriaDto } from '@valoriza/web-commons';
 import { CategoriasService } from '../categorias.service';
 
 import { TableModule } from 'primeng/table';
@@ -24,6 +24,7 @@ import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService, MessageService } from 'primeng/api';
+
 
 @Component({
   selector: 'app-categorias-table',
@@ -51,7 +52,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
   providers: [ConfirmationService, MessageService],
 })
 export class CategoriasTableComponent implements OnInit {
-  categorias: Categorias[] = [];
+  categorias: CategoriaDto[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -73,7 +74,7 @@ export class CategoriasTableComponent implements OnInit {
     this.categorias = await this.CategoriasService.getCategorias();
   }
 
-  async confirm_edit(categorias: Categorias) {
+  async confirm_edit(categorias: CategoriaDto) {
     try {
       this.edit(categorias);
 
@@ -93,17 +94,17 @@ export class CategoriasTableComponent implements OnInit {
     }
   }
 
-  async edit(categorias: Categorias) {
+  async edit(categorias: CategoriaDto) {
     // TODO: PETICIÓN A BACKEND PARA EDITAR
     console.error('Edit object:', categorias);
   }
 
-  async delete(categorias: Categorias) {
+  async delete(categorias: CategoriaDto) {
     // TODO: PETICIÓN BACKEND PARA ELIMINAR
     console.error('Delete object,', categorias);
   }
 
-  async confirm_delete(categorias: Categorias) {
+  async confirm_delete(categorias: CategoriaDto) {
     this._confirmationService.confirm({
       message: '¿Estás seguro de que quieres eliminar esta fila?',
       header: 'Eliminar fila de categorías',

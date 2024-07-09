@@ -24,13 +24,13 @@
             />
           </div>
         </th>
-        <th pSortableColumn="code">
+        <th pSortableColumn="codigo">
           <div>
-            <p-sortIcon class="order" field="code" />
+            <p-sortIcon class="order" field="codigo" />
             Código
             <p-columnFilter
               type="text"
-              field="code"
+              field="codigo"
               class="filter"
               display="menu"
             />
@@ -47,8 +47,9 @@
         <td>
           <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(categorias)"/>
         </td>
+        <!-- TODO: add descripcion  -->
         <td>{{ categorias.description }}</td>
-        <td>{{ categorias.code }}</td>
+        <td>{{ categorias.codigo }}</td>
       </tr>
     </ng-template>
     <ng-template pTemplate="footer">

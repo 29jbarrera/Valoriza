@@ -1,21 +1,26 @@
 import { Injectable } from '@angular/core';
-import { randProductDescription, randAmount } from '@ngneat/falso';
 
-import { Categorias } from './type';
+import { lastValueFrom } from 'rxjs';
+import { CategoriaDto, CategoriaService } from '@valoriza/web-commons';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CategoriasService {
-  constructor() {}
-  async getCategorias(): Promise<Categorias[]> {
-    const categorias: Categorias[] = [];
-    for (let i = 0; i < 100; i++) {
-      categorias.push({
-        description: randProductDescription(),
-        code: randAmount(),
-      });
-    }
-    return categorias;
+  constructor(private _categoriaService: CategoriaService) {}
+  async getCategorias(): Promise<CategoriaDto[]> {
+    const response = await lastValueFrom(
+      this._categoriaService.apiV2CategoriaGet()
+    );
+    return response.results;
+
+    //   const categorias: Categorias[] = [];
+    //   for (let i = 0; i < 100; i++) {
+    //     categorias.push({
+    //       description: randProductDescription(),
+    //       code: randAmount(),
+    //     });
+    //   }
+    //   return categorias;
   }
 }
