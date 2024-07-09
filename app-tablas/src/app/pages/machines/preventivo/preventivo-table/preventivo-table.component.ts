@@ -8,7 +8,7 @@ import {
 import { CommonModule } from '@angular/common';
 
 import { PreventivoService } from '../preventivo.service';
-import { Preventivo } from '../type';
+import { MaintenanceDto } from '@valoriza/web-commons';
 
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
@@ -24,6 +24,7 @@ import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService, MessageService } from 'primeng/api';
+
 
 @Component({
   selector: 'app-preventivo-table',
@@ -51,7 +52,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
   providers: [ConfirmationService, MessageService],
 })
 export class PreventivoTableComponent implements OnInit {
-  preventivo: Preventivo[] = [];
+  preventivo: MaintenanceDto[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -80,7 +81,7 @@ export class PreventivoTableComponent implements OnInit {
     this.preventivo = await this.PreventivoService.getPreventivo();
   }
 
-  async confirm_edit(preventivo: Preventivo) {
+  async confirm_edit(preventivo: MaintenanceDto) {
     try {
       this.edit(preventivo);
 
@@ -100,17 +101,17 @@ export class PreventivoTableComponent implements OnInit {
     }
   }
 
-  async edit(preventivo: Preventivo) {
+  async edit(preventivo: MaintenanceDto) {
     // TODO: PETICIÓN A BACKEND PARA EDITAR
     console.error('Edit object:', preventivo);
   }
 
-  async delete(preventivo: Preventivo) {
+  async delete(preventivo: MaintenanceDto) {
     // TODO: PETICIÓN BACKEND PARA ELIMINAR
     console.error('Delete object,', preventivo);
   }
 
-  async confirm_delete(preventivo: Preventivo) {
+  async confirm_delete(preventivo: MaintenanceDto) {
     this._confirmationService.confirm({
       message: '¿Estás seguro de que quieres eliminar esta fila?',
       header: 'Eliminar fila de mantenimiento de preventivos',

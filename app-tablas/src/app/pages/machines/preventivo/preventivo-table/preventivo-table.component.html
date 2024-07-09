@@ -48,14 +48,14 @@
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="level">
+        <th pSortableColumn="nivel">
           <div>
-            <p-sortIcon class="order" field="level" />
+            <p-sortIcon class="order" field="nivel" />
             Nivel
             <p-columnFilter
               class="filter"
               type="text"
-              field="level"
+              field="nivel"
               display="menu"
             ></p-columnFilter>
           </div>
@@ -72,62 +72,62 @@
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="horomMaint">
+        <th pSortableColumn="horometroIni">
           <div>
-            <p-sortIcon class="order" field="horomMaint" />
+            <p-sortIcon class="order" field="horometroIni" />
             Horom Maint
             <p-columnFilter
               class="filter"
               type="text"
-              field="horomMaint"
+              field="horometroIni"
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="horomFinal">
+        <th pSortableColumn="horometroFin">
           <div>
-            <p-sortIcon class="order" field="horomFinal" />
+            <p-sortIcon class="order" field="horometroFin" />
             Horom Final
             <p-columnFilter
               class="filter"
               type="text"
-              field="horomFinal"
+              field="horometroFin"
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="kmMaint">
+        <th pSortableColumn="kilometroIni">
           <div>
-            <p-sortIcon class="order" field="kmMaint" />
+            <p-sortIcon class="order" field="kilometroIni" />
             kmMaint
             <p-columnFilter
               class="filter"
               type="text"
-              field="kmMaint"
+              field="kilometroIni"
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="KmFinal">
+        <th pSortableColumn="kilometroFin">
           <div>
-            <p-sortIcon class="order" field="KmFinal" />
+            <p-sortIcon class="order" field="kilometroFin" />
             KmFinal
             <p-columnFilter
               class="filter"
               type="text"
-              field="KmFinal"
+              field="kilometroFin"
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="date">
+        <th pSortableColumn="fecha">
           <div>
-            <p-sortIcon class="order" field="date" />
+            <p-sortIcon class="order" field="fecha" />
             Fecha
             <p-columnFilter
               class="filter"
               type="text"
-              field="date"
+              field="fecha"
               display="menu"
             ></p-columnFilter>
           </div>
@@ -143,16 +143,17 @@
         <td>
           <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(preventivo)"/>
         </td>
-        <td>{{ preventivo.machineCenter }}</td>
-        <td>{{ preventivo.subfamily }}</td>
-        <td>{{ preventivo.machinery }}</td>
-        <td>{{ preventivo.level }}</td>
-        <td>{{ preventivo.position }}</td>
-        <td>{{ preventivo.horomMaint }}</td>
-        <td>{{ preventivo.horomFinal }}</td>
-        <td>{{ preventivo.kmMaint }}</td>
-        <td>{{ preventivo.kmFinal }}</td>
-        <td>{{ preventivo.date | date: 'dd/MM/yyyy' }}</td>
+        <!-- TODO: Add Centro, Subfamilia, Maquianria, Posición -->
+        <td>{{ preventivo }}</td>
+        <td>{{ preventivo }}</td>
+        <td>{{ preventivo }}</td>
+        <td>{{ preventivo.nivel }}</td>
+        <td>{{ preventivo }}</td>
+        <td>{{ preventivo.horometroIni }}</td>
+        <td>{{ preventivo.horometroFin }}</td>
+        <td>{{ preventivo.kilometroIni }}</td>
+        <td>{{ preventivo.kilometroFin }}</td>
+        <td>{{ preventivo.fecha }}</td>
       </tr>
     </ng-template>
     <ng-template pTemplate="footer">
