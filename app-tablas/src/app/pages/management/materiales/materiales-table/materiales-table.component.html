@@ -12,37 +12,37 @@
       <tr>
         <th></th>
         <th></th>
-        <th pSortableColumn="reference">
+        <th pSortableColumn="referencia">
           <div>
-            <p-sortIcon class="order" field="reference" />
+            <p-sortIcon class="order" field="referencia" />
             Referencia
             <p-columnFilter
               type="text"
-              field="reference"
+              field="referencia"
               class="filter"
               display="menu"
             />
           </div>
         </th>
-        <th pSortableColumn="description">
+        <th pSortableColumn="descripcion">
           <div>
-            <p-sortIcon class="order" field="description" />
+            <p-sortIcon class="order" field="descripcion" />
             Descripción
             <p-columnFilter
               type="text"
-              field="description"
+              field="descripcion"
               class="filter"
               display="menu"
             />
           </div>
         </th>
-        <th pSortableColumn="category">
+        <th pSortableColumn="codigoCategoria">
           <div>
-            <p-sortIcon class="order" field="category" />
+            <p-sortIcon class="order" field="codigoCategoria" />
             Categoría
             <p-columnFilter
               type="text"
-              field="category"
+              field="codigoCategoria"
               class="filter"
               display="menu"
             />
@@ -58,9 +58,9 @@
         <td>
           <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(materiales)"/>
         </td>
-        <td>{{ materiales.reference }}</td>
-        <td>{{ materiales.description }}</td>
-        <td>{{ materiales.category }}</td>
+        <td>{{ materiales.referencia }}</td>
+        <td>{{ materiales.descripcion }}</td>
+        <td>{{ materiales.codigoCategoria }}</td>
       </tr>
     </ng-template>
     <ng-template pTemplate="footer">

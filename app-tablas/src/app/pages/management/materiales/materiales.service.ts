@@ -1,22 +1,26 @@
 import { Injectable } from '@angular/core';
-import { randBrand, randProductDescription } from '@ngneat/falso';
 
-import { Materiales } from './type';
+import { lastValueFrom } from 'rxjs';
+import { ReferenciasMaterialeDto, ReferenciasMaterialeService } from '@valoriza/web-commons';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MaterialesService {
-  constructor() {}
-  async getMateriales(): Promise<Materiales[]> {
-    const materiales: Materiales[] = [];
-    for (let i = 0; i < 100; i++) {
-      materiales.push({
-        reference: randBrand(),
-        description: randProductDescription(),
-        category: randBrand(),
-      });
-    }
-    return materiales;
+  constructor(private _referenciasMaterialeService: ReferenciasMaterialeService) {}
+  async getMateriales(): Promise<ReferenciasMaterialeDto[]> {
+    const response = await lastValueFrom(this._referenciasMaterialeService.apiV2ReferenciasMaterialeGet());
+    return response.results;
+
+
+    //   const materiales: Materiales[] = [];
+    //   for (let i = 0; i < 100; i++) {
+    //     materiales.push({
+    //       reference: randBrand(),
+    //       description: randProductDescription(),
+    //       category: randBrand(),
+    //     });
+    //   }
+    //   return materiales;
   }
 }

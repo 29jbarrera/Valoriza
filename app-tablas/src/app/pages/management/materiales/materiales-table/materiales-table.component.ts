@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { Materiales } from '../type';
+import { ReferenciasMaterialeDto } from '@valoriza/web-commons';
 import { MaterialesService } from '../materiales.service';
 
 import { TableModule } from 'primeng/table';
@@ -51,7 +51,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
   providers: [ConfirmationService, MessageService],
 })
 export class MaterialesTableComponent implements OnInit {
-  materiales: Materiales[] = [];
+  materiales: ReferenciasMaterialeDto[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -74,7 +74,7 @@ export class MaterialesTableComponent implements OnInit {
     this.materiales = await this.MaterialesService.getMateriales();
   }
 
-  async confirm_edit(materiales: Materiales) {
+  async confirm_edit(materiales: ReferenciasMaterialeDto) {
     try {
       this.edit(materiales);
 
@@ -94,17 +94,17 @@ export class MaterialesTableComponent implements OnInit {
     }
   }
 
-  async edit(materiales: Materiales) {
+  async edit(materiales: ReferenciasMaterialeDto) {
     // TODO: PETICIÓN A BACKEND PARA EDITAR
     console.error('Edit object:', materiales);
   }
 
-  async delete(materiales: Materiales) {
+  async delete(materiales: ReferenciasMaterialeDto) {
     // TODO: PETICIÓN BACKEND PARA ELIMINAR
     console.error('Delete object,', materiales);
   }
 
-  async confirm_delete(materiales: Materiales) {
+  async confirm_delete(materiales: ReferenciasMaterialeDto) {
     this._confirmationService.confirm({
       message: '¿Estás seguro de que quieres eliminar esta fila?',
       header: 'Eliminar fila de materiales',
