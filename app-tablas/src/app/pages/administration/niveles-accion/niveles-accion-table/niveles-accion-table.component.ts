@@ -99,8 +99,22 @@ export class NivelesAccionTableComponent implements OnInit {
   }
 
   async delete(nivelesAccion: NivelesMantenimientoAccioneDto) {
-    // TODO: PETICIÓN BACKEND PARA ELIMINAR
-    console.error('Delete object,', nivelesAccion);
+    try {
+      await this.NivelesAccionService.deleteNivelesAccion(nivelesAccion.id!);
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Confirmado',
+        detail: 'Fila eliminada correctamente',
+        life: 3000,
+      });
+    } catch (error) {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Algo inesperado ocurrió',
+        life: 3000,
+      });
+    }
   }
 
   async confirm_delete(nivelesAccion: NivelesMantenimientoAccioneDto) {
@@ -112,22 +126,7 @@ export class NivelesAccionTableComponent implements OnInit {
       acceptButtonStyleClass: 'p-button-danger',
 
       accept: async () => {
-        try {
-          await this.delete(nivelesAccion);
-          this.messageService.add({
-            severity: 'success',
-            summary: 'Confirmado',
-            detail: 'Fila eliminada correctamente',
-            life: 3000,
-          });
-        } catch (error) {
-          this.messageService.add({
-            severity: 'error',
-            summary: 'Error',
-            detail: 'Algo inesperado ocurrió',
-            life: 3000,
-          });
-        }
+        this.delete(nivelesAccion);
       },
       reject: () => {
         this.messageService.add({

@@ -18,15 +18,12 @@ export class UnidadesService {
       this._unidadMedidaTiposCombustibleService.apiV2UnidadMedidaTiposCombustibleGet()
     );
     return response.results || [];
-
-    // const unidades: Unidades[] = [];
-    // for (let i = 0; i < 100; i++) {
-    //   unidades.push({
-    //     fuelType: randVehicleModel(),
-    //     units: randCurrencyName(),
-    //     symbol: randCurrencyName(),
-    //   });
-    // }
-    // return unidades;
+  }
+  async deleteGastosTaller(gastosTallerId: number) {
+    await lastValueFrom(
+      this._unidadMedidaTiposCombustibleService.apiV2UnidadMedidaTiposCombustibleIdDelete(
+        gastosTallerId
+      )
+    );
   }
 }

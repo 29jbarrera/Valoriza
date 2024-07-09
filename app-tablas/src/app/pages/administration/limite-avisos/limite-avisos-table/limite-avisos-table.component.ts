@@ -25,7 +25,6 @@ import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService, MessageService } from 'primeng/api';
 
-
 @Component({
   selector: 'app-limite-avisos-table',
   standalone: true,
@@ -101,8 +100,22 @@ export class LimiteAvisosTableComponent implements OnInit {
   }
 
   async delete(limiteAvisos: ParametroDto) {
-    // TODO: ELIMINAR OBJETO BACKEND
-    console.error('Delete object,', limiteAvisos);
+    try {
+      await this.LimiteAvisosService.deleteLimiteAvisos(limiteAvisos.id!);
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Confirmado',
+        detail: 'Fila eliminada correctamente',
+        life: 3000,
+      });
+    } catch (error) {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Algo inesperado ocurrió',
+        life: 3000,
+      });
+    }
   }
 
   async confirm_delete(limiteAvisos: ParametroDto) {
@@ -114,22 +127,7 @@ export class LimiteAvisosTableComponent implements OnInit {
       acceptButtonStyleClass: 'p-button-danger',
 
       accept: async () => {
-        try {
-          await this.delete(limiteAvisos);
-          this.messageService.add({
-            severity: 'success',
-            summary: 'Confirmado',
-            detail: 'Fila eliminada correctamente',
-            life: 3000,
-          });
-        } catch (error) {
-          this.messageService.add({
-            severity: 'error',
-            summary: 'Error',
-            detail: 'Algo inesperado ocurrió',
-            life: 3000,
-          });
-        }
+        this.delete(limiteAvisos);
       },
       reject: () => {
         this.messageService.add({

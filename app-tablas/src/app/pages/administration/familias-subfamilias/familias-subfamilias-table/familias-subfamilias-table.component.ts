@@ -99,8 +99,24 @@ export class FamiliasSubfamiliasTableComponent implements OnInit {
   }
 
   async delete(familiasSubfamilias: FamiliaDto) {
-    // TODO: PETICIÓN BACKEND PARA ELIMINAR
-    console.error('Delete object,', familiasSubfamilias);
+    try {
+      await this.FamiliasSubfamiliasService.deleteFamiliasSubfamilias(
+        familiasSubfamilias.id!
+      );
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Confirmado',
+        detail: 'Fila eliminada correctamente',
+        life: 3000,
+      });
+    } catch (error) {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Algo inesperado ocurrió',
+        life: 3000,
+      });
+    }
   }
 
   async confirm_delete(familiasSubfamilias: FamiliaDto) {
@@ -112,22 +128,7 @@ export class FamiliasSubfamiliasTableComponent implements OnInit {
       acceptButtonStyleClass: 'p-button-danger',
 
       accept: async () => {
-        try {
-          await this.delete(familiasSubfamilias);
-          this.messageService.add({
-            severity: 'success',
-            summary: 'Confirmado',
-            detail: 'Fila eliminada correctamente',
-            life: 3000,
-          });
-        } catch (error) {
-          this.messageService.add({
-            severity: 'error',
-            summary: 'Error',
-            detail: 'Algo inesperado ocurrió',
-            life: 3000,
-          });
-        }
+        this.delete(familiasSubfamilias);
       },
       reject: () => {
         this.messageService.add({

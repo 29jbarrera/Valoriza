@@ -9,18 +9,14 @@ import { lastValueFrom } from 'rxjs';
 export class TablaGlobalesService {
   constructor(private _xGlobalTableService: XGlobalTableService) {}
   async getGlobales(): Promise<XGlobalTableDto[]> {
-    const response = await lastValueFrom(this._xGlobalTableService.apiV2XGlobalTableGet());
+    const response = await lastValueFrom(
+      this._xGlobalTableService.apiV2XGlobalTableGet()
+    );
     return response.results || [];
-    // const globales: Globales[] = [];
-    // for (let i = 0; i < 100; i++) {
-    //   globales.push({
-    //     name: randCurrencyName(),
-    //     codeLength: randAmount(),
-    //     accessType: 'Limitado',
-    //     session: true,
-    //     task: randBrand(),
-    //   });
-    // }
-    // return globales;
+  }
+  async deleteGlobales(globalesId: number) {
+    await lastValueFrom(
+      this._xGlobalTableService.apiV2XGlobalTableIdDelete(globalesId)
+    );
   }
 }

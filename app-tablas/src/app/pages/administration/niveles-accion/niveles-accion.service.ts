@@ -18,14 +18,12 @@ export class NivelesAccionService {
       this._nivelesMantenimientoAccionesService.apiV2NivelesMantenimientoAccioneGet()
     );
     return response.results || [];
-
-    // const nivelesAccion: NivelesAccion[] = [];
-    // for (let i = 0; i < 100; i++) {
-    //   nivelesAccion.push({
-    //     action: randCurrencyName(),
-    //     group: randVehicleModel(),
-    //   });
-    // }
-    // return nivelesAccion;
+  }
+  async deleteNivelesAccion(nivelesAccionId: number) {
+    await lastValueFrom(
+      this._nivelesMantenimientoAccionesService.apiV2NivelesMantenimientoAccioneIdDelete(
+        nivelesAccionId
+      )
+    );
   }
 }
