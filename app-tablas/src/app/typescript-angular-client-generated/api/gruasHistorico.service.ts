@@ -20,7 +20,7 @@ import { Observable }                                        from 'rxjs';
 import { CreateGruasHistoricoDto } from '../model/createGruasHistoricoDto';
 import { GruasHistoricoDto } from '../model/gruasHistoricoDto';
 import { GruasHistoricoDtoPaginatedResult } from '../model/gruasHistoricoDtoPaginatedResult';
-import { GruasHistoricoDtoResult } from '../model/gruasHistoricoDtoResult';
+import { ProblemDetails } from '../model/problemDetails';
 import { UpdateGruasHistoricoDto } from '../model/updateGruasHistoricoDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class GruasHistoricoService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class GruasHistoricoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2GruasHistoricoPost(body?: CreateGruasHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<GruasHistoricoDtoResult>;
-    public apiV2GruasHistoricoPost(body?: CreateGruasHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<GruasHistoricoDtoResult>>;
-    public apiV2GruasHistoricoPost(body?: CreateGruasHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<GruasHistoricoDtoResult>>;
+    public apiV2GruasHistoricoPost(body?: CreateGruasHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2GruasHistoricoPost(body?: CreateGruasHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2GruasHistoricoPost(body?: CreateGruasHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2GruasHistoricoPost(body?: CreateGruasHistoricoDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class GruasHistoricoService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<GruasHistoricoDtoResult>('post',`${this.basePath}/api/v2/gruasHistorico`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/gruasHistorico`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class GruasHistoricoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2GruasHistoricoPut(body?: UpdateGruasHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<GruasHistoricoDtoResult>;
-    public apiV2GruasHistoricoPut(body?: UpdateGruasHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<GruasHistoricoDtoResult>>;
-    public apiV2GruasHistoricoPut(body?: UpdateGruasHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<GruasHistoricoDtoResult>>;
+    public apiV2GruasHistoricoPut(body?: UpdateGruasHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2GruasHistoricoPut(body?: UpdateGruasHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2GruasHistoricoPut(body?: UpdateGruasHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2GruasHistoricoPut(body?: UpdateGruasHistoricoDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class GruasHistoricoService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<GruasHistoricoDtoResult>('put',`${this.basePath}/api/v2/gruasHistorico`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/gruasHistorico`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

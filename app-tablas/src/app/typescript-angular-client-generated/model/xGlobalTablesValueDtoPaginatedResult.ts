@@ -18,5 +18,5 @@ export interface XGlobalTablesValueDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<XGlobalTablesValueDto>;
+    results?: Array<XGlobalTablesValueDto>;
 }

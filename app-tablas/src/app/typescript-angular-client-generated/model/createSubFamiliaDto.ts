@@ -24,10 +24,6 @@ export interface CreateSubFamiliaDto {
     conformidad?: boolean;
     peso?: boolean;
     gnc?: boolean;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
     idNivelMantenimientoChasis?: number;
     idNivelMantenimientoEquipo?: number;
     idNivelMantenimientoImplemento?: number;

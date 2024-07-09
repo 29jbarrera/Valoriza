@@ -14,11 +14,7 @@ export interface UpdateParteTrabajoDocDto {
     id?: number;
     idParteTrabajo?: number;
     claveGuid?: string;
-    documento?: string;
-    nombre?: string;
-    extension?: string;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
+    documento: string;
+    nombre: string;
+    extension: string;
 }

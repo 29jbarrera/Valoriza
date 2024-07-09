@@ -9,11 +9,13 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { EmpresaDto } from './empresaDto';
 
 export interface NivelesMantenimientoTiposDto { 
     id?: number;
     idNivelMantenimiento?: number;
     idEmpresa?: number;
+    empresa?: EmpresaDto;
     codigo?: number;
     posicion?: number;
 }

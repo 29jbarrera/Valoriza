@@ -12,12 +12,8 @@
 
 export interface CreateNotificacionesEstadoMaquinariaExternoDto { 
     idMaquinaria?: number;
-    codEstadoMaquinaria?: string;
-    descripcion?: string;
+    codEstadoMaquinaria: string;
+    descripcion: string;
     fechaDesde?: Date;
     fechaHasta?: Date;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
 }

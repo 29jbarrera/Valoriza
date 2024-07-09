@@ -20,7 +20,7 @@ import { Observable }                                        from 'rxjs';
 import { CreateParteTrabajoMaterialeDto } from '../model/createParteTrabajoMaterialeDto';
 import { ParteTrabajoMaterialeDto } from '../model/parteTrabajoMaterialeDto';
 import { ParteTrabajoMaterialeDtoPaginatedResult } from '../model/parteTrabajoMaterialeDtoPaginatedResult';
-import { ParteTrabajoMaterialeDtoResult } from '../model/parteTrabajoMaterialeDtoResult';
+import { ProblemDetails } from '../model/problemDetails';
 import { UpdateParteTrabajoMaterialeDto } from '../model/updateParteTrabajoMaterialeDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class ParteTrabajoMaterialeService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class ParteTrabajoMaterialeService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2ParteTrabajoMaterialePost(body?: CreateParteTrabajoMaterialeDto, observe?: 'body', reportProgress?: boolean): Observable<ParteTrabajoMaterialeDtoResult>;
-    public apiV2ParteTrabajoMaterialePost(body?: CreateParteTrabajoMaterialeDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ParteTrabajoMaterialeDtoResult>>;
-    public apiV2ParteTrabajoMaterialePost(body?: CreateParteTrabajoMaterialeDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ParteTrabajoMaterialeDtoResult>>;
+    public apiV2ParteTrabajoMaterialePost(body?: CreateParteTrabajoMaterialeDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2ParteTrabajoMaterialePost(body?: CreateParteTrabajoMaterialeDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2ParteTrabajoMaterialePost(body?: CreateParteTrabajoMaterialeDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2ParteTrabajoMaterialePost(body?: CreateParteTrabajoMaterialeDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class ParteTrabajoMaterialeService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<ParteTrabajoMaterialeDtoResult>('post',`${this.basePath}/api/v2/parteTrabajoMateriale`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/parteTrabajoMateriale`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class ParteTrabajoMaterialeService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2ParteTrabajoMaterialePut(body?: UpdateParteTrabajoMaterialeDto, observe?: 'body', reportProgress?: boolean): Observable<ParteTrabajoMaterialeDtoResult>;
-    public apiV2ParteTrabajoMaterialePut(body?: UpdateParteTrabajoMaterialeDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ParteTrabajoMaterialeDtoResult>>;
-    public apiV2ParteTrabajoMaterialePut(body?: UpdateParteTrabajoMaterialeDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ParteTrabajoMaterialeDtoResult>>;
+    public apiV2ParteTrabajoMaterialePut(body?: UpdateParteTrabajoMaterialeDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2ParteTrabajoMaterialePut(body?: UpdateParteTrabajoMaterialeDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2ParteTrabajoMaterialePut(body?: UpdateParteTrabajoMaterialeDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2ParteTrabajoMaterialePut(body?: UpdateParteTrabajoMaterialeDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class ParteTrabajoMaterialeService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<ParteTrabajoMaterialeDtoResult>('put',`${this.basePath}/api/v2/parteTrabajoMateriale`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/parteTrabajoMateriale`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

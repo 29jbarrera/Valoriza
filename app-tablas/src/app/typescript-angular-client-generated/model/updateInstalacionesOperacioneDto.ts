@@ -17,8 +17,4 @@ export interface UpdateInstalacionesOperacioneDto {
     fecha?: Date;
     actuante?: string;
     frecuencia?: number;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
 }

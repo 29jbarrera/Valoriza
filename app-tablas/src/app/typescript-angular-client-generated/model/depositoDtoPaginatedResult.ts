@@ -18,5 +18,5 @@ export interface DepositoDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<DepositoDto>;
+    results?: Array<DepositoDto>;
 }

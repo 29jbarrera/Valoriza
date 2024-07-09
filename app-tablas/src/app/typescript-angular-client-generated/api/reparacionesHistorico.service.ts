@@ -18,9 +18,9 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 import { Observable }                                        from 'rxjs';
 
 import { CreateReparacionesHistoricoDto } from '../model/createReparacionesHistoricoDto';
+import { ProblemDetails } from '../model/problemDetails';
 import { ReparacionesHistoricoDto } from '../model/reparacionesHistoricoDto';
 import { ReparacionesHistoricoDtoPaginatedResult } from '../model/reparacionesHistoricoDtoPaginatedResult';
-import { ReparacionesHistoricoDtoResult } from '../model/reparacionesHistoricoDtoResult';
 import { UpdateReparacionesHistoricoDto } from '../model/updateReparacionesHistoricoDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class ReparacionesHistoricoService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class ReparacionesHistoricoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2ReparacionesHistoricoPost(body?: CreateReparacionesHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<ReparacionesHistoricoDtoResult>;
-    public apiV2ReparacionesHistoricoPost(body?: CreateReparacionesHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ReparacionesHistoricoDtoResult>>;
-    public apiV2ReparacionesHistoricoPost(body?: CreateReparacionesHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ReparacionesHistoricoDtoResult>>;
+    public apiV2ReparacionesHistoricoPost(body?: CreateReparacionesHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2ReparacionesHistoricoPost(body?: CreateReparacionesHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2ReparacionesHistoricoPost(body?: CreateReparacionesHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2ReparacionesHistoricoPost(body?: CreateReparacionesHistoricoDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class ReparacionesHistoricoService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<ReparacionesHistoricoDtoResult>('post',`${this.basePath}/api/v2/reparacionesHistorico`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/reparacionesHistorico`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class ReparacionesHistoricoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2ReparacionesHistoricoPut(body?: UpdateReparacionesHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<ReparacionesHistoricoDtoResult>;
-    public apiV2ReparacionesHistoricoPut(body?: UpdateReparacionesHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ReparacionesHistoricoDtoResult>>;
-    public apiV2ReparacionesHistoricoPut(body?: UpdateReparacionesHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ReparacionesHistoricoDtoResult>>;
+    public apiV2ReparacionesHistoricoPut(body?: UpdateReparacionesHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2ReparacionesHistoricoPut(body?: UpdateReparacionesHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2ReparacionesHistoricoPut(body?: UpdateReparacionesHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2ReparacionesHistoricoPut(body?: UpdateReparacionesHistoricoDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class ReparacionesHistoricoService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<ReparacionesHistoricoDtoResult>('put',`${this.basePath}/api/v2/reparacionesHistorico`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/reparacionesHistorico`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

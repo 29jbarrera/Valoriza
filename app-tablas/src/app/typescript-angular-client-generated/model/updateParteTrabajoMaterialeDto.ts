@@ -14,11 +14,7 @@ export interface UpdateParteTrabajoMaterialeDto {
     id?: number;
     idParteTrabajo?: number;
     idReferenciaMaterial?: number;
-    descripcion?: string;
+    descripcion: string;
     cantidad?: number;
     gastoConmutable?: boolean;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
 }

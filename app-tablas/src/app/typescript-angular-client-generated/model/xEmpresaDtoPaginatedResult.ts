@@ -18,5 +18,5 @@ export interface XEmpresaDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<XEmpresaDto>;
+    results?: Array<XEmpresaDto>;
 }

@@ -13,5 +13,5 @@
 export interface UpdateNivelesMantenimientoAccioneDto { 
     id?: number;
     idEmpresa?: number;
-    idGrupo?: string;
+    idGrupo: string;
 }

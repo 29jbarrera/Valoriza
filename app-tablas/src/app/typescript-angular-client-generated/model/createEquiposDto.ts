@@ -23,8 +23,4 @@ export interface CreateEquiposDto {
     fecha?: Date;
     contrato?: string;
     duracion?: number;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
 }

@@ -23,8 +23,4 @@ export interface UpdateRepostajeDto {
     tarjeta?: string;
     bidon?: string;
     idBidon?: number;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
 }

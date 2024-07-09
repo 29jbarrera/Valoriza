@@ -12,19 +12,15 @@
 
 export interface UpdateSeguroDto { 
     id?: number;
-    codigo?: string;
+    codigo: string;
     idEmpresa?: number;
-    aseguradora?: string;
+    aseguradora: string;
     fechaInicio?: Date;
     fechaFin?: Date;
     importe?: number;
-    codMoneda?: string;
+    codMoneda: string;
     comentario?: string;
     codTipoSeguro?: string;
     codEstadoSeguro?: string;
     idMaquinaria?: number;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
 }

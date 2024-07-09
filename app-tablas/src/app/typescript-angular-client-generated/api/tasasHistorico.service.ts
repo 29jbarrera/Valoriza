@@ -18,9 +18,9 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 import { Observable }                                        from 'rxjs';
 
 import { CreateTasasHistoricoDto } from '../model/createTasasHistoricoDto';
+import { ProblemDetails } from '../model/problemDetails';
 import { TasasHistoricoDto } from '../model/tasasHistoricoDto';
 import { TasasHistoricoDtoPaginatedResult } from '../model/tasasHistoricoDtoPaginatedResult';
-import { TasasHistoricoDtoResult } from '../model/tasasHistoricoDtoResult';
 import { UpdateTasasHistoricoDto } from '../model/updateTasasHistoricoDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class TasasHistoricoService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class TasasHistoricoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2TasasHistoricoPost(body?: CreateTasasHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<TasasHistoricoDtoResult>;
-    public apiV2TasasHistoricoPost(body?: CreateTasasHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<TasasHistoricoDtoResult>>;
-    public apiV2TasasHistoricoPost(body?: CreateTasasHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<TasasHistoricoDtoResult>>;
+    public apiV2TasasHistoricoPost(body?: CreateTasasHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2TasasHistoricoPost(body?: CreateTasasHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2TasasHistoricoPost(body?: CreateTasasHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2TasasHistoricoPost(body?: CreateTasasHistoricoDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class TasasHistoricoService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<TasasHistoricoDtoResult>('post',`${this.basePath}/api/v2/tasasHistorico`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/tasasHistorico`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class TasasHistoricoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2TasasHistoricoPut(body?: UpdateTasasHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<TasasHistoricoDtoResult>;
-    public apiV2TasasHistoricoPut(body?: UpdateTasasHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<TasasHistoricoDtoResult>>;
-    public apiV2TasasHistoricoPut(body?: UpdateTasasHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<TasasHistoricoDtoResult>>;
+    public apiV2TasasHistoricoPut(body?: UpdateTasasHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2TasasHistoricoPut(body?: UpdateTasasHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2TasasHistoricoPut(body?: UpdateTasasHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2TasasHistoricoPut(body?: UpdateTasasHistoricoDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class TasasHistoricoService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<TasasHistoricoDtoResult>('put',`${this.basePath}/api/v2/tasasHistorico`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/tasasHistorico`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

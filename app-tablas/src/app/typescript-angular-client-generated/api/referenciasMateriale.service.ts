@@ -18,9 +18,9 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 import { Observable }                                        from 'rxjs';
 
 import { CreateReferenciasMaterialeDto } from '../model/createReferenciasMaterialeDto';
+import { ProblemDetails } from '../model/problemDetails';
 import { ReferenciasMaterialeDto } from '../model/referenciasMaterialeDto';
 import { ReferenciasMaterialeDtoPaginatedResult } from '../model/referenciasMaterialeDtoPaginatedResult';
-import { ReferenciasMaterialeDtoResult } from '../model/referenciasMaterialeDtoResult';
 import { UpdateReferenciasMaterialeDto } from '../model/updateReferenciasMaterialeDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class ReferenciasMaterialeService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class ReferenciasMaterialeService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2ReferenciasMaterialePost(body?: CreateReferenciasMaterialeDto, observe?: 'body', reportProgress?: boolean): Observable<ReferenciasMaterialeDtoResult>;
-    public apiV2ReferenciasMaterialePost(body?: CreateReferenciasMaterialeDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ReferenciasMaterialeDtoResult>>;
-    public apiV2ReferenciasMaterialePost(body?: CreateReferenciasMaterialeDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ReferenciasMaterialeDtoResult>>;
+    public apiV2ReferenciasMaterialePost(body?: CreateReferenciasMaterialeDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2ReferenciasMaterialePost(body?: CreateReferenciasMaterialeDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2ReferenciasMaterialePost(body?: CreateReferenciasMaterialeDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2ReferenciasMaterialePost(body?: CreateReferenciasMaterialeDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class ReferenciasMaterialeService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<ReferenciasMaterialeDtoResult>('post',`${this.basePath}/api/v2/referenciasMateriale`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/referenciasMateriale`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class ReferenciasMaterialeService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2ReferenciasMaterialePut(body?: UpdateReferenciasMaterialeDto, observe?: 'body', reportProgress?: boolean): Observable<ReferenciasMaterialeDtoResult>;
-    public apiV2ReferenciasMaterialePut(body?: UpdateReferenciasMaterialeDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ReferenciasMaterialeDtoResult>>;
-    public apiV2ReferenciasMaterialePut(body?: UpdateReferenciasMaterialeDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ReferenciasMaterialeDtoResult>>;
+    public apiV2ReferenciasMaterialePut(body?: UpdateReferenciasMaterialeDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2ReferenciasMaterialePut(body?: UpdateReferenciasMaterialeDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2ReferenciasMaterialePut(body?: UpdateReferenciasMaterialeDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2ReferenciasMaterialePut(body?: UpdateReferenciasMaterialeDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class ReferenciasMaterialeService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<ReferenciasMaterialeDtoResult>('put',`${this.basePath}/api/v2/referenciasMateriale`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/referenciasMateriale`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

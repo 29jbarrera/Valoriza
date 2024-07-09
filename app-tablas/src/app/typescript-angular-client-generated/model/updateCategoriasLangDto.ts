@@ -12,7 +12,7 @@
 
 export interface UpdateCategoriasLangDto { 
     id?: number;
-    codigo?: string;
+    codigo: string;
     idLang?: number;
-    descripcion?: string;
+    descripcion: string;
 }

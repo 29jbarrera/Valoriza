@@ -18,5 +18,5 @@ export interface UnidadMedidaTiposCombustibleDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<UnidadMedidaTiposCombustibleDto>;
+    results?: Array<UnidadMedidaTiposCombustibleDto>;
 }

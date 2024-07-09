@@ -20,7 +20,7 @@ import { Observable }                                        from 'rxjs';
 import { CreateNivelesMantenimientoAccionesLangDto } from '../model/createNivelesMantenimientoAccionesLangDto';
 import { NivelesMantenimientoAccionesLangDto } from '../model/nivelesMantenimientoAccionesLangDto';
 import { NivelesMantenimientoAccionesLangDtoPaginatedResult } from '../model/nivelesMantenimientoAccionesLangDtoPaginatedResult';
-import { NivelesMantenimientoAccionesLangDtoResult } from '../model/nivelesMantenimientoAccionesLangDtoResult';
+import { ProblemDetails } from '../model/problemDetails';
 import { UpdateNivelesMantenimientoAccionesLangDto } from '../model/updateNivelesMantenimientoAccionesLangDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class NivelesMantenimientoAccionesLangService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class NivelesMantenimientoAccionesLangService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2NivelesMantenimientoAccionesLangPost(body?: CreateNivelesMantenimientoAccionesLangDto, observe?: 'body', reportProgress?: boolean): Observable<NivelesMantenimientoAccionesLangDtoResult>;
-    public apiV2NivelesMantenimientoAccionesLangPost(body?: CreateNivelesMantenimientoAccionesLangDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<NivelesMantenimientoAccionesLangDtoResult>>;
-    public apiV2NivelesMantenimientoAccionesLangPost(body?: CreateNivelesMantenimientoAccionesLangDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<NivelesMantenimientoAccionesLangDtoResult>>;
+    public apiV2NivelesMantenimientoAccionesLangPost(body?: CreateNivelesMantenimientoAccionesLangDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2NivelesMantenimientoAccionesLangPost(body?: CreateNivelesMantenimientoAccionesLangDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2NivelesMantenimientoAccionesLangPost(body?: CreateNivelesMantenimientoAccionesLangDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2NivelesMantenimientoAccionesLangPost(body?: CreateNivelesMantenimientoAccionesLangDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class NivelesMantenimientoAccionesLangService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<NivelesMantenimientoAccionesLangDtoResult>('post',`${this.basePath}/api/v2/nivelesMantenimientoAccionesLang`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/nivelesMantenimientoAccionesLang`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class NivelesMantenimientoAccionesLangService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2NivelesMantenimientoAccionesLangPut(body?: UpdateNivelesMantenimientoAccionesLangDto, observe?: 'body', reportProgress?: boolean): Observable<NivelesMantenimientoAccionesLangDtoResult>;
-    public apiV2NivelesMantenimientoAccionesLangPut(body?: UpdateNivelesMantenimientoAccionesLangDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<NivelesMantenimientoAccionesLangDtoResult>>;
-    public apiV2NivelesMantenimientoAccionesLangPut(body?: UpdateNivelesMantenimientoAccionesLangDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<NivelesMantenimientoAccionesLangDtoResult>>;
+    public apiV2NivelesMantenimientoAccionesLangPut(body?: UpdateNivelesMantenimientoAccionesLangDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2NivelesMantenimientoAccionesLangPut(body?: UpdateNivelesMantenimientoAccionesLangDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2NivelesMantenimientoAccionesLangPut(body?: UpdateNivelesMantenimientoAccionesLangDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2NivelesMantenimientoAccionesLangPut(body?: UpdateNivelesMantenimientoAccionesLangDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class NivelesMantenimientoAccionesLangService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<NivelesMantenimientoAccionesLangDtoResult>('put',`${this.basePath}/api/v2/nivelesMantenimientoAccionesLang`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/nivelesMantenimientoAccionesLang`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

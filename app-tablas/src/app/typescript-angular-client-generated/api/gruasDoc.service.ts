@@ -20,7 +20,7 @@ import { Observable }                                        from 'rxjs';
 import { CreateGruasDocDto } from '../model/createGruasDocDto';
 import { GruasDocDto } from '../model/gruasDocDto';
 import { GruasDocDtoPaginatedResult } from '../model/gruasDocDtoPaginatedResult';
-import { GruasDocDtoResult } from '../model/gruasDocDtoResult';
+import { ProblemDetails } from '../model/problemDetails';
 import { UpdateGruasDocDto } from '../model/updateGruasDocDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class GruasDocService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class GruasDocService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2GruasDocPost(body?: CreateGruasDocDto, observe?: 'body', reportProgress?: boolean): Observable<GruasDocDtoResult>;
-    public apiV2GruasDocPost(body?: CreateGruasDocDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<GruasDocDtoResult>>;
-    public apiV2GruasDocPost(body?: CreateGruasDocDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<GruasDocDtoResult>>;
+    public apiV2GruasDocPost(body?: CreateGruasDocDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2GruasDocPost(body?: CreateGruasDocDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2GruasDocPost(body?: CreateGruasDocDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2GruasDocPost(body?: CreateGruasDocDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class GruasDocService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<GruasDocDtoResult>('post',`${this.basePath}/api/v2/gruasDoc`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/gruasDoc`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class GruasDocService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2GruasDocPut(body?: UpdateGruasDocDto, observe?: 'body', reportProgress?: boolean): Observable<GruasDocDtoResult>;
-    public apiV2GruasDocPut(body?: UpdateGruasDocDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<GruasDocDtoResult>>;
-    public apiV2GruasDocPut(body?: UpdateGruasDocDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<GruasDocDtoResult>>;
+    public apiV2GruasDocPut(body?: UpdateGruasDocDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2GruasDocPut(body?: UpdateGruasDocDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2GruasDocPut(body?: UpdateGruasDocDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2GruasDocPut(body?: UpdateGruasDocDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class GruasDocService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<GruasDocDtoResult>('put',`${this.basePath}/api/v2/gruasDoc`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/gruasDoc`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

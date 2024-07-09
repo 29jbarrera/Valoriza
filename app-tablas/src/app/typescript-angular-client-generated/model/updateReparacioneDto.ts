@@ -17,10 +17,10 @@ export interface UpdateReparacioneDto {
     idMaquinaria?: number;
     idProveedor?: number;
     fecha?: Date;
-    codTipoReparacion?: string;
-    codNivelReparacion?: string;
-    codMoneda?: string;
-    codEstado?: string;
+    codTipoReparacion: string;
+    codNivelReparacion: string;
+    codMoneda: string;
+    codEstado: string;
     repuestos?: number;
     neumaticos?: number;
     externos?: number;
@@ -35,8 +35,4 @@ export interface UpdateReparacioneDto {
     comentarios?: string;
     observaciones?: string;
     automatico?: boolean;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
 }

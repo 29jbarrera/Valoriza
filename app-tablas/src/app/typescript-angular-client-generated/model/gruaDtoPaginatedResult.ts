@@ -18,5 +18,5 @@ export interface GruaDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<GruaDto>;
+    results?: Array<GruaDto>;
 }

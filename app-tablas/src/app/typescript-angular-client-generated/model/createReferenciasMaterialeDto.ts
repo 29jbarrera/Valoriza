@@ -12,11 +12,7 @@
 
 export interface CreateReferenciasMaterialeDto { 
     idEmpresa?: number;
-    codigoCategoria?: string;
-    referencia?: string;
-    descripcion?: string;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
+    codigoCategoria: string;
+    referencia: string;
+    descripcion: string;
 }

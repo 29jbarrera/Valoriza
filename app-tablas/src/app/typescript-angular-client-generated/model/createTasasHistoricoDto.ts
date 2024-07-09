@@ -29,8 +29,4 @@ export interface CreateTasasHistoricoDto {
     modeloImplemento3?: string;
     tasaImplemento3?: number;
     codMonedaTasaImplemento3?: string;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
 }

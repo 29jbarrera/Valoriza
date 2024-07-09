@@ -13,14 +13,10 @@
 export interface UpdateProveedoreDto { 
     id?: number;
     idEmpresa?: number;
-    docIdentificacion?: string;
-    nombre?: string;
+    docIdentificacion: string;
+    nombre: string;
     direccion?: string;
     telefono?: string;
     comentarios?: string;
     sap?: string;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
 }

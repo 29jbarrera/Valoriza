@@ -20,7 +20,7 @@ import { Observable }                                        from 'rxjs';
 import { CreateMarcaDto } from '../model/createMarcaDto';
 import { MarcaDto } from '../model/marcaDto';
 import { MarcaDtoPaginatedResult } from '../model/marcaDtoPaginatedResult';
-import { MarcaDtoResult } from '../model/marcaDtoResult';
+import { ProblemDetails } from '../model/problemDetails';
 import { UpdateMarcaDto } from '../model/updateMarcaDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class MarcaService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class MarcaService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2MarcaPost(body?: CreateMarcaDto, observe?: 'body', reportProgress?: boolean): Observable<MarcaDtoResult>;
-    public apiV2MarcaPost(body?: CreateMarcaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<MarcaDtoResult>>;
-    public apiV2MarcaPost(body?: CreateMarcaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<MarcaDtoResult>>;
+    public apiV2MarcaPost(body?: CreateMarcaDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2MarcaPost(body?: CreateMarcaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2MarcaPost(body?: CreateMarcaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2MarcaPost(body?: CreateMarcaDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class MarcaService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<MarcaDtoResult>('post',`${this.basePath}/api/v2/marca`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/marca`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class MarcaService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2MarcaPut(body?: UpdateMarcaDto, observe?: 'body', reportProgress?: boolean): Observable<MarcaDtoResult>;
-    public apiV2MarcaPut(body?: UpdateMarcaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<MarcaDtoResult>>;
-    public apiV2MarcaPut(body?: UpdateMarcaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<MarcaDtoResult>>;
+    public apiV2MarcaPut(body?: UpdateMarcaDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2MarcaPut(body?: UpdateMarcaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2MarcaPut(body?: UpdateMarcaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2MarcaPut(body?: UpdateMarcaDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class MarcaService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<MarcaDtoResult>('put',`${this.basePath}/api/v2/marca`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/marca`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

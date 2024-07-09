@@ -18,5 +18,5 @@ export interface TasasHistoricoDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<TasasHistoricoDto>;
+    results?: Array<TasasHistoricoDto>;
 }

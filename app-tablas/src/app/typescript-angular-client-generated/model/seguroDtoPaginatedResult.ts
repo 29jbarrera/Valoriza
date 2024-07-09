@@ -18,5 +18,5 @@ export interface SeguroDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<SeguroDto>;
+    results?: Array<SeguroDto>;
 }

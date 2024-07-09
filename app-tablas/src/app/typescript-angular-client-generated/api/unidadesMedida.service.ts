@@ -18,9 +18,9 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 import { Observable }                                        from 'rxjs';
 
 import { CreateUnidadesMedidaDto } from '../model/createUnidadesMedidaDto';
+import { ProblemDetails } from '../model/problemDetails';
 import { UnidadesMedidaDto } from '../model/unidadesMedidaDto';
 import { UnidadesMedidaDtoPaginatedResult } from '../model/unidadesMedidaDtoPaginatedResult';
-import { UnidadesMedidaDtoResult } from '../model/unidadesMedidaDtoResult';
 import { UpdateUnidadesMedidaDto } from '../model/updateUnidadesMedidaDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class UnidadesMedidaService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class UnidadesMedidaService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2UnidadesMedidaPost(body?: CreateUnidadesMedidaDto, observe?: 'body', reportProgress?: boolean): Observable<UnidadesMedidaDtoResult>;
-    public apiV2UnidadesMedidaPost(body?: CreateUnidadesMedidaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<UnidadesMedidaDtoResult>>;
-    public apiV2UnidadesMedidaPost(body?: CreateUnidadesMedidaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<UnidadesMedidaDtoResult>>;
+    public apiV2UnidadesMedidaPost(body?: CreateUnidadesMedidaDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2UnidadesMedidaPost(body?: CreateUnidadesMedidaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2UnidadesMedidaPost(body?: CreateUnidadesMedidaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2UnidadesMedidaPost(body?: CreateUnidadesMedidaDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class UnidadesMedidaService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<UnidadesMedidaDtoResult>('post',`${this.basePath}/api/v2/unidadesMedida`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/unidadesMedida`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class UnidadesMedidaService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2UnidadesMedidaPut(body?: UpdateUnidadesMedidaDto, observe?: 'body', reportProgress?: boolean): Observable<UnidadesMedidaDtoResult>;
-    public apiV2UnidadesMedidaPut(body?: UpdateUnidadesMedidaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<UnidadesMedidaDtoResult>>;
-    public apiV2UnidadesMedidaPut(body?: UpdateUnidadesMedidaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<UnidadesMedidaDtoResult>>;
+    public apiV2UnidadesMedidaPut(body?: UpdateUnidadesMedidaDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2UnidadesMedidaPut(body?: UpdateUnidadesMedidaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2UnidadesMedidaPut(body?: UpdateUnidadesMedidaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2UnidadesMedidaPut(body?: UpdateUnidadesMedidaDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class UnidadesMedidaService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<UnidadesMedidaDtoResult>('put',`${this.basePath}/api/v2/unidadesMedida`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/unidadesMedida`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

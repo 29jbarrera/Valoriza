@@ -14,11 +14,7 @@ export interface UpdateGastosTallerDocDto {
     id?: number;
     idGastoTaller?: number;
     claveGuid?: string;
-    documento?: string;
-    nombre?: string;
-    extension?: string;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
+    documento: string;
+    nombre: string;
+    extension: string;
 }

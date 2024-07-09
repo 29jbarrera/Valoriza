@@ -13,10 +13,10 @@
 export interface CreateReparacionesHistoricoDto { 
     idReparacion?: number;
     fecha?: Date;
-    codTipoReparacion?: string;
-    codNivelReparacion?: string;
-    codMoneda?: string;
-    codEstado?: string;
+    codTipoReparacion: string;
+    codNivelReparacion: string;
+    codMoneda: string;
+    codEstado: string;
     repuestos?: number;
     neumaticos?: number;
     externos?: number;
@@ -30,7 +30,5 @@ export interface CreateReparacionesHistoricoDto {
     otros?: number;
     comentarios?: string;
     observaciones?: string;
-    createdBy?: string;
-    createdAt?: Date;
     idMaquinaria?: number;
 }

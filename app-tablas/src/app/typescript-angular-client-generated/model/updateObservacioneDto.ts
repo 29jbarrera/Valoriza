@@ -13,10 +13,6 @@
 export interface UpdateObservacioneDto { 
     id?: number;
     idMaquinaria?: number;
-    descripcion?: string;
+    descripcion: string;
     fecha?: Date;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
 }

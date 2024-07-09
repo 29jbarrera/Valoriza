@@ -20,7 +20,7 @@ import { Observable }                                        from 'rxjs';
 import { CreateMaquinariasEliminadaDto } from '../model/createMaquinariasEliminadaDto';
 import { MaquinariasEliminadaDto } from '../model/maquinariasEliminadaDto';
 import { MaquinariasEliminadaDtoPaginatedResult } from '../model/maquinariasEliminadaDtoPaginatedResult';
-import { MaquinariasEliminadaDtoResult } from '../model/maquinariasEliminadaDtoResult';
+import { ProblemDetails } from '../model/problemDetails';
 import { UpdateMaquinariasEliminadaDto } from '../model/updateMaquinariasEliminadaDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class MaquinariasEliminadaService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class MaquinariasEliminadaService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2MaquinariasEliminadaPost(body?: CreateMaquinariasEliminadaDto, observe?: 'body', reportProgress?: boolean): Observable<MaquinariasEliminadaDtoResult>;
-    public apiV2MaquinariasEliminadaPost(body?: CreateMaquinariasEliminadaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<MaquinariasEliminadaDtoResult>>;
-    public apiV2MaquinariasEliminadaPost(body?: CreateMaquinariasEliminadaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<MaquinariasEliminadaDtoResult>>;
+    public apiV2MaquinariasEliminadaPost(body?: CreateMaquinariasEliminadaDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2MaquinariasEliminadaPost(body?: CreateMaquinariasEliminadaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2MaquinariasEliminadaPost(body?: CreateMaquinariasEliminadaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2MaquinariasEliminadaPost(body?: CreateMaquinariasEliminadaDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class MaquinariasEliminadaService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<MaquinariasEliminadaDtoResult>('post',`${this.basePath}/api/v2/maquinariasEliminada`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/maquinariasEliminada`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class MaquinariasEliminadaService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2MaquinariasEliminadaPut(body?: UpdateMaquinariasEliminadaDto, observe?: 'body', reportProgress?: boolean): Observable<MaquinariasEliminadaDtoResult>;
-    public apiV2MaquinariasEliminadaPut(body?: UpdateMaquinariasEliminadaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<MaquinariasEliminadaDtoResult>>;
-    public apiV2MaquinariasEliminadaPut(body?: UpdateMaquinariasEliminadaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<MaquinariasEliminadaDtoResult>>;
+    public apiV2MaquinariasEliminadaPut(body?: UpdateMaquinariasEliminadaDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2MaquinariasEliminadaPut(body?: UpdateMaquinariasEliminadaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2MaquinariasEliminadaPut(body?: UpdateMaquinariasEliminadaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2MaquinariasEliminadaPut(body?: UpdateMaquinariasEliminadaDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class MaquinariasEliminadaService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<MaquinariasEliminadaDtoResult>('put',`${this.basePath}/api/v2/maquinariasEliminada`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/maquinariasEliminada`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

@@ -18,5 +18,5 @@ export interface EquiposDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<EquiposDto>;
+    results?: Array<EquiposDto>;
 }

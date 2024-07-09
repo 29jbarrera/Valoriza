@@ -9,10 +9,16 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { EmpresaDto } from './empresaDto';
+import { NivelesMantenimientoDto } from './nivelesMantenimientoDto';
+import { SubFamiliaDto } from './subFamiliaDto';
 
 export interface SubFamiliasNiveleDto { 
     id?: number;
     idEmpresa?: number;
+    empresa?: EmpresaDto;
     idSubfamilia?: number;
+    subFamilia?: SubFamiliaDto;
     idNivelMantenimiento?: number;
+    nivelMantenimiento?: NivelesMantenimientoDto;
 }

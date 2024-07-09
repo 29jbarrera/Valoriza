@@ -20,7 +20,7 @@ import { Observable }                                        from 'rxjs';
 import { CreateFamiliasLangDto } from '../model/createFamiliasLangDto';
 import { FamiliasLangDto } from '../model/familiasLangDto';
 import { FamiliasLangDtoPaginatedResult } from '../model/familiasLangDtoPaginatedResult';
-import { FamiliasLangDtoResult } from '../model/familiasLangDtoResult';
+import { ProblemDetails } from '../model/problemDetails';
 import { UpdateFamiliasLangDto } from '../model/updateFamiliasLangDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class FamiliasLangService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class FamiliasLangService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2FamiliasLangPost(body?: CreateFamiliasLangDto, observe?: 'body', reportProgress?: boolean): Observable<FamiliasLangDtoResult>;
-    public apiV2FamiliasLangPost(body?: CreateFamiliasLangDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<FamiliasLangDtoResult>>;
-    public apiV2FamiliasLangPost(body?: CreateFamiliasLangDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<FamiliasLangDtoResult>>;
+    public apiV2FamiliasLangPost(body?: CreateFamiliasLangDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2FamiliasLangPost(body?: CreateFamiliasLangDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2FamiliasLangPost(body?: CreateFamiliasLangDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2FamiliasLangPost(body?: CreateFamiliasLangDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class FamiliasLangService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<FamiliasLangDtoResult>('post',`${this.basePath}/api/v2/familiasLang`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/familiasLang`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class FamiliasLangService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2FamiliasLangPut(body?: UpdateFamiliasLangDto, observe?: 'body', reportProgress?: boolean): Observable<FamiliasLangDtoResult>;
-    public apiV2FamiliasLangPut(body?: UpdateFamiliasLangDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<FamiliasLangDtoResult>>;
-    public apiV2FamiliasLangPut(body?: UpdateFamiliasLangDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<FamiliasLangDtoResult>>;
+    public apiV2FamiliasLangPut(body?: UpdateFamiliasLangDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2FamiliasLangPut(body?: UpdateFamiliasLangDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2FamiliasLangPut(body?: UpdateFamiliasLangDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2FamiliasLangPut(body?: UpdateFamiliasLangDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class FamiliasLangService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<FamiliasLangDtoResult>('put',`${this.basePath}/api/v2/familiasLang`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/familiasLang`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

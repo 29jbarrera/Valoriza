@@ -9,13 +9,15 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { EmpresaDto } from './empresaDto';
 
 export interface MarcaDto { 
     id?: number;
     idEmpresa?: number;
-    descripcion?: string;
-    createdBy?: string;
+    empresa?: EmpresaDto;
+    descripcion: string;
+    createdBy: string;
     createdAt?: Date;
-    changedBy?: string;
+    changedBy: string;
     changedAt?: Date;
 }

@@ -12,5 +12,5 @@
 
 export interface CreateNivelesMantenimientoAccionesLangDto { 
     idLang?: number;
-    descripcion?: string;
+    descripcion: string;
 }

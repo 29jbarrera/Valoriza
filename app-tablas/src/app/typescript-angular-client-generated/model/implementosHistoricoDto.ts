@@ -9,15 +9,19 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { ImplementoDto } from './implementoDto';
+import { MaquinariaDto } from './maquinariaDto';
 
 export interface ImplementosHistoricoDto { 
     id?: number;
     idMaquinaria?: number;
+    maquinaria?: MaquinariaDto;
     idMaquinariaImplemento?: number;
     idImplemento?: number;
+    implemento?: ImplementoDto;
     fechaDesde?: Date;
     fechaHasta?: Date;
-    descripcion?: string;
+    descripcion: string;
     marca?: string;
     modelo?: string;
     serie?: string;
@@ -35,9 +39,9 @@ export interface ImplementosHistoricoDto {
     fechaFinanciero?: Date;
     porcentajeFinanciero?: number;
     codMonedaTasa?: string;
-    createdBy?: string;
+    createdBy: string;
     createdAt?: Date;
-    changedBy?: string;
+    changedBy: string;
     changedAt?: Date;
     numeroActivoSap?: string;
 }

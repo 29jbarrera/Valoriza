@@ -18,5 +18,5 @@ export interface MarcasReferenciasMaterialeDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<MarcasReferenciasMaterialeDto>;
+    results?: Array<MarcasReferenciasMaterialeDto>;
 }

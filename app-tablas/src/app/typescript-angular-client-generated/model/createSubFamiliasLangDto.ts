@@ -12,5 +12,5 @@
 
 export interface CreateSubFamiliasLangDto { 
     idLang?: number;
-    descripcion?: string;
+    descripcion: string;
 }

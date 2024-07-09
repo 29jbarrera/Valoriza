@@ -18,9 +18,9 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 import { Observable }                                        from 'rxjs';
 
 import { CreateTacografoDto } from '../model/createTacografoDto';
+import { ProblemDetails } from '../model/problemDetails';
 import { TacografoDto } from '../model/tacografoDto';
 import { TacografoDtoPaginatedResult } from '../model/tacografoDtoPaginatedResult';
-import { TacografoDtoResult } from '../model/tacografoDtoResult';
 import { UpdateTacografoDto } from '../model/updateTacografoDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class TacografoService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class TacografoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2TacografoPost(body?: CreateTacografoDto, observe?: 'body', reportProgress?: boolean): Observable<TacografoDtoResult>;
-    public apiV2TacografoPost(body?: CreateTacografoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<TacografoDtoResult>>;
-    public apiV2TacografoPost(body?: CreateTacografoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<TacografoDtoResult>>;
+    public apiV2TacografoPost(body?: CreateTacografoDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2TacografoPost(body?: CreateTacografoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2TacografoPost(body?: CreateTacografoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2TacografoPost(body?: CreateTacografoDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class TacografoService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<TacografoDtoResult>('post',`${this.basePath}/api/v2/tacografo`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/tacografo`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class TacografoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2TacografoPut(body?: UpdateTacografoDto, observe?: 'body', reportProgress?: boolean): Observable<TacografoDtoResult>;
-    public apiV2TacografoPut(body?: UpdateTacografoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<TacografoDtoResult>>;
-    public apiV2TacografoPut(body?: UpdateTacografoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<TacografoDtoResult>>;
+    public apiV2TacografoPut(body?: UpdateTacografoDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2TacografoPut(body?: UpdateTacografoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2TacografoPut(body?: UpdateTacografoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2TacografoPut(body?: UpdateTacografoDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class TacografoService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<TacografoDtoResult>('put',`${this.basePath}/api/v2/tacografo`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/tacografo`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

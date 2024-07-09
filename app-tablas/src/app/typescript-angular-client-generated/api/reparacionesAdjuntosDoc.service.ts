@@ -18,9 +18,9 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 import { Observable }                                        from 'rxjs';
 
 import { CreateReparacionesAdjuntosDocDto } from '../model/createReparacionesAdjuntosDocDto';
+import { ProblemDetails } from '../model/problemDetails';
 import { ReparacionesAdjuntosDocDto } from '../model/reparacionesAdjuntosDocDto';
 import { ReparacionesAdjuntosDocDtoPaginatedResult } from '../model/reparacionesAdjuntosDocDtoPaginatedResult';
-import { ReparacionesAdjuntosDocDtoResult } from '../model/reparacionesAdjuntosDocDtoResult';
 import { UpdateReparacionesAdjuntosDocDto } from '../model/updateReparacionesAdjuntosDocDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class ReparacionesAdjuntosDocService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class ReparacionesAdjuntosDocService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2ReparacionesAdjuntosDocPost(body?: CreateReparacionesAdjuntosDocDto, observe?: 'body', reportProgress?: boolean): Observable<ReparacionesAdjuntosDocDtoResult>;
-    public apiV2ReparacionesAdjuntosDocPost(body?: CreateReparacionesAdjuntosDocDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ReparacionesAdjuntosDocDtoResult>>;
-    public apiV2ReparacionesAdjuntosDocPost(body?: CreateReparacionesAdjuntosDocDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ReparacionesAdjuntosDocDtoResult>>;
+    public apiV2ReparacionesAdjuntosDocPost(body?: CreateReparacionesAdjuntosDocDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2ReparacionesAdjuntosDocPost(body?: CreateReparacionesAdjuntosDocDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2ReparacionesAdjuntosDocPost(body?: CreateReparacionesAdjuntosDocDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2ReparacionesAdjuntosDocPost(body?: CreateReparacionesAdjuntosDocDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class ReparacionesAdjuntosDocService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<ReparacionesAdjuntosDocDtoResult>('post',`${this.basePath}/api/v2/reparacionesAdjuntosDoc`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/reparacionesAdjuntosDoc`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class ReparacionesAdjuntosDocService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2ReparacionesAdjuntosDocPut(body?: UpdateReparacionesAdjuntosDocDto, observe?: 'body', reportProgress?: boolean): Observable<ReparacionesAdjuntosDocDtoResult>;
-    public apiV2ReparacionesAdjuntosDocPut(body?: UpdateReparacionesAdjuntosDocDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ReparacionesAdjuntosDocDtoResult>>;
-    public apiV2ReparacionesAdjuntosDocPut(body?: UpdateReparacionesAdjuntosDocDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ReparacionesAdjuntosDocDtoResult>>;
+    public apiV2ReparacionesAdjuntosDocPut(body?: UpdateReparacionesAdjuntosDocDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2ReparacionesAdjuntosDocPut(body?: UpdateReparacionesAdjuntosDocDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2ReparacionesAdjuntosDocPut(body?: UpdateReparacionesAdjuntosDocDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2ReparacionesAdjuntosDocPut(body?: UpdateReparacionesAdjuntosDocDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class ReparacionesAdjuntosDocService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<ReparacionesAdjuntosDocDtoResult>('put',`${this.basePath}/api/v2/reparacionesAdjuntosDoc`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/reparacionesAdjuntosDoc`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

@@ -13,11 +13,7 @@
 export interface CreateGruasDocDto { 
     idGrua?: number;
     claveGuid?: string;
-    extension?: string;
-    documento?: string;
-    nombre?: string;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
+    extension: string;
+    documento: string;
+    nombre: string;
 }

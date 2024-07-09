@@ -18,5 +18,5 @@ export interface CategoriaDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<CategoriaDto>;
+    results?: Array<CategoriaDto>;
 }

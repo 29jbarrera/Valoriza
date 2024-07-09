@@ -9,14 +9,16 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { MaquinariaDto } from './maquinariaDto';
 
 export interface GncDto { 
     id?: number;
     idEmpresa?: number;
     idMaquinaria?: number;
+    maquinaria?: MaquinariaDto;
     fecha?: Date;
-    createdBy?: string;
+    createdBy: string;
     createdAt?: Date;
-    changedBy?: string;
+    changedBy: string;
     changedAt?: Date;
 }

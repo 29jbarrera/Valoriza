@@ -13,9 +13,5 @@
 export interface UpdateMarcaDto { 
     id?: number;
     idEmpresa?: number;
-    descripcion?: string;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
+    descripcion: string;
 }

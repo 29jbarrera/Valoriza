@@ -18,5 +18,5 @@ export interface SegurosHistoricoDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<SegurosHistoricoDto>;
+    results?: Array<SegurosHistoricoDto>;
 }

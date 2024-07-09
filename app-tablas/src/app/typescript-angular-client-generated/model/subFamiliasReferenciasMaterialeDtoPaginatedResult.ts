@@ -18,5 +18,5 @@ export interface SubFamiliasReferenciasMaterialeDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<SubFamiliasReferenciasMaterialeDto>;
+    results?: Array<SubFamiliasReferenciasMaterialeDto>;
 }

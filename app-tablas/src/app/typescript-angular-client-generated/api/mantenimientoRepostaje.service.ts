@@ -20,7 +20,7 @@ import { Observable }                                        from 'rxjs';
 import { CreateMantenimientoRepostajeDto } from '../model/createMantenimientoRepostajeDto';
 import { MantenimientoRepostajeDto } from '../model/mantenimientoRepostajeDto';
 import { MantenimientoRepostajeDtoPaginatedResult } from '../model/mantenimientoRepostajeDtoPaginatedResult';
-import { MantenimientoRepostajeDtoResult } from '../model/mantenimientoRepostajeDtoResult';
+import { ProblemDetails } from '../model/problemDetails';
 import { UpdateMantenimientoRepostajeDto } from '../model/updateMantenimientoRepostajeDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class MantenimientoRepostajeService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class MantenimientoRepostajeService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2MantenimientoRepostajePost(body?: CreateMantenimientoRepostajeDto, observe?: 'body', reportProgress?: boolean): Observable<MantenimientoRepostajeDtoResult>;
-    public apiV2MantenimientoRepostajePost(body?: CreateMantenimientoRepostajeDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<MantenimientoRepostajeDtoResult>>;
-    public apiV2MantenimientoRepostajePost(body?: CreateMantenimientoRepostajeDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<MantenimientoRepostajeDtoResult>>;
+    public apiV2MantenimientoRepostajePost(body?: CreateMantenimientoRepostajeDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2MantenimientoRepostajePost(body?: CreateMantenimientoRepostajeDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2MantenimientoRepostajePost(body?: CreateMantenimientoRepostajeDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2MantenimientoRepostajePost(body?: CreateMantenimientoRepostajeDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class MantenimientoRepostajeService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<MantenimientoRepostajeDtoResult>('post',`${this.basePath}/api/v2/mantenimientoRepostaje`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/mantenimientoRepostaje`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class MantenimientoRepostajeService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2MantenimientoRepostajePut(body?: UpdateMantenimientoRepostajeDto, observe?: 'body', reportProgress?: boolean): Observable<MantenimientoRepostajeDtoResult>;
-    public apiV2MantenimientoRepostajePut(body?: UpdateMantenimientoRepostajeDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<MantenimientoRepostajeDtoResult>>;
-    public apiV2MantenimientoRepostajePut(body?: UpdateMantenimientoRepostajeDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<MantenimientoRepostajeDtoResult>>;
+    public apiV2MantenimientoRepostajePut(body?: UpdateMantenimientoRepostajeDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2MantenimientoRepostajePut(body?: UpdateMantenimientoRepostajeDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2MantenimientoRepostajePut(body?: UpdateMantenimientoRepostajeDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2MantenimientoRepostajePut(body?: UpdateMantenimientoRepostajeDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class MantenimientoRepostajeService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<MantenimientoRepostajeDtoResult>('put',`${this.basePath}/api/v2/mantenimientoRepostaje`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/mantenimientoRepostaje`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

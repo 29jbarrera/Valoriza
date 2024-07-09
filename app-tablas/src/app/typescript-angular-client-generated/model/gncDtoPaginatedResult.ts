@@ -18,5 +18,5 @@ export interface GncDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<GncDto>;
+    results?: Array<GncDto>;
 }

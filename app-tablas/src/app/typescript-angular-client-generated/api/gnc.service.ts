@@ -20,7 +20,7 @@ import { Observable }                                        from 'rxjs';
 import { CreateGncDto } from '../model/createGncDto';
 import { GncDto } from '../model/gncDto';
 import { GncDtoPaginatedResult } from '../model/gncDtoPaginatedResult';
-import { GncDtoResult } from '../model/gncDtoResult';
+import { ProblemDetails } from '../model/problemDetails';
 import { UpdateGncDto } from '../model/updateGncDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class GncService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class GncService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2GncPost(body?: CreateGncDto, observe?: 'body', reportProgress?: boolean): Observable<GncDtoResult>;
-    public apiV2GncPost(body?: CreateGncDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<GncDtoResult>>;
-    public apiV2GncPost(body?: CreateGncDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<GncDtoResult>>;
+    public apiV2GncPost(body?: CreateGncDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2GncPost(body?: CreateGncDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2GncPost(body?: CreateGncDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2GncPost(body?: CreateGncDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class GncService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<GncDtoResult>('post',`${this.basePath}/api/v2/gnc`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/gnc`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class GncService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2GncPut(body?: UpdateGncDto, observe?: 'body', reportProgress?: boolean): Observable<GncDtoResult>;
-    public apiV2GncPut(body?: UpdateGncDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<GncDtoResult>>;
-    public apiV2GncPut(body?: UpdateGncDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<GncDtoResult>>;
+    public apiV2GncPut(body?: UpdateGncDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2GncPut(body?: UpdateGncDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2GncPut(body?: UpdateGncDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2GncPut(body?: UpdateGncDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class GncService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<GncDtoResult>('put',`${this.basePath}/api/v2/gnc`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/gnc`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

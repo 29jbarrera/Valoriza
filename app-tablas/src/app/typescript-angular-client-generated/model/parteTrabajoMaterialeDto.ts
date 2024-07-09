@@ -9,16 +9,20 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { PartesTrabajoDto } from './partesTrabajoDto';
+import { ReferenciasMaterialeDto } from './referenciasMaterialeDto';
 
 export interface ParteTrabajoMaterialeDto { 
     id?: number;
     idParteTrabajo?: number;
+    parteTrabajo?: PartesTrabajoDto;
     idReferenciaMaterial?: number;
-    descripcion?: string;
+    referenciaMaterial?: ReferenciasMaterialeDto;
+    descripcion: string;
     cantidad?: number;
     gastoConmutable?: boolean;
-    createdBy?: string;
+    createdBy: string;
     createdAt?: Date;
-    changedBy?: string;
+    changedBy: string;
     changedAt?: Date;
 }

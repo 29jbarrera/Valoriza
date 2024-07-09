@@ -18,9 +18,9 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 import { Observable }                                        from 'rxjs';
 
 import { CreateSubFamiliaDto } from '../model/createSubFamiliaDto';
+import { ProblemDetails } from '../model/problemDetails';
 import { SubFamiliaDto } from '../model/subFamiliaDto';
 import { SubFamiliaDtoPaginatedResult } from '../model/subFamiliaDtoPaginatedResult';
-import { SubFamiliaDtoResult } from '../model/subFamiliaDtoResult';
 import { UpdateSubFamiliaDto } from '../model/updateSubFamiliaDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class SubFamiliaService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class SubFamiliaService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2SubFamiliaPost(body?: CreateSubFamiliaDto, observe?: 'body', reportProgress?: boolean): Observable<SubFamiliaDtoResult>;
-    public apiV2SubFamiliaPost(body?: CreateSubFamiliaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<SubFamiliaDtoResult>>;
-    public apiV2SubFamiliaPost(body?: CreateSubFamiliaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<SubFamiliaDtoResult>>;
+    public apiV2SubFamiliaPost(body?: CreateSubFamiliaDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2SubFamiliaPost(body?: CreateSubFamiliaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2SubFamiliaPost(body?: CreateSubFamiliaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2SubFamiliaPost(body?: CreateSubFamiliaDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class SubFamiliaService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<SubFamiliaDtoResult>('post',`${this.basePath}/api/v2/subFamilia`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/subFamilia`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class SubFamiliaService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2SubFamiliaPut(body?: UpdateSubFamiliaDto, observe?: 'body', reportProgress?: boolean): Observable<SubFamiliaDtoResult>;
-    public apiV2SubFamiliaPut(body?: UpdateSubFamiliaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<SubFamiliaDtoResult>>;
-    public apiV2SubFamiliaPut(body?: UpdateSubFamiliaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<SubFamiliaDtoResult>>;
+    public apiV2SubFamiliaPut(body?: UpdateSubFamiliaDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2SubFamiliaPut(body?: UpdateSubFamiliaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2SubFamiliaPut(body?: UpdateSubFamiliaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2SubFamiliaPut(body?: UpdateSubFamiliaDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class SubFamiliaService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<SubFamiliaDtoResult>('put',`${this.basePath}/api/v2/subFamilia`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/subFamilia`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

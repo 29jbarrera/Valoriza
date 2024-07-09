@@ -18,5 +18,5 @@ export interface XCentrosCosteDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<XCentrosCosteDto>;
+    results?: Array<XCentrosCosteDto>;
 }

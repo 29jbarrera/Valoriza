@@ -18,5 +18,5 @@ export interface PrestamosStockDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<PrestamosStockDto>;
+    results?: Array<PrestamosStockDto>;
 }

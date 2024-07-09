@@ -18,5 +18,5 @@ export interface TacografosHistoricoDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<TacografosHistoricoDto>;
+    results?: Array<TacografosHistoricoDto>;
 }

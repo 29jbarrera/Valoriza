@@ -18,5 +18,5 @@ export interface RegularizacionesStockDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<RegularizacionesStockDto>;
+    results?: Array<RegularizacionesStockDto>;
 }

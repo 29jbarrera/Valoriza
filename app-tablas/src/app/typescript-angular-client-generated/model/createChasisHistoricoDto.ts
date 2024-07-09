@@ -13,12 +13,12 @@
 export interface CreateChasisHistoricoDto { 
     idChasis?: number;
     idMaquinaria?: number;
-    marca?: string;
-    modelo?: string;
+    marca: string;
+    modelo: string;
     toneladas?: number;
     precio?: number;
-    codMoneda?: string;
-    codTipoPago?: string;
+    codMoneda: string;
+    codTipoPago: string;
     numeroActivoSap?: string;
     contrato?: string;
     banco?: string;
@@ -32,8 +32,4 @@ export interface CreateChasisHistoricoDto {
     tasa?: number;
     duracionTasas?: number;
     codMonedaTasa?: string;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
 }

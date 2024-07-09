@@ -20,7 +20,7 @@ import { Observable }                                        from 'rxjs';
 import { CreateNotificacionesEstadoMaquinariaExternoDto } from '../model/createNotificacionesEstadoMaquinariaExternoDto';
 import { NotificacionesEstadoMaquinariaExternoDto } from '../model/notificacionesEstadoMaquinariaExternoDto';
 import { NotificacionesEstadoMaquinariaExternoDtoPaginatedResult } from '../model/notificacionesEstadoMaquinariaExternoDtoPaginatedResult';
-import { NotificacionesEstadoMaquinariaExternoDtoResult } from '../model/notificacionesEstadoMaquinariaExternoDtoResult';
+import { ProblemDetails } from '../model/problemDetails';
 import { UpdateNotificacionesEstadoMaquinariaExternoDto } from '../model/updateNotificacionesEstadoMaquinariaExternoDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class NotificacionesEstadoMaquinariaExternoService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class NotificacionesEstadoMaquinariaExternoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2NotificacionesEstadoMaquinariaExternoPost(body?: CreateNotificacionesEstadoMaquinariaExternoDto, observe?: 'body', reportProgress?: boolean): Observable<NotificacionesEstadoMaquinariaExternoDtoResult>;
-    public apiV2NotificacionesEstadoMaquinariaExternoPost(body?: CreateNotificacionesEstadoMaquinariaExternoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<NotificacionesEstadoMaquinariaExternoDtoResult>>;
-    public apiV2NotificacionesEstadoMaquinariaExternoPost(body?: CreateNotificacionesEstadoMaquinariaExternoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<NotificacionesEstadoMaquinariaExternoDtoResult>>;
+    public apiV2NotificacionesEstadoMaquinariaExternoPost(body?: CreateNotificacionesEstadoMaquinariaExternoDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2NotificacionesEstadoMaquinariaExternoPost(body?: CreateNotificacionesEstadoMaquinariaExternoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2NotificacionesEstadoMaquinariaExternoPost(body?: CreateNotificacionesEstadoMaquinariaExternoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2NotificacionesEstadoMaquinariaExternoPost(body?: CreateNotificacionesEstadoMaquinariaExternoDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class NotificacionesEstadoMaquinariaExternoService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<NotificacionesEstadoMaquinariaExternoDtoResult>('post',`${this.basePath}/api/v2/notificacionesEstadoMaquinariaExterno`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/notificacionesEstadoMaquinariaExterno`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class NotificacionesEstadoMaquinariaExternoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2NotificacionesEstadoMaquinariaExternoPut(body?: UpdateNotificacionesEstadoMaquinariaExternoDto, observe?: 'body', reportProgress?: boolean): Observable<NotificacionesEstadoMaquinariaExternoDtoResult>;
-    public apiV2NotificacionesEstadoMaquinariaExternoPut(body?: UpdateNotificacionesEstadoMaquinariaExternoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<NotificacionesEstadoMaquinariaExternoDtoResult>>;
-    public apiV2NotificacionesEstadoMaquinariaExternoPut(body?: UpdateNotificacionesEstadoMaquinariaExternoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<NotificacionesEstadoMaquinariaExternoDtoResult>>;
+    public apiV2NotificacionesEstadoMaquinariaExternoPut(body?: UpdateNotificacionesEstadoMaquinariaExternoDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2NotificacionesEstadoMaquinariaExternoPut(body?: UpdateNotificacionesEstadoMaquinariaExternoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2NotificacionesEstadoMaquinariaExternoPut(body?: UpdateNotificacionesEstadoMaquinariaExternoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2NotificacionesEstadoMaquinariaExternoPut(body?: UpdateNotificacionesEstadoMaquinariaExternoDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class NotificacionesEstadoMaquinariaExternoService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<NotificacionesEstadoMaquinariaExternoDtoResult>('put',`${this.basePath}/api/v2/notificacionesEstadoMaquinariaExterno`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/notificacionesEstadoMaquinariaExterno`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

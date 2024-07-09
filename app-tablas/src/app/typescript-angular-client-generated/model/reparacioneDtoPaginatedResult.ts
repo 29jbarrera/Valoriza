@@ -18,5 +18,5 @@ export interface ReparacioneDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<ReparacioneDto>;
+    results?: Array<ReparacioneDto>;
 }

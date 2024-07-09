@@ -18,5 +18,5 @@ export interface MaquinariasNivelesDocDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<MaquinariasNivelesDocDto>;
+    results?: Array<MaquinariasNivelesDocDto>;
 }

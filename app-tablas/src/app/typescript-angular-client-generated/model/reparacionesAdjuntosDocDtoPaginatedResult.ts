@@ -18,5 +18,5 @@ export interface ReparacionesAdjuntosDocDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<ReparacionesAdjuntosDocDto>;
+    results?: Array<ReparacionesAdjuntosDocDto>;
 }

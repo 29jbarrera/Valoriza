@@ -18,5 +18,5 @@ export interface ChasisHistoricoDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<ChasisHistoricoDto>;
+    results?: Array<ChasisHistoricoDto>;
 }

@@ -9,12 +9,16 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { ImplementoDto } from './implementoDto';
+import { MaquinariaDto } from './maquinariaDto';
 
 export interface FinancieroHistoricosbckDto { 
+    id?: number;
     idMaquinaria?: number;
+    maquinaria?: MaquinariaDto;
     idImplemento?: number;
+    implemento?: ImplementoDto;
     fecha?: Date;
     financiero?: number;
     codMoneda?: string;
-    id?: number;
 }

@@ -20,7 +20,7 @@ import { Observable }                                        from 'rxjs';
 import { CreateImplementoDto } from '../model/createImplementoDto';
 import { ImplementoDto } from '../model/implementoDto';
 import { ImplementoDtoPaginatedResult } from '../model/implementoDtoPaginatedResult';
-import { ImplementoDtoResult } from '../model/implementoDtoResult';
+import { ProblemDetails } from '../model/problemDetails';
 import { UpdateImplementoDto } from '../model/updateImplementoDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class ImplementoService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class ImplementoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2ImplementoPost(body?: CreateImplementoDto, observe?: 'body', reportProgress?: boolean): Observable<ImplementoDtoResult>;
-    public apiV2ImplementoPost(body?: CreateImplementoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ImplementoDtoResult>>;
-    public apiV2ImplementoPost(body?: CreateImplementoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ImplementoDtoResult>>;
+    public apiV2ImplementoPost(body?: CreateImplementoDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2ImplementoPost(body?: CreateImplementoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2ImplementoPost(body?: CreateImplementoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2ImplementoPost(body?: CreateImplementoDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class ImplementoService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<ImplementoDtoResult>('post',`${this.basePath}/api/v2/implemento`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/implemento`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class ImplementoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2ImplementoPut(body?: UpdateImplementoDto, observe?: 'body', reportProgress?: boolean): Observable<ImplementoDtoResult>;
-    public apiV2ImplementoPut(body?: UpdateImplementoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ImplementoDtoResult>>;
-    public apiV2ImplementoPut(body?: UpdateImplementoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ImplementoDtoResult>>;
+    public apiV2ImplementoPut(body?: UpdateImplementoDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2ImplementoPut(body?: UpdateImplementoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2ImplementoPut(body?: UpdateImplementoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2ImplementoPut(body?: UpdateImplementoDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class ImplementoService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<ImplementoDtoResult>('put',`${this.basePath}/api/v2/implemento`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/implemento`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

@@ -20,7 +20,7 @@ import { Observable }                                        from 'rxjs';
 import { CreateImplementosHistoricoDto } from '../model/createImplementosHistoricoDto';
 import { ImplementosHistoricoDto } from '../model/implementosHistoricoDto';
 import { ImplementosHistoricoDtoPaginatedResult } from '../model/implementosHistoricoDtoPaginatedResult';
-import { ImplementosHistoricoDtoResult } from '../model/implementosHistoricoDtoResult';
+import { ProblemDetails } from '../model/problemDetails';
 import { UpdateImplementosHistoricoDto } from '../model/updateImplementosHistoricoDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class ImplementosHistoricoService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class ImplementosHistoricoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2ImplementosHistoricoPost(body?: CreateImplementosHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<ImplementosHistoricoDtoResult>;
-    public apiV2ImplementosHistoricoPost(body?: CreateImplementosHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ImplementosHistoricoDtoResult>>;
-    public apiV2ImplementosHistoricoPost(body?: CreateImplementosHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ImplementosHistoricoDtoResult>>;
+    public apiV2ImplementosHistoricoPost(body?: CreateImplementosHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2ImplementosHistoricoPost(body?: CreateImplementosHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2ImplementosHistoricoPost(body?: CreateImplementosHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2ImplementosHistoricoPost(body?: CreateImplementosHistoricoDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class ImplementosHistoricoService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<ImplementosHistoricoDtoResult>('post',`${this.basePath}/api/v2/implementosHistorico`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/implementosHistorico`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class ImplementosHistoricoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2ImplementosHistoricoPut(body?: UpdateImplementosHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<ImplementosHistoricoDtoResult>;
-    public apiV2ImplementosHistoricoPut(body?: UpdateImplementosHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ImplementosHistoricoDtoResult>>;
-    public apiV2ImplementosHistoricoPut(body?: UpdateImplementosHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ImplementosHistoricoDtoResult>>;
+    public apiV2ImplementosHistoricoPut(body?: UpdateImplementosHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2ImplementosHistoricoPut(body?: UpdateImplementosHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2ImplementosHistoricoPut(body?: UpdateImplementosHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2ImplementosHistoricoPut(body?: UpdateImplementosHistoricoDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class ImplementosHistoricoService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<ImplementosHistoricoDtoResult>('put',`${this.basePath}/api/v2/implementosHistorico`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/implementosHistorico`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

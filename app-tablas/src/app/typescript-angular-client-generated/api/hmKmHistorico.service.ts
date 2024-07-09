@@ -20,7 +20,7 @@ import { Observable }                                        from 'rxjs';
 import { CreateHmKmHistoricoDto } from '../model/createHmKmHistoricoDto';
 import { HmKmHistoricoDto } from '../model/hmKmHistoricoDto';
 import { HmKmHistoricoDtoPaginatedResult } from '../model/hmKmHistoricoDtoPaginatedResult';
-import { HmKmHistoricoDtoResult } from '../model/hmKmHistoricoDtoResult';
+import { ProblemDetails } from '../model/problemDetails';
 import { UpdateHmKmHistoricoDto } from '../model/updateHmKmHistoricoDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class HmKmHistoricoService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class HmKmHistoricoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2HmKmHistoricoPost(body?: CreateHmKmHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<HmKmHistoricoDtoResult>;
-    public apiV2HmKmHistoricoPost(body?: CreateHmKmHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<HmKmHistoricoDtoResult>>;
-    public apiV2HmKmHistoricoPost(body?: CreateHmKmHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<HmKmHistoricoDtoResult>>;
+    public apiV2HmKmHistoricoPost(body?: CreateHmKmHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2HmKmHistoricoPost(body?: CreateHmKmHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2HmKmHistoricoPost(body?: CreateHmKmHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2HmKmHistoricoPost(body?: CreateHmKmHistoricoDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class HmKmHistoricoService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<HmKmHistoricoDtoResult>('post',`${this.basePath}/api/v2/hmKmHistorico`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/hmKmHistorico`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class HmKmHistoricoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2HmKmHistoricoPut(body?: UpdateHmKmHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<HmKmHistoricoDtoResult>;
-    public apiV2HmKmHistoricoPut(body?: UpdateHmKmHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<HmKmHistoricoDtoResult>>;
-    public apiV2HmKmHistoricoPut(body?: UpdateHmKmHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<HmKmHistoricoDtoResult>>;
+    public apiV2HmKmHistoricoPut(body?: UpdateHmKmHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2HmKmHistoricoPut(body?: UpdateHmKmHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2HmKmHistoricoPut(body?: UpdateHmKmHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2HmKmHistoricoPut(body?: UpdateHmKmHistoricoDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class HmKmHistoricoService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<HmKmHistoricoDtoResult>('put',`${this.basePath}/api/v2/hmKmHistorico`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/hmKmHistorico`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

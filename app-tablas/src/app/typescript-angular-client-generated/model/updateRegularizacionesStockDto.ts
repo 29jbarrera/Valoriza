@@ -15,10 +15,6 @@ export interface UpdateRegularizacionesStockDto {
     idEmpresa?: number;
     idCentro?: number;
     idReferenciaMaterial?: number;
-    codOperacion?: string;
+    codOperacion: string;
     cantidad?: number;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
 }

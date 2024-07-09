@@ -14,8 +14,4 @@ export interface UpdateSubFamiliasReferenciasMaterialeDto {
     id?: number;
     idSubFamilia?: number;
     idReferenciaMaterial?: number;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
 }

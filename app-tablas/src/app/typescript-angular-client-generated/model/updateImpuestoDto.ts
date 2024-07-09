@@ -16,8 +16,4 @@ export interface UpdateImpuestoDto {
     importe?: number;
     codMoneda?: string;
     fecha?: Date;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
 }

@@ -14,12 +14,8 @@ export interface UpdateMaquinariaImagenesDocDto {
     id?: number;
     idMaquinaria?: number;
     claveGuid?: string;
-    documento?: string;
-    nombre?: string;
-    extension?: string;
+    documento: string;
+    nombre: string;
+    extension: string;
     descripcion?: string;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
 }

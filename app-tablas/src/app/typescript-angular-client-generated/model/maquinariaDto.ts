@@ -9,16 +9,29 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { CentrosCosteDto } from './centrosCosteDto';
+import { EmpresaDto } from './empresaDto';
+import { FamiliaDto } from './familiaDto';
+import { ImpuestoDto } from './impuestoDto';
+import { SeguroDto } from './seguroDto';
+import { SubFamiliaDto } from './subFamiliaDto';
 
 export interface MaquinariaDto { 
     id?: number;
     idEmpresa?: number;
+    empresa?: EmpresaDto;
     idCentro?: number;
+    centroCoste?: CentrosCosteDto;
     idCentroCompra?: number;
+    centroCompra?: CentrosCosteDto;
     idFamilia?: number;
+    familia?: FamiliaDto;
     idSubfamilia?: number;
+    subfamilia?: SubFamiliaDto;
     idSeguro?: number;
+    seguro?: SeguroDto;
     idImpuesto?: number;
+    impuesto?: ImpuestoDto;
     matricula?: string;
     fechaMatriculacion?: Date;
     bastidor?: string;

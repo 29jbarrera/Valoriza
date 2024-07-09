@@ -20,7 +20,7 @@ import { Observable }                                        from 'rxjs';
 import { CreateParteTrabajoDocDto } from '../model/createParteTrabajoDocDto';
 import { ParteTrabajoDocDto } from '../model/parteTrabajoDocDto';
 import { ParteTrabajoDocDtoPaginatedResult } from '../model/parteTrabajoDocDtoPaginatedResult';
-import { ParteTrabajoDocDtoResult } from '../model/parteTrabajoDocDtoResult';
+import { ProblemDetails } from '../model/problemDetails';
 import { UpdateParteTrabajoDocDto } from '../model/updateParteTrabajoDocDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class ParteTrabajoDocService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class ParteTrabajoDocService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2ParteTrabajoDocPost(body?: CreateParteTrabajoDocDto, observe?: 'body', reportProgress?: boolean): Observable<ParteTrabajoDocDtoResult>;
-    public apiV2ParteTrabajoDocPost(body?: CreateParteTrabajoDocDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ParteTrabajoDocDtoResult>>;
-    public apiV2ParteTrabajoDocPost(body?: CreateParteTrabajoDocDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ParteTrabajoDocDtoResult>>;
+    public apiV2ParteTrabajoDocPost(body?: CreateParteTrabajoDocDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2ParteTrabajoDocPost(body?: CreateParteTrabajoDocDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2ParteTrabajoDocPost(body?: CreateParteTrabajoDocDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2ParteTrabajoDocPost(body?: CreateParteTrabajoDocDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class ParteTrabajoDocService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<ParteTrabajoDocDtoResult>('post',`${this.basePath}/api/v2/parteTrabajoDoc`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/parteTrabajoDoc`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class ParteTrabajoDocService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2ParteTrabajoDocPut(body?: UpdateParteTrabajoDocDto, observe?: 'body', reportProgress?: boolean): Observable<ParteTrabajoDocDtoResult>;
-    public apiV2ParteTrabajoDocPut(body?: UpdateParteTrabajoDocDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ParteTrabajoDocDtoResult>>;
-    public apiV2ParteTrabajoDocPut(body?: UpdateParteTrabajoDocDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ParteTrabajoDocDtoResult>>;
+    public apiV2ParteTrabajoDocPut(body?: UpdateParteTrabajoDocDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2ParteTrabajoDocPut(body?: UpdateParteTrabajoDocDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2ParteTrabajoDocPut(body?: UpdateParteTrabajoDocDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2ParteTrabajoDocPut(body?: UpdateParteTrabajoDocDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class ParteTrabajoDocService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<ParteTrabajoDocDtoResult>('put',`${this.basePath}/api/v2/parteTrabajoDoc`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/parteTrabajoDoc`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

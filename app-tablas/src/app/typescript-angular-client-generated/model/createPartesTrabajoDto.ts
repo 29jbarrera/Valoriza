@@ -14,10 +14,10 @@ export interface CreatePartesTrabajoDto {
     idCentro?: number;
     idMaquinaria?: number;
     idEmpresa?: number;
-    codEstado?: string;
+    codEstado: string;
     codTipoMantenimiento?: string;
     codTipoActuacion?: string;
-    nombre?: string;
+    nombre: string;
     fecha?: Date;
     fechaAveria?: Date;
     fechaFinalizacion?: Date;
@@ -26,8 +26,4 @@ export interface CreatePartesTrabajoDto {
     trabajoRealizado?: string;
     horas?: number;
     kilometros?: number;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
 }

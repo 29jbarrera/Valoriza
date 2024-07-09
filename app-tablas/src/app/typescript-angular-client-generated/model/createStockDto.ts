@@ -16,9 +16,5 @@ export interface CreateStockDto {
     idReferenciaMaterial?: number;
     cantidad?: number;
     valor?: number;
-    codMoneda?: string;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
+    codMoneda: string;
 }

@@ -13,6 +13,4 @@
 export interface CreateGruasHistoricoDto { 
     idGrua?: number;
     fecha?: Date;
-    createdAt?: Date;
-    createdBy?: string;
 }

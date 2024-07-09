@@ -18,5 +18,5 @@ export interface ObservacioneDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<ObservacioneDto>;
+    results?: Array<ObservacioneDto>;
 }

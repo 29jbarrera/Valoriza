@@ -18,5 +18,5 @@ export interface InstalacionesElementoDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<InstalacionesElementoDto>;
+    results?: Array<InstalacionesElementoDto>;
 }

@@ -12,9 +12,5 @@
 
 export interface CreateMarcaDto { 
     idEmpresa?: number;
-    descripcion?: string;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
+    descripcion: string;
 }

@@ -9,16 +9,18 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { ReparacioneDto } from './reparacioneDto';
 
 export interface ReparacionesAdjuntosDocDto { 
     id?: number;
     idReparacion?: number;
+    reparacion?: ReparacioneDto;
     claveGuid?: string;
-    documento?: string;
-    nombre?: string;
-    extension?: string;
-    createdBy?: string;
+    documento: string;
+    nombre: string;
+    extension: string;
+    createdBy: string;
     createdAt?: Date;
-    changedBy?: string;
+    changedBy: string;
     changedAt?: Date;
 }

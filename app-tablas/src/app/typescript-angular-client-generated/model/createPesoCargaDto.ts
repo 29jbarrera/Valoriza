@@ -14,12 +14,8 @@ export interface CreatePesoCargaDto {
     idEmpresa?: number;
     idMaquinaria?: number;
     fecha?: Date;
-    codResiduo?: string;
+    codResiduo: string;
     cantidad?: number;
-    codUnidad?: string;
+    codUnidad: string;
     descripcion?: string;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
 }

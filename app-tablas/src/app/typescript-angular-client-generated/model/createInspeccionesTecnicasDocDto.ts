@@ -13,7 +13,7 @@
 export interface CreateInspeccionesTecnicasDocDto { 
     idInspeccionTecnica?: number;
     claveGuid?: string;
-    documento?: string;
-    nombre?: string;
-    extension?: string;
+    documento: string;
+    nombre: string;
+    extension: string;
 }

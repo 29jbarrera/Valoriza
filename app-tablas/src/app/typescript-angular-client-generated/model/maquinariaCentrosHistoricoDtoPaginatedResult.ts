@@ -18,5 +18,5 @@ export interface MaquinariaCentrosHistoricoDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<MaquinariaCentrosHistoricoDto>;
+    results?: Array<MaquinariaCentrosHistoricoDto>;
 }

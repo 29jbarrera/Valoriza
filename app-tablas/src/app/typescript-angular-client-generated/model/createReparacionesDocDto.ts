@@ -12,9 +12,9 @@
 
 export interface CreateReparacionesDocDto { 
     idReparacion?: number;
-    codEstado?: string;
+    codEstado: string;
     claveGuid?: string;
-    extension?: string;
-    documento?: string;
-    nombre?: string;
+    extension: string;
+    documento: string;
+    nombre: string;
 }

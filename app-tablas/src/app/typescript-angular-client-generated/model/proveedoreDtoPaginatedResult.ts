@@ -18,5 +18,5 @@ export interface ProveedoreDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<ProveedoreDto>;
+    results?: Array<ProveedoreDto>;
 }

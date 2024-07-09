@@ -18,10 +18,10 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 import { Observable }                                        from 'rxjs';
 
 import { CreateXCentrosCosteDto } from '../model/createXCentrosCosteDto';
+import { ProblemDetails } from '../model/problemDetails';
 import { UpdateXCentrosCosteDto } from '../model/updateXCentrosCosteDto';
 import { XCentrosCosteDto } from '../model/xCentrosCosteDto';
 import { XCentrosCosteDtoPaginatedResult } from '../model/xCentrosCosteDtoPaginatedResult';
-import { XCentrosCosteDtoResult } from '../model/xCentrosCosteDtoResult';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -145,6 +145,9 @@ export class XCentrosCosteService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class XCentrosCosteService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2XCentrosCostePost(body?: CreateXCentrosCosteDto, observe?: 'body', reportProgress?: boolean): Observable<XCentrosCosteDtoResult>;
-    public apiV2XCentrosCostePost(body?: CreateXCentrosCosteDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<XCentrosCosteDtoResult>>;
-    public apiV2XCentrosCostePost(body?: CreateXCentrosCosteDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<XCentrosCosteDtoResult>>;
+    public apiV2XCentrosCostePost(body?: CreateXCentrosCosteDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2XCentrosCostePost(body?: CreateXCentrosCosteDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2XCentrosCostePost(body?: CreateXCentrosCosteDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2XCentrosCostePost(body?: CreateXCentrosCosteDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class XCentrosCosteService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<XCentrosCosteDtoResult>('post',`${this.basePath}/api/v2/xCentrosCoste`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/xCentrosCoste`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class XCentrosCosteService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2XCentrosCostePut(body?: UpdateXCentrosCosteDto, observe?: 'body', reportProgress?: boolean): Observable<XCentrosCosteDtoResult>;
-    public apiV2XCentrosCostePut(body?: UpdateXCentrosCosteDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<XCentrosCosteDtoResult>>;
-    public apiV2XCentrosCostePut(body?: UpdateXCentrosCosteDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<XCentrosCosteDtoResult>>;
+    public apiV2XCentrosCostePut(body?: UpdateXCentrosCosteDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2XCentrosCostePut(body?: UpdateXCentrosCosteDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2XCentrosCostePut(body?: UpdateXCentrosCosteDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2XCentrosCostePut(body?: UpdateXCentrosCosteDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class XCentrosCosteService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<XCentrosCosteDtoResult>('put',`${this.basePath}/api/v2/xCentrosCoste`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/xCentrosCoste`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

@@ -18,5 +18,5 @@ export interface ParteTrabajoMecanicoDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<ParteTrabajoMecanicoDto>;
+    results?: Array<ParteTrabajoMecanicoDto>;
 }

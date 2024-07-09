@@ -18,9 +18,9 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 import { Observable }                                        from 'rxjs';
 
 import { CreateUnidadMedidaTiposCombustibleDto } from '../model/createUnidadMedidaTiposCombustibleDto';
+import { ProblemDetails } from '../model/problemDetails';
 import { UnidadMedidaTiposCombustibleDto } from '../model/unidadMedidaTiposCombustibleDto';
 import { UnidadMedidaTiposCombustibleDtoPaginatedResult } from '../model/unidadMedidaTiposCombustibleDtoPaginatedResult';
-import { UnidadMedidaTiposCombustibleDtoResult } from '../model/unidadMedidaTiposCombustibleDtoResult';
 import { UpdateUnidadMedidaTiposCombustibleDto } from '../model/updateUnidadMedidaTiposCombustibleDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class UnidadMedidaTiposCombustibleService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class UnidadMedidaTiposCombustibleService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2UnidadMedidaTiposCombustiblePost(body?: CreateUnidadMedidaTiposCombustibleDto, observe?: 'body', reportProgress?: boolean): Observable<UnidadMedidaTiposCombustibleDtoResult>;
-    public apiV2UnidadMedidaTiposCombustiblePost(body?: CreateUnidadMedidaTiposCombustibleDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<UnidadMedidaTiposCombustibleDtoResult>>;
-    public apiV2UnidadMedidaTiposCombustiblePost(body?: CreateUnidadMedidaTiposCombustibleDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<UnidadMedidaTiposCombustibleDtoResult>>;
+    public apiV2UnidadMedidaTiposCombustiblePost(body?: CreateUnidadMedidaTiposCombustibleDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2UnidadMedidaTiposCombustiblePost(body?: CreateUnidadMedidaTiposCombustibleDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2UnidadMedidaTiposCombustiblePost(body?: CreateUnidadMedidaTiposCombustibleDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2UnidadMedidaTiposCombustiblePost(body?: CreateUnidadMedidaTiposCombustibleDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class UnidadMedidaTiposCombustibleService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<UnidadMedidaTiposCombustibleDtoResult>('post',`${this.basePath}/api/v2/unidadMedidaTiposCombustible`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/unidadMedidaTiposCombustible`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class UnidadMedidaTiposCombustibleService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2UnidadMedidaTiposCombustiblePut(body?: UpdateUnidadMedidaTiposCombustibleDto, observe?: 'body', reportProgress?: boolean): Observable<UnidadMedidaTiposCombustibleDtoResult>;
-    public apiV2UnidadMedidaTiposCombustiblePut(body?: UpdateUnidadMedidaTiposCombustibleDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<UnidadMedidaTiposCombustibleDtoResult>>;
-    public apiV2UnidadMedidaTiposCombustiblePut(body?: UpdateUnidadMedidaTiposCombustibleDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<UnidadMedidaTiposCombustibleDtoResult>>;
+    public apiV2UnidadMedidaTiposCombustiblePut(body?: UpdateUnidadMedidaTiposCombustibleDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2UnidadMedidaTiposCombustiblePut(body?: UpdateUnidadMedidaTiposCombustibleDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2UnidadMedidaTiposCombustiblePut(body?: UpdateUnidadMedidaTiposCombustibleDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2UnidadMedidaTiposCombustiblePut(body?: UpdateUnidadMedidaTiposCombustibleDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class UnidadMedidaTiposCombustibleService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<UnidadMedidaTiposCombustibleDtoResult>('put',`${this.basePath}/api/v2/unidadMedidaTiposCombustible`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/unidadMedidaTiposCombustible`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

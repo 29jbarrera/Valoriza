@@ -9,13 +9,17 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { ReferenciasMaterialeDto } from './referenciasMaterialeDto';
+import { SubFamiliaDto } from './subFamiliaDto';
 
 export interface SubFamiliasReferenciasMaterialeDto { 
     id?: number;
     idSubFamilia?: number;
+    subFamilia?: SubFamiliaDto;
     idReferenciaMaterial?: number;
-    createdBy?: string;
+    referenciaMaterial?: ReferenciasMaterialeDto;
+    createdBy: string;
     createdAt?: Date;
-    changedBy?: string;
+    changedBy: string;
     changedAt?: Date;
 }

@@ -13,9 +13,5 @@
 export interface CreateUnidadMedidaTiposCombustibleDto { 
     idEmpresa?: number;
     idUnidadesMedida?: number;
-    codTipoCombustible?: string;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
+    codTipoCombustible: string;
 }

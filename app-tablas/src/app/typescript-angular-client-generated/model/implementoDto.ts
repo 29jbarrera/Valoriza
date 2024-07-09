@@ -9,12 +9,16 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { EmpresaDto } from './empresaDto';
+import { MaquinariaDto } from './maquinariaDto';
 
 export interface ImplementoDto { 
     id?: number;
     idEmpresa?: number;
+    empresa?: EmpresaDto;
     idMaquinaria?: number;
-    descripcion?: string;
+    maquinaria?: MaquinariaDto;
+    descripcion: string;
     marca?: string;
     modelo?: string;
     serie?: string;
@@ -32,10 +36,11 @@ export interface ImplementoDto {
     fechaFinanciero?: Date;
     porcentajeFinanciero?: number;
     codMonedaTasa?: string;
-    createdBy?: string;
+    createdBy: string;
     createdAt?: Date;
-    changedBy?: string;
+    changedBy: string;
     changedAt?: Date;
     idImplementoAsociado?: number;
+    implementoAsociado?: ImplementoDto;
     numeroActivoSap?: string;
 }

@@ -12,10 +12,10 @@
 
 export interface UpdateXGlobalTableDto { 
     id?: number;
-    codeApp?: string;
-    name?: string;
+    codeApp: string;
+    name: string;
     codeLength?: number;
-    accessType?: string;
+    accessType: string;
     bySession?: boolean;
     codeTask?: string;
 }

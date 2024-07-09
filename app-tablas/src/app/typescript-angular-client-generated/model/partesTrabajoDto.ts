@@ -9,16 +9,22 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { CentrosCosteDto } from './centrosCosteDto';
+import { EmpresaDto } from './empresaDto';
+import { MaquinariaDto } from './maquinariaDto';
 
 export interface PartesTrabajoDto { 
     id?: number;
     idCentro?: number;
+    centro?: CentrosCosteDto;
     idMaquinaria?: number;
+    maquinaria?: MaquinariaDto;
     idEmpresa?: number;
-    codEstado?: string;
+    empresa?: EmpresaDto;
+    codEstado: string;
     codTipoMantenimiento?: string;
     codTipoActuacion?: string;
-    nombre?: string;
+    nombre: string;
     fecha?: Date;
     fechaAveria?: Date;
     fechaFinalizacion?: Date;
@@ -27,8 +33,8 @@ export interface PartesTrabajoDto {
     trabajoRealizado?: string;
     horas?: number;
     kilometros?: number;
-    createdBy?: string;
+    createdBy: string;
     createdAt?: Date;
-    changedBy?: string;
+    changedBy: string;
     changedAt?: Date;
 }

@@ -18,5 +18,5 @@ export interface StockDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<StockDto>;
+    results?: Array<StockDto>;
 }

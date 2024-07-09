@@ -11,9 +11,5 @@
  */
 
 export interface CreateCategoriaDto { 
-    codigo?: string;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
+    codigo: string;
 }

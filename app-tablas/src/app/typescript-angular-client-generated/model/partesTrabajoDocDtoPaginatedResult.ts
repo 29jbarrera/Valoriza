@@ -18,5 +18,5 @@ export interface PartesTrabajoDocDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<PartesTrabajoDocDto>;
+    results?: Array<PartesTrabajoDocDto>;
 }

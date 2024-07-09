@@ -18,5 +18,5 @@ export interface FamiliaDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<FamiliaDto>;
+    results?: Array<FamiliaDto>;
 }

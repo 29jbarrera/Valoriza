@@ -18,9 +18,9 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 import { Observable }                                        from 'rxjs';
 
 import { CreateProveedoreDto } from '../model/createProveedoreDto';
+import { ProblemDetails } from '../model/problemDetails';
 import { ProveedoreDto } from '../model/proveedoreDto';
 import { ProveedoreDtoPaginatedResult } from '../model/proveedoreDtoPaginatedResult';
-import { ProveedoreDtoResult } from '../model/proveedoreDtoResult';
 import { UpdateProveedoreDto } from '../model/updateProveedoreDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class ProveedoreService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class ProveedoreService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2ProveedorePost(body?: CreateProveedoreDto, observe?: 'body', reportProgress?: boolean): Observable<ProveedoreDtoResult>;
-    public apiV2ProveedorePost(body?: CreateProveedoreDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ProveedoreDtoResult>>;
-    public apiV2ProveedorePost(body?: CreateProveedoreDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ProveedoreDtoResult>>;
+    public apiV2ProveedorePost(body?: CreateProveedoreDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2ProveedorePost(body?: CreateProveedoreDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2ProveedorePost(body?: CreateProveedoreDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2ProveedorePost(body?: CreateProveedoreDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class ProveedoreService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<ProveedoreDtoResult>('post',`${this.basePath}/api/v2/proveedore`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/proveedore`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class ProveedoreService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2ProveedorePut(body?: UpdateProveedoreDto, observe?: 'body', reportProgress?: boolean): Observable<ProveedoreDtoResult>;
-    public apiV2ProveedorePut(body?: UpdateProveedoreDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ProveedoreDtoResult>>;
-    public apiV2ProveedorePut(body?: UpdateProveedoreDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ProveedoreDtoResult>>;
+    public apiV2ProveedorePut(body?: UpdateProveedoreDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2ProveedorePut(body?: UpdateProveedoreDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2ProveedorePut(body?: UpdateProveedoreDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2ProveedorePut(body?: UpdateProveedoreDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class ProveedoreService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<ProveedoreDtoResult>('put',`${this.basePath}/api/v2/proveedore`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/proveedore`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

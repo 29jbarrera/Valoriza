@@ -18,5 +18,5 @@ export interface MaquinariasHistoricoDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<MaquinariasHistoricoDto>;
+    results?: Array<MaquinariasHistoricoDto>;
 }

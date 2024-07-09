@@ -19,8 +19,8 @@ import { Observable }                                        from 'rxjs';
 
 import { CategoriasLangDto } from '../model/categoriasLangDto';
 import { CategoriasLangDtoPaginatedResult } from '../model/categoriasLangDtoPaginatedResult';
-import { CategoriasLangDtoResult } from '../model/categoriasLangDtoResult';
 import { CreateCategoriasLangDto } from '../model/createCategoriasLangDto';
+import { ProblemDetails } from '../model/problemDetails';
 import { UpdateCategoriasLangDto } from '../model/updateCategoriasLangDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class CategoriasLangService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class CategoriasLangService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2CategoriasLangPost(body?: CreateCategoriasLangDto, observe?: 'body', reportProgress?: boolean): Observable<CategoriasLangDtoResult>;
-    public apiV2CategoriasLangPost(body?: CreateCategoriasLangDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CategoriasLangDtoResult>>;
-    public apiV2CategoriasLangPost(body?: CreateCategoriasLangDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CategoriasLangDtoResult>>;
+    public apiV2CategoriasLangPost(body?: CreateCategoriasLangDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2CategoriasLangPost(body?: CreateCategoriasLangDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2CategoriasLangPost(body?: CreateCategoriasLangDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2CategoriasLangPost(body?: CreateCategoriasLangDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class CategoriasLangService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<CategoriasLangDtoResult>('post',`${this.basePath}/api/v2/categoriasLang`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/categoriasLang`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class CategoriasLangService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2CategoriasLangPut(body?: UpdateCategoriasLangDto, observe?: 'body', reportProgress?: boolean): Observable<CategoriasLangDtoResult>;
-    public apiV2CategoriasLangPut(body?: UpdateCategoriasLangDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CategoriasLangDtoResult>>;
-    public apiV2CategoriasLangPut(body?: UpdateCategoriasLangDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CategoriasLangDtoResult>>;
+    public apiV2CategoriasLangPut(body?: UpdateCategoriasLangDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2CategoriasLangPut(body?: UpdateCategoriasLangDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2CategoriasLangPut(body?: UpdateCategoriasLangDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2CategoriasLangPut(body?: UpdateCategoriasLangDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class CategoriasLangService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<CategoriasLangDtoResult>('put',`${this.basePath}/api/v2/categoriasLang`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/categoriasLang`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

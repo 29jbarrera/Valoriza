@@ -20,7 +20,7 @@ import { Observable }                                        from 'rxjs';
 import { CreateMarcasReferenciasMaterialeDto } from '../model/createMarcasReferenciasMaterialeDto';
 import { MarcasReferenciasMaterialeDto } from '../model/marcasReferenciasMaterialeDto';
 import { MarcasReferenciasMaterialeDtoPaginatedResult } from '../model/marcasReferenciasMaterialeDtoPaginatedResult';
-import { MarcasReferenciasMaterialeDtoResult } from '../model/marcasReferenciasMaterialeDtoResult';
+import { ProblemDetails } from '../model/problemDetails';
 import { UpdateMarcasReferenciasMaterialeDto } from '../model/updateMarcasReferenciasMaterialeDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class MarcasReferenciasMaterialeService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class MarcasReferenciasMaterialeService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2MarcasReferenciasMaterialePost(body?: CreateMarcasReferenciasMaterialeDto, observe?: 'body', reportProgress?: boolean): Observable<MarcasReferenciasMaterialeDtoResult>;
-    public apiV2MarcasReferenciasMaterialePost(body?: CreateMarcasReferenciasMaterialeDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<MarcasReferenciasMaterialeDtoResult>>;
-    public apiV2MarcasReferenciasMaterialePost(body?: CreateMarcasReferenciasMaterialeDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<MarcasReferenciasMaterialeDtoResult>>;
+    public apiV2MarcasReferenciasMaterialePost(body?: CreateMarcasReferenciasMaterialeDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2MarcasReferenciasMaterialePost(body?: CreateMarcasReferenciasMaterialeDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2MarcasReferenciasMaterialePost(body?: CreateMarcasReferenciasMaterialeDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2MarcasReferenciasMaterialePost(body?: CreateMarcasReferenciasMaterialeDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class MarcasReferenciasMaterialeService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<MarcasReferenciasMaterialeDtoResult>('post',`${this.basePath}/api/v2/marcasReferenciasMateriale`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/marcasReferenciasMateriale`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class MarcasReferenciasMaterialeService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2MarcasReferenciasMaterialePut(body?: UpdateMarcasReferenciasMaterialeDto, observe?: 'body', reportProgress?: boolean): Observable<MarcasReferenciasMaterialeDtoResult>;
-    public apiV2MarcasReferenciasMaterialePut(body?: UpdateMarcasReferenciasMaterialeDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<MarcasReferenciasMaterialeDtoResult>>;
-    public apiV2MarcasReferenciasMaterialePut(body?: UpdateMarcasReferenciasMaterialeDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<MarcasReferenciasMaterialeDtoResult>>;
+    public apiV2MarcasReferenciasMaterialePut(body?: UpdateMarcasReferenciasMaterialeDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2MarcasReferenciasMaterialePut(body?: UpdateMarcasReferenciasMaterialeDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2MarcasReferenciasMaterialePut(body?: UpdateMarcasReferenciasMaterialeDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2MarcasReferenciasMaterialePut(body?: UpdateMarcasReferenciasMaterialeDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class MarcasReferenciasMaterialeService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<MarcasReferenciasMaterialeDtoResult>('put',`${this.basePath}/api/v2/marcasReferenciasMateriale`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/marcasReferenciasMateriale`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

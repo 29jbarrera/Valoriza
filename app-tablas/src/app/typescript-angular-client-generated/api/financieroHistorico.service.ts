@@ -20,7 +20,7 @@ import { Observable }                                        from 'rxjs';
 import { CreateFinancieroHistoricoDto } from '../model/createFinancieroHistoricoDto';
 import { FinancieroHistoricoDto } from '../model/financieroHistoricoDto';
 import { FinancieroHistoricoDtoPaginatedResult } from '../model/financieroHistoricoDtoPaginatedResult';
-import { FinancieroHistoricoDtoResult } from '../model/financieroHistoricoDtoResult';
+import { ProblemDetails } from '../model/problemDetails';
 import { UpdateFinancieroHistoricoDto } from '../model/updateFinancieroHistoricoDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class FinancieroHistoricoService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class FinancieroHistoricoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2FinancieroHistoricoPost(body?: CreateFinancieroHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<FinancieroHistoricoDtoResult>;
-    public apiV2FinancieroHistoricoPost(body?: CreateFinancieroHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<FinancieroHistoricoDtoResult>>;
-    public apiV2FinancieroHistoricoPost(body?: CreateFinancieroHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<FinancieroHistoricoDtoResult>>;
+    public apiV2FinancieroHistoricoPost(body?: CreateFinancieroHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2FinancieroHistoricoPost(body?: CreateFinancieroHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2FinancieroHistoricoPost(body?: CreateFinancieroHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2FinancieroHistoricoPost(body?: CreateFinancieroHistoricoDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class FinancieroHistoricoService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<FinancieroHistoricoDtoResult>('post',`${this.basePath}/api/v2/financieroHistorico`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/financieroHistorico`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class FinancieroHistoricoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2FinancieroHistoricoPut(body?: UpdateFinancieroHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<FinancieroHistoricoDtoResult>;
-    public apiV2FinancieroHistoricoPut(body?: UpdateFinancieroHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<FinancieroHistoricoDtoResult>>;
-    public apiV2FinancieroHistoricoPut(body?: UpdateFinancieroHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<FinancieroHistoricoDtoResult>>;
+    public apiV2FinancieroHistoricoPut(body?: UpdateFinancieroHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2FinancieroHistoricoPut(body?: UpdateFinancieroHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2FinancieroHistoricoPut(body?: UpdateFinancieroHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2FinancieroHistoricoPut(body?: UpdateFinancieroHistoricoDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class FinancieroHistoricoService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<FinancieroHistoricoDtoResult>('put',`${this.basePath}/api/v2/financieroHistorico`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/financieroHistorico`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

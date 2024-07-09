@@ -13,9 +13,5 @@
 export interface CreateInstalacionesElementoDto { 
     idEmpresa?: number;
     idInstalacion?: number;
-    descripcion?: string;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
+    descripcion: string;
 }
