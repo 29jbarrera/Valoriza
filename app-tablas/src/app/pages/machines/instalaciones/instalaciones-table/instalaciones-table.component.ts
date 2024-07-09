@@ -75,8 +75,22 @@ export class InstalacionesTableComponent implements OnInit {
   }
 
   async delete(instalaciones: InstalacioneDto) {
-    // TODO: PETICIÓN BACKEND PARA ELIMINAR
-    console.error('Delete object,', instalaciones);
+    try {
+      await this.InstalacionesService.deleteInstalaciones(instalaciones.id!);
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Confirmado',
+        detail: 'Fila eliminada correctamente',
+        life: 3000,
+      });
+    } catch (error) {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Algo inesperado ocurrió',
+        life: 3000,
+      });
+    }
   }
 
   async confirm_delete(instalaciones: InstalacioneDto) {
@@ -88,22 +102,7 @@ export class InstalacionesTableComponent implements OnInit {
       acceptButtonStyleClass: 'p-button-danger',
 
       accept: async () => {
-        try {
-          await this.delete(instalaciones);
-          this.messageService.add({
-            severity: 'success',
-            summary: 'Confirmado',
-            detail: 'Fila eliminada correctamente',
-            life: 3000,
-          });
-        } catch (error) {
-          this.messageService.add({
-            severity: 'error',
-            summary: 'Error',
-            detail: 'Algo inesperado ocurrió',
-            life: 3000,
-          });
-        }
+        this.delete(instalaciones)
       },
       reject: () => {
         this.messageService.add({
