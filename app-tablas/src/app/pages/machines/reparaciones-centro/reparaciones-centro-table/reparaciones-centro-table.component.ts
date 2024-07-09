@@ -103,8 +103,24 @@ export class ReparacionesCentroTableComponent implements OnInit {
   }
 
   async delete(reparacionesCentro: ReparacionesDocDto) {
-    // TODO: PETICIÓN BACKEND PARA ELIMINAR
-    console.error('Delete object,', reparacionesCentro);
+    try {
+      await this.ReparacionesCentroService.deleteReparacionesCentro(
+        reparacionesCentro.id!
+      );
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Confirmado',
+        detail: 'Fila eliminada correctamente',
+        life: 3000,
+      });
+    } catch (error) {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Algo inesperado ocurrió',
+        life: 3000,
+      });
+    }
   }
 
   async confirm_delete(reparacionesCentro: ReparacionesDocDto) {
@@ -116,22 +132,7 @@ export class ReparacionesCentroTableComponent implements OnInit {
       acceptButtonStyleClass: 'p-button-danger',
 
       accept: async () => {
-        try {
-          await this.delete(reparacionesCentro);
-          this.messageService.add({
-            severity: 'success',
-            summary: 'Confirmado',
-            detail: 'Fila eliminada correctamente',
-            life: 3000,
-          });
-        } catch (error) {
-          this.messageService.add({
-            severity: 'error',
-            summary: 'Error',
-            detail: 'Algo inesperado ocurrió',
-            life: 3000,
-          });
-        }
+        this.delete(reparacionesCentro);
       },
       reject: () => {
         this.messageService.add({

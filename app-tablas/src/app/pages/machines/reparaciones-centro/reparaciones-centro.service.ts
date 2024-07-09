@@ -17,17 +17,12 @@ export class ReparacionesCentroService {
       this._reparacionesDocService.apiV2ReparacionesDocGet()
     );
     return response.results || [];
-
-    // const reparacionesCentro: ReparacionesCentro[] = [];
-    // for (let i = 0; i < 100; i++) {
-    //   reparacionesCentro.push({
-    //     code: randAmount({ min: 10, max: 100 }),
-    //     name: randCompanyName(),
-    //     delegation: randProductDescription(),
-    //     cost: randAmount({ min: 10, max: 100 }),
-    //   });
-    // }
-
-    // return reparacionesCentro;
+  }
+  async deleteReparacionesCentro(reparacionesCentroid: number) {
+    await lastValueFrom(
+      this._reparacionesDocService.apiV2ReparacionesDocIdDelete(
+        reparacionesCentroid
+      )
+    );
   }
 }
