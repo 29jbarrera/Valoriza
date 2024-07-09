@@ -10,7 +10,7 @@ export class TablaGlobalesService {
   constructor(private _xGlobalTableService: XGlobalTableService) {}
   async getGlobales(): Promise<XGlobalTableDto[]> {
     const response = await lastValueFrom(this._xGlobalTableService.apiV2XGlobalTableGet());
-    return response.results;
+    return response.results || [];
     // const globales: Globales[] = [];
     // for (let i = 0; i < 100; i++) {
     //   globales.push({

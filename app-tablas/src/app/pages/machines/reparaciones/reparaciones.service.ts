@@ -11,7 +11,7 @@ export class ReparacionesService {
 
   async getReparaciones(): Promise<ReparacioneDto[]> {
     const response = await lastValueFrom(this._reparacioneService.apiV2ReparacioneGet());
-    return response.results;
+    return response.results || [];
 
 
     // const reparaciones: Reparaciones[] = [];

@@ -11,7 +11,7 @@ export class HorometrosKilometrosService {
 
   async getHorometrosKilometros(): Promise<HmKmDto[]> {
     const response = await lastValueFrom(this._hmkmService.apiV2HmKmGet());
-    return response.results;   
+    return response.results || [];   
 
 
     // const horometrosKilometros: HorometrosKilometros[] = [];

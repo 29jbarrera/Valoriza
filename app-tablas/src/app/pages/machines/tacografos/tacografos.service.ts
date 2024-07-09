@@ -14,7 +14,7 @@ export class TacografosService {
       this._tacografoService.apiV2TacografoGet()
     );
 
-    return response.results;
+    return response.results || [];
 
     // const tacografos: Tacografo[] = [];
     // const randomDate = new Date(

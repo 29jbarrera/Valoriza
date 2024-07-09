@@ -16,7 +16,7 @@ export class ReparacionesCentroService {
     const response = await lastValueFrom(
       this._reparacionesDocService.apiV2ReparacionesDocGet()
     );
-    return response.results;
+    return response.results || [];
 
     // const reparacionesCentro: ReparacionesCentro[] = [];
     // for (let i = 0; i < 100; i++) {

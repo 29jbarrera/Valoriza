@@ -11,7 +11,7 @@ export class SegurosService {
 
   async getSeguros(): Promise<SeguroDto[]> {
     const response = await lastValueFrom(this._seguroService.apiV2SeguroGet());
-    return response.results;
+    return response.results || [];
 
     // const seguros: Seguros[] = [];
     // const randomDate = new Date(

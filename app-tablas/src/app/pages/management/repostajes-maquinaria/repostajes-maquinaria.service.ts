@@ -17,7 +17,7 @@ export class RepostajesService {
     const response = await lastValueFrom(
       this._mantenimientoRepostajeService.apiV2MantenimientoRepostajeGet()
     );
-    return response.results;
+    return response.results || [];
     // const repostajeMaquinaria: RepostajeMaquinaria[] = [];
     // const randomDate = new Date(
     //   rand([new Date(2020, 0, 1).getTime()]) as number

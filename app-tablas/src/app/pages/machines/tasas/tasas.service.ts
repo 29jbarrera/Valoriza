@@ -11,7 +11,7 @@ export class TasasService {
 
   async getTasas(): Promise<TasasHistoricoDto[]> {
     const response = await lastValueFrom(this._tasasHistoricoService.apiV2TasasHistoricoGet());
-    return response.results;
+    return response.results || [];
 
     // const tasas: Tasas[] = [];
     // const randomDate = new Date(

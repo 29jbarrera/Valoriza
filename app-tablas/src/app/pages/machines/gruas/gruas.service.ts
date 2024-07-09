@@ -11,6 +11,6 @@ export class GruasService {
 
   async getGruas(): Promise<GruasDocDto[]> {
     const response = await lastValueFrom(this._gruasService.apiV2GruasDocGet());
-    return response.results;
+    return response.results || [];
   }
 }

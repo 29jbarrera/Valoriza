@@ -11,7 +11,7 @@ export class TasasCentroService {
 
   async getTasasCentro(): Promise<TasasHistoricoDto[]> {
     const response = await lastValueFrom(this._tasasHistoricoService.apiV2TasasHistoricoGet());
-    return response.results;
+    return response.results || [];
 
     // const tasasCentro: TasasCentro[] = [];
     // const randomDate = new Date(rand([new Date().getTime()]) as number);

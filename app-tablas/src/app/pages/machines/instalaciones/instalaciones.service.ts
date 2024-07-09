@@ -11,7 +11,7 @@ export class InstalacionesService {
 
   async getInstalaciones(): Promise<InstalacioneDto[]> {
     const response = await lastValueFrom(this._instalacioneService.apiV2InstalacioneGet())
-    return response.results;
+    return response.results || [];
 
     // const instalaciones: Instalaciones[] = [
     //   {

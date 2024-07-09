@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { lastValueFrom } from 'rxjs';
-import { PartesTrabajoDocDto, PartesTrabajoService } from '@valoriza/web-commons';
+import { PartesTrabajoDto, PartesTrabajoService } from '@valoriza/web-commons';
 
 @Injectable({
   providedIn: 'root',
@@ -9,9 +9,9 @@ import { PartesTrabajoDocDto, PartesTrabajoService } from '@valoriza/web-commons
 export class PartesService {
   constructor(private _partesTrabajoDocService: PartesTrabajoService) {}
 
-  async getPartes(): Promise<PartesTrabajoDocDto[]> {
+  async getPartes(): Promise<PartesTrabajoDto[]> {
     const response = await lastValueFrom(this._partesTrabajoDocService.apiV2PartesTrabajoGet());
-    return response.results;
+    return response.results || [];
 
 
     // const partes: Partes[] = [];

@@ -10,7 +10,7 @@ export class FamiliasSubfamiliasService {
   constructor(private _familiaService: FamiliaService) {}
   async getFamiliasSubfamilias(): Promise<FamiliaDto[]> {
     const response = await lastValueFrom(this._familiaService.apiV2FamiliaGet());
-    return response.results;
+    return response.results || [];
 
 
     // const familiasSubfamilias: FamiliasSubfamilias[] = [];

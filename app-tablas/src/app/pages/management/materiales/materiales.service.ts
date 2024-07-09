@@ -10,7 +10,7 @@ export class MaterialesService {
   constructor(private _referenciasMaterialeService: ReferenciasMaterialeService) {}
   async getMateriales(): Promise<ReferenciasMaterialeDto[]> {
     const response = await lastValueFrom(this._referenciasMaterialeService.apiV2ReferenciasMaterialeGet());
-    return response.results;
+    return response.results || [];
 
 
     //   const materiales: Materiales[] = [];

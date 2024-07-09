@@ -12,7 +12,7 @@ export class CategoriasService {
     const response = await lastValueFrom(
       this._categoriaService.apiV2CategoriaGet()
     );
-    return response.results;
+    return response.results || [];
 
     //   const categorias: Categorias[] = [];
     //   for (let i = 0; i < 100; i++) {

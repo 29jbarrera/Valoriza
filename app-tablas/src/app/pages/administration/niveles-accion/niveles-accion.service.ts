@@ -17,7 +17,7 @@ export class NivelesAccionService {
     const response = await lastValueFrom(
       this._nivelesMantenimientoAccionesService.apiV2NivelesMantenimientoAccioneGet()
     );
-    return response.results;
+    return response.results || [];
 
     // const nivelesAccion: NivelesAccion[] = [];
     // for (let i = 0; i < 100; i++) {

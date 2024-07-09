@@ -18,6 +18,6 @@ export class ItvsService {
     const response = await lastValueFrom(
       this._inspeccionesTecnicaService.apiV2InspeccionesTecnicaGet()
     );
-    return response.results;
+    return response.results || [];
   }
 }

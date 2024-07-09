@@ -11,7 +11,7 @@ export class GastosService {
 
   async getGastos(): Promise<GastosTallerDto[]> {
     const response = await lastValueFrom(this._gastosTallerService.apiV2GastosTallerGet());
-    return response.results;
+    return response.results || [];
 
 
 

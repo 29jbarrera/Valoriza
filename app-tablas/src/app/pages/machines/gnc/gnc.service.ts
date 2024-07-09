@@ -10,7 +10,7 @@ export class GncService {
   constructor(private _gncService: GncServiceAG) {}
   async getGnc(): Promise<GncDto[]> {
     const response = await lastValueFrom(this._gncService.apiV2GncGet());
-    return response.results;
+    return response.results || [];
 
     //   const gnc: Gnc[] = [];
     //   const randomDate = new Date(

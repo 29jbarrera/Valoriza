@@ -10,7 +10,7 @@ export class ProveedoresService {
   constructor(private _proveedoresService: ProveedoreService) {}
   async getProveedores(): Promise<ProveedoreDto[]> {
     const response = await lastValueFrom(this._proveedoresService.apiV2ProveedoreGet());
-    return response.results;
+    return response.results || [];
 
     // const proveedores: Proveedores[] = [];
     // for (let i = 0; i < 100; i++) {

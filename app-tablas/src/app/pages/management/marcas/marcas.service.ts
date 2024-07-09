@@ -10,7 +10,7 @@ export class MarcasService {
   constructor(private _marcaService: MarcaService) {}
   async getMarcas(): Promise<MarcaDto[]> {
     const response = await lastValueFrom(this._marcaService.apiV2MarcaGet());
-    return response.results;
+    return response.results || [];
 
     // const marcas: Marcas[] = [];
     // for (let i = 0; i < 50; i++) {

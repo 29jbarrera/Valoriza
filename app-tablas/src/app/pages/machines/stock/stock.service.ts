@@ -13,7 +13,7 @@ export class StockService {
 
   async getStock(): Promise<StockDto[]> {
     const response = await lastValueFrom(this._stockService.apiV2StockGet());
-    return response.results;
+    return response.results || [];
 
     // Mock data
     // const stock: StockDto[] = [];

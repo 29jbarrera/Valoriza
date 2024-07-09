@@ -11,7 +11,7 @@ export class ImpuestosService {
 
   async getImpuestos(): Promise<ImpuestoDto[]> {
     const response = await lastValueFrom(this._impuestoService.apiV2ImpuestoGet());
-    return response.results;
+    return response.results || [];
 
     // const impuestos: Impuestos[] = [];
     // const randomDate = new Date(

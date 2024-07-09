@@ -10,7 +10,7 @@ export class NivelesService {
   constructor(private _nivelesMantenimientoService: NivelesMantenimientoService) {}
   async getNiveles(): Promise<CreateNivelesMantenimientoDto[]> {
     const response = await lastValueFrom(this._nivelesMantenimientoService.apiV2NivelesMantenimientoGet());
-    return response.results;
+    return response.results || [];
 
     // const niveles: Niveles[] = [];
     // const randomDate = new Date(
