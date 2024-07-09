@@ -108,8 +108,22 @@ export class ReparacionesTableComponent implements OnInit {
   }
 
   async delete(reparaciones: ReparacioneDto) {
-    // TODO: PETICIÓN BACKEND PARA ELIMINAR
-    console.error('Delete object,', reparaciones);
+    try {
+      await this.ReparacionesService.deleteReparaciones(reparaciones.id!);
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Confirmado',
+        detail: 'Fila eliminada correctamente',
+        life: 3000,
+      });
+    } catch (error) {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Algo inesperado ocurrió',
+        life: 3000,
+      });
+    }
   }
 
   async confirm_delete(reparaciones: ReparacioneDto) {
@@ -121,22 +135,7 @@ export class ReparacionesTableComponent implements OnInit {
       acceptButtonStyleClass: 'p-button-danger',
 
       accept: async () => {
-        try {
-          await this.delete(reparaciones);
-          this.messageService.add({
-            severity: 'success',
-            summary: 'Confirmado',
-            detail: 'Fila eliminada correctamente',
-            life: 3000,
-          });
-        } catch (error) {
-          this.messageService.add({
-            severity: 'error',
-            summary: 'Error',
-            detail: 'Algo inesperado ocurrió',
-            life: 3000,
-          });
-        }
+        this.delete(reparaciones);
       },
       reject: () => {
         this.messageService.add({
