@@ -11,73 +11,73 @@
       <tr>
         <th></th>
         <th></th>
-        <th pSortableColumn="DocIdentification">
+        <th pSortableColumn="docIdentificacion">
           <div>
-            <p-sortIcon class="order" field="DocIdentification" />
+            <p-sortIcon class="order" field="docIdentificacion" />
             Doc. Identificación
             <p-columnFilter
               type="text"
-              field="DocIdentification"
+              field="docIdentificacion"
               class="filter"
               display="menu"
             />
           </div>
         </th>
-        <th pSortableColumn="name">
+        <th pSortableColumn="nombre">
           <div>
-            <p-sortIcon class="order" field="name" />
+            <p-sortIcon class="order" field="nombre" />
             Nombre
             <p-columnFilter
               type="text"
-              field="name"
+              field="nombre"
               class="filter"
              display="menu"
             />
           </div>
         </th>
-        <th pSortableColumn="address">
+        <th pSortableColumn="direccion">
           <div>
-            <p-sortIcon class="order" field="address" />
+            <p-sortIcon class="order" field="direccion" />
             Dirección
             <p-columnFilter
               type="text"
-              field="address"
+              field="direccion"
               class="filter"
               display="menu"
             />
           </div>
         </th>
-        <th pSortableColumn="phone">
+        <th pSortableColumn="telefono">
           <div>
-            <p-sortIcon class="order" field="phone" />
+            <p-sortIcon class="order" field="telefono" />
             Teléfono
             <p-columnFilter
               type="text"
-              field="phone"
+              field="telefono"
               class="filter"
               display="menu"
             />
           </div>
         </th>
-        <th pSortableColumn="comments">
+        <th pSortableColumn="comentarios">
           <div>
-            <p-sortIcon class="order" field="comments" />
+            <p-sortIcon class="order" field="comentarios" />
             Comentarios
             <p-columnFilter
               type="text"
-              field="comments"
+              field="comentarios"
               class="filter"
               display="menu"
             />
           </div>
         </th>
-        <th pSortableColumn="SAP">
+        <th pSortableColumn="sap">
           <div>
-            <p-sortIcon class="order" field="SAP" />
+            <p-sortIcon class="order" field="sap" />
             SAP
             <p-columnFilter
               type="text"
-              field="SAP"
+              field="sap"
               class="filter"
               display="menu"
             />
@@ -93,12 +93,12 @@
         <td>
           <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(proveedores)"/>
         </td>
-        <td>{{ proveedores.DocIdentification }}</td>
-        <td>{{ proveedores.name }}</td>
-        <td>{{ proveedores.address }}</td>
-        <td>{{ proveedores.phone }}</td>
-        <td>{{ proveedores.comments }}</td>
-        <td>{{ proveedores.SAP }}</td>
+        <td>{{ proveedores.docIdentificacion }}</td>
+        <td>{{ proveedores.nombre }}</td>
+        <td>{{ proveedores.direccion }}</td>
+        <td>{{ proveedores.telefono }}</td>
+        <td>{{ proveedores.comentarios }}</td>
+        <td>{{ proveedores.sap }}</td>
       </tr>
     </ng-template>
     <ng-template pTemplate="footer">
