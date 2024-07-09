@@ -109,7 +109,22 @@ export class SegurosTableComponent implements OnInit {
   }
 
   async delete(seguros: SeguroDto) {
-    console.error('Delete object,', seguros);
+    try {
+      await this.SegurosService.deleteSeguros(seguros.id!);
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Confirmado',
+        detail: 'Fila eliminada correctamente',
+        life: 3000,
+      });
+    } catch (error) {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Algo inesperado ocurrió',
+        life: 3000,
+      });
+    }
   }
 
   async confirm_delete(seguros: SeguroDto) {
@@ -121,22 +136,7 @@ export class SegurosTableComponent implements OnInit {
       acceptButtonStyleClass: 'p-button-danger',
 
       accept: async () => {
-        try {
-          await this.delete(seguros);
-          this.messageService.add({
-            severity: 'success',
-            summary: 'Confirmado',
-            detail: 'Fila eliminada correctamente',
-            life: 3000,
-          });
-        } catch (error) {
-          this.messageService.add({
-            severity: 'error',
-            summary: 'Error',
-            detail: 'Algo inesperado ocurrió',
-            life: 3000,
-          });
-        }
+        this.delete(seguros);
       },
       reject: () => {
         this.messageService.add({
