@@ -79,8 +79,22 @@ export class GruasTableComponent implements OnInit {
   }
 
   async delete(gruas: GruasDocDto) {
-    // TODO: PETICIÓN BACKEND PARA ELIMINAR
-    console.error('Delete object,', gruas);
+    try {
+      await this.GruasService.deleteGruas(gruas.id!);
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Confirmado',
+        detail: 'Fila eliminada correctamente',
+        life: 3000,
+      });
+    } catch (error) {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Algo inesperado ocurrió',
+        life: 3000,
+      });
+    }
   }
 
   async confirm_delete(gruas: GruasDocDto) {
@@ -92,22 +106,7 @@ export class GruasTableComponent implements OnInit {
       acceptButtonStyleClass: 'p-button-danger',
 
       accept: async () => {
-        try {
-          await this.delete(gruas);
-          this.messageService.add({
-            severity: 'success',
-            summary: 'Confirmado',
-            detail: 'Fila eliminada correctamente',
-            life: 3000,
-          });
-        } catch (error) {
-          this.messageService.add({
-            severity: 'error',
-            summary: 'Error',
-            detail: 'Algo inesperado ocurrió',
-            life: 3000,
-          });
-        }
+        this.delete(gruas)
       },
       reject: () => {
         this.messageService.add({

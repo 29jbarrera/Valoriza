@@ -13,4 +13,8 @@ export class GruasService {
     const response = await lastValueFrom(this._gruasService.apiV2GruasDocGet());
     return response.results || [];
   }
+
+  async deleteGruas(gruasID: number){
+    await lastValueFrom(this._gruasService.apiV2GruasDocIdDelete(gruasID))
+  }
 }
