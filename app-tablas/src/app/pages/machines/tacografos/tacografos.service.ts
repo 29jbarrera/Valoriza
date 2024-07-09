@@ -15,22 +15,10 @@ export class TacografosService {
     );
 
     return response.results || [];
-
-    // const tacografos: Tacografo[] = [];
-    // const randomDate = new Date(
-    //   rand([new Date(2020, 0, 1).getTime(), new Date().getTime()]) as number
-    // );
-    // for (let i = 0; i < 100; i++) {
-    //   tacografos.push({
-    //     machinery: randVehicleManufacturer(),
-    //     center: randArn(),
-    //     delegation: randCurrencyName(),
-    //     family: randCurrencyName(),
-    //     subFamily: randCurrencyName(),
-    //     nextDate: randomDate,
-    //   });
-    // }
-
-    // return tacografos;
+  }
+  async deleteTacografos(tacografosId: number) {
+    await lastValueFrom(
+      this._tacografoService.apiV2TacografoIdDelete(tacografosId)
+    );
   }
 }
