@@ -100,8 +100,22 @@ export class MaterialesTableComponent implements OnInit {
   }
 
   async delete(materiales: ReferenciasMaterialeDto) {
-    // TODO: PETICIÓN BACKEND PARA ELIMINAR
-    console.error('Delete object,', materiales);
+    try {
+      await this.MaterialesService.deleteMateriales(materiales.id!);
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Confirmado',
+        detail: 'Fila eliminada correctamente',
+        life: 3000,
+      });
+    } catch (error) {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Algo inesperado ocurrió',
+        life: 3000,
+      });
+    }
   }
 
   async confirm_delete(materiales: ReferenciasMaterialeDto) {
@@ -112,23 +126,8 @@ export class MaterialesTableComponent implements OnInit {
       rejectButtonStyleClass: 'p-button-text',
       acceptButtonStyleClass: 'p-button-danger',
 
-       accept: async () => {
-        try {
-          await this.delete(materiales);
-          this.messageService.add({
-            severity: 'success',
-            summary: 'Confirmado',
-            detail: 'Fila eliminada correctamente',
-            life: 3000,
-          });
-        } catch (error) {
-          this.messageService.add({
-            severity: 'error',
-            summary: 'Error',
-            detail: 'Algo inesperado ocurrió',
-            life: 3000,
-          });
-        }
+      accept: async () => {
+        this.delete(materiales);
       },
       reject: () => {
         this.messageService.add({

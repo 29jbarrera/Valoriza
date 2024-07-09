@@ -25,7 +25,6 @@ import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService, MessageService } from 'primeng/api';
 
-
 @Component({
   selector: 'app-repostaje-vehiculos-table',
   standalone: true,
@@ -107,8 +106,24 @@ export class RepostajeVehiculosTableComponent implements OnInit {
   }
 
   async delete(repostajeVehiculos: RepostajeDto) {
-    // TODO: PETICIÓN BACKEND PARA ELIMINAR
-    console.error('Delete object,', repostajeVehiculos);
+    try {
+      await this.RepostajeVehiculosService.deleteRepostajeVehículos(
+        repostajeVehiculos.id!
+      );
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Confirmado',
+        detail: 'Fila eliminada correctamente',
+        life: 3000,
+      });
+    } catch (error) {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Algo inesperado ocurrió',
+        life: 3000,
+      });
+    }
   }
 
   async confirm_delete(repostajeVehiculos: RepostajeDto) {
@@ -120,22 +135,7 @@ export class RepostajeVehiculosTableComponent implements OnInit {
       acceptButtonStyleClass: 'p-button-danger',
 
       accept: async () => {
-        try {
-          await this.delete(repostajeVehiculos);
-          this.messageService.add({
-            severity: 'success',
-            summary: 'Confirmado',
-            detail: 'Fila eliminada correctamente',
-            life: 3000,
-          });
-        } catch (error) {
-          this.messageService.add({
-            severity: 'error',
-            summary: 'Error',
-            detail: 'Algo inesperado ocurrió',
-            life: 3000,
-          });
-        }
+        this.delete(repostajeVehiculos);
       },
       reject: () => {
         this.messageService.add({

@@ -9,18 +9,14 @@ import { lastValueFrom } from 'rxjs';
 export class DepositosService {
   constructor(private _depositoService: DepositoService) {}
   async getDepositos(): Promise<DepositoDto[]> {
-    const response = await lastValueFrom(this._depositoService.apiV2DepositoGet());
+    const response = await lastValueFrom(
+      this._depositoService.apiV2DepositoGet()
+    );
     return response.results || [];
-
-    // const depositos: Depositos[] = [];
-    // for (let i = 0; i < 100; i++) {
-    //   depositos.push({
-    //     center: randCurrencyName(),
-    //     description: randArn(),
-    //     capacity: randAmount(),
-    //     common: true,
-    //   });
-    // }
-    // return depositos;
+  }
+  async deleteDepositos(depositosId: number) {
+    await lastValueFrom(
+      this._depositoService.apiV2DepositoIdDelete(depositosId)
+    );
   }
 }

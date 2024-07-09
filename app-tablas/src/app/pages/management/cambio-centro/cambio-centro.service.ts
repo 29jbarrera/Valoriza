@@ -9,21 +9,14 @@ import { MaquinariaDto, MaquinariaService } from '@valoriza/web-commons';
 export class CambioCentroService {
   constructor(private _maquinariaService: MaquinariaService) {}
   async getCambioCentro(): Promise<MaquinariaDto[]> {
-    const response = await lastValueFrom(this._maquinariaService.apiV2MaquinariaGet());
+    const response = await lastValueFrom(
+      this._maquinariaService.apiV2MaquinariaGet()
+    );
     return response.results || [];
-    
-
-    // const cambioCentro: CambioCentro[] = [];
-    // for (let i = 0; i < 100; i++) {
-    //   cambioCentro.push({
-    //     selected: true,
-    //     machineryTuition: randArn(),
-    //     centerCode: randAmount(),
-    //     centerName: randCompanyName(),
-    //     destinationCenterCode: randAmount(),
-    //     destinationCenterName: randCompanyName(),
-    //   });
-    // }
-    // return cambioCentro;
+  }
+  async deleteCambioCentro(cambiocentroId: number) {
+    await lastValueFrom(
+      this._maquinariaService.apiV2MaquinariaIdDelete(cambiocentroId)
+    );
   }
 }
