@@ -25,61 +25,61 @@
             />
           </div>
         </th>
-        <th pSortableColumn="machineryTuition">
+        <th pSortableColumn="matricula">
           <div>
-            <p-sortIcon class="order" field="machineryTuition" />
+            <p-sortIcon class="order" field="matricula" />
             Matrícula Maquinaria
             <p-columnFilter
               type="text"
-              field="machineryTuition"
+              field="matricula"
               class="filter"
               display="menu"
             />
           </div>
         </th>
-        <th pSortableColumn="centerCode">
+        <th pSortableColumn="empresa.codigo ">
           <div>
-            <p-sortIcon class="order" field="centerCode" />
+            <p-sortIcon class="order" field="empresa.codigo " />
             Código Centro
             <p-columnFilter
               type="text"
-              field="centerCode"
+              field="empresa.codigo "
               class="filter"
               display="menu"
             />
           </div>
         </th>
-        <th pSortableColumn="centerName">
+        <th pSortableColumn="empresa.nombre">
           <div>
-            <p-sortIcon class="order" field="centerName" />
+            <p-sortIcon class="order" field="empresa.nombre" />
             Nombre Centro
             <p-columnFilter
               type="text"
-              field="centerName"
+              field="empresa.nombre"
               class="filter"
               display="menu"
             />
           </div>
         </th>
-        <th pSortableColumn="destinationCenterCode">
+        <th pSortableColumn="centroCompra.codigo">
           <div>
-            <p-sortIcon class="order" field="destinationCenterCode" />
+            <p-sortIcon class="order" field="centroCompra.codigo" />
             Código centro destino
             <p-columnFilter
               type="text"
-              field="destinationCenterCode"
+              field="centroCompra.codigo"
               class="filter"
               display="menu"
             />
           </div>
         </th>
-        <th pSortableColumn="destinationCenterName">
+        <th pSortableColumn="centroCompra.nombre">
           <div>
-            <p-sortIcon class="order" field="destinationCenterName" />
+            <p-sortIcon class="order" field="centroCompra.nombre" />
             Nombre centro destino
             <p-columnFilter
               type="text"
-              field="destinationCenterName"
+              field="centroCompra.nombre"
               class="filter"
               display="menu"
             />
@@ -96,11 +96,11 @@
           <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(cambioCentro)"/>
         </td>
         <td class="text-center"><p-tableCheckbox [value]="cambioCentro" /></td>
-        <td>{{ cambioCentro.machineryTuition }}</td>
-        <td>{{ cambioCentro.centerCode }}</td>
-        <td>{{ cambioCentro.centerName }}</td>
-        <td>{{ cambioCentro.destinationCenterCode }}</td>
-        <td>{{ cambioCentro.destinationCenterName }}</td>
+        <td>{{ cambioCentro.matricula }}</td>
+        <td>{{ cambioCentro.empresa.codigo }}</td>
+        <td>{{ cambioCentro.empresa.nombre }}</td>
+        <td>{{ cambioCentro.centroCompra.codigo }}</td>
+        <td>{{ cambioCentro.centroCompra.nombre }}</td>
       </tr>
     </ng-template>
     <ng-template pTemplate="footer">

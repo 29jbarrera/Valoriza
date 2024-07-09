@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { CambioCentro } from '../type';
+import { MaquinariaDocDto } from '@valoriza/web-commons';
 import { CambioCentroService } from '../cambio-centro.service';
 
 import { TableModule } from 'primeng/table';
@@ -24,6 +24,7 @@ import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService, MessageService } from 'primeng/api';
+
 
 @Component({
   selector: 'app-cambio-centro-table',
@@ -51,8 +52,8 @@ import { ConfirmationService, MessageService } from 'primeng/api';
   providers: [ConfirmationService, MessageService],
 })
 export class CambioCentroTableComponent implements OnInit {
-  cambioCentro: CambioCentro[] = [];
-  selectCambioCentro: CambioCentro[] = [];
+  cambioCentro: MaquinariaDocDto[] = [];
+  selectCambioCentro: MaquinariaDocDto[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -78,7 +79,7 @@ export class CambioCentroTableComponent implements OnInit {
     this.cambioCentro = await this.CambioCentroService.getCambioCentro();
   }
 
-  async confirm_edit(cambioCentro: CambioCentro) {
+  async confirm_edit(cambioCentro: MaquinariaDocDto) {
     try {
       this.edit(cambioCentro);
 
@@ -98,17 +99,17 @@ export class CambioCentroTableComponent implements OnInit {
     }
   }
 
-  async edit(cambioCentro: CambioCentro) {
+  async edit(cambioCentro: MaquinariaDocDto) {
     // TODO: PETICIÓN A BACKEND PARA EDITAR
     console.error('Edit object:', cambioCentro);
   }
 
-  async delete(cambioCentro: CambioCentro) {
+  async delete(cambioCentro: MaquinariaDocDto) {
     // TODO: PETICIÓN BACKEND PARA ELIMINAR
     console.error('Delete object,', cambioCentro);
   }
 
-  async confirm_delete(cambioCentro: CambioCentro) {
+  async confirm_delete(cambioCentro: MaquinariaDocDto) {
     this._confirmationService.confirm({
       message: '¿Estás seguro de que quieres eliminar esta fila?',
       header: 'Eliminar fila de cambios centros',
