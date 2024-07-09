@@ -1,20 +1,23 @@
 import { Injectable } from '@angular/core';
-import { randCompanyName } from '@ngneat/falso';
 
-import { Marcas } from './type';
+import { lastValueFrom } from 'rxjs';
+import { MarcaService, MarcaDto } from '@valoriza/web-commons';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MarcasService {
-  constructor() {}
-  async getMarcas(): Promise<Marcas[]> {
-    const marcas: Marcas[] = [];
-    for (let i = 0; i < 50; i++) {
-      marcas.push({
-        name: randCompanyName(),
-      });
-    }
-    return marcas;
+  constructor(private _marcaService: MarcaService) {}
+  async getMarcas(): Promise<MarcaDto[]> {
+    const response = await lastValueFrom(this._marcaService.apiV2MarcaGet());
+    return response.results;
+
+    // const marcas: Marcas[] = [];
+    // for (let i = 0; i < 50; i++) {
+    //   marcas.push({
+    //     name: randCompanyName(),
+    //   });
+    // }
+    // return marcas;
   }
 }

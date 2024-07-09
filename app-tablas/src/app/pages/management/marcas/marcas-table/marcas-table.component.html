@@ -5,19 +5,18 @@
     styleClass="p-datatable-sm"
     [rowsPerPageOptions]="[5, 10, 20]"
     [paginator]="true"
-    [rows]="5"
-  >
+    [rows]="5">
     <ng-template pTemplate="header">
       <tr>
         <th></th>
         <th></th>
-        <th pSortableColumn="name">
+        <th pSortableColumn="empresa.nombre">
           <div>
-            <p-sortIcon class="order" field="name" />
+            <p-sortIcon class="order" field="empresa.nombre" />
             Nombre
             <p-columnFilter
               type="text"
-              field="name"
+              field="empresa.nombre"
               class="filter"
               display="menu"
             />
@@ -33,7 +32,7 @@
         <td>
           <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(marcas)"/>
         </td>
-        <td>{{ marcas.name }}</td>
+        <td>{{ marcas.empresa.nombre }}</td>
       </tr>
     </ng-template>
     <ng-template pTemplate="footer">

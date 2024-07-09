@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { Marcas } from '../type';
+import { MarcaDto } from '@valoriza/web-commons';
 import { MarcasService } from '../marcas.service';
 
 import { TableModule } from 'primeng/table';
@@ -24,6 +24,7 @@ import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService, MessageService } from 'primeng/api';
+
 
 @Component({
   selector: 'app-marcas-table',
@@ -51,7 +52,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
   providers: [ConfirmationService, MessageService],
 })
 export class MarcasTableComponent implements OnInit {
-  marcas: Marcas[] = [];
+  marcas: MarcaDto[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -72,7 +73,7 @@ export class MarcasTableComponent implements OnInit {
     this.marcas = await this.MarcasService.getMarcas();
   }
 
-  async confirm_edit(marcas: Marcas) {
+  async confirm_edit(marcas: MarcaDto) {
     try {
       this.edit(marcas);
 
@@ -92,17 +93,17 @@ export class MarcasTableComponent implements OnInit {
     }
   }
 
-  async edit(marcas: Marcas) {
+  async edit(marcas: MarcaDto) {
     // TODO: PETICIÓN A BACKEND PARA EDITAR
     console.error('Edit object:', marcas);
   }
 
-  async delete(marcas: Marcas) {
+  async delete(marcas: MarcaDto) {
     // TODO: PETICIÓN BACKEND PARA ELIMINAR
     console.error('Delete object,', marcas);
   }
 
-  async confirm_delete(marcas: Marcas) {
+  async confirm_delete(marcas: MarcaDto) {
     this._confirmationService.confirm({
       message: '¿Estás seguro de que quieres eliminar esta fila?',
       header: 'Eliminar fila de marcas',
