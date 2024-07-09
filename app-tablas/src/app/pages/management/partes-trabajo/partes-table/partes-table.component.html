@@ -6,94 +6,87 @@
     styleClass="p-datatable-sm"
     [rowsPerPageOptions]="[5, 10, 20]"
     [paginator]="true"
-    [rows]="5"
-  >
+    [rows]="5">
   <ng-template pTemplate="header">
     <tr>
       <th></th>
       <th></th>
-      <th pSortableColumn="centerName">
+      <th pSortableColumn="centro.nombre">
         <div>
-          <p-sortIcon class="order" field="centerName" />
+          <p-sortIcon class="order" field="centro.nombre" />
           Nombre del centro
           <p-columnFilter
             type="text"
-            field="centerName"
+            field="centro.nombre"
             class="filter"
-            display="menu"
-          />
+            display="menu"/>
         </div>
       </th>
-      <th pSortableColumn="delegation">
+      <th pSortableColumn="empresa.nombre ">
         <div>
-          <p-sortIcon class="order" field="delegation" />
+          <p-sortIcon class="order" field="empresa.nombre " />
           Delegación
           <p-columnFilter
             type="text"
-            field="delegation"
+            field="empresa.nombre "
             class="filter"
-            display="menu"
-          />
+            display="menu"/>
         </div>
       </th>
-      <th pSortableColumn="tuition">
+      <th pSortableColumn="maquinaria.matricula ">
         <div>
-          <p-sortIcon class="order" field="tuition" />
+          <p-sortIcon class="order" field="maquinaria.matricula " />
           Matrícula
           <p-columnFilter
             type="text"
-            field="tuition"
+            field="maquinaria.matricula "
             class="filter"
-            display="menu"
-          />
+            display="menu"/>
         </div>
       </th>
-      <th pSortableColumn="name">
+      <th pSortableColumn="nombre">
         <div>
-          <p-sortIcon class="order" field="name" />
+          <p-sortIcon class="order" field="nombre" />
           Nombre
           <p-columnFilter
             type="text"
-            field="name"
+            field="nombre"
             class="filter"
-            display="menu"
-          />
+            display="menu"/>
         </div>
       </th>
-      <th pSortableColumn="date">
+      <th pSortableColumn="fecha">
         <div>
-          <p-sortIcon class="order" field="date" />
+          <p-sortIcon class="order" field="fecha" />
           Fecha
           <p-columnFilter
             type="text"
-            field="date"
+            field="fecha"
             class="filter"
-            display="menu"
-          />
+            display="menu"/>
         </div>
       </th>
-      <th pSortableColumn="state">
+      <th pSortableColumn="trabajoRealizado">
         <div>
-          <p-sortIcon class="order" field="state" />
+          <p-sortIcon class="order" field="trabajoRealizado" />
           Estado
           <p-columnFilter
             type="text"
-            field="state"
+            field="trabajoRealizado"
             class="filter"
             display="menu"
           />
         </div>
       </th>
-      <th pSortableColumn="maintenanceType">
+      <th pSortableColumn="codTipoMantenimiento">
         <div>
-          <p-sortIcon class="order" field="maintenanceType" />
+          <p-sortIcon class="order" field="codTipoMantenimiento" />
           Tipo de mantenimiento
           <p-columnFilter
             type="text"
-            field="maintenanceType"
+            field="codTipoMantenimiento"
             class="filter"
-            display="menu"
-          />
+            display="menu"/>
         </div>
       </th>
     </tr>
@@ -107,13 +100,13 @@
       <td>
         <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(partes)"/>
       </td>
-      <td>{{ partes.centerName }}</td>
-      <td>{{ partes.delegation }}</td>
-      <td>{{ partes.tuition }}</td>
-      <td>{{ partes.name }}</td>
-      <td>{{ partes.date }}</td>
-      <td>{{ partes.state }}</td>
-      <td>{{ partes.maintenanceType }}</td>
+      <td>{{ partes.centro.nombre }}</td>
+      <td>{{ partes.empresa.nombre }}</td>
+      <td>{{ partes.maquinaria.matricula }}</td>
+      <td>{{ partes.nombre }}</td>
+      <td>{{ partes.fecha }}</td>
+      <td>{{ partes.trabajoRealizado }}</td>
+      <td>{{ partes.codTipoMantenimiento }}</td>
     </tr>
   </ng-template>
   <ng-template pTemplate="footer">
