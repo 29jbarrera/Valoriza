@@ -94,8 +94,8 @@
           <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(impuestos)"/>
         </td>
         <td>{{ impuestos.empresa.nombre }}</td>
-        <td>{{ impuestos.direccion }}</td>
-        <td>{{ impuestos.documentoIdentificativo }}</td>
+        <td>{{ impuestos.empresa.direccion }}</td>
+        <td>{{ impuestos.empresa.documentoIdentificativo }}</td>
         <td>{{ impuestos.importe }}</td>
         <td>{{ impuestos.codMoneda }}</td>
         <td>{{ impuestos.fecha }}</td>

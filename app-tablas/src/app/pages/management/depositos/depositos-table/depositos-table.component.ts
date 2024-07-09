@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { Depositos } from '../type';
+import { DepositoDto } from '@valoriza/web-commons';
 import { DepositosService } from '../depositos.service';
 
 import { TableModule } from 'primeng/table';
@@ -51,8 +51,8 @@ import { ConfirmationService, MessageService } from 'primeng/api';
   providers: [ConfirmationService, MessageService],
 })
 export class DepositosTableComponent implements OnInit {
-  depositos: Depositos[] = [];
-  selectDepositos: Depositos[] = [];
+  depositos: DepositoDto[] = [];
+  selectDepositos: DepositoDto[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -76,7 +76,7 @@ export class DepositosTableComponent implements OnInit {
     this.depositos = await this.DepositosService.getDepositos();
   }
 
-  async confirm_edit(depositos: Depositos) {
+  async confirm_edit(depositos: DepositoDto) {
     try {
       this.edit(depositos);
 
@@ -96,17 +96,17 @@ export class DepositosTableComponent implements OnInit {
     }
   }
 
-  async edit(depositos: Depositos) {
+  async edit(depositos: DepositoDto) {
     // TODO: PETICIÓN A BACKEND PARA EDITAR
     console.error('Edit object:', depositos);
   }
 
-  async delete(depositos: Depositos) {
+  async delete(depositos: DepositoDto) {
     // TODO: PETICIÓN BACKEND PARA ELIMINAR
     console.error('Delete object,', depositos);
   }
 
-  async confirm_delete(depositos: Depositos) {
+  async confirm_delete(depositos: DepositoDto) {
     this._confirmationService.confirm({
       message: '¿Estás seguro de que quieres eliminar esta fila?',
       header: 'Eliminar fila de depósitos',

@@ -7,58 +7,53 @@
     styleClass="p-datatable-sm"
     [rowsPerPageOptions]="[5, 10, 20]"
     [paginator]="true"
-    [rows]="5"
-  >
+    [rows]="5">
     <ng-template pTemplate="header">
       <tr>
         <th></th>
         <th></th>
-        <th pSortableColumn="center">
+        <th pSortableColumn="centro.nombre">
           <div>
-            <p-sortIcon class="order" field="center" />
+            <p-sortIcon class="order" field="centro.nombre" />
             Centro
             <p-columnFilter
               type="text"
-              field="center"
+              field="centro.nombre"
               class="filter"
-              display="menu"
-            />
+              display="menu"/>
           </div>
         </th>
-        <th pSortableColumn="description">
+        <th pSortableColumn="descripcion">
           <div>
-            <p-sortIcon class="order" field="description" />
+            <p-sortIcon class="order" field="descripcion" />
             Descripción
             <p-columnFilter
               type="text"
-              field="description"
+              field="descripcion"
               class="filter"
-              display="menu"
-            />
+              display="menu"/>
           </div>
         </th>
-        <th pSortableColumn="capacity">
+        <th pSortableColumn="capacidad">
           <div>
-            <p-sortIcon class="order" field="capacity" />
+            <p-sortIcon class="order" field="capacidad" />
             Capacidad
             <p-columnFilter
               type="text"
-              field="capacity"
+              field="capacidad"
               class="filter"
-              display="menu"
-            />
+              display="menu"/>
           </div>
         </th>
-        <th class="col-1" pSortableColumn="common">
+        <th class="col-1" pSortableColumn="comun">
           <div>
-            <p-sortIcon class="order" field="common" />
+            <p-sortIcon class="order" field="comun" />
             Común
             <p-columnFilter
               type="text"
-              field="common"
+              field="comun"
               class="filter"
-              display="menu"
-            />
+              display="menu"/>
           </div>
         </th>
       </tr>
@@ -71,10 +66,13 @@
         <td>
           <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(depositos)"/>
         </td>
-        <td>{{ depositos.center }}</td>
-        <td>{{ depositos.description }}</td>
-        <td>{{ depositos.capacity }}</td>
-        <td class="text-center"><p-tableCheckbox [value]="depositos" /></td>
+        <td>{{ depositos.centro.nombre }}</td>
+        <td>{{ depositos.descripcion }}</td>
+        <td>{{ depositos.capacidad }}</td>
+        <td class="text-center">
+          <!-- TODO: Mostrar el valor comun en el chexkbox -->
+          <p-tableCheckbox [value]="depositos.comun"/>
+        </td>
       </tr>
     </ng-template>
     <ng-template pTemplate="footer">
