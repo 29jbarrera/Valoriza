@@ -11,25 +11,9 @@ export class HorometrosKilometrosService {
 
   async getHorometrosKilometros(): Promise<HmKmDto[]> {
     const response = await lastValueFrom(this._hmkmService.apiV2HmKmGet());
-    return response.results || [];   
-
-
-    // const horometrosKilometros: HorometrosKilometros[] = [];
-    // const randomDate = new Date(
-    //   rand([new Date(2020, 0, 1).getTime(), new Date().getTime()]) as number
-    // );
-    // for (let i = 0; i < 100; i++) {
-    //   horometrosKilometros.push({
-    //     machineCenter: randCompanyName(),
-    //     subFamily: randArn(),
-    //     machinery: randCurrencyName(),
-    //     brand: randCurrencyName(),
-    //     model: randVehicleModel(),
-    //     finalHorometer: randAmount(),
-    //     finalKM: randAmount(),
-    //     date: randomDate,
-    //   });
-    // }
-    // return horometrosKilometros;
+    return response.results || [];
+  }
+  async deleteHorometrosKilometros(hmkmID: number) {
+    await lastValueFrom(this._hmkmService.apiV2HmKmIdDelete(hmkmID));
   }
 }
