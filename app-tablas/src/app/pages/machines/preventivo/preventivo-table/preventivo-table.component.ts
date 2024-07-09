@@ -25,7 +25,6 @@ import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService, MessageService } from 'primeng/api';
 
-
 @Component({
   selector: 'app-preventivo-table',
   standalone: true,
@@ -107,8 +106,22 @@ export class PreventivoTableComponent implements OnInit {
   }
 
   async delete(preventivo: MaintenanceDto) {
-    // TODO: PETICIÓN BACKEND PARA ELIMINAR
-    console.error('Delete object,', preventivo);
+    try {
+      await this.PreventivoService.deletePreventivo(preventivo.id!);
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Confirmado',
+        detail: 'Fila eliminada correctamente',
+        life: 3000,
+      });
+    } catch (error) {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Algo inesperado ocurrió',
+        life: 3000,
+      });
+    }
   }
 
   async confirm_delete(preventivo: MaintenanceDto) {
@@ -120,22 +133,7 @@ export class PreventivoTableComponent implements OnInit {
       acceptButtonStyleClass: 'p-button-danger',
 
       accept: async () => {
-        try {
-          await this.delete(preventivo);
-          this.messageService.add({
-            severity: 'success',
-            summary: 'Confirmado',
-            detail: 'Fila eliminada correctamente',
-            life: 3000,
-          });
-        } catch (error) {
-          this.messageService.add({
-            severity: 'error',
-            summary: 'Error',
-            detail: 'Algo inesperado ocurrió',
-            life: 3000,
-          });
-        }
+        this.delete(preventivo);
       },
       reject: () => {
         this.messageService.add({
@@ -148,4 +146,3 @@ export class PreventivoTableComponent implements OnInit {
     });
   }
 }
-

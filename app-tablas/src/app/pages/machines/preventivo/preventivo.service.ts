@@ -10,7 +10,14 @@ export class PreventivoService {
   constructor(private _maintenanceService: MaintenanceService) {}
 
   async getPreventivo(): Promise<MaintenanceDto[]> {
-    const response = await lastValueFrom(this._maintenanceService.apiV2MaintenanceGet());
+    const response = await lastValueFrom(
+      this._maintenanceService.apiV2MaintenanceGet()
+    );
     return response.results || [];
+  }
+  async deletePreventivo(preventivoId: number) {
+    await lastValueFrom(
+      this._maintenanceService.apiV2MaintenanceIdDelete(preventivoId)
+    );
   }
 }
