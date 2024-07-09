@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { RepostajeMaquinaria } from '../type';
+import { MantenimientoRepostajeDto } from '@valoriza/web-commons';
 import { RepostajesService } from '../repostajes-maquinaria.service';
 
 import { TableModule } from 'primeng/table';
@@ -24,6 +24,7 @@ import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService, MessageService } from 'primeng/api';
+
 
 @Component({
   selector: 'app-repostajes-table',
@@ -51,7 +52,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
   providers: [ConfirmationService, MessageService],
 })
 export class RepostajesMaquinariaTableComponent implements OnInit {
-  repostaje: RepostajeMaquinaria[] = [];
+  repostaje: MantenimientoRepostajeDto[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -77,7 +78,7 @@ export class RepostajesMaquinariaTableComponent implements OnInit {
     this.repostaje = await this.RepostajesService.getRepostajes();
   }
 
-  async confirm_edit(repostaje: RepostajeMaquinaria) {
+  async confirm_edit(repostaje: MantenimientoRepostajeDto) {
     try {
       this.edit(repostaje);
 
@@ -97,17 +98,17 @@ export class RepostajesMaquinariaTableComponent implements OnInit {
     }
   }
 
-  async edit(repostaje: RepostajeMaquinaria) {
+  async edit(repostaje: MantenimientoRepostajeDto) {
     // TODO: PETICIÓN A BACKEND PARA EDITAR
     console.error('Edit object:', repostaje);
   }
 
-  async delete(repostaje: RepostajeMaquinaria) {
+  async delete(repostaje: MantenimientoRepostajeDto) {
     // TODO: PETICIÓN BACKEND PARA ELIMINAR
     console.error('Delete object,', repostaje);
   }
 
-  async confirm_delete(repostaje: RepostajeMaquinaria) {
+  async confirm_delete(repostaje: MantenimientoRepostajeDto) {
     this._confirmationService.confirm({
       message: '¿Estás seguro de que quieres eliminar esta fila?',
       header: 'Eliminar fila de repostajes maquinaria',
