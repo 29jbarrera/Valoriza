@@ -8,7 +8,7 @@ import {
 import { CommonModule } from '@angular/common';
 
 import { PartesService } from '../partes.service';
-import { PartesTrabajoDocDto } from '@valoriza/web-commons';
+import { PartesTrabajoDto } from '@valoriza/web-commons';
 
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
@@ -51,7 +51,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
   providers: [ConfirmationService, MessageService],
 })
 export class PartesTableComponent implements OnInit {
-  partes: PartesTrabajoDocDto[] = [];
+  partes: PartesTrabajoDto[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -79,7 +79,7 @@ export class PartesTableComponent implements OnInit {
     this.partes = await this.PartesService.getPartes();
   }
 
-  async confirm_edit(partes: PartesTrabajoDocDto) {
+  async confirm_edit(partes: PartesTrabajoDto) {
     try {
       this.edit(partes);
 
@@ -99,17 +99,17 @@ export class PartesTableComponent implements OnInit {
     }
   }
 
-  async edit(partes: PartesTrabajoDocDto) {
+  async edit(partes: PartesTrabajoDto) {
     // TODO: PETICIÓN A BACKEND PARA EDITAR
     console.error('Edit object:', partes);
   }
 
-  async delete(partes: PartesTrabajoDocDto) {
+  async delete(partes: PartesTrabajoDto) {
     // TODO: PETICIÓN BACKEND PARA ELIMINAR
     console.error('Delete object,', partes);
   }
 
-  async confirm_delete(partes: PartesTrabajoDocDto) {
+  async confirm_delete(partes: PartesTrabajoDto) {
     this._confirmationService.confirm({
       message: '¿Estás seguro de que quieres eliminar esta fila?',
       header: 'Eliminar fila de partes de trabajo',

@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { MaquinariaDocDto } from '@valoriza/web-commons';
+import { MaquinariaDto } from '@valoriza/web-commons';
 import { CambioCentroService } from '../cambio-centro.service';
 
 import { TableModule } from 'primeng/table';
@@ -52,8 +52,8 @@ import { ConfirmationService, MessageService } from 'primeng/api';
   providers: [ConfirmationService, MessageService],
 })
 export class CambioCentroTableComponent implements OnInit {
-  cambioCentro: MaquinariaDocDto[] = [];
-  selectCambioCentro: MaquinariaDocDto[] = [];
+  cambioCentro: MaquinariaDto[] = [];
+  selectCambioCentro: MaquinariaDto[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -79,7 +79,7 @@ export class CambioCentroTableComponent implements OnInit {
     this.cambioCentro = await this.CambioCentroService.getCambioCentro();
   }
 
-  async confirm_edit(cambioCentro: MaquinariaDocDto) {
+  async confirm_edit(cambioCentro: MaquinariaDto) {
     try {
       this.edit(cambioCentro);
 
@@ -99,17 +99,17 @@ export class CambioCentroTableComponent implements OnInit {
     }
   }
 
-  async edit(cambioCentro: MaquinariaDocDto) {
+  async edit(cambioCentro: MaquinariaDto) {
     // TODO: PETICIÓN A BACKEND PARA EDITAR
     console.error('Edit object:', cambioCentro);
   }
 
-  async delete(cambioCentro: MaquinariaDocDto) {
+  async delete(cambioCentro: MaquinariaDto) {
     // TODO: PETICIÓN BACKEND PARA ELIMINAR
     console.error('Delete object,', cambioCentro);
   }
 
-  async confirm_delete(cambioCentro: MaquinariaDocDto) {
+  async confirm_delete(cambioCentro: MaquinariaDto) {
     this._confirmationService.confirm({
       message: '¿Estás seguro de que quieres eliminar esta fila?',
       header: 'Eliminar fila de cambios centros',

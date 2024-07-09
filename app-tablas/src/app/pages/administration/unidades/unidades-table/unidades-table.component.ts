@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { UnidadesMedidaDto } from '@valoriza/web-commons';
+import { UnidadMedidaTiposCombustibleDto } from '@valoriza/web-commons';
 import { UnidadesService } from '../unidades.service';
 
 import { TableModule } from 'primeng/table';
@@ -51,7 +51,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
   providers: [ConfirmationService, MessageService],
 })
 export class UnidadesTableComponent implements OnInit {
-  unidades: UnidadesMedidaDto[] = [];
+  unidades: UnidadMedidaTiposCombustibleDto[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -74,7 +74,7 @@ export class UnidadesTableComponent implements OnInit {
     this.unidades = await this.UnidadesService.getGastosTaller();
   }
 
-  async confirm_edit(unidades: UnidadesMedidaDto) {
+  async confirm_edit(unidades: UnidadMedidaTiposCombustibleDto) {
     try {
       this.edit(unidades);
 
@@ -94,17 +94,17 @@ export class UnidadesTableComponent implements OnInit {
     }
   }
 
-  async edit(unidades: UnidadesMedidaDto) {
+  async edit(unidades: UnidadMedidaTiposCombustibleDto) {
     // TODO: PETICIÓN A BACKEND PARA EDITAR
     console.error('Edit object:', unidades);
   }
 
-  async delete(unidades: UnidadesMedidaDto) {
+  async delete(unidades: UnidadMedidaTiposCombustibleDto) {
     // TODO: PETICIÓN BACKEND PARA ELIMINAR
     console.error('Delete object,', unidades);
   }
 
-  async confirm_delete(unidades: UnidadesMedidaDto) {
+  async confirm_delete(unidades: UnidadMedidaTiposCombustibleDto) {
     this._confirmationService.confirm({
       message: '¿Estás seguro de que quieres eliminar esta fila?',
       header: 'Eliminar fila de unidades',
