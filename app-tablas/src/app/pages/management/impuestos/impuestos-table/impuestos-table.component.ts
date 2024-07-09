@@ -25,7 +25,6 @@ import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService, MessageService } from 'primeng/api';
 
-
 @Component({
   selector: 'app-impuestos-table',
   standalone: true,
@@ -104,8 +103,22 @@ export class ImpuestosTableComponent implements OnInit {
   }
 
   async delete(impuestos: ImpuestoDto) {
-    // TODO: PETICIÓN BACKEND PARA ELIMINAR
-    console.error('Delete object,', impuestos);
+    try {
+      await this.ImpuestosService.deleteImpuestos(impuestos.id!);
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Confirmado',
+        detail: 'Fila eliminada correctamente',
+        life: 3000,
+      });
+    } catch (error) {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Algo inesperado ocurrió',
+        life: 3000,
+      });
+    }
   }
 
   async confirm_delete(impuestos: ImpuestoDto) {
@@ -117,22 +130,7 @@ export class ImpuestosTableComponent implements OnInit {
       acceptButtonStyleClass: 'p-button-danger',
 
       accept: async () => {
-        try {
-          await this.delete(impuestos);
-          this.messageService.add({
-            severity: 'success',
-            summary: 'Confirmado',
-            detail: 'Fila eliminada correctamente',
-            life: 3000,
-          });
-        } catch (error) {
-          this.messageService.add({
-            severity: 'error',
-            summary: 'Error',
-            detail: 'Algo inesperado ocurrió',
-            life: 3000,
-          });
-        }
+        this.delete(impuestos);
       },
       reject: () => {
         this.messageService.add({
