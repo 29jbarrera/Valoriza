@@ -18,9 +18,9 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 import { Observable }                                        from 'rxjs';
 
 import { CreateSubFamiliasLangDto } from '../model/createSubFamiliasLangDto';
+import { ProblemDetails } from '../model/problemDetails';
 import { SubFamiliasLangDto } from '../model/subFamiliasLangDto';
 import { SubFamiliasLangDtoPaginatedResult } from '../model/subFamiliasLangDtoPaginatedResult';
-import { SubFamiliasLangDtoResult } from '../model/subFamiliasLangDtoResult';
 import { UpdateSubFamiliasLangDto } from '../model/updateSubFamiliasLangDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class SubFamiliasLangService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class SubFamiliasLangService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2SubFamiliasLangPost(body?: CreateSubFamiliasLangDto, observe?: 'body', reportProgress?: boolean): Observable<SubFamiliasLangDtoResult>;
-    public apiV2SubFamiliasLangPost(body?: CreateSubFamiliasLangDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<SubFamiliasLangDtoResult>>;
-    public apiV2SubFamiliasLangPost(body?: CreateSubFamiliasLangDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<SubFamiliasLangDtoResult>>;
+    public apiV2SubFamiliasLangPost(body?: CreateSubFamiliasLangDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2SubFamiliasLangPost(body?: CreateSubFamiliasLangDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2SubFamiliasLangPost(body?: CreateSubFamiliasLangDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2SubFamiliasLangPost(body?: CreateSubFamiliasLangDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class SubFamiliasLangService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<SubFamiliasLangDtoResult>('post',`${this.basePath}/api/v2/subFamiliasLang`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/subFamiliasLang`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class SubFamiliasLangService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2SubFamiliasLangPut(body?: UpdateSubFamiliasLangDto, observe?: 'body', reportProgress?: boolean): Observable<SubFamiliasLangDtoResult>;
-    public apiV2SubFamiliasLangPut(body?: UpdateSubFamiliasLangDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<SubFamiliasLangDtoResult>>;
-    public apiV2SubFamiliasLangPut(body?: UpdateSubFamiliasLangDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<SubFamiliasLangDtoResult>>;
+    public apiV2SubFamiliasLangPut(body?: UpdateSubFamiliasLangDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2SubFamiliasLangPut(body?: UpdateSubFamiliasLangDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2SubFamiliasLangPut(body?: UpdateSubFamiliasLangDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2SubFamiliasLangPut(body?: UpdateSubFamiliasLangDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class SubFamiliasLangService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<SubFamiliasLangDtoResult>('put',`${this.basePath}/api/v2/subFamiliasLang`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/subFamiliasLang`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

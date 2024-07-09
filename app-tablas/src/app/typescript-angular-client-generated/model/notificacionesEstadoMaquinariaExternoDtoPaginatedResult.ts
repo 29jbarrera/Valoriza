@@ -18,5 +18,5 @@ export interface NotificacionesEstadoMaquinariaExternoDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<NotificacionesEstadoMaquinariaExternoDto>;
+    results?: Array<NotificacionesEstadoMaquinariaExternoDto>;
 }

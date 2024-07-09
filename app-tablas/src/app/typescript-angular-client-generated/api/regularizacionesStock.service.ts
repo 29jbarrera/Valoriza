@@ -18,9 +18,9 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 import { Observable }                                        from 'rxjs';
 
 import { CreateRegularizacionesStockDto } from '../model/createRegularizacionesStockDto';
+import { ProblemDetails } from '../model/problemDetails';
 import { RegularizacionesStockDto } from '../model/regularizacionesStockDto';
 import { RegularizacionesStockDtoPaginatedResult } from '../model/regularizacionesStockDtoPaginatedResult';
-import { RegularizacionesStockDtoResult } from '../model/regularizacionesStockDtoResult';
 import { UpdateRegularizacionesStockDto } from '../model/updateRegularizacionesStockDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class RegularizacionesStockService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class RegularizacionesStockService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2RegularizacionesStockPost(body?: CreateRegularizacionesStockDto, observe?: 'body', reportProgress?: boolean): Observable<RegularizacionesStockDtoResult>;
-    public apiV2RegularizacionesStockPost(body?: CreateRegularizacionesStockDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<RegularizacionesStockDtoResult>>;
-    public apiV2RegularizacionesStockPost(body?: CreateRegularizacionesStockDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<RegularizacionesStockDtoResult>>;
+    public apiV2RegularizacionesStockPost(body?: CreateRegularizacionesStockDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2RegularizacionesStockPost(body?: CreateRegularizacionesStockDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2RegularizacionesStockPost(body?: CreateRegularizacionesStockDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2RegularizacionesStockPost(body?: CreateRegularizacionesStockDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class RegularizacionesStockService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<RegularizacionesStockDtoResult>('post',`${this.basePath}/api/v2/regularizacionesStock`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/regularizacionesStock`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class RegularizacionesStockService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2RegularizacionesStockPut(body?: UpdateRegularizacionesStockDto, observe?: 'body', reportProgress?: boolean): Observable<RegularizacionesStockDtoResult>;
-    public apiV2RegularizacionesStockPut(body?: UpdateRegularizacionesStockDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<RegularizacionesStockDtoResult>>;
-    public apiV2RegularizacionesStockPut(body?: UpdateRegularizacionesStockDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<RegularizacionesStockDtoResult>>;
+    public apiV2RegularizacionesStockPut(body?: UpdateRegularizacionesStockDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2RegularizacionesStockPut(body?: UpdateRegularizacionesStockDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2RegularizacionesStockPut(body?: UpdateRegularizacionesStockDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2RegularizacionesStockPut(body?: UpdateRegularizacionesStockDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class RegularizacionesStockService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<RegularizacionesStockDtoResult>('put',`${this.basePath}/api/v2/regularizacionesStock`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/regularizacionesStock`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

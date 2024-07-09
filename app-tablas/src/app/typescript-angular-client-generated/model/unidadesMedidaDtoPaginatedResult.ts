@@ -18,5 +18,5 @@ export interface UnidadesMedidaDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<UnidadesMedidaDto>;
+    results?: Array<UnidadesMedidaDto>;
 }

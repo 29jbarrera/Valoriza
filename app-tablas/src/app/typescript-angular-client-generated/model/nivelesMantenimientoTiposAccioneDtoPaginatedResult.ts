@@ -18,5 +18,5 @@ export interface NivelesMantenimientoTiposAccioneDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<NivelesMantenimientoTiposAccioneDto>;
+    results?: Array<NivelesMantenimientoTiposAccioneDto>;
 }

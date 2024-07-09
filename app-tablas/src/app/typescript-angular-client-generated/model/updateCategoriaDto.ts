@@ -12,9 +12,5 @@
 
 export interface UpdateCategoriaDto { 
     id?: number;
-    codigo?: string;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
+    codigo: string;
 }

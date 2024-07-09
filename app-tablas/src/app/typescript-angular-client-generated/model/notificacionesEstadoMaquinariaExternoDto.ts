@@ -9,16 +9,18 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { MaquinariaDto } from './maquinariaDto';
 
 export interface NotificacionesEstadoMaquinariaExternoDto { 
     id?: number;
     idMaquinaria?: number;
-    codEstadoMaquinaria?: string;
-    descripcion?: string;
+    maquinaria?: MaquinariaDto;
+    codEstadoMaquinaria: string;
+    descripcion: string;
     fechaDesde?: Date;
     fechaHasta?: Date;
-    createdBy?: string;
+    createdBy: string;
     createdAt?: Date;
-    changedBy?: string;
+    changedBy: string;
     changedAt?: Date;
 }

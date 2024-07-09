@@ -9,16 +9,20 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { CentrosCosteDto } from './centrosCosteDto';
+import { EmpresaDto } from './empresaDto';
 
 export interface DepositoDto { 
     id?: number;
     idEmpresa?: number;
+    empresa?: EmpresaDto;
     idCentro?: number;
-    descripcion?: string;
+    centro?: CentrosCosteDto;
+    descripcion: string;
     capacidad?: number;
     comun?: boolean;
-    createdBy?: string;
+    createdBy: string;
     createdAt?: Date;
-    changedBy?: string;
+    changedBy: string;
     changedAt?: Date;
 }

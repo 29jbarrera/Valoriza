@@ -18,5 +18,5 @@ export interface MantenimientoRepostajeDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<MantenimientoRepostajeDto>;
+    results?: Array<MantenimientoRepostajeDto>;
 }

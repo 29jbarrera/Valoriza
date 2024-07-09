@@ -14,7 +14,7 @@ export interface UpdateTacografosDocDto {
     id?: number;
     idTacografo?: number;
     claveGuid?: string;
-    extension?: string;
-    documento?: string;
-    nombre?: string;
+    extension: string;
+    documento: string;
+    nombre: string;
 }

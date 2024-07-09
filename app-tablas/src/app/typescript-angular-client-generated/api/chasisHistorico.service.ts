@@ -19,8 +19,8 @@ import { Observable }                                        from 'rxjs';
 
 import { ChasisHistoricoDto } from '../model/chasisHistoricoDto';
 import { ChasisHistoricoDtoPaginatedResult } from '../model/chasisHistoricoDtoPaginatedResult';
-import { ChasisHistoricoDtoResult } from '../model/chasisHistoricoDtoResult';
 import { CreateChasisHistoricoDto } from '../model/createChasisHistoricoDto';
+import { ProblemDetails } from '../model/problemDetails';
 import { UpdateChasisHistoricoDto } from '../model/updateChasisHistoricoDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class ChasisHistoricoService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class ChasisHistoricoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2ChasisHistoricoPost(body?: CreateChasisHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<ChasisHistoricoDtoResult>;
-    public apiV2ChasisHistoricoPost(body?: CreateChasisHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ChasisHistoricoDtoResult>>;
-    public apiV2ChasisHistoricoPost(body?: CreateChasisHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ChasisHistoricoDtoResult>>;
+    public apiV2ChasisHistoricoPost(body?: CreateChasisHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2ChasisHistoricoPost(body?: CreateChasisHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2ChasisHistoricoPost(body?: CreateChasisHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2ChasisHistoricoPost(body?: CreateChasisHistoricoDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class ChasisHistoricoService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<ChasisHistoricoDtoResult>('post',`${this.basePath}/api/v2/chasisHistorico`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/chasisHistorico`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class ChasisHistoricoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2ChasisHistoricoPut(body?: UpdateChasisHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<ChasisHistoricoDtoResult>;
-    public apiV2ChasisHistoricoPut(body?: UpdateChasisHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ChasisHistoricoDtoResult>>;
-    public apiV2ChasisHistoricoPut(body?: UpdateChasisHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ChasisHistoricoDtoResult>>;
+    public apiV2ChasisHistoricoPut(body?: UpdateChasisHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2ChasisHistoricoPut(body?: UpdateChasisHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2ChasisHistoricoPut(body?: UpdateChasisHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2ChasisHistoricoPut(body?: UpdateChasisHistoricoDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class ChasisHistoricoService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<ChasisHistoricoDtoResult>('put',`${this.basePath}/api/v2/chasisHistorico`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/chasisHistorico`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

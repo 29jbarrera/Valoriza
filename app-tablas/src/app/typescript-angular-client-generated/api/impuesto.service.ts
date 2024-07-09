@@ -20,7 +20,7 @@ import { Observable }                                        from 'rxjs';
 import { CreateImpuestoDto } from '../model/createImpuestoDto';
 import { ImpuestoDto } from '../model/impuestoDto';
 import { ImpuestoDtoPaginatedResult } from '../model/impuestoDtoPaginatedResult';
-import { ImpuestoDtoResult } from '../model/impuestoDtoResult';
+import { ProblemDetails } from '../model/problemDetails';
 import { UpdateImpuestoDto } from '../model/updateImpuestoDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class ImpuestoService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class ImpuestoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2ImpuestoPost(body?: CreateImpuestoDto, observe?: 'body', reportProgress?: boolean): Observable<ImpuestoDtoResult>;
-    public apiV2ImpuestoPost(body?: CreateImpuestoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ImpuestoDtoResult>>;
-    public apiV2ImpuestoPost(body?: CreateImpuestoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ImpuestoDtoResult>>;
+    public apiV2ImpuestoPost(body?: CreateImpuestoDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2ImpuestoPost(body?: CreateImpuestoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2ImpuestoPost(body?: CreateImpuestoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2ImpuestoPost(body?: CreateImpuestoDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class ImpuestoService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<ImpuestoDtoResult>('post',`${this.basePath}/api/v2/impuesto`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/impuesto`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class ImpuestoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2ImpuestoPut(body?: UpdateImpuestoDto, observe?: 'body', reportProgress?: boolean): Observable<ImpuestoDtoResult>;
-    public apiV2ImpuestoPut(body?: UpdateImpuestoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ImpuestoDtoResult>>;
-    public apiV2ImpuestoPut(body?: UpdateImpuestoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ImpuestoDtoResult>>;
+    public apiV2ImpuestoPut(body?: UpdateImpuestoDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2ImpuestoPut(body?: UpdateImpuestoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2ImpuestoPut(body?: UpdateImpuestoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2ImpuestoPut(body?: UpdateImpuestoDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class ImpuestoService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<ImpuestoDtoResult>('put',`${this.basePath}/api/v2/impuesto`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/impuesto`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

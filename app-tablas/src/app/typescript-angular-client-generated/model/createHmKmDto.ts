@@ -17,10 +17,6 @@ export interface CreateHmKmDto {
     fecha?: Date;
     horas?: number;
     kilometros?: number;
-    tipo?: string;
+    tipo: string;
     externa?: boolean;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
 }

@@ -18,9 +18,9 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 import { Observable }                                        from 'rxjs';
 
 import { CreateRepostajeDto } from '../model/createRepostajeDto';
+import { ProblemDetails } from '../model/problemDetails';
 import { RepostajeDto } from '../model/repostajeDto';
 import { RepostajeDtoPaginatedResult } from '../model/repostajeDtoPaginatedResult';
-import { RepostajeDtoResult } from '../model/repostajeDtoResult';
 import { UpdateRepostajeDto } from '../model/updateRepostajeDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class RepostajeService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class RepostajeService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2RepostajePost(body?: CreateRepostajeDto, observe?: 'body', reportProgress?: boolean): Observable<RepostajeDtoResult>;
-    public apiV2RepostajePost(body?: CreateRepostajeDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<RepostajeDtoResult>>;
-    public apiV2RepostajePost(body?: CreateRepostajeDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<RepostajeDtoResult>>;
+    public apiV2RepostajePost(body?: CreateRepostajeDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2RepostajePost(body?: CreateRepostajeDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2RepostajePost(body?: CreateRepostajeDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2RepostajePost(body?: CreateRepostajeDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class RepostajeService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<RepostajeDtoResult>('post',`${this.basePath}/api/v2/repostaje`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/repostaje`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class RepostajeService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2RepostajePut(body?: UpdateRepostajeDto, observe?: 'body', reportProgress?: boolean): Observable<RepostajeDtoResult>;
-    public apiV2RepostajePut(body?: UpdateRepostajeDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<RepostajeDtoResult>>;
-    public apiV2RepostajePut(body?: UpdateRepostajeDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<RepostajeDtoResult>>;
+    public apiV2RepostajePut(body?: UpdateRepostajeDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2RepostajePut(body?: UpdateRepostajeDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2RepostajePut(body?: UpdateRepostajeDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2RepostajePut(body?: UpdateRepostajeDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class RepostajeService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<RepostajeDtoResult>('put',`${this.basePath}/api/v2/repostaje`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/repostaje`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

@@ -20,7 +20,7 @@ import { Observable }                                        from 'rxjs';
 import { CreateMaquinariasNiveleDto } from '../model/createMaquinariasNiveleDto';
 import { MaquinariasNiveleDto } from '../model/maquinariasNiveleDto';
 import { MaquinariasNiveleDtoPaginatedResult } from '../model/maquinariasNiveleDtoPaginatedResult';
-import { MaquinariasNiveleDtoResult } from '../model/maquinariasNiveleDtoResult';
+import { ProblemDetails } from '../model/problemDetails';
 import { UpdateMaquinariasNiveleDto } from '../model/updateMaquinariasNiveleDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class MaquinariasNiveleService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class MaquinariasNiveleService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2MaquinariasNivelePost(body?: CreateMaquinariasNiveleDto, observe?: 'body', reportProgress?: boolean): Observable<MaquinariasNiveleDtoResult>;
-    public apiV2MaquinariasNivelePost(body?: CreateMaquinariasNiveleDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<MaquinariasNiveleDtoResult>>;
-    public apiV2MaquinariasNivelePost(body?: CreateMaquinariasNiveleDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<MaquinariasNiveleDtoResult>>;
+    public apiV2MaquinariasNivelePost(body?: CreateMaquinariasNiveleDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2MaquinariasNivelePost(body?: CreateMaquinariasNiveleDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2MaquinariasNivelePost(body?: CreateMaquinariasNiveleDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2MaquinariasNivelePost(body?: CreateMaquinariasNiveleDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class MaquinariasNiveleService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<MaquinariasNiveleDtoResult>('post',`${this.basePath}/api/v2/maquinariasNivele`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/maquinariasNivele`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class MaquinariasNiveleService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2MaquinariasNivelePut(body?: UpdateMaquinariasNiveleDto, observe?: 'body', reportProgress?: boolean): Observable<MaquinariasNiveleDtoResult>;
-    public apiV2MaquinariasNivelePut(body?: UpdateMaquinariasNiveleDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<MaquinariasNiveleDtoResult>>;
-    public apiV2MaquinariasNivelePut(body?: UpdateMaquinariasNiveleDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<MaquinariasNiveleDtoResult>>;
+    public apiV2MaquinariasNivelePut(body?: UpdateMaquinariasNiveleDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2MaquinariasNivelePut(body?: UpdateMaquinariasNiveleDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2MaquinariasNivelePut(body?: UpdateMaquinariasNiveleDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2MaquinariasNivelePut(body?: UpdateMaquinariasNiveleDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class MaquinariasNiveleService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<MaquinariasNiveleDtoResult>('put',`${this.basePath}/api/v2/maquinariasNivele`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/maquinariasNivele`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

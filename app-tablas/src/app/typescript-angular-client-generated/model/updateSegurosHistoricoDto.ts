@@ -12,19 +12,15 @@
 
 export interface UpdateSegurosHistoricoDto { 
     id?: number;
-    codigo?: string;
+    codigo: string;
     idEmpresa?: number;
-    aseguradora?: string;
+    aseguradora: string;
     fechaInicio?: Date;
     fechaFin?: Date;
     importe?: number;
-    codMoneda?: string;
+    codMoneda: string;
     comentario?: string;
     idSeguro?: number;
     codTipoSeguro?: string;
     codEstadoSeguro?: string;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
 }

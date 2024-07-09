@@ -18,5 +18,5 @@ export interface ImpuestosHistoricoDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<ImpuestosHistoricoDto>;
+    results?: Array<ImpuestosHistoricoDto>;
 }

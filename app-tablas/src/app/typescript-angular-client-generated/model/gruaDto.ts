@@ -15,8 +15,8 @@ export interface GruaDto {
     idEmpresa?: number;
     idMaquinaria?: number;
     fecha?: Date;
-    createdBy?: string;
+    createdBy: string;
     createdAt?: Date;
-    changedBy?: string;
+    changedBy: string;
     changedAt?: Date;
 }

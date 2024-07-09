@@ -20,7 +20,7 @@ import { Observable }                                        from 'rxjs';
 import { CreateGncsDocDto } from '../model/createGncsDocDto';
 import { GncsDocDto } from '../model/gncsDocDto';
 import { GncsDocDtoPaginatedResult } from '../model/gncsDocDtoPaginatedResult';
-import { GncsDocDtoResult } from '../model/gncsDocDtoResult';
+import { ProblemDetails } from '../model/problemDetails';
 import { UpdateGncsDocDto } from '../model/updateGncsDocDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class GncsDocService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class GncsDocService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2GncsDocPost(body?: CreateGncsDocDto, observe?: 'body', reportProgress?: boolean): Observable<GncsDocDtoResult>;
-    public apiV2GncsDocPost(body?: CreateGncsDocDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<GncsDocDtoResult>>;
-    public apiV2GncsDocPost(body?: CreateGncsDocDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<GncsDocDtoResult>>;
+    public apiV2GncsDocPost(body?: CreateGncsDocDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2GncsDocPost(body?: CreateGncsDocDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2GncsDocPost(body?: CreateGncsDocDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2GncsDocPost(body?: CreateGncsDocDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class GncsDocService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<GncsDocDtoResult>('post',`${this.basePath}/api/v2/gncsDoc`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/gncsDoc`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class GncsDocService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2GncsDocPut(body?: UpdateGncsDocDto, observe?: 'body', reportProgress?: boolean): Observable<GncsDocDtoResult>;
-    public apiV2GncsDocPut(body?: UpdateGncsDocDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<GncsDocDtoResult>>;
-    public apiV2GncsDocPut(body?: UpdateGncsDocDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<GncsDocDtoResult>>;
+    public apiV2GncsDocPut(body?: UpdateGncsDocDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2GncsDocPut(body?: UpdateGncsDocDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2GncsDocPut(body?: UpdateGncsDocDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2GncsDocPut(body?: UpdateGncsDocDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class GncsDocService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<GncsDocDtoResult>('put',`${this.basePath}/api/v2/gncsDoc`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/gncsDoc`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

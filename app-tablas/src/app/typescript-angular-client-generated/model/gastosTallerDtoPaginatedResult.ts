@@ -18,5 +18,5 @@ export interface GastosTallerDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<GastosTallerDto>;
+    results?: Array<GastosTallerDto>;
 }

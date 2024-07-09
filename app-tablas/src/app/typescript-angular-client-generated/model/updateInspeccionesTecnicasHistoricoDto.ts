@@ -19,6 +19,4 @@ export interface UpdateInspeccionesTecnicasHistoricoDto {
     importe?: number;
     codMoneda?: string;
     comentarios?: string;
-    createdBy?: string;
-    createdAt?: Date;
 }

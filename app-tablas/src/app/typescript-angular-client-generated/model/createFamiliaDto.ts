@@ -12,8 +12,4 @@
 
 export interface CreateFamiliaDto { 
     idEmpresa?: number;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
 }

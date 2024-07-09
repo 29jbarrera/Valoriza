@@ -19,8 +19,8 @@ import { Observable }                                        from 'rxjs';
 
 import { CategoriaDto } from '../model/categoriaDto';
 import { CategoriaDtoPaginatedResult } from '../model/categoriaDtoPaginatedResult';
-import { CategoriaDtoResult } from '../model/categoriaDtoResult';
 import { CreateCategoriaDto } from '../model/createCategoriaDto';
+import { ProblemDetails } from '../model/problemDetails';
 import { UpdateCategoriaDto } from '../model/updateCategoriaDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class CategoriaService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class CategoriaService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2CategoriaPost(body?: CreateCategoriaDto, observe?: 'body', reportProgress?: boolean): Observable<CategoriaDtoResult>;
-    public apiV2CategoriaPost(body?: CreateCategoriaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CategoriaDtoResult>>;
-    public apiV2CategoriaPost(body?: CreateCategoriaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CategoriaDtoResult>>;
+    public apiV2CategoriaPost(body?: CreateCategoriaDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2CategoriaPost(body?: CreateCategoriaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2CategoriaPost(body?: CreateCategoriaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2CategoriaPost(body?: CreateCategoriaDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class CategoriaService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<CategoriaDtoResult>('post',`${this.basePath}/api/v2/categoria`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/categoria`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class CategoriaService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2CategoriaPut(body?: UpdateCategoriaDto, observe?: 'body', reportProgress?: boolean): Observable<CategoriaDtoResult>;
-    public apiV2CategoriaPut(body?: UpdateCategoriaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CategoriaDtoResult>>;
-    public apiV2CategoriaPut(body?: UpdateCategoriaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CategoriaDtoResult>>;
+    public apiV2CategoriaPut(body?: UpdateCategoriaDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2CategoriaPut(body?: UpdateCategoriaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2CategoriaPut(body?: UpdateCategoriaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2CategoriaPut(body?: UpdateCategoriaDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class CategoriaService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<CategoriaDtoResult>('put',`${this.basePath}/api/v2/categoria`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/categoria`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

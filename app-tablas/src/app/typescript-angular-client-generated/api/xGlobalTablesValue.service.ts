@@ -18,10 +18,10 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 import { Observable }                                        from 'rxjs';
 
 import { CreateXGlobalTablesValueDto } from '../model/createXGlobalTablesValueDto';
+import { ProblemDetails } from '../model/problemDetails';
 import { UpdateXGlobalTablesValueDto } from '../model/updateXGlobalTablesValueDto';
 import { XGlobalTablesValueDto } from '../model/xGlobalTablesValueDto';
 import { XGlobalTablesValueDtoPaginatedResult } from '../model/xGlobalTablesValueDtoPaginatedResult';
-import { XGlobalTablesValueDtoResult } from '../model/xGlobalTablesValueDtoResult';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -145,6 +145,9 @@ export class XGlobalTablesValueService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class XGlobalTablesValueService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2XGlobalTablesValuePost(body?: CreateXGlobalTablesValueDto, observe?: 'body', reportProgress?: boolean): Observable<XGlobalTablesValueDtoResult>;
-    public apiV2XGlobalTablesValuePost(body?: CreateXGlobalTablesValueDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<XGlobalTablesValueDtoResult>>;
-    public apiV2XGlobalTablesValuePost(body?: CreateXGlobalTablesValueDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<XGlobalTablesValueDtoResult>>;
+    public apiV2XGlobalTablesValuePost(body?: CreateXGlobalTablesValueDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2XGlobalTablesValuePost(body?: CreateXGlobalTablesValueDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2XGlobalTablesValuePost(body?: CreateXGlobalTablesValueDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2XGlobalTablesValuePost(body?: CreateXGlobalTablesValueDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class XGlobalTablesValueService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<XGlobalTablesValueDtoResult>('post',`${this.basePath}/api/v2/xGlobalTablesValue`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/xGlobalTablesValue`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class XGlobalTablesValueService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2XGlobalTablesValuePut(body?: UpdateXGlobalTablesValueDto, observe?: 'body', reportProgress?: boolean): Observable<XGlobalTablesValueDtoResult>;
-    public apiV2XGlobalTablesValuePut(body?: UpdateXGlobalTablesValueDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<XGlobalTablesValueDtoResult>>;
-    public apiV2XGlobalTablesValuePut(body?: UpdateXGlobalTablesValueDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<XGlobalTablesValueDtoResult>>;
+    public apiV2XGlobalTablesValuePut(body?: UpdateXGlobalTablesValueDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2XGlobalTablesValuePut(body?: UpdateXGlobalTablesValueDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2XGlobalTablesValuePut(body?: UpdateXGlobalTablesValueDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2XGlobalTablesValuePut(body?: UpdateXGlobalTablesValueDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class XGlobalTablesValueService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<XGlobalTablesValueDtoResult>('put',`${this.basePath}/api/v2/xGlobalTablesValue`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/xGlobalTablesValue`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

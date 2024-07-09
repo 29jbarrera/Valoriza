@@ -18,5 +18,5 @@ export interface MaquinariaDocDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<MaquinariaDocDto>;
+    results?: Array<MaquinariaDocDto>;
 }

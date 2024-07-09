@@ -18,5 +18,5 @@ export interface MaquinariasEliminadaDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<MaquinariasEliminadaDto>;
+    results?: Array<MaquinariasEliminadaDto>;
 }

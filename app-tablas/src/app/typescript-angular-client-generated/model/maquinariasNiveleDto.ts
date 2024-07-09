@@ -9,22 +9,28 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { EmpresaDto } from './empresaDto';
+import { MaquinariaDto } from './maquinariaDto';
+import { NivelesMantenimientoDto } from './nivelesMantenimientoDto';
 
 export interface MaquinariasNiveleDto { 
     id?: number;
     idMaquinaria?: number;
+    maquinaria?: MaquinariaDto;
     idNivelMantenimiento?: number;
+    nivelMantenimiento?: NivelesMantenimientoDto;
     idEmpresa?: number;
+    empresa?: EmpresaDto;
     posicion?: number;
-    tipo?: string;
+    tipo: string;
     tipoEquipamiento?: string;
     fecha?: Date;
     horas?: number;
     kilometros?: number;
     terminado?: boolean;
-    createdBy?: string;
+    createdBy: string;
     createdAt?: Date;
-    changedBy?: string;
+    changedBy: string;
     changedAt?: Date;
     idHmKm?: number;
     fechaProximoMantenimiento?: Date;

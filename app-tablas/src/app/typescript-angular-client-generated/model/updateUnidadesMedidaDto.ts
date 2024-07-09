@@ -12,9 +12,5 @@
 
 export interface UpdateUnidadesMedidaDto { 
     id?: number;
-    abreviatura?: string;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
+    abreviatura: string;
 }

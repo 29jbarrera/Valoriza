@@ -13,9 +13,9 @@
 export interface NivelesMantenimientoDto { 
     id?: number;
     idEmpresa?: number;
-    codigo?: string;
+    codigo: string;
     frecuencia?: number;
-    tipo?: string;
+    tipo: string;
     media?: number;
     esPeriodico?: boolean;
     fechaInicio?: Date;

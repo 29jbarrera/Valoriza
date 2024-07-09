@@ -11,10 +11,10 @@
  */
 
 export interface CreateXGlobalTablesValuesLangDto { 
-    code?: string;
-    codeApp?: string;
-    name?: string;
+    code: string;
+    codeApp: string;
+    name: string;
     idOriginSession?: number;
     idLang?: number;
-    description?: string;
+    description: string;
 }

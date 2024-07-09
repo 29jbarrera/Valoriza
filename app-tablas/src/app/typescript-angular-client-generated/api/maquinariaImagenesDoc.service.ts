@@ -20,7 +20,7 @@ import { Observable }                                        from 'rxjs';
 import { CreateMaquinariaImagenesDocDto } from '../model/createMaquinariaImagenesDocDto';
 import { MaquinariaImagenesDocDto } from '../model/maquinariaImagenesDocDto';
 import { MaquinariaImagenesDocDtoPaginatedResult } from '../model/maquinariaImagenesDocDtoPaginatedResult';
-import { MaquinariaImagenesDocDtoResult } from '../model/maquinariaImagenesDocDtoResult';
+import { ProblemDetails } from '../model/problemDetails';
 import { UpdateMaquinariaImagenesDocDto } from '../model/updateMaquinariaImagenesDocDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class MaquinariaImagenesDocService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class MaquinariaImagenesDocService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2MaquinariaImagenesDocPost(body?: CreateMaquinariaImagenesDocDto, observe?: 'body', reportProgress?: boolean): Observable<MaquinariaImagenesDocDtoResult>;
-    public apiV2MaquinariaImagenesDocPost(body?: CreateMaquinariaImagenesDocDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<MaquinariaImagenesDocDtoResult>>;
-    public apiV2MaquinariaImagenesDocPost(body?: CreateMaquinariaImagenesDocDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<MaquinariaImagenesDocDtoResult>>;
+    public apiV2MaquinariaImagenesDocPost(body?: CreateMaquinariaImagenesDocDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2MaquinariaImagenesDocPost(body?: CreateMaquinariaImagenesDocDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2MaquinariaImagenesDocPost(body?: CreateMaquinariaImagenesDocDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2MaquinariaImagenesDocPost(body?: CreateMaquinariaImagenesDocDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class MaquinariaImagenesDocService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<MaquinariaImagenesDocDtoResult>('post',`${this.basePath}/api/v2/maquinariaImagenesDoc`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/maquinariaImagenesDoc`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class MaquinariaImagenesDocService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2MaquinariaImagenesDocPut(body?: UpdateMaquinariaImagenesDocDto, observe?: 'body', reportProgress?: boolean): Observable<MaquinariaImagenesDocDtoResult>;
-    public apiV2MaquinariaImagenesDocPut(body?: UpdateMaquinariaImagenesDocDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<MaquinariaImagenesDocDtoResult>>;
-    public apiV2MaquinariaImagenesDocPut(body?: UpdateMaquinariaImagenesDocDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<MaquinariaImagenesDocDtoResult>>;
+    public apiV2MaquinariaImagenesDocPut(body?: UpdateMaquinariaImagenesDocDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2MaquinariaImagenesDocPut(body?: UpdateMaquinariaImagenesDocDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2MaquinariaImagenesDocPut(body?: UpdateMaquinariaImagenesDocDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2MaquinariaImagenesDocPut(body?: UpdateMaquinariaImagenesDocDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class MaquinariaImagenesDocService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<MaquinariaImagenesDocDtoResult>('put',`${this.basePath}/api/v2/maquinariaImagenesDoc`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/maquinariaImagenesDoc`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

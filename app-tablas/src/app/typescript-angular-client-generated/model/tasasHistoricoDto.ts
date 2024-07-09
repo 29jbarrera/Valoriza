@@ -9,12 +9,16 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { ChasiDto } from './chasiDto';
+import { MaquinariaDto } from './maquinariaDto';
 
 export interface TasasHistoricoDto { 
     id?: number;
     idCentro?: number;
     idMaquinaria?: number;
+    maquinaria?: MaquinariaDto;
     idChasis?: number;
+    chasi?: ChasiDto;
     fecha?: Date;
     tasaChasis?: number;
     codMonedaTasa?: string;
@@ -30,8 +34,8 @@ export interface TasasHistoricoDto {
     modeloImplemento3?: string;
     tasaImplemento3?: number;
     codMonedaTasaImplemento3?: string;
-    createdBy?: string;
+    createdBy: string;
     createdAt?: Date;
-    changedBy?: string;
+    changedBy: string;
     changedAt?: Date;
 }

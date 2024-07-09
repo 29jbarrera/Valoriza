@@ -12,6 +12,6 @@
 
 export interface CreateXGruposCentroDto { 
     idEmpresa?: number;
-    codigo?: string;
-    nombre?: string;
+    codigo: string;
+    nombre: string;
 }

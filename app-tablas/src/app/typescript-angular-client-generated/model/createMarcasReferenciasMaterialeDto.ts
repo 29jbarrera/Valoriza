@@ -13,8 +13,4 @@
 export interface CreateMarcasReferenciasMaterialeDto { 
     idMarca?: number;
     idReferenciaMaterial?: number;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
 }

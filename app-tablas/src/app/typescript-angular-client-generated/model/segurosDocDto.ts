@@ -9,16 +9,18 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { SeguroDto } from './seguroDto';
 
 export interface SegurosDocDto { 
     id?: number;
     idSeguro?: number;
+    seguro?: SeguroDto;
     claveGuid?: string;
-    extension?: string;
-    documento?: string;
-    nombre?: string;
-    createdBy?: string;
+    extension: string;
+    documento: string;
+    nombre: string;
+    createdBy: string;
     createdAt?: Date;
-    changedBy?: string;
+    changedBy: string;
     changedAt?: Date;
 }

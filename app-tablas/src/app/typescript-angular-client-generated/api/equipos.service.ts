@@ -20,7 +20,7 @@ import { Observable }                                        from 'rxjs';
 import { CreateEquiposDto } from '../model/createEquiposDto';
 import { EquiposDto } from '../model/equiposDto';
 import { EquiposDtoPaginatedResult } from '../model/equiposDtoPaginatedResult';
-import { EquiposDtoResult } from '../model/equiposDtoResult';
+import { ProblemDetails } from '../model/problemDetails';
 import { UpdateEquiposDto } from '../model/updateEquiposDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class EquiposService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class EquiposService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2EquiposPost(body?: CreateEquiposDto, observe?: 'body', reportProgress?: boolean): Observable<EquiposDtoResult>;
-    public apiV2EquiposPost(body?: CreateEquiposDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<EquiposDtoResult>>;
-    public apiV2EquiposPost(body?: CreateEquiposDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<EquiposDtoResult>>;
+    public apiV2EquiposPost(body?: CreateEquiposDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2EquiposPost(body?: CreateEquiposDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2EquiposPost(body?: CreateEquiposDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2EquiposPost(body?: CreateEquiposDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class EquiposService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<EquiposDtoResult>('post',`${this.basePath}/api/v2/equipos`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/equipos`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class EquiposService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2EquiposPut(body?: UpdateEquiposDto, observe?: 'body', reportProgress?: boolean): Observable<EquiposDtoResult>;
-    public apiV2EquiposPut(body?: UpdateEquiposDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<EquiposDtoResult>>;
-    public apiV2EquiposPut(body?: UpdateEquiposDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<EquiposDtoResult>>;
+    public apiV2EquiposPut(body?: UpdateEquiposDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2EquiposPut(body?: UpdateEquiposDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2EquiposPut(body?: UpdateEquiposDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2EquiposPut(body?: UpdateEquiposDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class EquiposService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<EquiposDtoResult>('put',`${this.basePath}/api/v2/equipos`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/equipos`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

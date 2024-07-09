@@ -18,5 +18,5 @@ export interface MarcaDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<MarcaDto>;
+    results?: Array<MarcaDto>;
 }

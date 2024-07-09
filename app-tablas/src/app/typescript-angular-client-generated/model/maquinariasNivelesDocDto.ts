@@ -9,12 +9,14 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { MaquinariasNiveleDto } from './maquinariasNiveleDto';
 
 export interface MaquinariasNivelesDocDto { 
     id?: number;
     idMaquinariaNivel?: number;
+    maquinariaNivel?: MaquinariasNiveleDto;
     claveGuid?: string;
-    extension?: string;
-    documento?: string;
-    nombre?: string;
+    extension: string;
+    documento: string;
+    nombre: string;
 }

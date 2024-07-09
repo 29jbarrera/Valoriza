@@ -9,12 +9,14 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { TacografoDto } from './tacografoDto';
 
 export interface TacografosDocDto { 
     id?: number;
     idTacografo?: number;
+    tacografo?: TacografoDto;
     claveGuid?: string;
-    extension?: string;
-    documento?: string;
-    nombre?: string;
+    extension: string;
+    documento: string;
+    nombre: string;
 }

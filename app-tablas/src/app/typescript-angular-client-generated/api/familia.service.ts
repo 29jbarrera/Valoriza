@@ -20,7 +20,7 @@ import { Observable }                                        from 'rxjs';
 import { CreateFamiliaDto } from '../model/createFamiliaDto';
 import { FamiliaDto } from '../model/familiaDto';
 import { FamiliaDtoPaginatedResult } from '../model/familiaDtoPaginatedResult';
-import { FamiliaDtoResult } from '../model/familiaDtoResult';
+import { ProblemDetails } from '../model/problemDetails';
 import { UpdateFamiliaDto } from '../model/updateFamiliaDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class FamiliaService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class FamiliaService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2FamiliaPost(body?: CreateFamiliaDto, observe?: 'body', reportProgress?: boolean): Observable<FamiliaDtoResult>;
-    public apiV2FamiliaPost(body?: CreateFamiliaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<FamiliaDtoResult>>;
-    public apiV2FamiliaPost(body?: CreateFamiliaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<FamiliaDtoResult>>;
+    public apiV2FamiliaPost(body?: CreateFamiliaDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2FamiliaPost(body?: CreateFamiliaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2FamiliaPost(body?: CreateFamiliaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2FamiliaPost(body?: CreateFamiliaDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class FamiliaService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<FamiliaDtoResult>('post',`${this.basePath}/api/v2/familia`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/familia`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class FamiliaService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2FamiliaPut(body?: UpdateFamiliaDto, observe?: 'body', reportProgress?: boolean): Observable<FamiliaDtoResult>;
-    public apiV2FamiliaPut(body?: UpdateFamiliaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<FamiliaDtoResult>>;
-    public apiV2FamiliaPut(body?: UpdateFamiliaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<FamiliaDtoResult>>;
+    public apiV2FamiliaPut(body?: UpdateFamiliaDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2FamiliaPut(body?: UpdateFamiliaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2FamiliaPut(body?: UpdateFamiliaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2FamiliaPut(body?: UpdateFamiliaDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class FamiliaService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<FamiliaDtoResult>('put',`${this.basePath}/api/v2/familia`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/familia`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

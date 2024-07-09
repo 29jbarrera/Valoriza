@@ -18,5 +18,5 @@ export interface FinancieroHistoricoDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<FinancieroHistoricoDto>;
+    results?: Array<FinancieroHistoricoDto>;
 }

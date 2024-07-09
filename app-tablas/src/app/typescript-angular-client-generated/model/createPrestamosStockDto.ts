@@ -15,11 +15,7 @@ export interface CreatePrestamosStockDto {
     idCentroOrigen?: number;
     idCentroDestino?: number;
     idReferenciaMaterial?: number;
-    codMoneda?: string;
+    codMoneda: string;
     cantidad?: number;
     valor?: number;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
 }

@@ -16,14 +16,10 @@ export interface CreateGastosTallerDto {
     idProveedor?: number;
     idReferenciaMaterial?: number;
     fecha?: Date;
-    factura?: string;
-    descripcion?: string;
+    factura: string;
+    descripcion: string;
     importe?: number;
-    codMoneda?: string;
+    codMoneda: string;
     cantidad?: number;
     gastoConmutable?: boolean;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
 }

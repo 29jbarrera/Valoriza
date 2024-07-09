@@ -22,8 +22,4 @@ export interface CreateRepostajeDto {
     tarjeta?: string;
     bidon?: string;
     idBidon?: number;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
 }

@@ -16,16 +16,12 @@ export interface UpdateMaquinariasNiveleDto {
     idNivelMantenimiento?: number;
     idEmpresa?: number;
     posicion?: number;
-    tipo?: string;
+    tipo: string;
     tipoEquipamiento?: string;
     fecha?: Date;
     horas?: number;
     kilometros?: number;
     terminado?: boolean;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
     idHmKm?: number;
     fechaProximoMantenimiento?: Date;
 }

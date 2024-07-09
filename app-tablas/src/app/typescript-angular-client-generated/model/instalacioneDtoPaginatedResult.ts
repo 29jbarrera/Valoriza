@@ -18,5 +18,5 @@ export interface InstalacioneDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<InstalacioneDto>;
+    results?: Array<InstalacioneDto>;
 }

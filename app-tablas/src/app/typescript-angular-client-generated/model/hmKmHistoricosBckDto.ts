@@ -9,19 +9,25 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { EmpresaDto } from './empresaDto';
+import { MaquinariaDto } from './maquinariaDto';
+import { RepostajeDto } from './repostajeDto';
 
 export interface HmKmHistoricosBckDto { 
     id?: number;
     idEmpresa?: number;
+    empresa?: EmpresaDto;
     horas?: number;
     kilometros?: number;
-    tipo?: string;
+    tipo: string;
     externa?: boolean;
     fecha?: Date;
     idReferencia?: number;
+    referencia?: RepostajeDto;
     idMaquinaria?: number;
-    createdBy?: string;
+    maquinaria?: MaquinariaDto;
+    createdBy: string;
     createdAt?: Date;
-    changedBy?: string;
+    changedBy: string;
     changedAt?: Date;
 }

@@ -18,5 +18,5 @@ export interface GncsHistoricoDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<GncsHistoricoDto>;
+    results?: Array<GncsHistoricoDto>;
 }

@@ -16,7 +16,7 @@ export interface CreateImplementosHistoricoDto {
     idImplemento?: number;
     fechaDesde?: Date;
     fechaHasta?: Date;
-    descripcion?: string;
+    descripcion: string;
     marca?: string;
     modelo?: string;
     serie?: string;
@@ -34,9 +34,5 @@ export interface CreateImplementosHistoricoDto {
     fechaFinanciero?: Date;
     porcentajeFinanciero?: number;
     codMonedaTasa?: string;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
     numeroActivoSap?: string;
 }

@@ -20,7 +20,7 @@ import { Observable }                                        from 'rxjs';
 import { CreateHmKmDto } from '../model/createHmKmDto';
 import { HmKmDto } from '../model/hmKmDto';
 import { HmKmDtoPaginatedResult } from '../model/hmKmDtoPaginatedResult';
-import { HmKmDtoResult } from '../model/hmKmDtoResult';
+import { ProblemDetails } from '../model/problemDetails';
 import { UpdateHmKmDto } from '../model/updateHmKmDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class HmKmService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class HmKmService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2HmKmPost(body?: CreateHmKmDto, observe?: 'body', reportProgress?: boolean): Observable<HmKmDtoResult>;
-    public apiV2HmKmPost(body?: CreateHmKmDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<HmKmDtoResult>>;
-    public apiV2HmKmPost(body?: CreateHmKmDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<HmKmDtoResult>>;
+    public apiV2HmKmPost(body?: CreateHmKmDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2HmKmPost(body?: CreateHmKmDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2HmKmPost(body?: CreateHmKmDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2HmKmPost(body?: CreateHmKmDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class HmKmService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<HmKmDtoResult>('post',`${this.basePath}/api/v2/hmKm`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/hmKm`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class HmKmService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2HmKmPut(body?: UpdateHmKmDto, observe?: 'body', reportProgress?: boolean): Observable<HmKmDtoResult>;
-    public apiV2HmKmPut(body?: UpdateHmKmDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<HmKmDtoResult>>;
-    public apiV2HmKmPut(body?: UpdateHmKmDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<HmKmDtoResult>>;
+    public apiV2HmKmPut(body?: UpdateHmKmDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2HmKmPut(body?: UpdateHmKmDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2HmKmPut(body?: UpdateHmKmDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2HmKmPut(body?: UpdateHmKmDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class HmKmService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<HmKmDtoResult>('put',`${this.basePath}/api/v2/hmKm`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/hmKm`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

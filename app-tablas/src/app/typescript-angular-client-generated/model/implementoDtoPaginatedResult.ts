@@ -18,5 +18,5 @@ export interface ImplementoDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<ImplementoDto>;
+    results?: Array<ImplementoDto>;
 }

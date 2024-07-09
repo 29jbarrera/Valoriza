@@ -18,5 +18,5 @@ export interface PesoCargaDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<PesoCargaDto>;
+    results?: Array<PesoCargaDto>;
 }

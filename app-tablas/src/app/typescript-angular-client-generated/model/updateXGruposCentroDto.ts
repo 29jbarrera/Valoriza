@@ -13,6 +13,6 @@
 export interface UpdateXGruposCentroDto { 
     id?: number;
     idEmpresa?: number;
-    codigo?: string;
-    nombre?: string;
+    codigo: string;
+    nombre: string;
 }

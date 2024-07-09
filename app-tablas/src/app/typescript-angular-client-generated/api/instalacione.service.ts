@@ -20,7 +20,7 @@ import { Observable }                                        from 'rxjs';
 import { CreateInstalacioneDto } from '../model/createInstalacioneDto';
 import { InstalacioneDto } from '../model/instalacioneDto';
 import { InstalacioneDtoPaginatedResult } from '../model/instalacioneDtoPaginatedResult';
-import { InstalacioneDtoResult } from '../model/instalacioneDtoResult';
+import { ProblemDetails } from '../model/problemDetails';
 import { UpdateInstalacioneDto } from '../model/updateInstalacioneDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class InstalacioneService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class InstalacioneService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2InstalacionePost(body?: CreateInstalacioneDto, observe?: 'body', reportProgress?: boolean): Observable<InstalacioneDtoResult>;
-    public apiV2InstalacionePost(body?: CreateInstalacioneDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InstalacioneDtoResult>>;
-    public apiV2InstalacionePost(body?: CreateInstalacioneDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InstalacioneDtoResult>>;
+    public apiV2InstalacionePost(body?: CreateInstalacioneDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2InstalacionePost(body?: CreateInstalacioneDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2InstalacionePost(body?: CreateInstalacioneDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2InstalacionePost(body?: CreateInstalacioneDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class InstalacioneService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<InstalacioneDtoResult>('post',`${this.basePath}/api/v2/instalacione`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/instalacione`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class InstalacioneService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2InstalacionePut(body?: UpdateInstalacioneDto, observe?: 'body', reportProgress?: boolean): Observable<InstalacioneDtoResult>;
-    public apiV2InstalacionePut(body?: UpdateInstalacioneDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InstalacioneDtoResult>>;
-    public apiV2InstalacionePut(body?: UpdateInstalacioneDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InstalacioneDtoResult>>;
+    public apiV2InstalacionePut(body?: UpdateInstalacioneDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2InstalacionePut(body?: UpdateInstalacioneDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2InstalacionePut(body?: UpdateInstalacioneDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2InstalacionePut(body?: UpdateInstalacioneDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class InstalacioneService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<InstalacioneDtoResult>('put',`${this.basePath}/api/v2/instalacione`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/instalacione`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

@@ -18,5 +18,5 @@ export interface ImpuestoDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<ImpuestoDto>;
+    results?: Array<ImpuestoDto>;
 }

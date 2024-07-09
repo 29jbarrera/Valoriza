@@ -12,9 +12,9 @@
 
 export interface UpdateXGlobalTablesValueDto { 
     id?: number;
-    code?: string;
-    codeApp?: string;
-    name?: string;
+    code: string;
+    codeApp: string;
+    name: string;
     idOriginSession?: number;
     modifiable?: boolean;
     validFrom?: Date;

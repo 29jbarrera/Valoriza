@@ -18,5 +18,5 @@ export interface RepostajeDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<RepostajeDto>;
+    results?: Array<RepostajeDto>;
 }

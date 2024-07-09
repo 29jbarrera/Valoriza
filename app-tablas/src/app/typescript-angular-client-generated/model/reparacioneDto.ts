@@ -9,18 +9,26 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { EmpresaDto } from './empresaDto';
+import { MaquinariaDto } from './maquinariaDto';
+import { ProveedoreDto } from './proveedoreDto';
+import { XCentrosCosteDto } from './xCentrosCosteDto';
 
 export interface ReparacioneDto { 
     id?: number;
     idEmpresa?: number;
+    empresa?: EmpresaDto;
     idCentro?: number;
+    centro?: XCentrosCosteDto;
     idMaquinaria?: number;
+    maquinaria?: MaquinariaDto;
     idProveedor?: number;
+    proveedor?: ProveedoreDto;
     fecha?: Date;
-    codTipoReparacion?: string;
-    codNivelReparacion?: string;
-    codMoneda?: string;
-    codEstado?: string;
+    codTipoReparacion: string;
+    codNivelReparacion: string;
+    codMoneda: string;
+    codEstado: string;
     repuestos?: number;
     neumaticos?: number;
     externos?: number;
@@ -35,8 +43,8 @@ export interface ReparacioneDto {
     comentarios?: string;
     observaciones?: string;
     automatico?: boolean;
-    createdBy?: string;
+    createdBy: string;
     createdAt?: Date;
-    changedBy?: string;
+    changedBy: string;
     changedAt?: Date;
 }

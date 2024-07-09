@@ -11,15 +11,12 @@
  */
 
 export interface CreateMaquinariaDocDto { 
+    id?: number;
     idMaquinaria?: number;
     claveGuid?: string;
-    extension?: string;
-    documento?: string;
-    nombre?: string;
-    tipo?: string;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
+    extension: string;
+    documento: string;
+    nombre: string;
+    tipo: string;
     descripcion?: string;
 }

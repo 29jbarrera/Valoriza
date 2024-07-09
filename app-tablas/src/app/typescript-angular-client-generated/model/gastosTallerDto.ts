@@ -9,22 +9,28 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { CentrosCoste } from './centrosCoste';
+import { EmpresaDto } from './empresaDto';
+import { ProveedoreDto } from './proveedoreDto';
 
 export interface GastosTallerDto { 
     id?: number;
     idEmpresa?: number;
+    empresa?: EmpresaDto;
     idCentro?: number;
+    centro?: CentrosCoste;
     idProveedor?: number;
+    proveedor?: ProveedoreDto;
     idReferenciaMaterial?: number;
     fecha?: Date;
-    factura?: string;
-    descripcion?: string;
+    factura: string;
+    descripcion: string;
     importe?: number;
-    codMoneda?: string;
+    codMoneda: string;
     cantidad?: number;
     gastoConmutable?: boolean;
-    createdBy?: string;
+    createdBy: string;
     createdAt?: Date;
-    changedBy?: string;
+    changedBy: string;
     changedAt?: Date;
 }

@@ -18,5 +18,5 @@ export interface SubFamiliaDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<SubFamiliaDto>;
+    results?: Array<SubFamiliaDto>;
 }

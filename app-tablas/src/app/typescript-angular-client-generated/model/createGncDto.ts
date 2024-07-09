@@ -14,8 +14,4 @@ export interface CreateGncDto {
     idEmpresa?: number;
     idMaquinaria?: number;
     fecha?: Date;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
 }

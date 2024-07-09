@@ -14,10 +14,6 @@ export interface UpdateInstalacioneDto {
     id?: number;
     idEmpresa?: number;
     idCentro?: number;
-    nombre?: string;
+    nombre: string;
     comentarios?: string;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
 }

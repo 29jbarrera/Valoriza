@@ -18,5 +18,5 @@ export interface GruasHistoricoDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<GruasHistoricoDto>;
+    results?: Array<GruasHistoricoDto>;
 }

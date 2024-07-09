@@ -20,7 +20,7 @@ import { Observable }                                        from 'rxjs';
 import { CreateInspeccionesTecnicaDto } from '../model/createInspeccionesTecnicaDto';
 import { InspeccionesTecnicaDto } from '../model/inspeccionesTecnicaDto';
 import { InspeccionesTecnicaDtoPaginatedResult } from '../model/inspeccionesTecnicaDtoPaginatedResult';
-import { InspeccionesTecnicaDtoResult } from '../model/inspeccionesTecnicaDtoResult';
+import { ProblemDetails } from '../model/problemDetails';
 import { UpdateInspeccionesTecnicaDto } from '../model/updateInspeccionesTecnicaDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class InspeccionesTecnicaService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class InspeccionesTecnicaService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2InspeccionesTecnicaPost(body?: CreateInspeccionesTecnicaDto, observe?: 'body', reportProgress?: boolean): Observable<InspeccionesTecnicaDtoResult>;
-    public apiV2InspeccionesTecnicaPost(body?: CreateInspeccionesTecnicaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InspeccionesTecnicaDtoResult>>;
-    public apiV2InspeccionesTecnicaPost(body?: CreateInspeccionesTecnicaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InspeccionesTecnicaDtoResult>>;
+    public apiV2InspeccionesTecnicaPost(body?: CreateInspeccionesTecnicaDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2InspeccionesTecnicaPost(body?: CreateInspeccionesTecnicaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2InspeccionesTecnicaPost(body?: CreateInspeccionesTecnicaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2InspeccionesTecnicaPost(body?: CreateInspeccionesTecnicaDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class InspeccionesTecnicaService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<InspeccionesTecnicaDtoResult>('post',`${this.basePath}/api/v2/inspeccionesTecnica`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/inspeccionesTecnica`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class InspeccionesTecnicaService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2InspeccionesTecnicaPut(body?: UpdateInspeccionesTecnicaDto, observe?: 'body', reportProgress?: boolean): Observable<InspeccionesTecnicaDtoResult>;
-    public apiV2InspeccionesTecnicaPut(body?: UpdateInspeccionesTecnicaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InspeccionesTecnicaDtoResult>>;
-    public apiV2InspeccionesTecnicaPut(body?: UpdateInspeccionesTecnicaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InspeccionesTecnicaDtoResult>>;
+    public apiV2InspeccionesTecnicaPut(body?: UpdateInspeccionesTecnicaDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2InspeccionesTecnicaPut(body?: UpdateInspeccionesTecnicaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2InspeccionesTecnicaPut(body?: UpdateInspeccionesTecnicaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2InspeccionesTecnicaPut(body?: UpdateInspeccionesTecnicaDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class InspeccionesTecnicaService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<InspeccionesTecnicaDtoResult>('put',`${this.basePath}/api/v2/inspeccionesTecnica`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/inspeccionesTecnica`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

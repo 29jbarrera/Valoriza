@@ -13,5 +13,5 @@
 export interface UnidadesMedidaLangDto { 
     id?: number;
     idLang?: number;
-    descripcion?: string;
+    descripcion: string;
 }

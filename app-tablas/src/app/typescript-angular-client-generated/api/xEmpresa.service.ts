@@ -18,10 +18,10 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 import { Observable }                                        from 'rxjs';
 
 import { CreateXEmpresaDto } from '../model/createXEmpresaDto';
+import { ProblemDetails } from '../model/problemDetails';
 import { UpdateXEmpresaDto } from '../model/updateXEmpresaDto';
 import { XEmpresaDto } from '../model/xEmpresaDto';
 import { XEmpresaDtoPaginatedResult } from '../model/xEmpresaDtoPaginatedResult';
-import { XEmpresaDtoResult } from '../model/xEmpresaDtoResult';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -145,6 +145,9 @@ export class XEmpresaService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class XEmpresaService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2XEmpresaPost(body?: CreateXEmpresaDto, observe?: 'body', reportProgress?: boolean): Observable<XEmpresaDtoResult>;
-    public apiV2XEmpresaPost(body?: CreateXEmpresaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<XEmpresaDtoResult>>;
-    public apiV2XEmpresaPost(body?: CreateXEmpresaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<XEmpresaDtoResult>>;
+    public apiV2XEmpresaPost(body?: CreateXEmpresaDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2XEmpresaPost(body?: CreateXEmpresaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2XEmpresaPost(body?: CreateXEmpresaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2XEmpresaPost(body?: CreateXEmpresaDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class XEmpresaService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<XEmpresaDtoResult>('post',`${this.basePath}/api/v2/xEmpresa`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/xEmpresa`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class XEmpresaService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2XEmpresaPut(body?: UpdateXEmpresaDto, observe?: 'body', reportProgress?: boolean): Observable<XEmpresaDtoResult>;
-    public apiV2XEmpresaPut(body?: UpdateXEmpresaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<XEmpresaDtoResult>>;
-    public apiV2XEmpresaPut(body?: UpdateXEmpresaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<XEmpresaDtoResult>>;
+    public apiV2XEmpresaPut(body?: UpdateXEmpresaDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2XEmpresaPut(body?: UpdateXEmpresaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2XEmpresaPut(body?: UpdateXEmpresaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2XEmpresaPut(body?: UpdateXEmpresaDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class XEmpresaService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<XEmpresaDtoResult>('put',`${this.basePath}/api/v2/xEmpresa`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/xEmpresa`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

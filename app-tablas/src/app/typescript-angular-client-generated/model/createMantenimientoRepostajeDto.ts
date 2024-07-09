@@ -12,12 +12,8 @@
 
 export interface CreateMantenimientoRepostajeDto { 
     idMaquinaria?: number;
-    codTipoRepostaje?: string;
-    codTipoCombustible?: string;
+    codTipoRepostaje: string;
+    codTipoCombustible: string;
     fecha?: Date;
     cantidad?: number;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
 }

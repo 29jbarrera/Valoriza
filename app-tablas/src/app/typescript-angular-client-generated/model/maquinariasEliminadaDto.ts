@@ -9,11 +9,15 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { CentrosCosteDto } from './centrosCosteDto';
+import { MaquinariaDto } from './maquinariaDto';
 
 export interface MaquinariasEliminadaDto { 
     id?: number;
     idMaquinana?: number;
+    maquinaria?: MaquinariaDto;
     idCentro?: number;
+    centro?: CentrosCosteDto;
     matricula?: string;
     bastidor?: string;
     fecha?: Date;

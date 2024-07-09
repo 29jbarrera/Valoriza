@@ -15,8 +15,4 @@ export interface UpdateGncsHistoricoDto {
     idMaquinaria?: number;
     idEmpresa?: number;
     fecha?: Date;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
 }

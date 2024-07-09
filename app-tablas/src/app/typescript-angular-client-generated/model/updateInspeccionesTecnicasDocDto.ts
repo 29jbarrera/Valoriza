@@ -14,7 +14,7 @@ export interface UpdateInspeccionesTecnicasDocDto {
     id?: number;
     idInspeccionTecnica?: number;
     claveGuid?: string;
-    documento?: string;
-    nombre?: string;
-    extension?: string;
+    documento: string;
+    nombre: string;
+    extension: string;
 }

@@ -18,5 +18,5 @@ export interface InspeccionesTecnicasHistoricoDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<InspeccionesTecnicasHistoricoDto>;
+    results?: Array<InspeccionesTecnicasHistoricoDto>;
 }

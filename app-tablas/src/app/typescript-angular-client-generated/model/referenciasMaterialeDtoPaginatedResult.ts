@@ -18,5 +18,5 @@ export interface ReferenciasMaterialeDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<ReferenciasMaterialeDto>;
+    results?: Array<ReferenciasMaterialeDto>;
 }

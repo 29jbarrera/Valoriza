@@ -20,7 +20,7 @@ import { Observable }                                        from 'rxjs';
 import { CreateInstalacionesOperacioneDto } from '../model/createInstalacionesOperacioneDto';
 import { InstalacionesOperacioneDto } from '../model/instalacionesOperacioneDto';
 import { InstalacionesOperacioneDtoPaginatedResult } from '../model/instalacionesOperacioneDtoPaginatedResult';
-import { InstalacionesOperacioneDtoResult } from '../model/instalacionesOperacioneDtoResult';
+import { ProblemDetails } from '../model/problemDetails';
 import { UpdateInstalacionesOperacioneDto } from '../model/updateInstalacionesOperacioneDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class InstalacionesOperacioneService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class InstalacionesOperacioneService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2InstalacionesOperacionePost(body?: CreateInstalacionesOperacioneDto, observe?: 'body', reportProgress?: boolean): Observable<InstalacionesOperacioneDtoResult>;
-    public apiV2InstalacionesOperacionePost(body?: CreateInstalacionesOperacioneDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InstalacionesOperacioneDtoResult>>;
-    public apiV2InstalacionesOperacionePost(body?: CreateInstalacionesOperacioneDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InstalacionesOperacioneDtoResult>>;
+    public apiV2InstalacionesOperacionePost(body?: CreateInstalacionesOperacioneDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2InstalacionesOperacionePost(body?: CreateInstalacionesOperacioneDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2InstalacionesOperacionePost(body?: CreateInstalacionesOperacioneDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2InstalacionesOperacionePost(body?: CreateInstalacionesOperacioneDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class InstalacionesOperacioneService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<InstalacionesOperacioneDtoResult>('post',`${this.basePath}/api/v2/instalacionesOperacione`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/instalacionesOperacione`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class InstalacionesOperacioneService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2InstalacionesOperacionePut(body?: UpdateInstalacionesOperacioneDto, observe?: 'body', reportProgress?: boolean): Observable<InstalacionesOperacioneDtoResult>;
-    public apiV2InstalacionesOperacionePut(body?: UpdateInstalacionesOperacioneDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InstalacionesOperacioneDtoResult>>;
-    public apiV2InstalacionesOperacionePut(body?: UpdateInstalacionesOperacioneDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InstalacionesOperacioneDtoResult>>;
+    public apiV2InstalacionesOperacionePut(body?: UpdateInstalacionesOperacioneDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2InstalacionesOperacionePut(body?: UpdateInstalacionesOperacioneDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2InstalacionesOperacionePut(body?: UpdateInstalacionesOperacioneDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2InstalacionesOperacionePut(body?: UpdateInstalacionesOperacioneDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class InstalacionesOperacioneService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<InstalacionesOperacioneDtoResult>('put',`${this.basePath}/api/v2/instalacionesOperacione`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/instalacionesOperacione`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

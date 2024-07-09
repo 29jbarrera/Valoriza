@@ -36,9 +36,5 @@ export interface CreateMaquinariaDto {
     fechaTasas?: Date;
     duracionTasas?: number;
     avisoTracking?: boolean;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
     esImplemento?: boolean;
 }

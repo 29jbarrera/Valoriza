@@ -20,7 +20,7 @@ import { Observable }                                        from 'rxjs';
 import { CreateGastosTallerDocDto } from '../model/createGastosTallerDocDto';
 import { GastosTallerDocDto } from '../model/gastosTallerDocDto';
 import { GastosTallerDocDtoPaginatedResult } from '../model/gastosTallerDocDtoPaginatedResult';
-import { GastosTallerDocDtoResult } from '../model/gastosTallerDocDtoResult';
+import { ProblemDetails } from '../model/problemDetails';
 import { UpdateGastosTallerDocDto } from '../model/updateGastosTallerDocDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class GastosTallerDocService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class GastosTallerDocService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2GastosTallerDocPost(body?: CreateGastosTallerDocDto, observe?: 'body', reportProgress?: boolean): Observable<GastosTallerDocDtoResult>;
-    public apiV2GastosTallerDocPost(body?: CreateGastosTallerDocDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<GastosTallerDocDtoResult>>;
-    public apiV2GastosTallerDocPost(body?: CreateGastosTallerDocDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<GastosTallerDocDtoResult>>;
+    public apiV2GastosTallerDocPost(body?: CreateGastosTallerDocDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2GastosTallerDocPost(body?: CreateGastosTallerDocDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2GastosTallerDocPost(body?: CreateGastosTallerDocDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2GastosTallerDocPost(body?: CreateGastosTallerDocDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class GastosTallerDocService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<GastosTallerDocDtoResult>('post',`${this.basePath}/api/v2/gastosTallerDoc`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/gastosTallerDoc`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class GastosTallerDocService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2GastosTallerDocPut(body?: UpdateGastosTallerDocDto, observe?: 'body', reportProgress?: boolean): Observable<GastosTallerDocDtoResult>;
-    public apiV2GastosTallerDocPut(body?: UpdateGastosTallerDocDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<GastosTallerDocDtoResult>>;
-    public apiV2GastosTallerDocPut(body?: UpdateGastosTallerDocDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<GastosTallerDocDtoResult>>;
+    public apiV2GastosTallerDocPut(body?: UpdateGastosTallerDocDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2GastosTallerDocPut(body?: UpdateGastosTallerDocDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2GastosTallerDocPut(body?: UpdateGastosTallerDocDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2GastosTallerDocPut(body?: UpdateGastosTallerDocDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class GastosTallerDocService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<GastosTallerDocDtoResult>('put',`${this.basePath}/api/v2/gastosTallerDoc`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/gastosTallerDoc`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

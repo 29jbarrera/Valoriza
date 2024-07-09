@@ -20,7 +20,7 @@ import { Observable }                                        from 'rxjs';
 import { CreatePesoCargaDto } from '../model/createPesoCargaDto';
 import { PesoCargaDto } from '../model/pesoCargaDto';
 import { PesoCargaDtoPaginatedResult } from '../model/pesoCargaDtoPaginatedResult';
-import { PesoCargaDtoResult } from '../model/pesoCargaDtoResult';
+import { ProblemDetails } from '../model/problemDetails';
 import { UpdatePesoCargaDto } from '../model/updatePesoCargaDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class PesoCargaService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class PesoCargaService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2PesoCargaPost(body?: CreatePesoCargaDto, observe?: 'body', reportProgress?: boolean): Observable<PesoCargaDtoResult>;
-    public apiV2PesoCargaPost(body?: CreatePesoCargaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PesoCargaDtoResult>>;
-    public apiV2PesoCargaPost(body?: CreatePesoCargaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PesoCargaDtoResult>>;
+    public apiV2PesoCargaPost(body?: CreatePesoCargaDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2PesoCargaPost(body?: CreatePesoCargaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2PesoCargaPost(body?: CreatePesoCargaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2PesoCargaPost(body?: CreatePesoCargaDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class PesoCargaService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<PesoCargaDtoResult>('post',`${this.basePath}/api/v2/pesoCarga`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/pesoCarga`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class PesoCargaService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2PesoCargaPut(body?: UpdatePesoCargaDto, observe?: 'body', reportProgress?: boolean): Observable<PesoCargaDtoResult>;
-    public apiV2PesoCargaPut(body?: UpdatePesoCargaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PesoCargaDtoResult>>;
-    public apiV2PesoCargaPut(body?: UpdatePesoCargaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PesoCargaDtoResult>>;
+    public apiV2PesoCargaPut(body?: UpdatePesoCargaDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2PesoCargaPut(body?: UpdatePesoCargaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2PesoCargaPut(body?: UpdatePesoCargaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2PesoCargaPut(body?: UpdatePesoCargaDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class PesoCargaService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<PesoCargaDtoResult>('put',`${this.basePath}/api/v2/pesoCarga`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/pesoCarga`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

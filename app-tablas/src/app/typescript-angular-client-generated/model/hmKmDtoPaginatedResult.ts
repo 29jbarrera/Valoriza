@@ -18,5 +18,5 @@ export interface HmKmDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<HmKmDto>;
+    results?: Array<HmKmDto>;
 }

@@ -18,5 +18,5 @@ export interface XGruposCentroDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<XGruposCentroDto>;
+    results?: Array<XGruposCentroDto>;
 }

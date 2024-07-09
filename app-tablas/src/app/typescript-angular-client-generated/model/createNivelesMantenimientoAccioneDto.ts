@@ -12,5 +12,5 @@
 
 export interface CreateNivelesMantenimientoAccioneDto { 
     idEmpresa?: number;
-    idGrupo?: string;
+    idGrupo: string;
 }

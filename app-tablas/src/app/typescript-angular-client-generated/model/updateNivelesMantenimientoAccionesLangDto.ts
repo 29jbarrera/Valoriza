@@ -13,5 +13,5 @@
 export interface UpdateNivelesMantenimientoAccionesLangDto { 
     id?: number;
     idLang?: number;
-    descripcion?: string;
+    descripcion: string;
 }

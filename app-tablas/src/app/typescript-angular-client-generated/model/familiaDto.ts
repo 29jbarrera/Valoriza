@@ -9,12 +9,14 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { EmpresaDto } from './empresaDto';
 
 export interface FamiliaDto { 
     id?: number;
     idEmpresa?: number;
-    createdBy?: string;
+    empresa?: EmpresaDto;
+    createdBy: string;
     createdAt?: Date;
-    changedBy?: string;
+    changedBy: string;
     changedAt?: Date;
 }

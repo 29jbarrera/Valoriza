@@ -20,7 +20,7 @@ import { Observable }                                        from 'rxjs';
 import { CreateMaquinariaDto } from '../model/createMaquinariaDto';
 import { MaquinariaDto } from '../model/maquinariaDto';
 import { MaquinariaDtoPaginatedResult } from '../model/maquinariaDtoPaginatedResult';
-import { MaquinariaDtoResult } from '../model/maquinariaDtoResult';
+import { ProblemDetails } from '../model/problemDetails';
 import { UpdateMaquinariaDto } from '../model/updateMaquinariaDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class MaquinariaService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class MaquinariaService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2MaquinariaPost(body?: CreateMaquinariaDto, observe?: 'body', reportProgress?: boolean): Observable<MaquinariaDtoResult>;
-    public apiV2MaquinariaPost(body?: CreateMaquinariaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<MaquinariaDtoResult>>;
-    public apiV2MaquinariaPost(body?: CreateMaquinariaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<MaquinariaDtoResult>>;
+    public apiV2MaquinariaPost(body?: CreateMaquinariaDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2MaquinariaPost(body?: CreateMaquinariaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2MaquinariaPost(body?: CreateMaquinariaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2MaquinariaPost(body?: CreateMaquinariaDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class MaquinariaService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<MaquinariaDtoResult>('post',`${this.basePath}/api/v2/maquinaria`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/maquinaria`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class MaquinariaService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2MaquinariaPut(body?: UpdateMaquinariaDto, observe?: 'body', reportProgress?: boolean): Observable<MaquinariaDtoResult>;
-    public apiV2MaquinariaPut(body?: UpdateMaquinariaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<MaquinariaDtoResult>>;
-    public apiV2MaquinariaPut(body?: UpdateMaquinariaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<MaquinariaDtoResult>>;
+    public apiV2MaquinariaPut(body?: UpdateMaquinariaDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2MaquinariaPut(body?: UpdateMaquinariaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2MaquinariaPut(body?: UpdateMaquinariaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2MaquinariaPut(body?: UpdateMaquinariaDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class MaquinariaService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<MaquinariaDtoResult>('put',`${this.basePath}/api/v2/maquinaria`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/maquinaria`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

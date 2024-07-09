@@ -18,9 +18,9 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 import { Observable }                                        from 'rxjs';
 
 import { CreateReparacioneDto } from '../model/createReparacioneDto';
+import { ProblemDetails } from '../model/problemDetails';
 import { ReparacioneDto } from '../model/reparacioneDto';
 import { ReparacioneDtoPaginatedResult } from '../model/reparacioneDtoPaginatedResult';
-import { ReparacioneDtoResult } from '../model/reparacioneDtoResult';
 import { UpdateReparacioneDto } from '../model/updateReparacioneDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class ReparacioneService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class ReparacioneService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2ReparacionePost(body?: CreateReparacioneDto, observe?: 'body', reportProgress?: boolean): Observable<ReparacioneDtoResult>;
-    public apiV2ReparacionePost(body?: CreateReparacioneDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ReparacioneDtoResult>>;
-    public apiV2ReparacionePost(body?: CreateReparacioneDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ReparacioneDtoResult>>;
+    public apiV2ReparacionePost(body?: CreateReparacioneDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2ReparacionePost(body?: CreateReparacioneDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2ReparacionePost(body?: CreateReparacioneDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2ReparacionePost(body?: CreateReparacioneDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class ReparacioneService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<ReparacioneDtoResult>('post',`${this.basePath}/api/v2/reparacione`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/reparacione`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class ReparacioneService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2ReparacionePut(body?: UpdateReparacioneDto, observe?: 'body', reportProgress?: boolean): Observable<ReparacioneDtoResult>;
-    public apiV2ReparacionePut(body?: UpdateReparacioneDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ReparacioneDtoResult>>;
-    public apiV2ReparacionePut(body?: UpdateReparacioneDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ReparacioneDtoResult>>;
+    public apiV2ReparacionePut(body?: UpdateReparacioneDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2ReparacionePut(body?: UpdateReparacioneDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2ReparacionePut(body?: UpdateReparacioneDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2ReparacionePut(body?: UpdateReparacioneDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class ReparacioneService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<ReparacioneDtoResult>('put',`${this.basePath}/api/v2/reparacione`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/reparacione`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

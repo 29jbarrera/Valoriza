@@ -20,7 +20,7 @@ import { Observable }                                        from 'rxjs';
 import { CreateInstalacionesOperacionesLangDto } from '../model/createInstalacionesOperacionesLangDto';
 import { InstalacionesOperacionesLangDto } from '../model/instalacionesOperacionesLangDto';
 import { InstalacionesOperacionesLangDtoPaginatedResult } from '../model/instalacionesOperacionesLangDtoPaginatedResult';
-import { InstalacionesOperacionesLangDtoResult } from '../model/instalacionesOperacionesLangDtoResult';
+import { ProblemDetails } from '../model/problemDetails';
 import { UpdateInstalacionesOperacionesLangDto } from '../model/updateInstalacionesOperacionesLangDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class InstalacionesOperacionesLangService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class InstalacionesOperacionesLangService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2InstalacionesOperacionesLangPost(body?: CreateInstalacionesOperacionesLangDto, observe?: 'body', reportProgress?: boolean): Observable<InstalacionesOperacionesLangDtoResult>;
-    public apiV2InstalacionesOperacionesLangPost(body?: CreateInstalacionesOperacionesLangDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InstalacionesOperacionesLangDtoResult>>;
-    public apiV2InstalacionesOperacionesLangPost(body?: CreateInstalacionesOperacionesLangDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InstalacionesOperacionesLangDtoResult>>;
+    public apiV2InstalacionesOperacionesLangPost(body?: CreateInstalacionesOperacionesLangDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2InstalacionesOperacionesLangPost(body?: CreateInstalacionesOperacionesLangDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2InstalacionesOperacionesLangPost(body?: CreateInstalacionesOperacionesLangDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2InstalacionesOperacionesLangPost(body?: CreateInstalacionesOperacionesLangDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class InstalacionesOperacionesLangService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<InstalacionesOperacionesLangDtoResult>('post',`${this.basePath}/api/v2/instalacionesOperacionesLang`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/instalacionesOperacionesLang`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class InstalacionesOperacionesLangService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2InstalacionesOperacionesLangPut(body?: UpdateInstalacionesOperacionesLangDto, observe?: 'body', reportProgress?: boolean): Observable<InstalacionesOperacionesLangDtoResult>;
-    public apiV2InstalacionesOperacionesLangPut(body?: UpdateInstalacionesOperacionesLangDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InstalacionesOperacionesLangDtoResult>>;
-    public apiV2InstalacionesOperacionesLangPut(body?: UpdateInstalacionesOperacionesLangDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InstalacionesOperacionesLangDtoResult>>;
+    public apiV2InstalacionesOperacionesLangPut(body?: UpdateInstalacionesOperacionesLangDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2InstalacionesOperacionesLangPut(body?: UpdateInstalacionesOperacionesLangDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2InstalacionesOperacionesLangPut(body?: UpdateInstalacionesOperacionesLangDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2InstalacionesOperacionesLangPut(body?: UpdateInstalacionesOperacionesLangDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class InstalacionesOperacionesLangService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<InstalacionesOperacionesLangDtoResult>('put',`${this.basePath}/api/v2/instalacionesOperacionesLang`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/instalacionesOperacionesLang`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

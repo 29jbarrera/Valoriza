@@ -13,7 +13,7 @@
 export interface CreateMaquinariasNivelesDocDto { 
     idMaquinariaNivel?: number;
     claveGuid?: string;
-    extension?: string;
-    documento?: string;
-    nombre?: string;
+    extension: string;
+    documento: string;
+    nombre: string;
 }

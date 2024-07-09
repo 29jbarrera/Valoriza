@@ -9,15 +9,17 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { ReparacioneDto } from './reparacioneDto';
 
 export interface ReparacionesHistoricoDto { 
     id?: number;
     idReparacion?: number;
+    reparacion?: ReparacioneDto;
     fecha?: Date;
-    codTipoReparacion?: string;
-    codNivelReparacion?: string;
-    codMoneda?: string;
-    codEstado?: string;
+    codTipoReparacion: string;
+    codNivelReparacion: string;
+    codMoneda: string;
+    codEstado: string;
     repuestos?: number;
     neumaticos?: number;
     externos?: number;
@@ -31,7 +33,7 @@ export interface ReparacionesHistoricoDto {
     otros?: number;
     comentarios?: string;
     observaciones?: string;
-    createdBy?: string;
+    createdBy: string;
     createdAt?: Date;
     idMaquinaria?: number;
 }

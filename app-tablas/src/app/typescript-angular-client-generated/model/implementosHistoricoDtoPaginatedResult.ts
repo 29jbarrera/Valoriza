@@ -18,5 +18,5 @@ export interface ImplementosHistoricoDtoPaginatedResult {
     page?: number;
     perPage?: number;
     pages?: number;
-    results: Array<ImplementosHistoricoDto>;
+    results?: Array<ImplementosHistoricoDto>;
 }

@@ -18,10 +18,10 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 import { Observable }                                        from 'rxjs';
 
 import { CreateXGruposCentroDto } from '../model/createXGruposCentroDto';
+import { ProblemDetails } from '../model/problemDetails';
 import { UpdateXGruposCentroDto } from '../model/updateXGruposCentroDto';
 import { XGruposCentroDto } from '../model/xGruposCentroDto';
 import { XGruposCentroDtoPaginatedResult } from '../model/xGruposCentroDtoPaginatedResult';
-import { XGruposCentroDtoResult } from '../model/xGruposCentroDtoResult';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -145,6 +145,9 @@ export class XGruposCentroService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class XGruposCentroService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2XGruposCentroPost(body?: CreateXGruposCentroDto, observe?: 'body', reportProgress?: boolean): Observable<XGruposCentroDtoResult>;
-    public apiV2XGruposCentroPost(body?: CreateXGruposCentroDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<XGruposCentroDtoResult>>;
-    public apiV2XGruposCentroPost(body?: CreateXGruposCentroDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<XGruposCentroDtoResult>>;
+    public apiV2XGruposCentroPost(body?: CreateXGruposCentroDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2XGruposCentroPost(body?: CreateXGruposCentroDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2XGruposCentroPost(body?: CreateXGruposCentroDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2XGruposCentroPost(body?: CreateXGruposCentroDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class XGruposCentroService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<XGruposCentroDtoResult>('post',`${this.basePath}/api/v2/xGruposCentro`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/xGruposCentro`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class XGruposCentroService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2XGruposCentroPut(body?: UpdateXGruposCentroDto, observe?: 'body', reportProgress?: boolean): Observable<XGruposCentroDtoResult>;
-    public apiV2XGruposCentroPut(body?: UpdateXGruposCentroDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<XGruposCentroDtoResult>>;
-    public apiV2XGruposCentroPut(body?: UpdateXGruposCentroDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<XGruposCentroDtoResult>>;
+    public apiV2XGruposCentroPut(body?: UpdateXGruposCentroDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2XGruposCentroPut(body?: UpdateXGruposCentroDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2XGruposCentroPut(body?: UpdateXGruposCentroDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2XGruposCentroPut(body?: UpdateXGruposCentroDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class XGruposCentroService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<XGruposCentroDtoResult>('put',`${this.basePath}/api/v2/xGruposCentro`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/xGruposCentro`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

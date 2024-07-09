@@ -20,7 +20,7 @@ import { Observable }                                        from 'rxjs';
 import { CreateGruaDto } from '../model/createGruaDto';
 import { GruaDto } from '../model/gruaDto';
 import { GruaDtoPaginatedResult } from '../model/gruaDtoPaginatedResult';
-import { GruaDtoResult } from '../model/gruaDtoResult';
+import { ProblemDetails } from '../model/problemDetails';
 import { UpdateGruaDto } from '../model/updateGruaDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class GruaService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class GruaService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2GruaPost(body?: CreateGruaDto, observe?: 'body', reportProgress?: boolean): Observable<GruaDtoResult>;
-    public apiV2GruaPost(body?: CreateGruaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<GruaDtoResult>>;
-    public apiV2GruaPost(body?: CreateGruaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<GruaDtoResult>>;
+    public apiV2GruaPost(body?: CreateGruaDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2GruaPost(body?: CreateGruaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2GruaPost(body?: CreateGruaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2GruaPost(body?: CreateGruaDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class GruaService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<GruaDtoResult>('post',`${this.basePath}/api/v2/grua`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/grua`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class GruaService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2GruaPut(body?: UpdateGruaDto, observe?: 'body', reportProgress?: boolean): Observable<GruaDtoResult>;
-    public apiV2GruaPut(body?: UpdateGruaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<GruaDtoResult>>;
-    public apiV2GruaPut(body?: UpdateGruaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<GruaDtoResult>>;
+    public apiV2GruaPut(body?: UpdateGruaDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2GruaPut(body?: UpdateGruaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2GruaPut(body?: UpdateGruaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2GruaPut(body?: UpdateGruaDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class GruaService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<GruaDtoResult>('put',`${this.basePath}/api/v2/grua`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/grua`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

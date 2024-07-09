@@ -20,7 +20,7 @@ import { Observable }                                        from 'rxjs';
 import { CreatePrestamosStockDto } from '../model/createPrestamosStockDto';
 import { PrestamosStockDto } from '../model/prestamosStockDto';
 import { PrestamosStockDtoPaginatedResult } from '../model/prestamosStockDtoPaginatedResult';
-import { PrestamosStockDtoResult } from '../model/prestamosStockDtoResult';
+import { ProblemDetails } from '../model/problemDetails';
 import { UpdatePrestamosStockDto } from '../model/updatePrestamosStockDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class PrestamosStockService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class PrestamosStockService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2PrestamosStockPost(body?: CreatePrestamosStockDto, observe?: 'body', reportProgress?: boolean): Observable<PrestamosStockDtoResult>;
-    public apiV2PrestamosStockPost(body?: CreatePrestamosStockDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PrestamosStockDtoResult>>;
-    public apiV2PrestamosStockPost(body?: CreatePrestamosStockDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PrestamosStockDtoResult>>;
+    public apiV2PrestamosStockPost(body?: CreatePrestamosStockDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2PrestamosStockPost(body?: CreatePrestamosStockDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2PrestamosStockPost(body?: CreatePrestamosStockDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2PrestamosStockPost(body?: CreatePrestamosStockDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class PrestamosStockService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<PrestamosStockDtoResult>('post',`${this.basePath}/api/v2/prestamosStock`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/prestamosStock`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class PrestamosStockService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2PrestamosStockPut(body?: UpdatePrestamosStockDto, observe?: 'body', reportProgress?: boolean): Observable<PrestamosStockDtoResult>;
-    public apiV2PrestamosStockPut(body?: UpdatePrestamosStockDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PrestamosStockDtoResult>>;
-    public apiV2PrestamosStockPut(body?: UpdatePrestamosStockDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PrestamosStockDtoResult>>;
+    public apiV2PrestamosStockPut(body?: UpdatePrestamosStockDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2PrestamosStockPut(body?: UpdatePrestamosStockDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2PrestamosStockPut(body?: UpdatePrestamosStockDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2PrestamosStockPut(body?: UpdatePrestamosStockDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class PrestamosStockService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<PrestamosStockDtoResult>('put',`${this.basePath}/api/v2/prestamosStock`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/prestamosStock`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

@@ -9,12 +9,16 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { EmpresaDto } from './empresaDto';
+import { ImpuestoDto } from './impuestoDto';
 
 export interface ImpuestosHistoricoDto { 
     id?: number;
     idEmpresa?: number;
+    empresa?: EmpresaDto;
     impuesto?: number;
     fechaImpuesto?: Date;
     codMoneda?: string;
     idImpuesto?: number;
+    impuesto1?: ImpuestoDto;
 }

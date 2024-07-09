@@ -13,8 +13,4 @@
 export interface UpdateFamiliaDto { 
     id?: number;
     idEmpresa?: number;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
 }

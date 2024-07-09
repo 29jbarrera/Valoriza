@@ -20,7 +20,7 @@ import { Observable }                                        from 'rxjs';
 import { CreatePartesTrabajoDto } from '../model/createPartesTrabajoDto';
 import { PartesTrabajoDto } from '../model/partesTrabajoDto';
 import { PartesTrabajoDtoPaginatedResult } from '../model/partesTrabajoDtoPaginatedResult';
-import { PartesTrabajoDtoResult } from '../model/partesTrabajoDtoResult';
+import { ProblemDetails } from '../model/problemDetails';
 import { UpdatePartesTrabajoDto } from '../model/updatePartesTrabajoDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -145,6 +145,9 @@ export class PartesTrabajoService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -215,9 +218,9 @@ export class PartesTrabajoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2PartesTrabajoPost(body?: CreatePartesTrabajoDto, observe?: 'body', reportProgress?: boolean): Observable<PartesTrabajoDtoResult>;
-    public apiV2PartesTrabajoPost(body?: CreatePartesTrabajoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PartesTrabajoDtoResult>>;
-    public apiV2PartesTrabajoPost(body?: CreatePartesTrabajoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PartesTrabajoDtoResult>>;
+    public apiV2PartesTrabajoPost(body?: CreatePartesTrabajoDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2PartesTrabajoPost(body?: CreatePartesTrabajoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2PartesTrabajoPost(body?: CreatePartesTrabajoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2PartesTrabajoPost(body?: CreatePartesTrabajoDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -245,7 +248,7 @@ export class PartesTrabajoService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<PartesTrabajoDtoResult>('post',`${this.basePath}/api/v2/partesTrabajo`,
+        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/partesTrabajo`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -263,9 +266,9 @@ export class PartesTrabajoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2PartesTrabajoPut(body?: UpdatePartesTrabajoDto, observe?: 'body', reportProgress?: boolean): Observable<PartesTrabajoDtoResult>;
-    public apiV2PartesTrabajoPut(body?: UpdatePartesTrabajoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PartesTrabajoDtoResult>>;
-    public apiV2PartesTrabajoPut(body?: UpdatePartesTrabajoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PartesTrabajoDtoResult>>;
+    public apiV2PartesTrabajoPut(body?: UpdatePartesTrabajoDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiV2PartesTrabajoPut(body?: UpdatePartesTrabajoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2PartesTrabajoPut(body?: UpdatePartesTrabajoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2PartesTrabajoPut(body?: UpdatePartesTrabajoDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -293,7 +296,7 @@ export class PartesTrabajoService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<PartesTrabajoDtoResult>('put',`${this.basePath}/api/v2/partesTrabajo`,
+        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/partesTrabajo`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

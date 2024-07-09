@@ -14,7 +14,7 @@ export interface UpdateImplementoDto {
     id?: number;
     idEmpresa?: number;
     idMaquinaria?: number;
-    descripcion?: string;
+    descripcion: string;
     marca?: string;
     modelo?: string;
     serie?: string;
@@ -32,10 +32,6 @@ export interface UpdateImplementoDto {
     fechaFinanciero?: Date;
     porcentajeFinanciero?: number;
     codMonedaTasa?: string;
-    createdBy?: string;
-    createdAt?: Date;
-    changedBy?: string;
-    changedAt?: Date;
     idImplementoAsociado?: number;
     numeroActivoSap?: string;
 }

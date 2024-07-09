@@ -12,9 +12,9 @@
 
 export interface UpdateXEmpresaDto { 
     id?: number;
-    codigo?: string;
-    nombre?: string;
-    documentoIdentificativo?: string;
+    codigo: string;
+    nombre: string;
+    documentoIdentificativo: string;
     direccion?: string;
     codigoPostal?: string;
     telefono?: string;

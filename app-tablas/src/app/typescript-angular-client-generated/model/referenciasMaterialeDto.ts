@@ -9,15 +9,17 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { EmpresaDto } from './empresaDto';
 
 export interface ReferenciasMaterialeDto { 
     id?: number;
     idEmpresa?: number;
-    codigoCategoria?: string;
-    referencia?: string;
-    descripcion?: string;
-    createdBy?: string;
+    empresa?: EmpresaDto;
+    codigoCategoria: string;
+    referencia: string;
+    descripcion: string;
+    createdBy: string;
     createdAt?: Date;
-    changedBy?: string;
+    changedBy: string;
     changedAt?: Date;
 }
