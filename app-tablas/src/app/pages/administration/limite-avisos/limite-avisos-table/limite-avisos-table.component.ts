@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { LimiteAvisos } from '../type';
+import { ParametroDto } from '@valoriza/web-commons';
 import { LimiteAvisosService } from '../limite-avisos.service';
 
 import { TableModule } from 'primeng/table';
@@ -24,6 +24,7 @@ import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService, MessageService } from 'primeng/api';
+
 
 @Component({
   selector: 'app-limite-avisos-table',
@@ -51,7 +52,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
   providers: [ConfirmationService, MessageService],
 })
 export class LimiteAvisosTableComponent implements OnInit {
-  limiteAvisos: LimiteAvisos[] = [];
+  limiteAvisos: ParametroDto[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -74,7 +75,7 @@ export class LimiteAvisosTableComponent implements OnInit {
     this.limiteAvisos = await this.LimiteAvisosService.getLimiteAvisos();
   }
 
-  async confirm_edit(limiteAvisos: LimiteAvisos) {
+  async confirm_edit(limiteAvisos: ParametroDto) {
     try {
       this.edit(limiteAvisos);
 
@@ -94,17 +95,17 @@ export class LimiteAvisosTableComponent implements OnInit {
     }
   }
 
-  async edit(limiteAvisos: LimiteAvisos) {
+  async edit(limiteAvisos: ParametroDto) {
     // TODO: PETICIÓN A BACKEND PARA EDITAR
     console.error('Edit object:', limiteAvisos);
   }
 
-  async delete(limiteAvisos: LimiteAvisos) {
+  async delete(limiteAvisos: ParametroDto) {
     // TODO: ELIMINAR OBJETO BACKEND
     console.error('Delete object,', limiteAvisos);
   }
 
-  async confirm_delete(limiteAvisos: LimiteAvisos) {
+  async confirm_delete(limiteAvisos: ParametroDto) {
     this._confirmationService.confirm({
       message: '¿Estás seguro de que quieres eliminar esta fila?',
       header: 'Eliminar fila de Límite avisos',

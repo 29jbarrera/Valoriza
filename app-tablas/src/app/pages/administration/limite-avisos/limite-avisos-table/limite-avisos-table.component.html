@@ -11,38 +11,38 @@
       <tr>
         <th></th>
         <th></th>
-        <th pSortableColumn="code">
+        <th pSortableColumn="codigo">
           <div>
-            <p-sortIcon class="order" field="code" />
+            <p-sortIcon class="order" field="codigo" />
             Código
             <p-columnFilter
               class="filter"
               type="text"
-              field="code"
+              field="codigo"
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="value">
+        <th pSortableColumn="valor">
           <div>
-            <p-sortIcon class="order" field="value" />
+            <p-sortIcon class="order" field="valor" />
             Valor
             <p-columnFilter
               class="filter"
               type="text"
-              field="value"
+              field="valor"
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="description">
+        <th pSortableColumn="descripcion">
           <div>
-            <p-sortIcon class="order" field="description" />
+            <p-sortIcon class="order" field="descripcion" />
             Descripción
             <p-columnFilter
               class="filter"
               type="text"
-              field="description"
+              field="descripcion"
               display="menu"
             ></p-columnFilter>
           </div>
@@ -57,9 +57,9 @@
         <td>
           <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(limiteAvisos)"/>
         </td>
-        <td>{{ limiteAvisos.code }}</td>
-        <td>{{ limiteAvisos.value }}</td>
-        <td>{{ limiteAvisos.description }}</td>
+        <td>{{ limiteAvisos.codigo }}</td>
+        <td>{{ limiteAvisos.valor }}</td>
+        <td>{{ limiteAvisos.descripcion  }}</td>
       </tr>
     </ng-template>
     <ng-template pTemplate="footer">
