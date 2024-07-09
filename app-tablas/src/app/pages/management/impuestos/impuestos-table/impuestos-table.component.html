@@ -6,79 +6,78 @@
     styleClass="p-datatable-sm"
     [rowsPerPageOptions]="[5, 10, 20]"
     [paginator]="true"
-    [rows]="5"
-  >
+    [rows]="5">
     <ng-template pTemplate="header">
       <tr>
         <th></th>
         <th></th>
-        <th pSortableColumn="center">
+        <th pSortableColumn="empresa.nombre">
           <div>
-            <p-sortIcon class="order" field="center" />
+            <p-sortIcon class="order" field="empresa.nombre" />
             Centro
             <p-columnFilter
               type="text"
-              field="center"
+              field="empresa.nombre"
               class="filter"
               display="menu"
             />
           </div>
         </th>
-        <th pSortableColumn="address">
+        <th pSortableColumn="direccion">
           <div>
-            <p-sortIcon class="order" field="address" />
+            <p-sortIcon class="order" field="direccion" />
             Dirección
             <p-columnFilter
               type="text"
-              field="address"
+              field="direccion"
               class="filter"
               display="menu"
             />
           </div>
         </th>
-        <th pSortableColumn="tuition">
+        <th pSortableColumn="documentoIdentificativo">
           <div>
-            <p-sortIcon class="order" field="tuition" />
+            <p-sortIcon class="order" field="documentoIdentificativo" />
             Matrícula
             <p-columnFilter
               type="text"
-              field="tuition"
+              field="documentoIdentificativo"
               class="filter"
               display="menu"
             />
           </div>
         </th>
-        <th pSortableColumn="tax">
+        <th pSortableColumn="importe">
           <div>
-            <p-sortIcon class="order" field="tax" />
+            <p-sortIcon class="order" field="importe" />
             Impuesto
             <p-columnFilter
               type="text"
-              field="tax"
+              field="importe"
               class="filter"
               display="menu"
             />
           </div>
         </th>
-        <th pSortableColumn="currency">
+        <th pSortableColumn="codMoneda">
           <div>
-            <p-sortIcon class="order" field="currency" />
+            <p-sortIcon class="order" field="codMoneda" />
             Divisa
             <p-columnFilter
               type="text"
-              field="currency"
+              field="codMoneda"
               class="filter"
               display="menu"
             />
           </div>
         </th>
-        <th pSortableColumn="date">
+        <th pSortableColumn="fecha">
           <div>
-            <p-sortIcon class="order" field="date" />
+            <p-sortIcon class="order" field="fecha" />
             Fecha
             <p-columnFilter
               type="text"
-              field="date"
+              field="fecha"
               class="filter"
               display="menu"
             />
@@ -94,12 +93,12 @@
         <td>
           <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(impuestos)"/>
         </td>
-        <td>{{ impuestos.center }}</td>
-        <td>{{ impuestos.address }}</td>
-        <td>{{ impuestos.tuition }}</td>
-        <td>{{ impuestos.tax }}</td>
-        <td>{{ impuestos.currency }}</td>
-        <td>{{ impuestos.date }}</td>
+        <td>{{ impuestos.empresa.nombre }}</td>
+        <td>{{ impuestos.direccion }}</td>
+        <td>{{ impuestos.documentoIdentificativo }}</td>
+        <td>{{ impuestos.importe }}</td>
+        <td>{{ impuestos.codMoneda }}</td>
+        <td>{{ impuestos.fecha }}</td>
       </tr>
     </ng-template>
     <ng-template pTemplate="footer">

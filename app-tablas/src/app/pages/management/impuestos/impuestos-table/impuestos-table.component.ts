@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { Impuestos } from '../type';
+import { ImpuestoDto } from '@valoriza/web-commons';
 import { ImpuestosService } from '../impuestos.service';
 
 import { TableModule } from 'primeng/table';
@@ -24,6 +24,7 @@ import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService, MessageService } from 'primeng/api';
+
 
 @Component({
   selector: 'app-impuestos-table',
@@ -51,7 +52,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
   providers: [ConfirmationService, MessageService],
 })
 export class ImpuestosTableComponent implements OnInit {
-  impuestos: Impuestos[] = [];
+  impuestos: ImpuestoDto[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -77,7 +78,7 @@ export class ImpuestosTableComponent implements OnInit {
     this.impuestos = await this.ImpuestosService.getImpuestos();
   }
 
-  async confirm_edit(impuestos: Impuestos) {
+  async confirm_edit(impuestos: ImpuestoDto) {
     try {
       this.edit(impuestos);
 
@@ -97,17 +98,17 @@ export class ImpuestosTableComponent implements OnInit {
     }
   }
 
-  async edit(impuestos: Impuestos) {
+  async edit(impuestos: ImpuestoDto) {
     // TODO: PETICIÓN A BACKEND PARA EDITAR
     console.error('Edit object:', impuestos);
   }
 
-  async delete(impuestos: Impuestos) {
+  async delete(impuestos: ImpuestoDto) {
     // TODO: PETICIÓN BACKEND PARA ELIMINAR
     console.error('Delete object,', impuestos);
   }
 
-  async confirm_delete(impuestos: Impuestos) {
+  async confirm_delete(impuestos: ImpuestoDto) {
     this._confirmationService.confirm({
       message: '¿Estás seguro de que quieres eliminar esta fila?',
       header: 'Eliminar fila de impuestos',
