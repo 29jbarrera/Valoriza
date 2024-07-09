@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { Seguros } from '../type';
+import { SeguroDto } from '@valoriza/web-commons';
 import { SegurosService } from '../seguros.service';
 
 import { TableModule } from 'primeng/table';
@@ -51,7 +51,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
   providers: [ConfirmationService, MessageService],
 })
 export class SegurosTableComponent implements OnInit {
-  seguros: Seguros[] = [];
+  seguros: SeguroDto[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -83,7 +83,7 @@ export class SegurosTableComponent implements OnInit {
     SegurosService;
   }
 
-  async confirm_edit(seguros: Seguros) {
+  async confirm_edit(seguros: SeguroDto) {
     try {
       this.edit(seguros);
 
@@ -103,16 +103,16 @@ export class SegurosTableComponent implements OnInit {
     }
   }
 
-  async edit(seguros: Seguros) {
+  async edit(seguros: SeguroDto) {
     // TODO: PETICIÓN A BACKEND PARA EDITAR
     console.error('Edit object:', seguros);
   }
 
-  async delete(seguros: Seguros) {
+  async delete(seguros: SeguroDto) {
     console.error('Delete object,', seguros);
   }
 
-  async confirm_delete(seguros: Seguros) {
+  async confirm_delete(seguros: SeguroDto) {
     this._confirmationService.confirm({
       message: '¿Estás seguro de que quieres eliminar esta fila?',
       header: 'Eliminar fila de seguros',
@@ -120,7 +120,7 @@ export class SegurosTableComponent implements OnInit {
       rejectButtonStyleClass: 'p-button-text',
       acceptButtonStyleClass: 'p-button-danger',
 
-       accept: async () => {
+      accept: async () => {
         try {
           await this.delete(seguros);
           this.messageService.add({

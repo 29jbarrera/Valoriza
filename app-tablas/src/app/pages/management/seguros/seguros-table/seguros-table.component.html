@@ -12,133 +12,133 @@
       <tr>
         <th></th>
         <th></th>
-        <th pSortableColumn="center">
+        <th pSortableColumn="empresa.direccion ">
           <div>
-            <p-sortIcon class="order" field="center" />
+            <p-sortIcon class="order" field="empresa.direccion " />
             Centro
             <p-columnFilter
               type="text"
-              field="center"
+              field="empresa.direccion "
               class="filter"
               display="menu"
             />
           </div>
         </th>
-        <th pSortableColumn="machines">
+        <th pSortableColumn="documentoIdentificativo">
           <div>
-            <p-sortIcon class="order" field="machines" />
+            <p-sortIcon class="order" field="documentoIdentificativo" />
             Maquinaria
             <p-columnFilter
               type="text"
-              field="machines"
+              field="documentoIdentificativo"
               class="filter"
               display="menu"
             />
           </div>
         </th>
-        <th pSortableColumn="insuranceCompany">
+        <th pSortableColumn="empresa.nombre ">
           <div>
-            <p-sortIcon class="order" field="insuranceCompany" />
+            <p-sortIcon class="order" field="empresa.nombre " />
             Aseguradora
             <p-columnFilter
               type="text"
-              field="insuranceCompany"
+              field="empresa.nombre "
               class="filter"
               display="menu"
             />
           </div>
         </th>
-        <th pSortableColumn="state">
+        <th pSortableColumn="codEstadoSeguro">
           <div>
-            <p-sortIcon class="order" field="state" />
+            <p-sortIcon class="order" field="codEstadoSeguro" />
             Estado
             <p-columnFilter
               type="text"
-              field="state"
+              field="codEstadoSeguro"
               class="filter"
               display="menu"
             />
           </div>
         </th>
-        <th pSortableColumn="type">
+        <th pSortableColumn="codTipoSeguro">
           <div>
-            <p-sortIcon class="order" field="type" />
+            <p-sortIcon class="order" field="codTipoSeguro" />
             Tipo
             <p-columnFilter
               type="text"
-              field="type"
+              field="codTipoSeguro"
               class="filter"
               display="menu"
             />
           </div>
         </th>
-        <th pSortableColumn="numberPoliza">
+        <th pSortableColumn="">
           <div>
-            <p-sortIcon class="order" field="numberPoliza" />
+            <p-sortIcon class="order" field="" />
             Nº Póliza
             <p-columnFilter
               type="text"
-              field="numberPoliza"
+              field=""
               class="filter"
               display="menu"
             />
           </div>
         </th>
-        <th pSortableColumn="startDate">
+        <th pSortableColumn="fechaInicio">
           <div>
-            <p-sortIcon class="order" field="startDate" />
+            <p-sortIcon class="order" field="fechaInicio" />
             Fecha inicio
             <p-columnFilter
               type="text"
-              field="startDate"
+              field="fechaInicio"
               class="filter"
               display="menu"
             />
           </div>
         </th>
-        <th pSortableColumn="endDate">
+        <th pSortableColumn="fechaFin">
           <div>
-            <p-sortIcon class="order" field="endDate" />
+            <p-sortIcon class="order" field="fechaFin" />
             Fecha fin
             <p-columnFilter
               type="text"
-              field="endDate"
+              field="fechaFin"
               class="filter"
               display="menu"
             />
           </div>
         </th>
-        <th pSortableColumn="amount">
+        <th pSortableColumn="importe">
           <div>
-            <p-sortIcon class="order" field="amount" />
+            <p-sortIcon class="order" field="importe" />
             Importe
             <p-columnFilter
               type="text"
-              field="amount"
+              field="importe"
               class="filter"
               display="menu"
             />
           </div>
         </th>
-        <th pSortableColumn="currency">
+        <th pSortableColumn="codMoneda">
           <div>
-            <p-sortIcon class="order" field="currency" />
+            <p-sortIcon class="order" field="codMoneda" />
             Divisa
             <p-columnFilter
               type="text"
-              field="currency"
+              field="codMoneda"
               class="filter"
               display="menu"
             />
           </div>
         </th>
-        <th pSortableColumn="comment">
+        <th pSortableColumn="comentario">
           <div>
-            <p-sortIcon class="order" field="comment" />
+            <p-sortIcon class="order" field="comentario" />
             Comentario
             <p-columnFilter
               type="text"
-              field="comment"
+              field="comentario"
               class="filter"
               display="menu"
             />
@@ -154,17 +154,18 @@
         <td>
           <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(seguros)"/>
         </td>
-        <td>{{ seguros.center }}</td>
-        <td>{{ seguros.machines }}</td>
-        <td>{{ seguros.insuranceCompany }}</td>
-        <td>{{ seguros.state }}</td>
-        <td>{{ seguros.type }}</td>
-        <td>{{ seguros.numberPoliza }}</td>
-        <td>{{ seguros.startDate }}</td>
-        <td>{{ seguros.endDate }}</td>
-        <td>{{ seguros.amount }}</td>
-        <td>{{ seguros.currency }}</td>
-        <td>{{ seguros.comment }}</td>
+        <td>{{ seguros.empresa.direccion }}</td>
+        <td>{{ seguros.documentoIdentificativo }}</td>
+        <td>{{ seguros.empresa.nombre  }}</td>
+        <td>{{ seguros.codEstadoSeguro }}</td>
+        <td>{{ seguros.codTipoSeguro }}</td>
+          <!-- TODO: add NºPóliza -->
+        <td>{{ seguros }}</td>
+        <td>{{ seguros.fechaInicio }}</td>
+        <td>{{ seguros.fechaFin }}</td>
+        <td>{{ seguros.importe }}</td>
+        <td>{{ seguros.codMoneda }}</td>
+        <td>{{ seguros.comentario }}</td>
       </tr>
     </ng-template>
     <ng-template pTemplate="footer">
