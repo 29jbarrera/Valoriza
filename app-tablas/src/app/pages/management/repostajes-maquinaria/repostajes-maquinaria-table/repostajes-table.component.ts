@@ -7,7 +7,10 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { MantenimientoRepostajeDto } from '@valoriza/web-commons';
+// TODO: Import the necessary modules
+// import { MantenimientoRepostajeDto } from '@valoriza/web-commons';
+type MantenimientoRepostajeDto = any;
+
 import { RepostajesService } from '../repostajes-maquinaria.service';
 
 import { TableModule } from 'primeng/table';

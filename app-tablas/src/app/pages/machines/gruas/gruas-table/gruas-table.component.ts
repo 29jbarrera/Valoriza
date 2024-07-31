@@ -80,7 +80,7 @@ export class GruasTableComponent implements OnInit {
 
   async delete(gruas: GruasDocDto) {
     try {
-      await this.GruasService.deleteGruas(gruas.id!);
+      await this.GruasService.deleteGruas(gruas.idGrua!);
       this.messageService.add({
         severity: 'success',
         summary: 'Confirmado',

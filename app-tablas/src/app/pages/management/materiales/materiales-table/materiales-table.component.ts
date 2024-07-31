@@ -7,7 +7,9 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { ReferenciasMaterialeDto } from '@valoriza/web-commons';
+// TODO: Import the necessary modules
+// import { ReferenciasMaterialeDto } from '@valoriza/web-commons';
+type ReferenciasMaterialeDto = any;
 import { MaterialesService } from '../materiales.service';
 
 import { TableModule } from 'primeng/table';

@@ -1,29 +1,35 @@
 import { Injectable } from '@angular/core';
 
 import { lastValueFrom } from 'rxjs';
-import {
-  ReferenciasMaterialeDto,
-  ReferenciasMaterialeService,
-} from '@valoriza/web-commons';
+// TODO: Import the necessary modules
+// import {
+//   ReferenciasMaterialeDto,
+//   ReferenciasMaterialeService,
+// } from '@valoriza/web-commons';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MaterialesService {
   constructor(
-    private _referenciasMaterialeService: ReferenciasMaterialeService
+    // TODO: Import the necessary modules
+    // private _referenciasMaterialeService: ReferenciasMaterialeService
   ) {}
-  async getMateriales(): Promise<ReferenciasMaterialeDto[]> {
-    const response = await lastValueFrom(
-      this._referenciasMaterialeService.apiV2ReferenciasMaterialeGet()
-    );
-    return response.results || [];
+  // TODO: Import the necessary modules
+  // async getMateriales(): Promise<ReferenciasMaterialeDto[]> {
+    async getMateriales(): Promise<any[]> {
+    // const response = await lastValueFrom(
+    //   this._referenciasMaterialeService.apiV2ReferenciasMaterialeGet()
+    // );
+    // return response.results || [];
+    return [];
   }
   async deleteMateriales(materialesId: number) {
-    await lastValueFrom(
-      this._referenciasMaterialeService.apiV2ReferenciasMaterialeIdDelete(
-        materialesId
-      )
-    );
+    // TODO: Import the necessary modules
+    // await lastValueFrom(
+    //   this._referenciasMaterialeService.apiV2ReferenciasMaterialeIdDelete(
+    //     materialesId
+    //   )
+    // );
   }
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { InstalacioneDto, InstalacioneService } from '@valoriza/web-commons';
+import { InstalacionDto, InstalacionesService as InstalacioneService } from '@valoriza/web-commons';
 import { lastValueFrom } from 'rxjs';
 
 @Injectable({
@@ -9,13 +9,13 @@ import { lastValueFrom } from 'rxjs';
 export class InstalacionesService {
   constructor(private _instalacioneService: InstalacioneService) {}
 
-  async getInstalaciones(): Promise<InstalacioneDto[]> {
+  async getInstalaciones(): Promise<InstalacionDto[]> {
     const response = await lastValueFrom(
-      this._instalacioneService.apiV2InstalacioneGet()
+      this._instalacioneService.apiV2InstalacionesGet()
     );
     return response.results || [];
   }
   async deleteInstalaciones(instalacionesID: number) {
-    await lastValueFrom(this._instalacioneService.apiV2InstalacioneIdDelete(instalacionesID));
+    await lastValueFrom(this._instalacioneService.apiV2InstalacionesIdDelete(instalacionesID));
   }
 }

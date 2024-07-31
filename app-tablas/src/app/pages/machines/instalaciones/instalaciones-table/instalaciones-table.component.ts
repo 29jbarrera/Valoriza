@@ -9,7 +9,7 @@ import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { InstalacioneDto } from '@valoriza/web-commons';
+import { InstalacionDto } from '@valoriza/web-commons';
 
 @Component({
   selector: 'app-instalaciones-table',
@@ -26,7 +26,7 @@ import { InstalacioneDto } from '@valoriza/web-commons';
   providers: [ConfirmationService, MessageService],
 })
 export class InstalacionesTableComponent implements OnInit {
-  instalaciones: InstalacioneDto[] = [];
+  instalaciones: InstalacionDto[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -49,7 +49,7 @@ export class InstalacionesTableComponent implements OnInit {
     this.instalaciones = await this.InstalacionesService.getInstalaciones();
   }
 
-  async confirm_edit(instalaciones: InstalacioneDto) {
+  async confirm_edit(instalaciones: InstalacionDto) {
     try {
       this.edit(instalaciones);
 
@@ -69,12 +69,12 @@ export class InstalacionesTableComponent implements OnInit {
     }
   }
 
-  async edit(instalaciones: InstalacioneDto) {
+  async edit(instalaciones: InstalacionDto) {
     // TODO: PETICIÓN A BACKEND PARA EDITAR
     console.error('Edit object:', instalaciones);
   }
 
-  async delete(instalaciones: InstalacioneDto) {
+  async delete(instalaciones: InstalacionDto) {
     try {
       await this.InstalacionesService.deleteInstalaciones(instalaciones.id!);
       this.messageService.add({
@@ -93,7 +93,7 @@ export class InstalacionesTableComponent implements OnInit {
     }
   }
 
-  async confirm_delete(instalaciones: InstalacioneDto) {
+  async confirm_delete(instalaciones: InstalacionDto) {
     this._confirmationService.confirm({
       message: '¿Estás seguro de que quieres eliminar esta fila?',
       header: 'Eliminar fila de instalaciones',

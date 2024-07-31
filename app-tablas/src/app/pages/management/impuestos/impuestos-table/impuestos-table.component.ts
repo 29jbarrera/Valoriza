@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { ImpuestoDto } from '@valoriza/web-commons';
+import { ImpuestoDto, ImpuestoViewsDto } from '@valoriza/web-commons';
 import { ImpuestosService } from '../impuestos.service';
 
 import { TableModule } from 'primeng/table';
@@ -51,7 +51,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
   providers: [ConfirmationService, MessageService],
 })
 export class ImpuestosTableComponent implements OnInit {
-  impuestos: ImpuestoDto[] = [];
+  impuestos: ImpuestoViewsDto[] = [];
   searchForm: FormGroup;
 
   constructor(

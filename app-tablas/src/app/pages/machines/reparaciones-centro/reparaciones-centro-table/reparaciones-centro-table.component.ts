@@ -105,7 +105,7 @@ export class ReparacionesCentroTableComponent implements OnInit {
   async delete(reparacionesCentro: ReparacionesDocDto) {
     try {
       await this.ReparacionesCentroService.deleteReparacionesCentro(
-        reparacionesCentro.id!
+        String(reparacionesCentro.id!)
       );
       this.messageService.add({
         severity: 'success',

@@ -8,8 +8,9 @@ import {
 import { CommonModule } from '@angular/common';
 
 import { TasasService } from '../tasas.service';
-import { TasasHistoricoDto } from '@valoriza/web-commons';
-
+// TODO: Import the necessary modules
+// import { TasasHistoricoDto } from '@valoriza/web-commons';
+type TasasHistoricoDto = any;
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
 import { IconFieldModule } from 'primeng/iconfield';

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { lastValueFrom } from 'rxjs';
-import { ImpuestoDto, ImpuestoService } from '@valoriza/web-commons';
+import { ImpuestoViewsDto, ImpuestosService as ImpuestoService } from '@valoriza/web-commons';
 
 @Injectable({
   providedIn: 'root',
@@ -9,9 +9,9 @@ import { ImpuestoDto, ImpuestoService } from '@valoriza/web-commons';
 export class ImpuestosService {
   constructor(private _impuestoService: ImpuestoService) {}
 
-  async getImpuestos(): Promise<ImpuestoDto[]> {
+  async getImpuestos(): Promise<ImpuestoViewsDto[]> {
     const response = await lastValueFrom(
-      this._impuestoService.apiV2ImpuestoGet()
+      this._impuestoService.apiV2ImpuestosViewsGet()
     );
     return response.results || [];
   }

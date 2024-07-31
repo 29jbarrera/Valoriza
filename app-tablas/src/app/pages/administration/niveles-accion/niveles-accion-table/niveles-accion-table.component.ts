@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { NivelesMantenimientoAccioneDto } from '@valoriza/web-commons';
+import { NivelMantenimientoTiposAccionDto } from '@valoriza/web-commons';
 import { NivelesAccionService } from '../niveles-accion.service';
 
 import { TableModule } from 'primeng/table';
@@ -51,7 +51,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
   providers: [ConfirmationService, MessageService],
 })
 export class NivelesAccionTableComponent implements OnInit {
-  nivelesAccion: NivelesMantenimientoAccioneDto[] = [];
+  nivelesAccion: NivelMantenimientoTiposAccionDto[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -73,7 +73,7 @@ export class NivelesAccionTableComponent implements OnInit {
     this.nivelesAccion = await this.NivelesAccionService.getNivelesAccion();
   }
 
-  async confirm_edit(nivelesAccion: NivelesMantenimientoAccioneDto) {
+  async confirm_edit(nivelesAccion: NivelMantenimientoTiposAccionDto) {
     try {
       this.edit(nivelesAccion);
 
@@ -93,12 +93,12 @@ export class NivelesAccionTableComponent implements OnInit {
     }
   }
 
-  async edit(nivelesAccion: NivelesMantenimientoAccioneDto) {
+  async edit(nivelesAccion: NivelMantenimientoTiposAccionDto) {
     // TODO: PETICIÓN A BACKEND PARA EDITAR
     console.error('Edit object:', nivelesAccion);
   }
 
-  async delete(nivelesAccion: NivelesMantenimientoAccioneDto) {
+  async delete(nivelesAccion: NivelMantenimientoTiposAccionDto) {
     try {
       await this.NivelesAccionService.deleteNivelesAccion(nivelesAccion.id!);
       this.messageService.add({
@@ -117,7 +117,7 @@ export class NivelesAccionTableComponent implements OnInit {
     }
   }
 
-  async confirm_delete(nivelesAccion: NivelesMantenimientoAccioneDto) {
+  async confirm_delete(nivelesAccion: NivelMantenimientoTiposAccionDto) {
     this._confirmationService.confirm({
       message: '¿Estás seguro de que quieres eliminar esta fila?',
       header: 'Eliminar fila de Niveles de acción',

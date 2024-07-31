@@ -7,7 +7,10 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { CategoriaDto } from '@valoriza/web-commons';
+// TODO: Import the necessary modules
+// import { CategoriaDto } from '@valoriza/web-commons';
+type CategoriaDto = any;
+
 import { CategoriasService } from '../categorias.service';
 
 import { TableModule } from 'primeng/table';

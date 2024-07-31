@@ -7,7 +7,9 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { TasasHistoricoDto } from '@valoriza/web-commons';
+// TODO: Import the necessary modules
+// import { TasasHistoricoDto } from '@valoriza/web-commons';
+type TasasHistoricoDto = any;
 import { TasasCentroService } from '../tasas-centro.service';
 
 import { TableModule } from 'primeng/table';

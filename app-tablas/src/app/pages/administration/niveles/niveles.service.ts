@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 
 import {
-  NivelesMantenimientoService,
-  CreateNivelesMantenimientoDto,
+  NivelMantenimientoDto,
+  NivelMantenimientoService,
 } from '@valoriza/web-commons';
 import { lastValueFrom } from 'rxjs';
 
@@ -11,17 +11,17 @@ import { lastValueFrom } from 'rxjs';
 })
 export class NivelesService {
   constructor(
-    private _nivelesMantenimientoService: NivelesMantenimientoService
+    private _nivelesMantenimientoService: NivelMantenimientoService
   ) {}
-  async getNiveles(): Promise<CreateNivelesMantenimientoDto[]> {
+  async getNiveles(): Promise<NivelMantenimientoDto[]> {
     const response = await lastValueFrom(
-      this._nivelesMantenimientoService.apiV2NivelesMantenimientoGet()
+      this._nivelesMantenimientoService.apiV2NivelMantenimientoGet()
     );
     return response.results || [];
   }
   async deleteNiveles(nivelesId: number) {
     await lastValueFrom(
-      this._nivelesMantenimientoService.apiV2NivelesMantenimientoIdDelete(
+      this._nivelesMantenimientoService.apiV2NivelMantenimientoIdDelete(
         nivelesId
       )
     );

@@ -18,9 +18,9 @@ export class ReparacionesCentroService {
     );
     return response.results || [];
   }
-  async deleteReparacionesCentro(reparacionesCentroid: number) {
+  async deleteReparacionesCentro(reparacionesCentroid: string) {
     await lastValueFrom(
-      this._reparacionesDocService.apiV2ReparacionesDocIdDelete(
+      this._reparacionesDocService.apiV2ReparacionesDocClaveGuidDelete(
         reparacionesCentroid
       )
     );

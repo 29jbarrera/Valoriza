@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 
 import { lastValueFrom } from 'rxjs';
-import { TacografoDto, TacografoService } from '@valoriza/web-commons';
+import { TacografoDto, MaquinariasTacografosService } from '@valoriza/web-commons';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TacografosService {
-  constructor(private _tacografoService: TacografoService) {}
+  constructor(private _tacografoService: MaquinariasTacografosService) {}
 
   async getTacografos(): Promise<TacografoDto[]> {
     const response = await lastValueFrom(

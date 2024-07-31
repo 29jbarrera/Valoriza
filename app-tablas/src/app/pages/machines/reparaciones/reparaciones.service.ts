@@ -1,23 +1,23 @@
 import { Injectable } from '@angular/core';
 
 import { lastValueFrom } from 'rxjs';
-import { ReparacioneDto, ReparacioneService } from '@valoriza/web-commons';
+import { MaquinariasReparacionesService, ReparacionDto } from '@valoriza/web-commons';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ReparacionesService {
-  constructor(private _reparacioneService: ReparacioneService) {}
+  constructor(private _reparacioneService: MaquinariasReparacionesService) {}
 
-  async getReparaciones(): Promise<ReparacioneDto[]> {
+  async getReparaciones(): Promise<ReparacionDto[]> {
     const response = await lastValueFrom(
-      this._reparacioneService.apiV2ReparacioneGet()
+      this._reparacioneService.apiV2ReparacionesGet()
     );
     return response.results || [];
   }
   async deleteReparaciones(reparacionesId: number) {
     await lastValueFrom(
-      this._reparacioneService.apiV2ReparacioneIdDelete(reparacionesId)
+      this._reparacioneService.apiV2ReparacionesIdDelete(reparacionesId)
     );
   }
 }

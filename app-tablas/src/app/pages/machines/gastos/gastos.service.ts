@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { GastosTallerDto, GastosTallerService } from '@valoriza/web-commons';
+import { GastoTallerDto, GastosTallerService } from '@valoriza/web-commons';
 import { lastValueFrom } from 'rxjs';
 
 @Injectable({
@@ -9,15 +9,15 @@ import { lastValueFrom } from 'rxjs';
 export class GastosService {
   constructor(private _gastosTallerService: GastosTallerService) {}
 
-  async getGastos(): Promise<GastosTallerDto[]> {
+  async getGastos(): Promise<GastoTallerDto[]> {
     const response = await lastValueFrom(
-      this._gastosTallerService.apiV2GastosTallerGet()
+      this._gastosTallerService.apiV2GastosTallerDocGet()
     );
     return response.results || [];
   }
-  async deleteGastos(gastosID: number) {
+  async deleteGastos(gastosID: string) {
     await lastValueFrom(
-      this._gastosTallerService.apiV2GastosTallerIdDelete(gastosID)
+      this._gastosTallerService.apiV2GastosTallerDocClaveGuidDelete(gastosID)
     );
   }
 }

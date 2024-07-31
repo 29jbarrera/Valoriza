@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { DepositoService, DepositoDto } from '@valoriza/web-commons';
+import { DepositosService as DepositoService, DepositoDto } from '@valoriza/web-commons';
 import { lastValueFrom } from 'rxjs';
 
 @Injectable({
@@ -10,13 +10,13 @@ export class DepositosService {
   constructor(private _depositoService: DepositoService) {}
   async getDepositos(): Promise<DepositoDto[]> {
     const response = await lastValueFrom(
-      this._depositoService.apiV2DepositoGet()
+      this._depositoService.apiV2DepositosGet()
     );
     return response.results || [];
   }
   async deleteDepositos(depositosId: number) {
     await lastValueFrom(
-      this._depositoService.apiV2DepositoIdDelete(depositosId)
+      this._depositoService.apiV2DepositosIdDelete(depositosId)
     );
   }
 }

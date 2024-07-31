@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { ProveedoreDto } from '@valoriza/web-commons';
+import { ProveedorDto } from '@valoriza/web-commons';
 import { ProveedoresService } from '../proveedores.service';
 
 import { TableModule } from 'primeng/table';
@@ -51,7 +51,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
   providers: [ConfirmationService, MessageService],
 })
 export class ProveedoresTableComponent implements OnInit {
-  proveedores: ProveedoreDto[] = [];
+  proveedores: ProveedorDto[] = [];
   searchForm: FormGroup;
 
   constructor(
@@ -77,7 +77,7 @@ export class ProveedoresTableComponent implements OnInit {
     this.proveedores = await this.ProveedoresService.getProveedores();
   }
 
-  async confirm_edit(proveedores: ProveedoreDto) {
+  async confirm_edit(proveedores: ProveedorDto) {
     try {
       this.edit(proveedores);
 
@@ -97,12 +97,12 @@ export class ProveedoresTableComponent implements OnInit {
     }
   }
 
-  async edit(proveedores: ProveedoreDto) {
+  async edit(proveedores: ProveedorDto) {
     // TODO: PETICIÓN A BACKEND PARA EDITAR
     console.error('Edit object:', proveedores);
   }
 
-  async delete(proveedores: ProveedoreDto) {
+  async delete(proveedores: ProveedorDto) {
     try {
       await this.ProveedoresService.deleteProveedores(proveedores.id!);
       this.messageService.add({
@@ -121,7 +121,7 @@ export class ProveedoresTableComponent implements OnInit {
     }
   }
 
-  async confirm_delete(proveedores: ProveedoreDto) {
+  async confirm_delete(proveedores: ProveedorDto) {
     this._confirmationService.confirm({
       message: '¿Estás seguro de que quieres eliminar esta fila?',
       header: 'Eliminar fila de proveedores',
