@@ -21,6 +21,7 @@ import { CreateSegurosDocDto } from '../model/createSegurosDocDto';
 import { ProblemDetails } from '../model/problemDetails';
 import { SegurosDocDto } from '../model/segurosDocDto';
 import { SegurosDocDtoPaginatedResult } from '../model/segurosDocDtoPaginatedResult';
+import { SegurosDocOneDto } from '../model/segurosDocOneDto';
 import { UpdateSegurosDocDto } from '../model/updateSegurosDocDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -58,6 +59,92 @@ export class SegurosDocService {
         return false;
     }
 
+
+    /**
+     * 
+     * 
+     * @param claveGuid 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public apiV2SegurosDocClaveGuidDelete(claveGuid: string, observe?: 'body', reportProgress?: boolean): Observable<SegurosDocDto>;
+    public apiV2SegurosDocClaveGuidDelete(claveGuid: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<SegurosDocDto>>;
+    public apiV2SegurosDocClaveGuidDelete(claveGuid: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<SegurosDocDto>>;
+    public apiV2SegurosDocClaveGuidDelete(claveGuid: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        if (claveGuid === null || claveGuid === undefined) {
+            throw new Error('Required parameter claveGuid was null or undefined when calling apiV2SegurosDocClaveGuidDelete.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.request<SegurosDocDto>('delete',`${this.basePath}/api/v2/SegurosDoc/${encodeURIComponent(String(claveGuid))}`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * 
+     * @param claveGuid 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public apiV2SegurosDocClaveGuidGet(claveGuid: string, observe?: 'body', reportProgress?: boolean): Observable<SegurosDocOneDto>;
+    public apiV2SegurosDocClaveGuidGet(claveGuid: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<SegurosDocOneDto>>;
+    public apiV2SegurosDocClaveGuidGet(claveGuid: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<SegurosDocOneDto>>;
+    public apiV2SegurosDocClaveGuidGet(claveGuid: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        if (claveGuid === null || claveGuid === undefined) {
+            throw new Error('Required parameter claveGuid was null or undefined when calling apiV2SegurosDocClaveGuidGet.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.request<SegurosDocOneDto>('get',`${this.basePath}/api/v2/SegurosDoc/${encodeURIComponent(String(claveGuid))}`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
 
     /**
      * 
@@ -114,95 +201,9 @@ export class SegurosDocService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<SegurosDocDtoPaginatedResult>('get',`${this.basePath}/api/v2/segurosDoc`,
+        return this.httpClient.request<SegurosDocDtoPaginatedResult>('get',`${this.basePath}/api/v2/SegurosDoc`,
             {
                 params: queryParameters,
-                withCredentials: this.configuration.withCredentials,
-                headers: headers,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * 
-     * 
-     * @param id 
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public apiV2SegurosDocIdDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2SegurosDocIdDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2SegurosDocIdDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
-    public apiV2SegurosDocIdDelete(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
-
-        if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling apiV2SegurosDocIdDelete.');
-        }
-
-        let headers = this.defaultHeaders;
-
-        // to determine the Accept header
-        let httpHeaderAccepts: string[] = [
-            'text/plain',
-            'application/json',
-            'text/json'
-        ];
-        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        if (httpHeaderAcceptSelected != undefined) {
-            headers = headers.set('Accept', httpHeaderAcceptSelected);
-        }
-
-        // to determine the Content-Type header
-        const consumes: string[] = [
-        ];
-
-        return this.httpClient.request<any>('delete',`${this.basePath}/api/v2/segurosDoc/${encodeURIComponent(String(id))}`,
-            {
-                withCredentials: this.configuration.withCredentials,
-                headers: headers,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * 
-     * 
-     * @param id 
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public apiV2SegurosDocIdGet(id: number, observe?: 'body', reportProgress?: boolean): Observable<SegurosDocDto>;
-    public apiV2SegurosDocIdGet(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<SegurosDocDto>>;
-    public apiV2SegurosDocIdGet(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<SegurosDocDto>>;
-    public apiV2SegurosDocIdGet(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
-
-        if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling apiV2SegurosDocIdGet.');
-        }
-
-        let headers = this.defaultHeaders;
-
-        // to determine the Accept header
-        let httpHeaderAccepts: string[] = [
-            'text/plain',
-            'application/json',
-            'text/json'
-        ];
-        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        if (httpHeaderAcceptSelected != undefined) {
-            headers = headers.set('Accept', httpHeaderAcceptSelected);
-        }
-
-        // to determine the Content-Type header
-        const consumes: string[] = [
-        ];
-
-        return this.httpClient.request<SegurosDocDto>('get',`${this.basePath}/api/v2/segurosDoc/${encodeURIComponent(String(id))}`,
-            {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
                 observe: observe,
@@ -218,9 +219,9 @@ export class SegurosDocService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2SegurosDocPost(body?: CreateSegurosDocDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2SegurosDocPost(body?: CreateSegurosDocDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2SegurosDocPost(body?: CreateSegurosDocDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2SegurosDocPost(body?: CreateSegurosDocDto, observe?: 'body', reportProgress?: boolean): Observable<SegurosDocDto>;
+    public apiV2SegurosDocPost(body?: CreateSegurosDocDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<SegurosDocDto>>;
+    public apiV2SegurosDocPost(body?: CreateSegurosDocDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<SegurosDocDto>>;
     public apiV2SegurosDocPost(body?: CreateSegurosDocDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -248,7 +249,7 @@ export class SegurosDocService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/segurosDoc`,
+        return this.httpClient.request<SegurosDocDto>('post',`${this.basePath}/api/v2/SegurosDoc`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -266,9 +267,9 @@ export class SegurosDocService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2SegurosDocPut(body?: UpdateSegurosDocDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2SegurosDocPut(body?: UpdateSegurosDocDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2SegurosDocPut(body?: UpdateSegurosDocDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2SegurosDocPut(body?: UpdateSegurosDocDto, observe?: 'body', reportProgress?: boolean): Observable<SegurosDocDto>;
+    public apiV2SegurosDocPut(body?: UpdateSegurosDocDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<SegurosDocDto>>;
+    public apiV2SegurosDocPut(body?: UpdateSegurosDocDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<SegurosDocDto>>;
     public apiV2SegurosDocPut(body?: UpdateSegurosDocDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -296,7 +297,7 @@ export class SegurosDocService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/segurosDoc`,
+        return this.httpClient.request<SegurosDocDto>('put',`${this.basePath}/api/v2/SegurosDoc`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

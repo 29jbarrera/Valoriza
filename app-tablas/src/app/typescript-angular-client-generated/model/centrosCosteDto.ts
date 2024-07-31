@@ -9,10 +9,12 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { GruposCentroDto } from './gruposCentroDto';
 
 export interface CentrosCosteDto { 
     id?: number;
     idGrupoCentro?: number;
-    codigo: string;
-    nombre: string;
+    grupoCentro?: GruposCentroDto;
+    codigo?: string;
+    nombre?: string;
 }

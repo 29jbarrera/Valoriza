@@ -12,7 +12,7 @@
 
 export interface UpdateParteTrabajoMecanicoDto { 
     id?: number;
-    idParteTrabajo?: number;
-    idMecanico?: number;
-    horasReparacion?: number;
+    idParteTrabajo: number;
+    idMecanico: number;
+    horasReparacion: number;
 }

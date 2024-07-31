@@ -16,14 +16,13 @@ export interface Seguro1Dto {
     costePrecio?: number;
     categoriaSeguro?: number;
     tipoSeguro?: string;
-    numPoliza: string;
-    inicioPoliza?: Date;
-    finPoliza?: Date;
-    aseguradora: string;
+    numPoliza?: string;
+    inicioPoliza?: string;
+    finPoliza?: string;
+    aseguradora?: string;
     matricula?: string;
     centerId?: string;
     nombre?: string;
     regionalId?: number;
-    generalId?: string;
-    moneda: string;
+    moneda?: string;
 }

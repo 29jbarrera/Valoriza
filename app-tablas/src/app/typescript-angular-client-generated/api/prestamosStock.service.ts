@@ -114,7 +114,7 @@ export class PrestamosStockService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<PrestamosStockDtoPaginatedResult>('get',`${this.basePath}/api/v2/prestamosStock`,
+        return this.httpClient.request<PrestamosStockDtoPaginatedResult>('get',`${this.basePath}/api/v2/PrestamosStock`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -132,9 +132,9 @@ export class PrestamosStockService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2PrestamosStockIdDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2PrestamosStockIdDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2PrestamosStockIdDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2PrestamosStockIdDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<PrestamosStockDto>;
+    public apiV2PrestamosStockIdDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PrestamosStockDto>>;
+    public apiV2PrestamosStockIdDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PrestamosStockDto>>;
     public apiV2PrestamosStockIdDelete(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (id === null || id === undefined) {
@@ -158,7 +158,7 @@ export class PrestamosStockService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<any>('delete',`${this.basePath}/api/v2/prestamosStock/${encodeURIComponent(String(id))}`,
+        return this.httpClient.request<PrestamosStockDto>('delete',`${this.basePath}/api/v2/PrestamosStock/${encodeURIComponent(String(id))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -201,7 +201,7 @@ export class PrestamosStockService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<PrestamosStockDto>('get',`${this.basePath}/api/v2/prestamosStock/${encodeURIComponent(String(id))}`,
+        return this.httpClient.request<PrestamosStockDto>('get',`${this.basePath}/api/v2/PrestamosStock/${encodeURIComponent(String(id))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -218,9 +218,9 @@ export class PrestamosStockService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2PrestamosStockPost(body?: CreatePrestamosStockDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2PrestamosStockPost(body?: CreatePrestamosStockDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2PrestamosStockPost(body?: CreatePrestamosStockDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2PrestamosStockPost(body?: CreatePrestamosStockDto, observe?: 'body', reportProgress?: boolean): Observable<PrestamosStockDto>;
+    public apiV2PrestamosStockPost(body?: CreatePrestamosStockDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PrestamosStockDto>>;
+    public apiV2PrestamosStockPost(body?: CreatePrestamosStockDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PrestamosStockDto>>;
     public apiV2PrestamosStockPost(body?: CreatePrestamosStockDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -248,7 +248,7 @@ export class PrestamosStockService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/prestamosStock`,
+        return this.httpClient.request<PrestamosStockDto>('post',`${this.basePath}/api/v2/PrestamosStock`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -266,9 +266,9 @@ export class PrestamosStockService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2PrestamosStockPut(body?: UpdatePrestamosStockDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2PrestamosStockPut(body?: UpdatePrestamosStockDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2PrestamosStockPut(body?: UpdatePrestamosStockDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2PrestamosStockPut(body?: UpdatePrestamosStockDto, observe?: 'body', reportProgress?: boolean): Observable<PrestamosStockDto>;
+    public apiV2PrestamosStockPut(body?: UpdatePrestamosStockDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PrestamosStockDto>>;
+    public apiV2PrestamosStockPut(body?: UpdatePrestamosStockDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PrestamosStockDto>>;
     public apiV2PrestamosStockPut(body?: UpdatePrestamosStockDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -296,7 +296,7 @@ export class PrestamosStockService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/prestamosStock`,
+        return this.httpClient.request<PrestamosStockDto>('put',`${this.basePath}/api/v2/PrestamosStock`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

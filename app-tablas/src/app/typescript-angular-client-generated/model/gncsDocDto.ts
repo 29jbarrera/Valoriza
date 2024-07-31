@@ -11,14 +11,12 @@
  */
 
 export interface GncsDocDto { 
-    id?: number;
+    claveGuid: string;
     idGnc?: number;
-    claveGuid?: string;
-    documento: string;
-    nombre: string;
-    extension: string;
-    createdBy: string;
+    nombre?: string;
+    extension?: string;
+    createdBy?: string;
     createdAt?: Date;
-    changedBy: string;
+    changedBy?: string;
     changedAt?: Date;
 }

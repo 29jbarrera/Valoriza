@@ -12,9 +12,9 @@
 
 export interface UpdateImpuestosHistoricoDto { 
     id?: number;
-    idEmpresa?: number;
+    idEmpresa: number;
     impuesto?: number;
-    fechaImpuesto?: Date;
+    fechaImpuesto?: string;
     codMoneda?: string;
     idImpuesto?: number;
 }

@@ -15,7 +15,7 @@ export interface TacografosHistoricoDto {
     id?: number;
     idTacografo?: number;
     tacografo?: TacografoDto;
-    fecha?: Date;
+    fecha?: string;
     createdAt?: Date;
-    createdBy: string;
+    createdBy?: string;
 }

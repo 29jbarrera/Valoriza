@@ -14,13 +14,9 @@ export interface CentrosViewDto {
     id?: number;
     idCentro?: number;
     idEmpresa?: number;
-    codigo: string;
-    nombre: string;
+    codigo?: string;
+    nombre?: string;
     idGrupo?: number;
-    codigoGrupo: string;
-    nombreGrupo: string;
-    codigoTipoCentro?: string;
-    idGrupoPadre?: number;
-    tipoCentro?: string;
-    codMoneda?: string;
+    codigoGrupo?: string;
+    nombreGrupo?: string;
 }

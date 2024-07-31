@@ -9,16 +9,13 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { EmpresaDto } from './empresaDto';
-import { FamiliaDto } from './familiaDto';
-import { NivelesMantenimientoDto } from './nivelesMantenimientoDto';
+import { NivelMantenimientoAccionDto } from './nivelMantenimientoAccionDto';
+import { SubFamiliasLangDto } from './subFamiliasLangDto';
 
 export interface SubFamiliaDto { 
     id?: number;
     idEmpresa?: number;
-    empresa?: EmpresaDto;
     idFamilia?: number;
-    familia?: FamiliaDto;
     grua?: boolean;
     fichaTecnica?: boolean;
     inspeccionTecnica?: boolean;
@@ -30,14 +27,15 @@ export interface SubFamiliaDto {
     conformidad?: boolean;
     peso?: boolean;
     gnc?: boolean;
-    createdBy: string;
+    createdBy?: string;
     createdAt?: Date;
-    changedBy: string;
+    changedBy?: string;
     changedAt?: Date;
     idNivelMantenimientoChasis?: number;
     idNivelMantenimientoEquipo?: number;
-    nivelMantenimientoEquipo?: NivelesMantenimientoDto;
+    nivelMantenimientoEquipo?: NivelMantenimientoAccionDto;
     idNivelMantenimientoImplemento?: number;
-    nivelMantenimientoImplemento?: NivelesMantenimientoDto;
+    nivelMantenimientoImplemento?: NivelMantenimientoAccionDto;
     esImplemento?: boolean;
+    langs?: Array<SubFamiliasLangDto>;
 }

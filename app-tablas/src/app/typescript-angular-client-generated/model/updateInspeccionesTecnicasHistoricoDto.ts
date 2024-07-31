@@ -13,7 +13,7 @@
 export interface UpdateInspeccionesTecnicasHistoricoDto { 
     id?: number;
     idMaquinaria?: number;
-    idEmpresa?: number;
+    idEmpresa: number;
     fecha?: Date;
     fechaProxima?: Date;
     importe?: number;

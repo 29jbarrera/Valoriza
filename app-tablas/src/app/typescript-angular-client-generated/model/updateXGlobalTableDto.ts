@@ -14,8 +14,8 @@ export interface UpdateXGlobalTableDto {
     id?: number;
     codeApp: string;
     name: string;
-    codeLength?: number;
+    codeLength: number;
     accessType: string;
-    bySession?: boolean;
+    bySession: boolean;
     codeTask?: string;
 }

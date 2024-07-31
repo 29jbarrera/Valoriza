@@ -114,7 +114,7 @@ export class XGlobalTableService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<XGlobalTableDtoPaginatedResult>('get',`${this.basePath}/api/v2/xGlobalTable`,
+        return this.httpClient.request<XGlobalTableDtoPaginatedResult>('get',`${this.basePath}/api/v2/XGlobalTable`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -132,9 +132,9 @@ export class XGlobalTableService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2XGlobalTableIdDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2XGlobalTableIdDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2XGlobalTableIdDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2XGlobalTableIdDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<XGlobalTableDto>;
+    public apiV2XGlobalTableIdDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<XGlobalTableDto>>;
+    public apiV2XGlobalTableIdDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<XGlobalTableDto>>;
     public apiV2XGlobalTableIdDelete(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (id === null || id === undefined) {
@@ -158,7 +158,7 @@ export class XGlobalTableService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<any>('delete',`${this.basePath}/api/v2/xGlobalTable/${encodeURIComponent(String(id))}`,
+        return this.httpClient.request<XGlobalTableDto>('delete',`${this.basePath}/api/v2/XGlobalTable/${encodeURIComponent(String(id))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -201,7 +201,7 @@ export class XGlobalTableService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<XGlobalTableDto>('get',`${this.basePath}/api/v2/xGlobalTable/${encodeURIComponent(String(id))}`,
+        return this.httpClient.request<XGlobalTableDto>('get',`${this.basePath}/api/v2/XGlobalTable/${encodeURIComponent(String(id))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -218,9 +218,9 @@ export class XGlobalTableService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2XGlobalTablePost(body?: CreateXGlobalTableDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2XGlobalTablePost(body?: CreateXGlobalTableDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2XGlobalTablePost(body?: CreateXGlobalTableDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2XGlobalTablePost(body?: CreateXGlobalTableDto, observe?: 'body', reportProgress?: boolean): Observable<XGlobalTableDto>;
+    public apiV2XGlobalTablePost(body?: CreateXGlobalTableDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<XGlobalTableDto>>;
+    public apiV2XGlobalTablePost(body?: CreateXGlobalTableDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<XGlobalTableDto>>;
     public apiV2XGlobalTablePost(body?: CreateXGlobalTableDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -248,7 +248,7 @@ export class XGlobalTableService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/xGlobalTable`,
+        return this.httpClient.request<XGlobalTableDto>('post',`${this.basePath}/api/v2/XGlobalTable`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -266,9 +266,9 @@ export class XGlobalTableService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2XGlobalTablePut(body?: UpdateXGlobalTableDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2XGlobalTablePut(body?: UpdateXGlobalTableDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2XGlobalTablePut(body?: UpdateXGlobalTableDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2XGlobalTablePut(body?: UpdateXGlobalTableDto, observe?: 'body', reportProgress?: boolean): Observable<XGlobalTableDto>;
+    public apiV2XGlobalTablePut(body?: UpdateXGlobalTableDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<XGlobalTableDto>>;
+    public apiV2XGlobalTablePut(body?: UpdateXGlobalTableDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<XGlobalTableDto>>;
     public apiV2XGlobalTablePut(body?: UpdateXGlobalTableDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -296,7 +296,7 @@ export class XGlobalTableService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/xGlobalTable`,
+        return this.httpClient.request<XGlobalTableDto>('put',`${this.basePath}/api/v2/XGlobalTable`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

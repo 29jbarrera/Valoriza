@@ -114,7 +114,7 @@ export class ParteTrabajoMecanicoService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<ParteTrabajoMecanicoDtoPaginatedResult>('get',`${this.basePath}/api/v2/parteTrabajoMecanico`,
+        return this.httpClient.request<ParteTrabajoMecanicoDtoPaginatedResult>('get',`${this.basePath}/api/v2/ParteTrabajoMecanico`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -132,9 +132,9 @@ export class ParteTrabajoMecanicoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2ParteTrabajoMecanicoIdDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2ParteTrabajoMecanicoIdDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2ParteTrabajoMecanicoIdDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2ParteTrabajoMecanicoIdDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<ParteTrabajoMecanicoDto>;
+    public apiV2ParteTrabajoMecanicoIdDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ParteTrabajoMecanicoDto>>;
+    public apiV2ParteTrabajoMecanicoIdDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ParteTrabajoMecanicoDto>>;
     public apiV2ParteTrabajoMecanicoIdDelete(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (id === null || id === undefined) {
@@ -158,7 +158,7 @@ export class ParteTrabajoMecanicoService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<any>('delete',`${this.basePath}/api/v2/parteTrabajoMecanico/${encodeURIComponent(String(id))}`,
+        return this.httpClient.request<ParteTrabajoMecanicoDto>('delete',`${this.basePath}/api/v2/ParteTrabajoMecanico/${encodeURIComponent(String(id))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -201,7 +201,7 @@ export class ParteTrabajoMecanicoService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<ParteTrabajoMecanicoDto>('get',`${this.basePath}/api/v2/parteTrabajoMecanico/${encodeURIComponent(String(id))}`,
+        return this.httpClient.request<ParteTrabajoMecanicoDto>('get',`${this.basePath}/api/v2/ParteTrabajoMecanico/${encodeURIComponent(String(id))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -218,9 +218,9 @@ export class ParteTrabajoMecanicoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2ParteTrabajoMecanicoPost(body?: CreateParteTrabajoMecanicoDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2ParteTrabajoMecanicoPost(body?: CreateParteTrabajoMecanicoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2ParteTrabajoMecanicoPost(body?: CreateParteTrabajoMecanicoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2ParteTrabajoMecanicoPost(body?: CreateParteTrabajoMecanicoDto, observe?: 'body', reportProgress?: boolean): Observable<ParteTrabajoMecanicoDto>;
+    public apiV2ParteTrabajoMecanicoPost(body?: CreateParteTrabajoMecanicoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ParteTrabajoMecanicoDto>>;
+    public apiV2ParteTrabajoMecanicoPost(body?: CreateParteTrabajoMecanicoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ParteTrabajoMecanicoDto>>;
     public apiV2ParteTrabajoMecanicoPost(body?: CreateParteTrabajoMecanicoDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -248,7 +248,7 @@ export class ParteTrabajoMecanicoService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/parteTrabajoMecanico`,
+        return this.httpClient.request<ParteTrabajoMecanicoDto>('post',`${this.basePath}/api/v2/ParteTrabajoMecanico`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -266,9 +266,9 @@ export class ParteTrabajoMecanicoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2ParteTrabajoMecanicoPut(body?: UpdateParteTrabajoMecanicoDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2ParteTrabajoMecanicoPut(body?: UpdateParteTrabajoMecanicoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2ParteTrabajoMecanicoPut(body?: UpdateParteTrabajoMecanicoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2ParteTrabajoMecanicoPut(body?: UpdateParteTrabajoMecanicoDto, observe?: 'body', reportProgress?: boolean): Observable<ParteTrabajoMecanicoDto>;
+    public apiV2ParteTrabajoMecanicoPut(body?: UpdateParteTrabajoMecanicoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ParteTrabajoMecanicoDto>>;
+    public apiV2ParteTrabajoMecanicoPut(body?: UpdateParteTrabajoMecanicoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ParteTrabajoMecanicoDto>>;
     public apiV2ParteTrabajoMecanicoPut(body?: UpdateParteTrabajoMecanicoDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -296,7 +296,7 @@ export class ParteTrabajoMecanicoService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/parteTrabajoMecanico`,
+        return this.httpClient.request<ParteTrabajoMecanicoDto>('put',`${this.basePath}/api/v2/ParteTrabajoMecanico`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

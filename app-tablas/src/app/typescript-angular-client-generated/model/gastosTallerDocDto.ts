@@ -9,18 +9,14 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { GastosTallerDto } from './gastosTallerDto';
 
 export interface GastosTallerDocDto { 
-    id?: number;
+    claveGuid: string;
     idGastoTaller?: number;
-    gastosTaller?: GastosTallerDto;
-    claveGuid?: string;
-    documento: string;
-    nombre: string;
-    extension: string;
-    createdBy: string;
+    nombre?: string;
+    extension?: string;
+    createdBy?: string;
     createdAt?: Date;
-    changedBy: string;
+    changedBy?: string;
     changedAt?: Date;
 }

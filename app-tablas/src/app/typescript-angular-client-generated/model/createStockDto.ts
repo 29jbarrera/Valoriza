@@ -11,10 +11,10 @@
  */
 
 export interface CreateStockDto { 
-    idEmpresa?: number;
-    idCentro?: number;
-    idReferenciaMaterial?: number;
-    cantidad?: number;
-    valor?: number;
+    idEmpresa: number;
+    idCentro: number;
+    idReferenciaMaterial: number;
+    cantidad: number;
+    valor: number;
     codMoneda: string;
 }

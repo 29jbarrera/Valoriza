@@ -13,10 +13,10 @@
 export interface GarageDto { 
     id?: number;
     centerId?: string;
-    fechas?: Date;
+    fechas?: string;
     coste?: number;
-    descripcion: string;
+    descripcion?: string;
     supplierId?: number;
-    factura: string;
-    moneda: string;
+    factura?: string;
+    moneda?: string;
 }

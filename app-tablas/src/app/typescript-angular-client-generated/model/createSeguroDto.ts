@@ -12,10 +12,10 @@
 
 export interface CreateSeguroDto { 
     codigo: string;
-    idEmpresa?: number;
+    idEmpresa: number;
     aseguradora: string;
-    fechaInicio?: Date;
-    fechaFin?: Date;
+    fechaInicio: string;
+    fechaFin: string;
     importe?: number;
     codMoneda: string;
     comentario?: string;

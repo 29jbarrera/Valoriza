@@ -15,9 +15,9 @@ export interface MarcaDto {
     id?: number;
     idEmpresa?: number;
     empresa?: EmpresaDto;
-    descripcion: string;
-    createdBy: string;
+    descripcion?: string;
+    createdBy?: string;
     createdAt?: Date;
-    changedBy: string;
+    changedBy?: string;
     changedAt?: Date;
 }

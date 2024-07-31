@@ -13,5 +13,5 @@
 export interface ElementDto { 
     id?: number;
     installationId?: number;
-    elemento: string;
+    elemento?: string;
 }

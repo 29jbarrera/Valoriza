@@ -114,7 +114,7 @@ export class ImpuestosHistoricoService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<ImpuestosHistoricoDtoPaginatedResult>('get',`${this.basePath}/api/v2/impuestosHistorico`,
+        return this.httpClient.request<ImpuestosHistoricoDtoPaginatedResult>('get',`${this.basePath}/api/v2/ImpuestosHistorico`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -132,9 +132,9 @@ export class ImpuestosHistoricoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2ImpuestosHistoricoIdDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2ImpuestosHistoricoIdDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2ImpuestosHistoricoIdDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2ImpuestosHistoricoIdDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<ImpuestosHistoricoDto>;
+    public apiV2ImpuestosHistoricoIdDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ImpuestosHistoricoDto>>;
+    public apiV2ImpuestosHistoricoIdDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ImpuestosHistoricoDto>>;
     public apiV2ImpuestosHistoricoIdDelete(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (id === null || id === undefined) {
@@ -158,7 +158,7 @@ export class ImpuestosHistoricoService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<any>('delete',`${this.basePath}/api/v2/impuestosHistorico/${encodeURIComponent(String(id))}`,
+        return this.httpClient.request<ImpuestosHistoricoDto>('delete',`${this.basePath}/api/v2/ImpuestosHistorico/${encodeURIComponent(String(id))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -201,7 +201,7 @@ export class ImpuestosHistoricoService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<ImpuestosHistoricoDto>('get',`${this.basePath}/api/v2/impuestosHistorico/${encodeURIComponent(String(id))}`,
+        return this.httpClient.request<ImpuestosHistoricoDto>('get',`${this.basePath}/api/v2/ImpuestosHistorico/${encodeURIComponent(String(id))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -218,9 +218,9 @@ export class ImpuestosHistoricoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2ImpuestosHistoricoPost(body?: CreateImpuestosHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2ImpuestosHistoricoPost(body?: CreateImpuestosHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2ImpuestosHistoricoPost(body?: CreateImpuestosHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2ImpuestosHistoricoPost(body?: CreateImpuestosHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<ImpuestosHistoricoDto>;
+    public apiV2ImpuestosHistoricoPost(body?: CreateImpuestosHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ImpuestosHistoricoDto>>;
+    public apiV2ImpuestosHistoricoPost(body?: CreateImpuestosHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ImpuestosHistoricoDto>>;
     public apiV2ImpuestosHistoricoPost(body?: CreateImpuestosHistoricoDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -248,7 +248,7 @@ export class ImpuestosHistoricoService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/impuestosHistorico`,
+        return this.httpClient.request<ImpuestosHistoricoDto>('post',`${this.basePath}/api/v2/ImpuestosHistorico`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -266,9 +266,9 @@ export class ImpuestosHistoricoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2ImpuestosHistoricoPut(body?: UpdateImpuestosHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2ImpuestosHistoricoPut(body?: UpdateImpuestosHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2ImpuestosHistoricoPut(body?: UpdateImpuestosHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2ImpuestosHistoricoPut(body?: UpdateImpuestosHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<ImpuestosHistoricoDto>;
+    public apiV2ImpuestosHistoricoPut(body?: UpdateImpuestosHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ImpuestosHistoricoDto>>;
+    public apiV2ImpuestosHistoricoPut(body?: UpdateImpuestosHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ImpuestosHistoricoDto>>;
     public apiV2ImpuestosHistoricoPut(body?: UpdateImpuestosHistoricoDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -296,7 +296,7 @@ export class ImpuestosHistoricoService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/impuestosHistorico`,
+        return this.httpClient.request<ImpuestosHistoricoDto>('put',`${this.basePath}/api/v2/ImpuestosHistorico`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

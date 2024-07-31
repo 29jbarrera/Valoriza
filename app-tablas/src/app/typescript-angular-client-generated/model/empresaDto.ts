@@ -12,9 +12,8 @@
 
 export interface EmpresaDto { 
     id?: number;
-    codigo: string;
-    nombre: string;
-    documentoIdentificativo: string;
+    codigo?: string;
+    nombre?: string;
     direccion?: string;
     codigoPostal?: string;
     telefono?: string;

@@ -114,7 +114,7 @@ export class UnidadesMedidaLangService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<UnidadesMedidaLangDtoPaginatedResult>('get',`${this.basePath}/api/v2/unidadesMedidaLang`,
+        return this.httpClient.request<UnidadesMedidaLangDtoPaginatedResult>('get',`${this.basePath}/api/v2/UnidadesMedidaLang`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -129,16 +129,26 @@ export class UnidadesMedidaLangService {
      * 
      * 
      * @param id 
+     * @param idLang 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2UnidadesMedidaLangIdDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2UnidadesMedidaLangIdDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2UnidadesMedidaLangIdDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
-    public apiV2UnidadesMedidaLangIdDelete(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public apiV2UnidadesMedidaLangIdDelete(id: number, idLang: number, observe?: 'body', reportProgress?: boolean): Observable<UnidadesMedidaLangDto>;
+    public apiV2UnidadesMedidaLangIdDelete(id: number, idLang: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<UnidadesMedidaLangDto>>;
+    public apiV2UnidadesMedidaLangIdDelete(id: number, idLang: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<UnidadesMedidaLangDto>>;
+    public apiV2UnidadesMedidaLangIdDelete(id: number, idLang: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling apiV2UnidadesMedidaLangIdDelete.');
+        }
+
+        if (idLang === null || idLang === undefined) {
+            throw new Error('Required parameter idLang was null or undefined when calling apiV2UnidadesMedidaLangIdDelete.');
+        }
+
+        let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
+        if (idLang !== undefined && idLang !== null) {
+            queryParameters = queryParameters.set('idLang', <any>idLang);
         }
 
         let headers = this.defaultHeaders;
@@ -158,8 +168,9 @@ export class UnidadesMedidaLangService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<any>('delete',`${this.basePath}/api/v2/unidadesMedidaLang/${encodeURIComponent(String(id))}`,
+        return this.httpClient.request<UnidadesMedidaLangDto>('delete',`${this.basePath}/api/v2/UnidadesMedidaLang/${encodeURIComponent(String(id))}`,
             {
+                params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
                 observe: observe,
@@ -172,16 +183,21 @@ export class UnidadesMedidaLangService {
      * 
      * 
      * @param id 
+     * @param idLang 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2UnidadesMedidaLangIdGet(id: number, observe?: 'body', reportProgress?: boolean): Observable<UnidadesMedidaLangDto>;
-    public apiV2UnidadesMedidaLangIdGet(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<UnidadesMedidaLangDto>>;
-    public apiV2UnidadesMedidaLangIdGet(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<UnidadesMedidaLangDto>>;
-    public apiV2UnidadesMedidaLangIdGet(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public apiV2UnidadesMedidaLangIdIdLangGet(id: number, idLang: number, observe?: 'body', reportProgress?: boolean): Observable<UnidadesMedidaLangDto>;
+    public apiV2UnidadesMedidaLangIdIdLangGet(id: number, idLang: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<UnidadesMedidaLangDto>>;
+    public apiV2UnidadesMedidaLangIdIdLangGet(id: number, idLang: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<UnidadesMedidaLangDto>>;
+    public apiV2UnidadesMedidaLangIdIdLangGet(id: number, idLang: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling apiV2UnidadesMedidaLangIdGet.');
+            throw new Error('Required parameter id was null or undefined when calling apiV2UnidadesMedidaLangIdIdLangGet.');
+        }
+
+        if (idLang === null || idLang === undefined) {
+            throw new Error('Required parameter idLang was null or undefined when calling apiV2UnidadesMedidaLangIdIdLangGet.');
         }
 
         let headers = this.defaultHeaders;
@@ -201,7 +217,7 @@ export class UnidadesMedidaLangService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<UnidadesMedidaLangDto>('get',`${this.basePath}/api/v2/unidadesMedidaLang/${encodeURIComponent(String(id))}`,
+        return this.httpClient.request<UnidadesMedidaLangDto>('get',`${this.basePath}/api/v2/UnidadesMedidaLang/${encodeURIComponent(String(id))}/${encodeURIComponent(String(idLang))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -218,9 +234,9 @@ export class UnidadesMedidaLangService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2UnidadesMedidaLangPost(body?: CreateUnidadesMedidaLangDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2UnidadesMedidaLangPost(body?: CreateUnidadesMedidaLangDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2UnidadesMedidaLangPost(body?: CreateUnidadesMedidaLangDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2UnidadesMedidaLangPost(body?: CreateUnidadesMedidaLangDto, observe?: 'body', reportProgress?: boolean): Observable<UnidadesMedidaLangDto>;
+    public apiV2UnidadesMedidaLangPost(body?: CreateUnidadesMedidaLangDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<UnidadesMedidaLangDto>>;
+    public apiV2UnidadesMedidaLangPost(body?: CreateUnidadesMedidaLangDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<UnidadesMedidaLangDto>>;
     public apiV2UnidadesMedidaLangPost(body?: CreateUnidadesMedidaLangDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -248,7 +264,7 @@ export class UnidadesMedidaLangService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/unidadesMedidaLang`,
+        return this.httpClient.request<UnidadesMedidaLangDto>('post',`${this.basePath}/api/v2/UnidadesMedidaLang`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -266,9 +282,9 @@ export class UnidadesMedidaLangService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2UnidadesMedidaLangPut(body?: UpdateUnidadesMedidaLangDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2UnidadesMedidaLangPut(body?: UpdateUnidadesMedidaLangDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2UnidadesMedidaLangPut(body?: UpdateUnidadesMedidaLangDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2UnidadesMedidaLangPut(body?: UpdateUnidadesMedidaLangDto, observe?: 'body', reportProgress?: boolean): Observable<UnidadesMedidaLangDto>;
+    public apiV2UnidadesMedidaLangPut(body?: UpdateUnidadesMedidaLangDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<UnidadesMedidaLangDto>>;
+    public apiV2UnidadesMedidaLangPut(body?: UpdateUnidadesMedidaLangDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<UnidadesMedidaLangDto>>;
     public apiV2UnidadesMedidaLangPut(body?: UpdateUnidadesMedidaLangDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -296,7 +312,7 @@ export class UnidadesMedidaLangService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/unidadesMedidaLang`,
+        return this.httpClient.request<UnidadesMedidaLangDto>('put',`${this.basePath}/api/v2/UnidadesMedidaLang`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

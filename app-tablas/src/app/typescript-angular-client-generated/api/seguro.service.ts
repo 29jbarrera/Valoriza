@@ -114,7 +114,7 @@ export class SeguroService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<SeguroDtoPaginatedResult>('get',`${this.basePath}/api/v2/seguro`,
+        return this.httpClient.request<SeguroDtoPaginatedResult>('get',`${this.basePath}/api/v2/Seguro`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -132,9 +132,9 @@ export class SeguroService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2SeguroIdDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2SeguroIdDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2SeguroIdDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2SeguroIdDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<SeguroDto>;
+    public apiV2SeguroIdDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<SeguroDto>>;
+    public apiV2SeguroIdDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<SeguroDto>>;
     public apiV2SeguroIdDelete(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (id === null || id === undefined) {
@@ -158,7 +158,7 @@ export class SeguroService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<any>('delete',`${this.basePath}/api/v2/seguro/${encodeURIComponent(String(id))}`,
+        return this.httpClient.request<SeguroDto>('delete',`${this.basePath}/api/v2/Seguro/${encodeURIComponent(String(id))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -201,7 +201,7 @@ export class SeguroService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<SeguroDto>('get',`${this.basePath}/api/v2/seguro/${encodeURIComponent(String(id))}`,
+        return this.httpClient.request<SeguroDto>('get',`${this.basePath}/api/v2/Seguro/${encodeURIComponent(String(id))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -218,9 +218,9 @@ export class SeguroService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2SeguroPost(body?: CreateSeguroDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2SeguroPost(body?: CreateSeguroDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2SeguroPost(body?: CreateSeguroDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2SeguroPost(body?: CreateSeguroDto, observe?: 'body', reportProgress?: boolean): Observable<SeguroDto>;
+    public apiV2SeguroPost(body?: CreateSeguroDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<SeguroDto>>;
+    public apiV2SeguroPost(body?: CreateSeguroDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<SeguroDto>>;
     public apiV2SeguroPost(body?: CreateSeguroDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -248,7 +248,7 @@ export class SeguroService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/seguro`,
+        return this.httpClient.request<SeguroDto>('post',`${this.basePath}/api/v2/Seguro`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -266,9 +266,9 @@ export class SeguroService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2SeguroPut(body?: UpdateSeguroDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2SeguroPut(body?: UpdateSeguroDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2SeguroPut(body?: UpdateSeguroDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2SeguroPut(body?: UpdateSeguroDto, observe?: 'body', reportProgress?: boolean): Observable<SeguroDto>;
+    public apiV2SeguroPut(body?: UpdateSeguroDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<SeguroDto>>;
+    public apiV2SeguroPut(body?: UpdateSeguroDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<SeguroDto>>;
     public apiV2SeguroPut(body?: UpdateSeguroDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -296,7 +296,7 @@ export class SeguroService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/seguro`,
+        return this.httpClient.request<SeguroDto>('put',`${this.basePath}/api/v2/Seguro`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

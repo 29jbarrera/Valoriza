@@ -11,8 +11,7 @@
  */
 
 export interface CreateImpuestoDto { 
-    idEmpresa?: number;
     importe?: number;
     codMoneda?: string;
-    fecha?: Date;
+    fecha?: string;
 }

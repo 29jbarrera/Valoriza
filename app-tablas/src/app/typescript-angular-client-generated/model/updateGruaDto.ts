@@ -14,5 +14,5 @@ export interface UpdateGruaDto {
     id?: number;
     idEmpresa?: number;
     idMaquinaria?: number;
-    fecha?: Date;
+    fecha: string;
 }

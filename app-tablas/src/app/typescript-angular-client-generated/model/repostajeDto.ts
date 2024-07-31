@@ -9,19 +9,15 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { CentrosCosteDto } from './centrosCosteDto';
 import { DepositoDto } from './depositoDto';
-import { EmpresaDto } from './empresaDto';
-import { MaquinariaDto } from './maquinariaDto';
-import { XCentrosCosteDto } from './xCentrosCosteDto';
 
 export interface RepostajeDto { 
     id?: number;
     idEmpresa?: number;
-    empresa?: EmpresaDto;
     idCentro?: number;
-    centro?: XCentrosCosteDto;
+    centro?: CentrosCosteDto;
     idMaquinaria?: number;
-    maquinaria?: MaquinariaDto;
     idDeposito?: number;
     deposito?: DepositoDto;
     fecha?: Date;
@@ -31,8 +27,8 @@ export interface RepostajeDto {
     tarjeta?: string;
     bidon?: string;
     idBidon?: number;
-    createdBy: string;
+    createdBy?: string;
     createdAt?: Date;
-    changedBy: string;
+    changedBy?: string;
     changedAt?: Date;
 }

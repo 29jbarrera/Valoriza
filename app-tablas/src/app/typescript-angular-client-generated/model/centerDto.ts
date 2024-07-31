@@ -12,7 +12,6 @@
 
 export interface CenterDto { 
     id?: number;
-    nombre: string;
+    nombre?: string;
     regionalId?: number;
-    generalId: string;
 }

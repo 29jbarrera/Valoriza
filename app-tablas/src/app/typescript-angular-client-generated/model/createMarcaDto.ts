@@ -11,6 +11,6 @@
  */
 
 export interface CreateMarcaDto { 
-    idEmpresa?: number;
+    idEmpresa: number;
     descripcion: string;
 }

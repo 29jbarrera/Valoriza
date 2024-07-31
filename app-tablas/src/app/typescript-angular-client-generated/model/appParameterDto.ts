@@ -15,7 +15,7 @@ export interface AppParameterDto {
     id?: number;
     idEmpresa?: number;
     empresa?: EmpresaDto;
-    codigo: string;
+    codigo?: string;
     valor?: number;
     descripcion?: string;
 }

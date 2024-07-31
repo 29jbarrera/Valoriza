@@ -20,6 +20,7 @@ import { Observable }                                        from 'rxjs';
 import { CreatePartesTrabajoDocDto } from '../model/createPartesTrabajoDocDto';
 import { PartesTrabajoDocDto } from '../model/partesTrabajoDocDto';
 import { PartesTrabajoDocDtoPaginatedResult } from '../model/partesTrabajoDocDtoPaginatedResult';
+import { PartesTrabajoDocOneDto } from '../model/partesTrabajoDocOneDto';
 import { ProblemDetails } from '../model/problemDetails';
 import { UpdatePartesTrabajoDocDto } from '../model/updatePartesTrabajoDocDto';
 
@@ -58,6 +59,92 @@ export class PartesTrabajoDocService {
         return false;
     }
 
+
+    /**
+     * 
+     * 
+     * @param claveGuid 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public apiV2PartesTrabajoDocClaveGuidDelete(claveGuid: string, observe?: 'body', reportProgress?: boolean): Observable<PartesTrabajoDocDto>;
+    public apiV2PartesTrabajoDocClaveGuidDelete(claveGuid: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PartesTrabajoDocDto>>;
+    public apiV2PartesTrabajoDocClaveGuidDelete(claveGuid: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PartesTrabajoDocDto>>;
+    public apiV2PartesTrabajoDocClaveGuidDelete(claveGuid: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        if (claveGuid === null || claveGuid === undefined) {
+            throw new Error('Required parameter claveGuid was null or undefined when calling apiV2PartesTrabajoDocClaveGuidDelete.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.request<PartesTrabajoDocDto>('delete',`${this.basePath}/api/v2/PartesTrabajoDoc/${encodeURIComponent(String(claveGuid))}`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * 
+     * @param claveGuid 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public apiV2PartesTrabajoDocClaveGuidGet(claveGuid: string, observe?: 'body', reportProgress?: boolean): Observable<PartesTrabajoDocOneDto>;
+    public apiV2PartesTrabajoDocClaveGuidGet(claveGuid: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PartesTrabajoDocOneDto>>;
+    public apiV2PartesTrabajoDocClaveGuidGet(claveGuid: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PartesTrabajoDocOneDto>>;
+    public apiV2PartesTrabajoDocClaveGuidGet(claveGuid: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        if (claveGuid === null || claveGuid === undefined) {
+            throw new Error('Required parameter claveGuid was null or undefined when calling apiV2PartesTrabajoDocClaveGuidGet.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.request<PartesTrabajoDocOneDto>('get',`${this.basePath}/api/v2/PartesTrabajoDoc/${encodeURIComponent(String(claveGuid))}`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
 
     /**
      * 
@@ -114,95 +201,9 @@ export class PartesTrabajoDocService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<PartesTrabajoDocDtoPaginatedResult>('get',`${this.basePath}/api/v2/partesTrabajoDoc`,
+        return this.httpClient.request<PartesTrabajoDocDtoPaginatedResult>('get',`${this.basePath}/api/v2/PartesTrabajoDoc`,
             {
                 params: queryParameters,
-                withCredentials: this.configuration.withCredentials,
-                headers: headers,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * 
-     * 
-     * @param id 
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public apiV2PartesTrabajoDocIdDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2PartesTrabajoDocIdDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2PartesTrabajoDocIdDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
-    public apiV2PartesTrabajoDocIdDelete(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
-
-        if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling apiV2PartesTrabajoDocIdDelete.');
-        }
-
-        let headers = this.defaultHeaders;
-
-        // to determine the Accept header
-        let httpHeaderAccepts: string[] = [
-            'text/plain',
-            'application/json',
-            'text/json'
-        ];
-        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        if (httpHeaderAcceptSelected != undefined) {
-            headers = headers.set('Accept', httpHeaderAcceptSelected);
-        }
-
-        // to determine the Content-Type header
-        const consumes: string[] = [
-        ];
-
-        return this.httpClient.request<any>('delete',`${this.basePath}/api/v2/partesTrabajoDoc/${encodeURIComponent(String(id))}`,
-            {
-                withCredentials: this.configuration.withCredentials,
-                headers: headers,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * 
-     * 
-     * @param id 
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public apiV2PartesTrabajoDocIdGet(id: number, observe?: 'body', reportProgress?: boolean): Observable<PartesTrabajoDocDto>;
-    public apiV2PartesTrabajoDocIdGet(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PartesTrabajoDocDto>>;
-    public apiV2PartesTrabajoDocIdGet(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PartesTrabajoDocDto>>;
-    public apiV2PartesTrabajoDocIdGet(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
-
-        if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling apiV2PartesTrabajoDocIdGet.');
-        }
-
-        let headers = this.defaultHeaders;
-
-        // to determine the Accept header
-        let httpHeaderAccepts: string[] = [
-            'text/plain',
-            'application/json',
-            'text/json'
-        ];
-        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        if (httpHeaderAcceptSelected != undefined) {
-            headers = headers.set('Accept', httpHeaderAcceptSelected);
-        }
-
-        // to determine the Content-Type header
-        const consumes: string[] = [
-        ];
-
-        return this.httpClient.request<PartesTrabajoDocDto>('get',`${this.basePath}/api/v2/partesTrabajoDoc/${encodeURIComponent(String(id))}`,
-            {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
                 observe: observe,
@@ -218,9 +219,9 @@ export class PartesTrabajoDocService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2PartesTrabajoDocPost(body?: CreatePartesTrabajoDocDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2PartesTrabajoDocPost(body?: CreatePartesTrabajoDocDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2PartesTrabajoDocPost(body?: CreatePartesTrabajoDocDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2PartesTrabajoDocPost(body?: CreatePartesTrabajoDocDto, observe?: 'body', reportProgress?: boolean): Observable<PartesTrabajoDocOneDto>;
+    public apiV2PartesTrabajoDocPost(body?: CreatePartesTrabajoDocDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PartesTrabajoDocOneDto>>;
+    public apiV2PartesTrabajoDocPost(body?: CreatePartesTrabajoDocDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PartesTrabajoDocOneDto>>;
     public apiV2PartesTrabajoDocPost(body?: CreatePartesTrabajoDocDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -248,7 +249,7 @@ export class PartesTrabajoDocService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/partesTrabajoDoc`,
+        return this.httpClient.request<PartesTrabajoDocOneDto>('post',`${this.basePath}/api/v2/PartesTrabajoDoc`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -266,9 +267,9 @@ export class PartesTrabajoDocService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2PartesTrabajoDocPut(body?: UpdatePartesTrabajoDocDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2PartesTrabajoDocPut(body?: UpdatePartesTrabajoDocDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2PartesTrabajoDocPut(body?: UpdatePartesTrabajoDocDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2PartesTrabajoDocPut(body?: UpdatePartesTrabajoDocDto, observe?: 'body', reportProgress?: boolean): Observable<PartesTrabajoDocOneDto>;
+    public apiV2PartesTrabajoDocPut(body?: UpdatePartesTrabajoDocDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PartesTrabajoDocOneDto>>;
+    public apiV2PartesTrabajoDocPut(body?: UpdatePartesTrabajoDocDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PartesTrabajoDocOneDto>>;
     public apiV2PartesTrabajoDocPut(body?: UpdatePartesTrabajoDocDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -296,7 +297,7 @@ export class PartesTrabajoDocService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/partesTrabajoDoc`,
+        return this.httpClient.request<PartesTrabajoDocOneDto>('put',`${this.basePath}/api/v2/PartesTrabajoDoc`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

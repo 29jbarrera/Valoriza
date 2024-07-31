@@ -13,9 +13,9 @@
 export interface RepairDto { 
     id?: number;
     machineId?: number;
-    fecha?: Date;
-    tipo: string;
-    actuacion: string;
+    fecha?: string;
+    tipo?: string;
+    actuacion?: string;
     supplierId?: number;
     descripcion?: string;
     repuestos?: number;
@@ -23,5 +23,5 @@ export interface RepairDto {
     externos?: number;
     otros?: number;
     factura?: string;
-    moneda: string;
+    moneda?: string;
 }

@@ -11,6 +11,7 @@
  */
 
 export interface CreateUnidadesMedidaLangDto { 
+    id?: number;
     idLang?: number;
     descripcion: string;
 }

@@ -13,5 +13,5 @@
 export interface InstallationDto { 
     id?: number;
     centerId?: string;
-    instalacion: string;
+    instalacion?: string;
 }

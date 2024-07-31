@@ -9,11 +9,12 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { ByteReadOnlyMemory } from './byteReadOnlyMemory';
 
 export interface CreateGastosTallerDocDto { 
-    idGastoTaller?: number;
-    claveGuid?: string;
-    documento: string;
+    claveGuid: string;
+    idGastoTaller: number;
+    documento: ByteReadOnlyMemory;
     nombre: string;
     extension: string;
 }

@@ -114,7 +114,7 @@ export class TacografosHistoricoService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<TacografosHistoricoDtoPaginatedResult>('get',`${this.basePath}/api/v2/tacografosHistorico`,
+        return this.httpClient.request<TacografosHistoricoDtoPaginatedResult>('get',`${this.basePath}/api/v2/TacografosHistorico`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -132,9 +132,9 @@ export class TacografosHistoricoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2TacografosHistoricoIdDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2TacografosHistoricoIdDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2TacografosHistoricoIdDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2TacografosHistoricoIdDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<TacografosHistoricoDto>;
+    public apiV2TacografosHistoricoIdDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<TacografosHistoricoDto>>;
+    public apiV2TacografosHistoricoIdDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<TacografosHistoricoDto>>;
     public apiV2TacografosHistoricoIdDelete(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (id === null || id === undefined) {
@@ -158,7 +158,7 @@ export class TacografosHistoricoService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<any>('delete',`${this.basePath}/api/v2/tacografosHistorico/${encodeURIComponent(String(id))}`,
+        return this.httpClient.request<TacografosHistoricoDto>('delete',`${this.basePath}/api/v2/TacografosHistorico/${encodeURIComponent(String(id))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -201,7 +201,7 @@ export class TacografosHistoricoService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<TacografosHistoricoDto>('get',`${this.basePath}/api/v2/tacografosHistorico/${encodeURIComponent(String(id))}`,
+        return this.httpClient.request<TacografosHistoricoDto>('get',`${this.basePath}/api/v2/TacografosHistorico/${encodeURIComponent(String(id))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -218,9 +218,9 @@ export class TacografosHistoricoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2TacografosHistoricoPost(body?: CreateTacografosHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2TacografosHistoricoPost(body?: CreateTacografosHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2TacografosHistoricoPost(body?: CreateTacografosHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2TacografosHistoricoPost(body?: CreateTacografosHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<TacografosHistoricoDto>;
+    public apiV2TacografosHistoricoPost(body?: CreateTacografosHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<TacografosHistoricoDto>>;
+    public apiV2TacografosHistoricoPost(body?: CreateTacografosHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<TacografosHistoricoDto>>;
     public apiV2TacografosHistoricoPost(body?: CreateTacografosHistoricoDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -248,7 +248,7 @@ export class TacografosHistoricoService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/tacografosHistorico`,
+        return this.httpClient.request<TacografosHistoricoDto>('post',`${this.basePath}/api/v2/TacografosHistorico`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -266,9 +266,9 @@ export class TacografosHistoricoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2TacografosHistoricoPut(body?: UpdateTacografosHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2TacografosHistoricoPut(body?: UpdateTacografosHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2TacografosHistoricoPut(body?: UpdateTacografosHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2TacografosHistoricoPut(body?: UpdateTacografosHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<TacografosHistoricoDto>;
+    public apiV2TacografosHistoricoPut(body?: UpdateTacografosHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<TacografosHistoricoDto>>;
+    public apiV2TacografosHistoricoPut(body?: UpdateTacografosHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<TacografosHistoricoDto>>;
     public apiV2TacografosHistoricoPut(body?: UpdateTacografosHistoricoDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -296,7 +296,7 @@ export class TacografosHistoricoService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/tacografosHistorico`,
+        return this.httpClient.request<TacografosHistoricoDto>('put',`${this.basePath}/api/v2/TacografosHistorico`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

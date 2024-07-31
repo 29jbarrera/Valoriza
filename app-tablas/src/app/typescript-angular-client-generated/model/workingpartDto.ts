@@ -13,7 +13,7 @@
 export interface WorkingpartDto { 
     id?: number;
     machineId?: number;
-    fecha?: Date;
-    parte: string;
-    nombreFichero: string;
+    fecha?: string;
+    parte?: string;
+    nombreFichero?: string;
 }

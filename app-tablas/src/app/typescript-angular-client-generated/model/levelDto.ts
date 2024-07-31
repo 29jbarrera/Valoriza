@@ -12,7 +12,7 @@
 
 export interface LevelDto { 
     id?: number;
-    identificador: string;
+    identificador?: string;
     frecuencia?: number;
     tipo?: number;
     media?: number;

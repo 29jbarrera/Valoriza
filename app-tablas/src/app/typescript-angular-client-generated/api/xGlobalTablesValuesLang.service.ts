@@ -114,7 +114,7 @@ export class XGlobalTablesValuesLangService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<XGlobalTablesValuesLangDtoPaginatedResult>('get',`${this.basePath}/api/v2/xGlobalTablesValuesLang`,
+        return this.httpClient.request<XGlobalTablesValuesLangDtoPaginatedResult>('get',`${this.basePath}/api/v2/XGlobalTablesValuesLang`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -132,9 +132,9 @@ export class XGlobalTablesValuesLangService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2XGlobalTablesValuesLangIdDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2XGlobalTablesValuesLangIdDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2XGlobalTablesValuesLangIdDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2XGlobalTablesValuesLangIdDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<XGlobalTablesValuesLangDto>;
+    public apiV2XGlobalTablesValuesLangIdDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<XGlobalTablesValuesLangDto>>;
+    public apiV2XGlobalTablesValuesLangIdDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<XGlobalTablesValuesLangDto>>;
     public apiV2XGlobalTablesValuesLangIdDelete(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (id === null || id === undefined) {
@@ -158,7 +158,7 @@ export class XGlobalTablesValuesLangService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<any>('delete',`${this.basePath}/api/v2/xGlobalTablesValuesLang/${encodeURIComponent(String(id))}`,
+        return this.httpClient.request<XGlobalTablesValuesLangDto>('delete',`${this.basePath}/api/v2/XGlobalTablesValuesLang/${encodeURIComponent(String(id))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -201,7 +201,7 @@ export class XGlobalTablesValuesLangService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<XGlobalTablesValuesLangDto>('get',`${this.basePath}/api/v2/xGlobalTablesValuesLang/${encodeURIComponent(String(id))}`,
+        return this.httpClient.request<XGlobalTablesValuesLangDto>('get',`${this.basePath}/api/v2/XGlobalTablesValuesLang/${encodeURIComponent(String(id))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -218,9 +218,9 @@ export class XGlobalTablesValuesLangService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2XGlobalTablesValuesLangPost(body?: CreateXGlobalTablesValuesLangDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2XGlobalTablesValuesLangPost(body?: CreateXGlobalTablesValuesLangDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2XGlobalTablesValuesLangPost(body?: CreateXGlobalTablesValuesLangDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2XGlobalTablesValuesLangPost(body?: CreateXGlobalTablesValuesLangDto, observe?: 'body', reportProgress?: boolean): Observable<XGlobalTablesValuesLangDto>;
+    public apiV2XGlobalTablesValuesLangPost(body?: CreateXGlobalTablesValuesLangDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<XGlobalTablesValuesLangDto>>;
+    public apiV2XGlobalTablesValuesLangPost(body?: CreateXGlobalTablesValuesLangDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<XGlobalTablesValuesLangDto>>;
     public apiV2XGlobalTablesValuesLangPost(body?: CreateXGlobalTablesValuesLangDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -248,7 +248,7 @@ export class XGlobalTablesValuesLangService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/xGlobalTablesValuesLang`,
+        return this.httpClient.request<XGlobalTablesValuesLangDto>('post',`${this.basePath}/api/v2/XGlobalTablesValuesLang`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -266,9 +266,9 @@ export class XGlobalTablesValuesLangService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2XGlobalTablesValuesLangPut(body?: UpdateXGlobalTablesValuesLangDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2XGlobalTablesValuesLangPut(body?: UpdateXGlobalTablesValuesLangDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2XGlobalTablesValuesLangPut(body?: UpdateXGlobalTablesValuesLangDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2XGlobalTablesValuesLangPut(body?: UpdateXGlobalTablesValuesLangDto, observe?: 'body', reportProgress?: boolean): Observable<XGlobalTablesValuesLangDto>;
+    public apiV2XGlobalTablesValuesLangPut(body?: UpdateXGlobalTablesValuesLangDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<XGlobalTablesValuesLangDto>>;
+    public apiV2XGlobalTablesValuesLangPut(body?: UpdateXGlobalTablesValuesLangDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<XGlobalTablesValuesLangDto>>;
     public apiV2XGlobalTablesValuesLangPut(body?: UpdateXGlobalTablesValuesLangDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -296,7 +296,7 @@ export class XGlobalTablesValuesLangService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/xGlobalTablesValuesLang`,
+        return this.httpClient.request<XGlobalTablesValuesLangDto>('put',`${this.basePath}/api/v2/XGlobalTablesValuesLang`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

@@ -12,6 +12,6 @@
 
 export interface UpdateFamiliasLangDto { 
     id?: number;
-    idLang?: number;
+    idLang: number;
     descripcion: string;
 }

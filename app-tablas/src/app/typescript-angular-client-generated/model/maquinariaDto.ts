@@ -10,35 +10,35 @@
  * Do not edit the class manually.
  */
 import { CentrosCosteDto } from './centrosCosteDto';
-import { EmpresaDto } from './empresaDto';
 import { FamiliaDto } from './familiaDto';
+import { GncDto } from './gncDto';
+import { GruaDto } from './gruaDto';
 import { ImpuestoDto } from './impuestoDto';
 import { SeguroDto } from './seguroDto';
 import { SubFamiliaDto } from './subFamiliaDto';
+import { TacografoDto } from './tacografoDto';
 
 export interface MaquinariaDto { 
     id?: number;
     idEmpresa?: number;
-    empresa?: EmpresaDto;
     idCentro?: number;
-    centroCoste?: CentrosCosteDto;
+    centrosCoste?: CentrosCosteDto;
     idCentroCompra?: number;
-    centroCompra?: CentrosCosteDto;
     idFamilia?: number;
     familia?: FamiliaDto;
-    idSubfamilia?: number;
-    subfamilia?: SubFamiliaDto;
+    idSubFamilia?: number;
+    subFamilia?: SubFamiliaDto;
     idSeguro?: number;
     seguro?: SeguroDto;
     idImpuesto?: number;
     impuesto?: ImpuestoDto;
     matricula?: string;
-    fechaMatriculacion?: Date;
+    fechaMatriculacion?: string;
     bastidor?: string;
     codTipoCombustible?: string;
     codNivelEmisiones?: string;
     codEstadoMaquinaria?: string;
-    fechaGnc?: Date;
+    fechaGnc?: string;
     codMoneda?: string;
     conductor?: string;
     servicio?: string;
@@ -55,4 +55,7 @@ export interface MaquinariaDto {
     changedBy?: string;
     changedAt?: Date;
     esImplemento?: boolean;
+    tacografos?: Array<TacografoDto>;
+    gnc?: GncDto;
+    grua?: GruaDto;
 }

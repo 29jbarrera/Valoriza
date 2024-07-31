@@ -20,6 +20,7 @@ import { Observable }                                        from 'rxjs';
 import { CreateGruposCentroDto } from '../model/createGruposCentroDto';
 import { GruposCentroDto } from '../model/gruposCentroDto';
 import { GruposCentroDtoPaginatedResult } from '../model/gruposCentroDtoPaginatedResult';
+import { ProblemDetails } from '../model/problemDetails';
 import { UpdateGruposCentroDto } from '../model/updateGruposCentroDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -113,7 +114,7 @@ export class GruposCentroService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<GruposCentroDtoPaginatedResult>('get',`${this.basePath}/api/v2/gruposCentro`,
+        return this.httpClient.request<GruposCentroDtoPaginatedResult>('get',`${this.basePath}/api/v2/GruposCentro`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -131,9 +132,9 @@ export class GruposCentroService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2GruposCentroIdDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2GruposCentroIdDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2GruposCentroIdDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2GruposCentroIdDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<GruposCentroDto>;
+    public apiV2GruposCentroIdDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<GruposCentroDto>>;
+    public apiV2GruposCentroIdDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<GruposCentroDto>>;
     public apiV2GruposCentroIdDelete(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (id === null || id === undefined) {
@@ -144,6 +145,9 @@ export class GruposCentroService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -154,7 +158,7 @@ export class GruposCentroService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<any>('delete',`${this.basePath}/api/v2/gruposCentro/${encodeURIComponent(String(id))}`,
+        return this.httpClient.request<GruposCentroDto>('delete',`${this.basePath}/api/v2/GruposCentro/${encodeURIComponent(String(id))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -197,7 +201,7 @@ export class GruposCentroService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<GruposCentroDto>('get',`${this.basePath}/api/v2/gruposCentro/${encodeURIComponent(String(id))}`,
+        return this.httpClient.request<GruposCentroDto>('get',`${this.basePath}/api/v2/GruposCentro/${encodeURIComponent(String(id))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -214,9 +218,9 @@ export class GruposCentroService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2GruposCentroPost(body?: CreateGruposCentroDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2GruposCentroPost(body?: CreateGruposCentroDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2GruposCentroPost(body?: CreateGruposCentroDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2GruposCentroPost(body?: CreateGruposCentroDto, observe?: 'body', reportProgress?: boolean): Observable<GruposCentroDto>;
+    public apiV2GruposCentroPost(body?: CreateGruposCentroDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<GruposCentroDto>>;
+    public apiV2GruposCentroPost(body?: CreateGruposCentroDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<GruposCentroDto>>;
     public apiV2GruposCentroPost(body?: CreateGruposCentroDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -224,6 +228,9 @@ export class GruposCentroService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -241,7 +248,7 @@ export class GruposCentroService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/gruposCentro`,
+        return this.httpClient.request<GruposCentroDto>('post',`${this.basePath}/api/v2/GruposCentro`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -259,9 +266,9 @@ export class GruposCentroService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2GruposCentroPut(body?: UpdateGruposCentroDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2GruposCentroPut(body?: UpdateGruposCentroDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2GruposCentroPut(body?: UpdateGruposCentroDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2GruposCentroPut(body?: UpdateGruposCentroDto, observe?: 'body', reportProgress?: boolean): Observable<GruposCentroDto>;
+    public apiV2GruposCentroPut(body?: UpdateGruposCentroDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<GruposCentroDto>>;
+    public apiV2GruposCentroPut(body?: UpdateGruposCentroDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<GruposCentroDto>>;
     public apiV2GruposCentroPut(body?: UpdateGruposCentroDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -269,6 +276,9 @@ export class GruposCentroService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -286,7 +296,7 @@ export class GruposCentroService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/gruposCentro`,
+        return this.httpClient.request<GruposCentroDto>('put',`${this.basePath}/api/v2/GruposCentro`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

@@ -12,6 +12,6 @@
 
 export interface UpdateMarcaDto { 
     id?: number;
-    idEmpresa?: number;
+    idEmpresa: number;
     descripcion: string;
 }

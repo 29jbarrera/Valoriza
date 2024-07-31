@@ -14,16 +14,15 @@ import { MaquinariaDto } from './maquinariaDto';
 
 export interface MaquinariasHistoricoDto { 
     id?: number;
-    fechaCambio?: Date;
-    tipoCambio: string;
+    fechaCambio?: string;
+    tipoCambio?: string;
     idMaquinaria?: number;
     maquinaria?: MaquinariaDto;
     idMaquinariaAsociada?: number;
-    maquinariaAsociada?: MaquinariaDto;
     idCentro?: number;
-    centro?: CentrosCosteDto;
-    createdBy: string;
+    centrosCoste?: CentrosCosteDto;
+    createdBy?: string;
     createdAt?: Date;
-    changedBy: string;
+    changedBy?: string;
     changedAt?: Date;
 }

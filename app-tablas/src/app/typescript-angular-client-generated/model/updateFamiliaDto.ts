@@ -12,5 +12,5 @@
 
 export interface UpdateFamiliaDto { 
     id?: number;
-    idEmpresa?: number;
+    idEmpresa: number;
 }

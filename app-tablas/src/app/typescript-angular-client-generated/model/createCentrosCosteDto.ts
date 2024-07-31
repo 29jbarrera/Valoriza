@@ -11,8 +11,7 @@
  */
 
 export interface CreateCentrosCosteDto { 
-    id?: number;
     idGrupoCentro?: number;
-    codigo?: string;
-    nombre?: string;
+    codigo: string;
+    nombre: string;
 }

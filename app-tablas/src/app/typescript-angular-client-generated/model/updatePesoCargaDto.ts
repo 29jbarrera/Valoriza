@@ -12,11 +12,11 @@
 
 export interface UpdatePesoCargaDto { 
     id?: number;
-    idEmpresa?: number;
-    idMaquinaria?: number;
-    fecha?: Date;
+    idEmpresa: number;
+    idMaquinaria: number;
+    fecha: Date;
     codResiduo: string;
-    cantidad?: number;
+    cantidad: number;
     codUnidad: string;
     descripcion?: string;
 }

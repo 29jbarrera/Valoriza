@@ -11,9 +11,9 @@
  */
 
 export interface CreateMaquinariasHistoricoDto { 
-    fechaCambio?: Date;
+    fechaCambio: string;
     tipoCambio: string;
-    idMaquinaria?: number;
+    idMaquinaria: number;
     idMaquinariaAsociada?: number;
     idCentro?: number;
 }

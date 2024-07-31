@@ -12,9 +12,8 @@
 
 export interface UpdateDepositoDto { 
     id?: number;
-    idEmpresa?: number;
     idCentro?: number;
     descripcion: string;
-    capacidad?: number;
-    comun?: boolean;
+    capacidad: number;
+    comun: boolean;
 }

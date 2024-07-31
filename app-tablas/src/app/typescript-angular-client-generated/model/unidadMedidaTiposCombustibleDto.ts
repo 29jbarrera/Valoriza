@@ -9,16 +9,16 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { EmpresaDto } from './empresaDto';
+import { UnidadesMedidaDto } from './unidadesMedidaDto';
 
 export interface UnidadMedidaTiposCombustibleDto { 
     id?: number;
     idEmpresa?: number;
-    empresa?: EmpresaDto;
     idUnidadesMedida?: number;
-    codTipoCombustible: string;
-    createdBy: string;
+    unidadesMedida?: UnidadesMedidaDto;
+    codTipoCombustible?: string;
+    createdBy?: string;
     createdAt?: Date;
-    changedBy: string;
+    changedBy?: string;
     changedAt?: Date;
 }

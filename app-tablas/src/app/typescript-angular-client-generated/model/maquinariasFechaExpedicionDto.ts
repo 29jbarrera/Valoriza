@@ -12,6 +12,6 @@
 
 export interface MaquinariasFechaExpedicionDto { 
     id?: number;
-    fechaMatriculacion?: Date;
+    fechaMatriculacion?: string;
     idCentro?: number;
 }

@@ -12,7 +12,7 @@
 
 export interface UpdateTacografoDto { 
     id?: number;
-    idEmpresa?: number;
+    idEmpresa: number;
     idMaquinaria?: number;
-    fecha?: Date;
+    fecha: string;
 }

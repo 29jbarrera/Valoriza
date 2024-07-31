@@ -12,28 +12,27 @@
 
 export interface ProximosMantenimientosHoraDto { 
     id?: number;
-    nombreCentroMaquinaria: string;
-    descripcionSubfamiliaMaquinaria: string;
-    matricula: string;
-    codigoNivelMantenimiento: string;
+    nombreCentroMaquinaria?: string;
+    descripcionSubfamiliaMaquinaria?: string;
+    matricula?: string;
+    codigoNivelMantenimiento?: string;
     idNivelMantimiento?: number;
     posicion?: number;
     idMaquinaria?: number;
     ultimosHoras?: number;
-    ultimaFecha?: Date;
+    ultimaFecha?: string;
     kmInicialesMant?: number;
     horasFinalesMant?: number;
     horasFaltan?: number;
     media?: number;
     dias?: number;
     diasRedondeo?: number;
-    fechaEstimada?: Date;
+    fechaEstimada?: string;
     valor?: number;
     idEmpresa?: number;
     idLang?: number;
     idCentro?: number;
-    codigo: string;
-    codigoGrupo: string;
-    tipoCentro?: string;
+    codigo?: string;
+    codigoGrupo?: string;
     operativa?: boolean;
 }

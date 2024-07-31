@@ -12,9 +12,9 @@
 
 export interface UpdateInstalacionesOperacioneDto { 
     id?: number;
-    idEmpresa?: number;
-    idElemento?: number;
-    fecha?: Date;
+    idEmpresa: number;
+    idElemento: number;
+    fecha: string;
     actuante?: string;
-    frecuencia?: number;
+    frecuencia: number;
 }

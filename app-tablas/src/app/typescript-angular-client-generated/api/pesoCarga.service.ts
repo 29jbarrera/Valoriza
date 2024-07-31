@@ -114,7 +114,7 @@ export class PesoCargaService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<PesoCargaDtoPaginatedResult>('get',`${this.basePath}/api/v2/pesoCarga`,
+        return this.httpClient.request<PesoCargaDtoPaginatedResult>('get',`${this.basePath}/api/v2/PesoCarga`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -132,9 +132,9 @@ export class PesoCargaService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2PesoCargaIdDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2PesoCargaIdDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2PesoCargaIdDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2PesoCargaIdDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<PesoCargaDto>;
+    public apiV2PesoCargaIdDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PesoCargaDto>>;
+    public apiV2PesoCargaIdDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PesoCargaDto>>;
     public apiV2PesoCargaIdDelete(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (id === null || id === undefined) {
@@ -158,7 +158,7 @@ export class PesoCargaService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<any>('delete',`${this.basePath}/api/v2/pesoCarga/${encodeURIComponent(String(id))}`,
+        return this.httpClient.request<PesoCargaDto>('delete',`${this.basePath}/api/v2/PesoCarga/${encodeURIComponent(String(id))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -201,7 +201,7 @@ export class PesoCargaService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<PesoCargaDto>('get',`${this.basePath}/api/v2/pesoCarga/${encodeURIComponent(String(id))}`,
+        return this.httpClient.request<PesoCargaDto>('get',`${this.basePath}/api/v2/PesoCarga/${encodeURIComponent(String(id))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -218,9 +218,9 @@ export class PesoCargaService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2PesoCargaPost(body?: CreatePesoCargaDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2PesoCargaPost(body?: CreatePesoCargaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2PesoCargaPost(body?: CreatePesoCargaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2PesoCargaPost(body?: CreatePesoCargaDto, observe?: 'body', reportProgress?: boolean): Observable<PesoCargaDto>;
+    public apiV2PesoCargaPost(body?: CreatePesoCargaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PesoCargaDto>>;
+    public apiV2PesoCargaPost(body?: CreatePesoCargaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PesoCargaDto>>;
     public apiV2PesoCargaPost(body?: CreatePesoCargaDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -248,7 +248,7 @@ export class PesoCargaService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/pesoCarga`,
+        return this.httpClient.request<PesoCargaDto>('post',`${this.basePath}/api/v2/PesoCarga`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -266,9 +266,9 @@ export class PesoCargaService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2PesoCargaPut(body?: UpdatePesoCargaDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2PesoCargaPut(body?: UpdatePesoCargaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2PesoCargaPut(body?: UpdatePesoCargaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2PesoCargaPut(body?: UpdatePesoCargaDto, observe?: 'body', reportProgress?: boolean): Observable<PesoCargaDto>;
+    public apiV2PesoCargaPut(body?: UpdatePesoCargaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PesoCargaDto>>;
+    public apiV2PesoCargaPut(body?: UpdatePesoCargaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PesoCargaDto>>;
     public apiV2PesoCargaPut(body?: UpdatePesoCargaDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -296,7 +296,7 @@ export class PesoCargaService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/pesoCarga`,
+        return this.httpClient.request<PesoCargaDto>('put',`${this.basePath}/api/v2/PesoCarga`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

@@ -14,7 +14,7 @@ export interface CreateXGlobalTablesValuesLangDto {
     code: string;
     codeApp: string;
     name: string;
-    idOriginSession?: number;
-    idLang?: number;
+    idOriginSession: number;
+    idLang: number;
     description: string;
 }

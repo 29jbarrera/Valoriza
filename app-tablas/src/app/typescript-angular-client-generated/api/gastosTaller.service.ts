@@ -17,11 +17,16 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs';
 
-import { CreateGastosTallerDto } from '../model/createGastosTallerDto';
-import { GastosTallerDto } from '../model/gastosTallerDto';
-import { GastosTallerDtoPaginatedResult } from '../model/gastosTallerDtoPaginatedResult';
+import { CreateGastoTallerDto } from '../model/createGastoTallerDto';
+import { CreateGastosTallerDocDto } from '../model/createGastosTallerDocDto';
+import { GastoTallerDto } from '../model/gastoTallerDto';
+import { GastoTallerDtoPaginatedResult } from '../model/gastoTallerDtoPaginatedResult';
+import { GastosTallerDocDto } from '../model/gastosTallerDocDto';
+import { GastosTallerDocDtoPaginatedResult } from '../model/gastosTallerDocDtoPaginatedResult';
+import { GastosTallerDocOneDto } from '../model/gastosTallerDocOneDto';
 import { ProblemDetails } from '../model/problemDetails';
-import { UpdateGastosTallerDto } from '../model/updateGastosTallerDto';
+import { UpdateGastoTallerDto } from '../model/updateGastoTallerDto';
+import { UpdateGastosTallerDocDto } from '../model/updateGastosTallerDocDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -70,10 +75,10 @@ export class GastosTallerService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2GastosTallerGet(Q?: string, sort?: string, page?: number, pageSize?: number, filters?: { [key: string]: string; }, observe?: 'body', reportProgress?: boolean): Observable<GastosTallerDtoPaginatedResult>;
-    public apiV2GastosTallerGet(Q?: string, sort?: string, page?: number, pageSize?: number, filters?: { [key: string]: string; }, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<GastosTallerDtoPaginatedResult>>;
-    public apiV2GastosTallerGet(Q?: string, sort?: string, page?: number, pageSize?: number, filters?: { [key: string]: string; }, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<GastosTallerDtoPaginatedResult>>;
-    public apiV2GastosTallerGet(Q?: string, sort?: string, page?: number, pageSize?: number, filters?: { [key: string]: string; }, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public apiV2GastoTallerGet(Q?: string, sort?: string, page?: number, pageSize?: number, filters?: { [key: string]: string; }, observe?: 'body', reportProgress?: boolean): Observable<GastoTallerDtoPaginatedResult>;
+    public apiV2GastoTallerGet(Q?: string, sort?: string, page?: number, pageSize?: number, filters?: { [key: string]: string; }, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<GastoTallerDtoPaginatedResult>>;
+    public apiV2GastoTallerGet(Q?: string, sort?: string, page?: number, pageSize?: number, filters?: { [key: string]: string; }, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<GastoTallerDtoPaginatedResult>>;
+    public apiV2GastoTallerGet(Q?: string, sort?: string, page?: number, pageSize?: number, filters?: { [key: string]: string; }, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
 
@@ -114,7 +119,7 @@ export class GastosTallerService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<GastosTallerDtoPaginatedResult>('get',`${this.basePath}/api/v2/gastosTaller`,
+        return this.httpClient.request<GastoTallerDtoPaginatedResult>('get',`${this.basePath}/api/v2/gastoTaller`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -132,13 +137,13 @@ export class GastosTallerService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2GastosTallerIdDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2GastosTallerIdDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2GastosTallerIdDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
-    public apiV2GastosTallerIdDelete(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public apiV2GastoTallerIdDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<GastoTallerDto>;
+    public apiV2GastoTallerIdDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<GastoTallerDto>>;
+    public apiV2GastoTallerIdDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<GastoTallerDto>>;
+    public apiV2GastoTallerIdDelete(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling apiV2GastosTallerIdDelete.');
+            throw new Error('Required parameter id was null or undefined when calling apiV2GastoTallerIdDelete.');
         }
 
         let headers = this.defaultHeaders;
@@ -158,7 +163,7 @@ export class GastosTallerService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<any>('delete',`${this.basePath}/api/v2/gastosTaller/${encodeURIComponent(String(id))}`,
+        return this.httpClient.request<GastoTallerDto>('delete',`${this.basePath}/api/v2/gastoTaller/${encodeURIComponent(String(id))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -175,13 +180,13 @@ export class GastosTallerService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2GastosTallerIdGet(id: number, observe?: 'body', reportProgress?: boolean): Observable<GastosTallerDto>;
-    public apiV2GastosTallerIdGet(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<GastosTallerDto>>;
-    public apiV2GastosTallerIdGet(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<GastosTallerDto>>;
-    public apiV2GastosTallerIdGet(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public apiV2GastoTallerIdGet(id: number, observe?: 'body', reportProgress?: boolean): Observable<GastoTallerDto>;
+    public apiV2GastoTallerIdGet(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<GastoTallerDto>>;
+    public apiV2GastoTallerIdGet(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<GastoTallerDto>>;
+    public apiV2GastoTallerIdGet(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling apiV2GastosTallerIdGet.');
+            throw new Error('Required parameter id was null or undefined when calling apiV2GastoTallerIdGet.');
         }
 
         let headers = this.defaultHeaders;
@@ -201,7 +206,7 @@ export class GastosTallerService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<GastosTallerDto>('get',`${this.basePath}/api/v2/gastosTaller/${encodeURIComponent(String(id))}`,
+        return this.httpClient.request<GastoTallerDto>('get',`${this.basePath}/api/v2/gastoTaller/${encodeURIComponent(String(id))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -218,10 +223,10 @@ export class GastosTallerService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2GastosTallerPost(body?: CreateGastosTallerDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2GastosTallerPost(body?: CreateGastosTallerDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2GastosTallerPost(body?: CreateGastosTallerDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
-    public apiV2GastosTallerPost(body?: CreateGastosTallerDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public apiV2GastoTallerPost(body?: CreateGastoTallerDto, observe?: 'body', reportProgress?: boolean): Observable<GastoTallerDto>;
+    public apiV2GastoTallerPost(body?: CreateGastoTallerDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<GastoTallerDto>>;
+    public apiV2GastoTallerPost(body?: CreateGastoTallerDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<GastoTallerDto>>;
+    public apiV2GastoTallerPost(body?: CreateGastoTallerDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
         let headers = this.defaultHeaders;
@@ -248,7 +253,7 @@ export class GastosTallerService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/gastosTaller`,
+        return this.httpClient.request<GastoTallerDto>('post',`${this.basePath}/api/v2/gastoTaller`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -266,10 +271,10 @@ export class GastosTallerService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2GastosTallerPut(body?: UpdateGastosTallerDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2GastosTallerPut(body?: UpdateGastosTallerDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2GastosTallerPut(body?: UpdateGastosTallerDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
-    public apiV2GastosTallerPut(body?: UpdateGastosTallerDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public apiV2GastoTallerPut(body?: UpdateGastoTallerDto, observe?: 'body', reportProgress?: boolean): Observable<GastoTallerDto>;
+    public apiV2GastoTallerPut(body?: UpdateGastoTallerDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<GastoTallerDto>>;
+    public apiV2GastoTallerPut(body?: UpdateGastoTallerDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<GastoTallerDto>>;
+    public apiV2GastoTallerPut(body?: UpdateGastoTallerDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
         let headers = this.defaultHeaders;
@@ -296,7 +301,255 @@ export class GastosTallerService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/gastosTaller`,
+        return this.httpClient.request<GastoTallerDto>('put',`${this.basePath}/api/v2/gastoTaller`,
+            {
+                body: body,
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * 
+     * @param claveGuid 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public apiV2GastosTallerDocClaveGuidDelete(claveGuid: string, observe?: 'body', reportProgress?: boolean): Observable<GastosTallerDocDto>;
+    public apiV2GastosTallerDocClaveGuidDelete(claveGuid: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<GastosTallerDocDto>>;
+    public apiV2GastosTallerDocClaveGuidDelete(claveGuid: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<GastosTallerDocDto>>;
+    public apiV2GastosTallerDocClaveGuidDelete(claveGuid: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        if (claveGuid === null || claveGuid === undefined) {
+            throw new Error('Required parameter claveGuid was null or undefined when calling apiV2GastosTallerDocClaveGuidDelete.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.request<GastosTallerDocDto>('delete',`${this.basePath}/api/v2/gastosTallerDoc/${encodeURIComponent(String(claveGuid))}`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * 
+     * @param claveGuid 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public apiV2GastosTallerDocClaveGuidGet(claveGuid: string, observe?: 'body', reportProgress?: boolean): Observable<GastosTallerDocOneDto>;
+    public apiV2GastosTallerDocClaveGuidGet(claveGuid: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<GastosTallerDocOneDto>>;
+    public apiV2GastosTallerDocClaveGuidGet(claveGuid: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<GastosTallerDocOneDto>>;
+    public apiV2GastosTallerDocClaveGuidGet(claveGuid: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        if (claveGuid === null || claveGuid === undefined) {
+            throw new Error('Required parameter claveGuid was null or undefined when calling apiV2GastosTallerDocClaveGuidGet.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.request<GastosTallerDocOneDto>('get',`${this.basePath}/api/v2/gastosTallerDoc/${encodeURIComponent(String(claveGuid))}`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * 
+     * @param Q 
+     * @param sort 
+     * @param page 
+     * @param pageSize 
+     * @param filters 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public apiV2GastosTallerDocGet(Q?: string, sort?: string, page?: number, pageSize?: number, filters?: { [key: string]: string; }, observe?: 'body', reportProgress?: boolean): Observable<GastosTallerDocDtoPaginatedResult>;
+    public apiV2GastosTallerDocGet(Q?: string, sort?: string, page?: number, pageSize?: number, filters?: { [key: string]: string; }, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<GastosTallerDocDtoPaginatedResult>>;
+    public apiV2GastosTallerDocGet(Q?: string, sort?: string, page?: number, pageSize?: number, filters?: { [key: string]: string; }, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<GastosTallerDocDtoPaginatedResult>>;
+    public apiV2GastosTallerDocGet(Q?: string, sort?: string, page?: number, pageSize?: number, filters?: { [key: string]: string; }, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+
+
+
+
+
+        let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
+        if (Q !== undefined && Q !== null) {
+            queryParameters = queryParameters.set('Q', <any>Q);
+        }
+        if (sort !== undefined && sort !== null) {
+            queryParameters = queryParameters.set('Sort', <any>sort);
+        }
+        if (page !== undefined && page !== null) {
+            queryParameters = queryParameters.set('Page', <any>page);
+        }
+        if (pageSize !== undefined && pageSize !== null) {
+            queryParameters = queryParameters.set('PageSize', <any>pageSize);
+        }
+        if (filters !== undefined && filters !== null) {
+            queryParameters = queryParameters.set('Filters', <any>filters);
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.request<GastosTallerDocDtoPaginatedResult>('get',`${this.basePath}/api/v2/gastosTallerDoc`,
+            {
+                params: queryParameters,
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * 
+     * @param body 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public apiV2GastosTallerDocPost(body?: CreateGastosTallerDocDto, observe?: 'body', reportProgress?: boolean): Observable<GastosTallerDocOneDto>;
+    public apiV2GastosTallerDocPost(body?: CreateGastosTallerDocDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<GastosTallerDocOneDto>>;
+    public apiV2GastosTallerDocPost(body?: CreateGastosTallerDocDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<GastosTallerDocOneDto>>;
+    public apiV2GastosTallerDocPost(body?: CreateGastosTallerDocDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+            'application/json',
+            'text/json',
+            'application/_*+json'
+        ];
+        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected != undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+
+        return this.httpClient.request<GastosTallerDocOneDto>('post',`${this.basePath}/api/v2/gastosTallerDoc`,
+            {
+                body: body,
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * 
+     * @param body 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public apiV2GastosTallerDocPut(body?: UpdateGastosTallerDocDto, observe?: 'body', reportProgress?: boolean): Observable<GastosTallerDocOneDto>;
+    public apiV2GastosTallerDocPut(body?: UpdateGastosTallerDocDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<GastosTallerDocOneDto>>;
+    public apiV2GastosTallerDocPut(body?: UpdateGastosTallerDocDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<GastosTallerDocOneDto>>;
+    public apiV2GastosTallerDocPut(body?: UpdateGastosTallerDocDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+            'application/json',
+            'text/json',
+            'application/_*+json'
+        ];
+        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected != undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+
+        return this.httpClient.request<GastosTallerDocOneDto>('put',`${this.basePath}/api/v2/gastosTallerDoc`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

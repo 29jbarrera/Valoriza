@@ -12,7 +12,7 @@
 
 export interface ParametroDto { 
     id?: number;
-    codigo: string;
+    codigo?: string;
     valor?: number;
     descripcion?: string;
 }

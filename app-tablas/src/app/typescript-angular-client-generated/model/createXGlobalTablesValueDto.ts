@@ -14,9 +14,9 @@ export interface CreateXGlobalTablesValueDto {
     code: string;
     codeApp: string;
     name: string;
-    idOriginSession?: number;
-    modifiable?: boolean;
-    validFrom?: Date;
-    validTo?: Date;
+    idOriginSession: number;
+    modifiable: boolean;
+    validFrom?: string;
+    validTo?: string;
     order?: number;
 }

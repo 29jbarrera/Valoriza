@@ -12,15 +12,13 @@
 import { SeguroDto } from './seguroDto';
 
 export interface SegurosDocDto { 
-    id?: number;
+    claveGuid: string;
     idSeguro?: number;
     seguro?: SeguroDto;
-    claveGuid?: string;
-    extension: string;
-    documento: string;
-    nombre: string;
-    createdBy: string;
+    extension?: string;
+    nombre?: string;
+    createdBy?: string;
     createdAt?: Date;
-    changedBy: string;
+    changedBy?: string;
     changedAt?: Date;
 }

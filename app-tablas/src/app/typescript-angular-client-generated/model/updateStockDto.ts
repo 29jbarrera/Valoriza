@@ -12,10 +12,10 @@
 
 export interface UpdateStockDto { 
     id?: number;
-    idEmpresa?: number;
-    idCentro?: number;
-    idReferenciaMaterial?: number;
-    cantidad?: number;
-    valor?: number;
+    idEmpresa: number;
+    idCentro: number;
+    idReferenciaMaterial: number;
+    cantidad: number;
+    valor: number;
     codMoneda: string;
 }

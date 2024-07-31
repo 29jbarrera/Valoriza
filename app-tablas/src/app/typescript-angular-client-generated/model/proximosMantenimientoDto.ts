@@ -12,22 +12,22 @@
 
 export interface ProximosMantenimientoDto { 
     id?: number;
-    nombreCentroMaquinaria: string;
-    descripcionSubfamiliaMaquinaria: string;
-    matricula: string;
-    codigoNivelMantenimiento: string;
+    nombreCentroMaquinaria?: string;
+    descripcionSubfamiliaMaquinaria?: string;
+    matricula?: string;
+    codigoNivelMantenimiento?: string;
     idNivelMantimiento?: number;
     posicion?: number;
     idMaquinaria?: number;
     ultimosKm?: number;
-    ultimaFecha?: Date;
+    ultimaFecha?: string;
     kmInicialesMant?: number;
     kmFinalesMant?: number;
     kmFaltan?: number;
     media?: number;
     dias?: number;
     diasRedondeo?: number;
-    fechaEstimada?: Date;
+    fechaEstimada?: string;
     valor?: number;
     idEmpresa?: number;
     idLang?: number;

@@ -11,7 +11,7 @@
  */
 
 export interface CreateAmortizacionHistoricoDto { 
-    idMaquinaria?: number;
+    idMaquinaria: number;
     idImplemento?: number;
     fecha?: Date;
     amortizacion?: number;

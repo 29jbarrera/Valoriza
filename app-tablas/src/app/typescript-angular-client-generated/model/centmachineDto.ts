@@ -13,7 +13,7 @@
 export interface CentmachineDto { 
     id?: number;
     machineId?: number;
-    centerId: string;
-    fechaInicio: string;
+    centerId?: string;
+    fechaInicio?: string;
     fechaFinal?: string;
 }

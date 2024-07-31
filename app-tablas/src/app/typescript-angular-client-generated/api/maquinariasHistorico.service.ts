@@ -114,7 +114,7 @@ export class MaquinariasHistoricoService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<MaquinariasHistoricoDtoPaginatedResult>('get',`${this.basePath}/api/v2/maquinariasHistorico`,
+        return this.httpClient.request<MaquinariasHistoricoDtoPaginatedResult>('get',`${this.basePath}/api/v2/MaquinariasHistorico`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -132,9 +132,9 @@ export class MaquinariasHistoricoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2MaquinariasHistoricoIdDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2MaquinariasHistoricoIdDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2MaquinariasHistoricoIdDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2MaquinariasHistoricoIdDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<MaquinariasHistoricoDto>;
+    public apiV2MaquinariasHistoricoIdDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<MaquinariasHistoricoDto>>;
+    public apiV2MaquinariasHistoricoIdDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<MaquinariasHistoricoDto>>;
     public apiV2MaquinariasHistoricoIdDelete(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (id === null || id === undefined) {
@@ -158,7 +158,7 @@ export class MaquinariasHistoricoService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<any>('delete',`${this.basePath}/api/v2/maquinariasHistorico/${encodeURIComponent(String(id))}`,
+        return this.httpClient.request<MaquinariasHistoricoDto>('delete',`${this.basePath}/api/v2/MaquinariasHistorico/${encodeURIComponent(String(id))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -201,7 +201,7 @@ export class MaquinariasHistoricoService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<MaquinariasHistoricoDto>('get',`${this.basePath}/api/v2/maquinariasHistorico/${encodeURIComponent(String(id))}`,
+        return this.httpClient.request<MaquinariasHistoricoDto>('get',`${this.basePath}/api/v2/MaquinariasHistorico/${encodeURIComponent(String(id))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -218,9 +218,9 @@ export class MaquinariasHistoricoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2MaquinariasHistoricoPost(body?: CreateMaquinariasHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2MaquinariasHistoricoPost(body?: CreateMaquinariasHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2MaquinariasHistoricoPost(body?: CreateMaquinariasHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2MaquinariasHistoricoPost(body?: CreateMaquinariasHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<MaquinariasHistoricoDto>;
+    public apiV2MaquinariasHistoricoPost(body?: CreateMaquinariasHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<MaquinariasHistoricoDto>>;
+    public apiV2MaquinariasHistoricoPost(body?: CreateMaquinariasHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<MaquinariasHistoricoDto>>;
     public apiV2MaquinariasHistoricoPost(body?: CreateMaquinariasHistoricoDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -248,7 +248,7 @@ export class MaquinariasHistoricoService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/maquinariasHistorico`,
+        return this.httpClient.request<MaquinariasHistoricoDto>('post',`${this.basePath}/api/v2/MaquinariasHistorico`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -266,9 +266,9 @@ export class MaquinariasHistoricoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2MaquinariasHistoricoPut(body?: UpdateMaquinariasHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2MaquinariasHistoricoPut(body?: UpdateMaquinariasHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2MaquinariasHistoricoPut(body?: UpdateMaquinariasHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2MaquinariasHistoricoPut(body?: UpdateMaquinariasHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<MaquinariasHistoricoDto>;
+    public apiV2MaquinariasHistoricoPut(body?: UpdateMaquinariasHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<MaquinariasHistoricoDto>>;
+    public apiV2MaquinariasHistoricoPut(body?: UpdateMaquinariasHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<MaquinariasHistoricoDto>>;
     public apiV2MaquinariasHistoricoPut(body?: UpdateMaquinariasHistoricoDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -296,7 +296,7 @@ export class MaquinariasHistoricoService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/maquinariasHistorico`,
+        return this.httpClient.request<MaquinariasHistoricoDto>('put',`${this.basePath}/api/v2/MaquinariasHistorico`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

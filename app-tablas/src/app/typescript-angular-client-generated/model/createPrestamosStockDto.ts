@@ -11,11 +11,11 @@
  */
 
 export interface CreatePrestamosStockDto { 
-    idEmpresa?: number;
-    idCentroOrigen?: number;
-    idCentroDestino?: number;
-    idReferenciaMaterial?: number;
+    idEmpresa: number;
+    idCentroOrigen: number;
+    idCentroDestino: number;
+    idReferenciaMaterial: number;
     codMoneda: string;
-    cantidad?: number;
-    valor?: number;
+    cantidad: number;
+    valor: number;
 }

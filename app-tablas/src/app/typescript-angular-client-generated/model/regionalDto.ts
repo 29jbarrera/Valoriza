@@ -12,5 +12,5 @@
 
 export interface RegionalDto { 
     id?: number;
-    direccion: string;
+    direccion?: string;
 }

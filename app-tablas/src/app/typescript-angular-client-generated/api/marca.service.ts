@@ -114,7 +114,7 @@ export class MarcaService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<MarcaDtoPaginatedResult>('get',`${this.basePath}/api/v2/marca`,
+        return this.httpClient.request<MarcaDtoPaginatedResult>('get',`${this.basePath}/api/v2/Marca`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -132,9 +132,9 @@ export class MarcaService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2MarcaIdDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2MarcaIdDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2MarcaIdDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2MarcaIdDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<MarcaDto>;
+    public apiV2MarcaIdDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<MarcaDto>>;
+    public apiV2MarcaIdDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<MarcaDto>>;
     public apiV2MarcaIdDelete(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (id === null || id === undefined) {
@@ -158,7 +158,7 @@ export class MarcaService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<any>('delete',`${this.basePath}/api/v2/marca/${encodeURIComponent(String(id))}`,
+        return this.httpClient.request<MarcaDto>('delete',`${this.basePath}/api/v2/Marca/${encodeURIComponent(String(id))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -201,7 +201,7 @@ export class MarcaService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<MarcaDto>('get',`${this.basePath}/api/v2/marca/${encodeURIComponent(String(id))}`,
+        return this.httpClient.request<MarcaDto>('get',`${this.basePath}/api/v2/Marca/${encodeURIComponent(String(id))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -218,9 +218,9 @@ export class MarcaService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2MarcaPost(body?: CreateMarcaDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2MarcaPost(body?: CreateMarcaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2MarcaPost(body?: CreateMarcaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2MarcaPost(body?: CreateMarcaDto, observe?: 'body', reportProgress?: boolean): Observable<MarcaDto>;
+    public apiV2MarcaPost(body?: CreateMarcaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<MarcaDto>>;
+    public apiV2MarcaPost(body?: CreateMarcaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<MarcaDto>>;
     public apiV2MarcaPost(body?: CreateMarcaDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -248,7 +248,7 @@ export class MarcaService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/marca`,
+        return this.httpClient.request<MarcaDto>('post',`${this.basePath}/api/v2/Marca`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -266,9 +266,9 @@ export class MarcaService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2MarcaPut(body?: UpdateMarcaDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2MarcaPut(body?: UpdateMarcaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2MarcaPut(body?: UpdateMarcaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2MarcaPut(body?: UpdateMarcaDto, observe?: 'body', reportProgress?: boolean): Observable<MarcaDto>;
+    public apiV2MarcaPut(body?: UpdateMarcaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<MarcaDto>>;
+    public apiV2MarcaPut(body?: UpdateMarcaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<MarcaDto>>;
     public apiV2MarcaPut(body?: UpdateMarcaDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -296,7 +296,7 @@ export class MarcaService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/marca`,
+        return this.httpClient.request<MarcaDto>('put',`${this.basePath}/api/v2/Marca`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

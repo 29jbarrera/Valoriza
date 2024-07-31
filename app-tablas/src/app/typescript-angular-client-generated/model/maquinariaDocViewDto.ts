@@ -14,11 +14,11 @@ export interface MaquinariaDocViewDto {
     id?: number;
     idMaquinaria?: number;
     claveGuid?: string;
-    extension: string;
-    nombre: string;
-    tipo: string;
-    createdBy: string;
+    extension?: string;
+    nombre?: string;
+    tipo?: string;
+    createdBy?: string;
     createdAt?: Date;
-    changedBy: string;
+    changedBy?: string;
     changedAt?: Date;
 }

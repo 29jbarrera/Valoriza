@@ -20,6 +20,8 @@ import { Observable }                                        from 'rxjs';
 import { CreateGncDto } from '../model/createGncDto';
 import { GncDto } from '../model/gncDto';
 import { GncDtoPaginatedResult } from '../model/gncDtoPaginatedResult';
+import { GncsHistoricoDto } from '../model/gncsHistoricoDto';
+import { GncsHistoricoDtoPaginatedResult } from '../model/gncsHistoricoDtoPaginatedResult';
 import { ProblemDetails } from '../model/problemDetails';
 import { UpdateGncDto } from '../model/updateGncDto';
 
@@ -128,13 +130,122 @@ export class GncService {
     /**
      * 
      * 
+     * @param Q 
+     * @param sort 
+     * @param page 
+     * @param pageSize 
+     * @param filters 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public apiV2GncHistoricoGet(Q?: string, sort?: string, page?: number, pageSize?: number, filters?: { [key: string]: string; }, observe?: 'body', reportProgress?: boolean): Observable<GncsHistoricoDtoPaginatedResult>;
+    public apiV2GncHistoricoGet(Q?: string, sort?: string, page?: number, pageSize?: number, filters?: { [key: string]: string; }, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<GncsHistoricoDtoPaginatedResult>>;
+    public apiV2GncHistoricoGet(Q?: string, sort?: string, page?: number, pageSize?: number, filters?: { [key: string]: string; }, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<GncsHistoricoDtoPaginatedResult>>;
+    public apiV2GncHistoricoGet(Q?: string, sort?: string, page?: number, pageSize?: number, filters?: { [key: string]: string; }, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+
+
+
+
+
+        let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
+        if (Q !== undefined && Q !== null) {
+            queryParameters = queryParameters.set('Q', <any>Q);
+        }
+        if (sort !== undefined && sort !== null) {
+            queryParameters = queryParameters.set('Sort', <any>sort);
+        }
+        if (page !== undefined && page !== null) {
+            queryParameters = queryParameters.set('Page', <any>page);
+        }
+        if (pageSize !== undefined && pageSize !== null) {
+            queryParameters = queryParameters.set('PageSize', <any>pageSize);
+        }
+        if (filters !== undefined && filters !== null) {
+            queryParameters = queryParameters.set('Filters', <any>filters);
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.request<GncsHistoricoDtoPaginatedResult>('get',`${this.basePath}/api/v2/gnc/historico`,
+            {
+                params: queryParameters,
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * 
      * @param id 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2GncIdDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2GncIdDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2GncIdDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2GncHistoricoIdGet(id: number, observe?: 'body', reportProgress?: boolean): Observable<GncsHistoricoDto>;
+    public apiV2GncHistoricoIdGet(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<GncsHistoricoDto>>;
+    public apiV2GncHistoricoIdGet(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<GncsHistoricoDto>>;
+    public apiV2GncHistoricoIdGet(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling apiV2GncHistoricoIdGet.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.request<GncsHistoricoDto>('get',`${this.basePath}/api/v2/gnc/historico/${encodeURIComponent(String(id))}`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * 
+     * @param id 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public apiV2GncIdDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<GncDto>;
+    public apiV2GncIdDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<GncDto>>;
+    public apiV2GncIdDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<GncDto>>;
     public apiV2GncIdDelete(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (id === null || id === undefined) {
@@ -158,7 +269,7 @@ export class GncService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<any>('delete',`${this.basePath}/api/v2/gnc/${encodeURIComponent(String(id))}`,
+        return this.httpClient.request<GncDto>('delete',`${this.basePath}/api/v2/gnc/${encodeURIComponent(String(id))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -218,9 +329,9 @@ export class GncService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2GncPost(body?: CreateGncDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2GncPost(body?: CreateGncDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2GncPost(body?: CreateGncDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2GncPost(body?: CreateGncDto, observe?: 'body', reportProgress?: boolean): Observable<GncDto>;
+    public apiV2GncPost(body?: CreateGncDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<GncDto>>;
+    public apiV2GncPost(body?: CreateGncDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<GncDto>>;
     public apiV2GncPost(body?: CreateGncDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -248,7 +359,7 @@ export class GncService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/gnc`,
+        return this.httpClient.request<GncDto>('post',`${this.basePath}/api/v2/gnc`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -266,9 +377,9 @@ export class GncService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2GncPut(body?: UpdateGncDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2GncPut(body?: UpdateGncDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2GncPut(body?: UpdateGncDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2GncPut(body?: UpdateGncDto, observe?: 'body', reportProgress?: boolean): Observable<GncDto>;
+    public apiV2GncPut(body?: UpdateGncDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<GncDto>>;
+    public apiV2GncPut(body?: UpdateGncDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<GncDto>>;
     public apiV2GncPut(body?: UpdateGncDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -296,7 +407,7 @@ export class GncService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/gnc`,
+        return this.httpClient.request<GncDto>('put',`${this.basePath}/api/v2/gnc`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

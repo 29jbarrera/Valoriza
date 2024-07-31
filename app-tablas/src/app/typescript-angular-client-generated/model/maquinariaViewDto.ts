@@ -13,19 +13,19 @@
 export interface MaquinariaViewDto { 
     id?: number;
     idEmpresa?: number;
-    matricula: string;
-    bastidor: string;
+    matricula?: string;
+    bastidor?: string;
     idCentro?: number;
-    centro: string;
+    centro?: string;
     idCentroCompra?: number;
-    centroCompra: string;
+    centroCompra?: string;
     idFamilia?: number;
     idSubfamilia?: number;
     idSeguro?: number;
-    fechaMatriculacion?: Date;
+    fechaMatriculacion?: string;
     codTipoCombustible?: string;
     codNivelEmisiones?: string;
-    fechaGnc?: Date;
+    fechaGnc?: string;
     codMoneda?: string;
     conductor?: string;
     servicio?: string;
@@ -37,13 +37,13 @@ export interface MaquinariaViewDto {
     precioChasis?: number;
     contratoChasis?: string;
     bancoChasis?: string;
-    fechaChasis?: Date;
+    fechaChasis?: string;
     duracionChasis?: number;
     aseguradora?: string;
     codTipoSeguro?: string;
     codigo?: string;
-    fechaInicio?: Date;
-    fechaFin?: Date;
+    fechaInicio?: string;
+    fechaFin?: string;
     precioPoliza?: number;
     codTipoPago?: string;
     operativa?: boolean;
@@ -58,7 +58,7 @@ export interface MaquinariaViewDto {
     implemento1Contrato?: string;
     implemento1CodTipoPago?: string;
     implemento1Banco?: string;
-    implemento1Fecha?: Date;
+    implemento1Fecha?: string;
     implemento1Duracion?: number;
     implemento2Descripcion?: string;
     implemento2Marca?: string;
@@ -70,7 +70,7 @@ export interface MaquinariaViewDto {
     implemento2Contrato?: string;
     implemento2CodTipoPago?: string;
     implemento2Banco?: string;
-    implemento2Fecha?: Date;
+    implemento2Fecha?: string;
     implemento2Duracion?: number;
     implemento3Descripcion?: string;
     implemento3Marca?: string;
@@ -82,6 +82,6 @@ export interface MaquinariaViewDto {
     implemento3Contrato?: string;
     implemento3CodTipoPago?: string;
     implemento3Banco?: string;
-    implemento3Fecha?: Date;
+    implemento3Fecha?: string;
     implemento3Duracion?: number;
 }

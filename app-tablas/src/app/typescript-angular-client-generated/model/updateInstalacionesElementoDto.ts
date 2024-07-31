@@ -12,7 +12,7 @@
 
 export interface UpdateInstalacionesElementoDto { 
     id?: number;
-    idEmpresa?: number;
-    idInstalacion?: number;
+    idEmpresa: number;
+    idInstalacion: number;
     descripcion: string;
 }

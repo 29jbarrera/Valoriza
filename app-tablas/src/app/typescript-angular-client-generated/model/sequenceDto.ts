@@ -13,7 +13,7 @@
 export interface SequenceDto { 
     id?: number;
     identificador?: number;
-    levelIdentificador: string;
+    levelIdentificador?: string;
     posicion?: number;
     tipo?: number;
 }

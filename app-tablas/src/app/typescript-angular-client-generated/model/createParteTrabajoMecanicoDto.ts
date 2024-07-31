@@ -11,7 +11,7 @@
  */
 
 export interface CreateParteTrabajoMecanicoDto { 
-    idParteTrabajo?: number;
-    idMecanico?: number;
-    horasReparacion?: number;
+    idParteTrabajo: number;
+    idMecanico: number;
+    horasReparacion: number;
 }

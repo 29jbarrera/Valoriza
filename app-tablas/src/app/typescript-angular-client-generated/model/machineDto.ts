@@ -12,16 +12,16 @@
 
 export interface MachineDto { 
     id?: number;
-    matricula: string;
+    matricula?: string;
     familyId?: number;
     centerId?: string;
     horometro?: number;
     kilometro?: number;
-    itv?: Date;
-    tacografo?: Date;
+    itv?: string;
+    tacografo?: string;
     mantenimiento?: string;
     posicion?: number;
-    bastidor: string;
+    bastidor?: string;
     operativa?: number;
     docitv?: string;
     docpermiso?: string;
@@ -34,5 +34,5 @@ export interface MachineDto {
     docTrans?: string;
     serviceId?: string;
     ultItv?: string;
-    fechaGnc?: Date;
+    fechaGnc?: string;
 }

@@ -11,15 +11,12 @@
  */
 
 export interface RatiosViewDto { 
-    id?: number;
     idMaquinaria?: number;
-    centro: string;
-    descripcion: string;
-    matricula: string;
-    nombreCentro: string;
+    centro?: string;
+    descripcion?: string;
+    matricula?: string;
+    nombreCentro?: string;
     idGrupoCentro?: number;
-    idGrupoCentroPadre?: number;
-    fecha?: Date;
     reparaciones?: number;
     seguro?: number;
     impuesto?: number;
@@ -28,6 +25,5 @@ export interface RatiosViewDto {
     financieros?: number;
     tasa?: number;
     ratio?: number;
-    moneda?: string;
     idCentro?: number;
 }

@@ -12,12 +12,12 @@
 
 export interface UpdateRepostajeDto { 
     id?: number;
-    idEmpresa?: number;
+    idEmpresa: number;
     idCentro?: number;
     idMaquinaria?: number;
     idDeposito?: number;
-    fecha?: Date;
-    cantidad?: number;
+    fecha: Date;
+    cantidad: number;
     codUnidad?: string;
     cuenta?: string;
     tarjeta?: string;

@@ -20,5 +20,5 @@ export interface MaintenanceDto {
     fecha?: string;
     tipo?: number;
     nivel?: number;
-    levelIde: string;
+    levelIde?: string;
 }

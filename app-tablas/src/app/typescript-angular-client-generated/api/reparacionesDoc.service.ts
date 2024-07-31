@@ -21,6 +21,7 @@ import { CreateReparacionesDocDto } from '../model/createReparacionesDocDto';
 import { ProblemDetails } from '../model/problemDetails';
 import { ReparacionesDocDto } from '../model/reparacionesDocDto';
 import { ReparacionesDocDtoPaginatedResult } from '../model/reparacionesDocDtoPaginatedResult';
+import { ReparacionesDocOneDto } from '../model/reparacionesDocOneDto';
 import { UpdateReparacionesDocDto } from '../model/updateReparacionesDocDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -58,6 +59,92 @@ export class ReparacionesDocService {
         return false;
     }
 
+
+    /**
+     * 
+     * 
+     * @param claveGuid 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public apiV2ReparacionesDocClaveGuidDelete(claveGuid: string, observe?: 'body', reportProgress?: boolean): Observable<ReparacionesDocDto>;
+    public apiV2ReparacionesDocClaveGuidDelete(claveGuid: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ReparacionesDocDto>>;
+    public apiV2ReparacionesDocClaveGuidDelete(claveGuid: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ReparacionesDocDto>>;
+    public apiV2ReparacionesDocClaveGuidDelete(claveGuid: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        if (claveGuid === null || claveGuid === undefined) {
+            throw new Error('Required parameter claveGuid was null or undefined when calling apiV2ReparacionesDocClaveGuidDelete.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.request<ReparacionesDocDto>('delete',`${this.basePath}/api/v2/ReparacionesDoc/${encodeURIComponent(String(claveGuid))}`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * 
+     * @param claveGuid 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public apiV2ReparacionesDocClaveGuidGet(claveGuid: string, observe?: 'body', reportProgress?: boolean): Observable<ReparacionesDocOneDto>;
+    public apiV2ReparacionesDocClaveGuidGet(claveGuid: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ReparacionesDocOneDto>>;
+    public apiV2ReparacionesDocClaveGuidGet(claveGuid: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ReparacionesDocOneDto>>;
+    public apiV2ReparacionesDocClaveGuidGet(claveGuid: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        if (claveGuid === null || claveGuid === undefined) {
+            throw new Error('Required parameter claveGuid was null or undefined when calling apiV2ReparacionesDocClaveGuidGet.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.request<ReparacionesDocOneDto>('get',`${this.basePath}/api/v2/ReparacionesDoc/${encodeURIComponent(String(claveGuid))}`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
 
     /**
      * 
@@ -114,95 +201,9 @@ export class ReparacionesDocService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<ReparacionesDocDtoPaginatedResult>('get',`${this.basePath}/api/v2/reparacionesDoc`,
+        return this.httpClient.request<ReparacionesDocDtoPaginatedResult>('get',`${this.basePath}/api/v2/ReparacionesDoc`,
             {
                 params: queryParameters,
-                withCredentials: this.configuration.withCredentials,
-                headers: headers,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * 
-     * 
-     * @param id 
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public apiV2ReparacionesDocIdDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2ReparacionesDocIdDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2ReparacionesDocIdDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
-    public apiV2ReparacionesDocIdDelete(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
-
-        if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling apiV2ReparacionesDocIdDelete.');
-        }
-
-        let headers = this.defaultHeaders;
-
-        // to determine the Accept header
-        let httpHeaderAccepts: string[] = [
-            'text/plain',
-            'application/json',
-            'text/json'
-        ];
-        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        if (httpHeaderAcceptSelected != undefined) {
-            headers = headers.set('Accept', httpHeaderAcceptSelected);
-        }
-
-        // to determine the Content-Type header
-        const consumes: string[] = [
-        ];
-
-        return this.httpClient.request<any>('delete',`${this.basePath}/api/v2/reparacionesDoc/${encodeURIComponent(String(id))}`,
-            {
-                withCredentials: this.configuration.withCredentials,
-                headers: headers,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * 
-     * 
-     * @param id 
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public apiV2ReparacionesDocIdGet(id: number, observe?: 'body', reportProgress?: boolean): Observable<ReparacionesDocDto>;
-    public apiV2ReparacionesDocIdGet(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ReparacionesDocDto>>;
-    public apiV2ReparacionesDocIdGet(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ReparacionesDocDto>>;
-    public apiV2ReparacionesDocIdGet(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
-
-        if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling apiV2ReparacionesDocIdGet.');
-        }
-
-        let headers = this.defaultHeaders;
-
-        // to determine the Accept header
-        let httpHeaderAccepts: string[] = [
-            'text/plain',
-            'application/json',
-            'text/json'
-        ];
-        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        if (httpHeaderAcceptSelected != undefined) {
-            headers = headers.set('Accept', httpHeaderAcceptSelected);
-        }
-
-        // to determine the Content-Type header
-        const consumes: string[] = [
-        ];
-
-        return this.httpClient.request<ReparacionesDocDto>('get',`${this.basePath}/api/v2/reparacionesDoc/${encodeURIComponent(String(id))}`,
-            {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
                 observe: observe,
@@ -218,9 +219,9 @@ export class ReparacionesDocService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2ReparacionesDocPost(body?: CreateReparacionesDocDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2ReparacionesDocPost(body?: CreateReparacionesDocDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2ReparacionesDocPost(body?: CreateReparacionesDocDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2ReparacionesDocPost(body?: CreateReparacionesDocDto, observe?: 'body', reportProgress?: boolean): Observable<ReparacionesDocOneDto>;
+    public apiV2ReparacionesDocPost(body?: CreateReparacionesDocDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ReparacionesDocOneDto>>;
+    public apiV2ReparacionesDocPost(body?: CreateReparacionesDocDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ReparacionesDocOneDto>>;
     public apiV2ReparacionesDocPost(body?: CreateReparacionesDocDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -248,7 +249,7 @@ export class ReparacionesDocService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/reparacionesDoc`,
+        return this.httpClient.request<ReparacionesDocOneDto>('post',`${this.basePath}/api/v2/ReparacionesDoc`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -266,9 +267,9 @@ export class ReparacionesDocService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2ReparacionesDocPut(body?: UpdateReparacionesDocDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2ReparacionesDocPut(body?: UpdateReparacionesDocDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2ReparacionesDocPut(body?: UpdateReparacionesDocDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2ReparacionesDocPut(body?: UpdateReparacionesDocDto, observe?: 'body', reportProgress?: boolean): Observable<ReparacionesDocOneDto>;
+    public apiV2ReparacionesDocPut(body?: UpdateReparacionesDocDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ReparacionesDocOneDto>>;
+    public apiV2ReparacionesDocPut(body?: UpdateReparacionesDocDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ReparacionesDocOneDto>>;
     public apiV2ReparacionesDocPut(body?: UpdateReparacionesDocDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -296,7 +297,7 @@ export class ReparacionesDocService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/reparacionesDoc`,
+        return this.httpClient.request<ReparacionesDocOneDto>('put',`${this.basePath}/api/v2/ReparacionesDoc`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

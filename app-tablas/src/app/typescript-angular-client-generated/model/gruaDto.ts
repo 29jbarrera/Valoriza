@@ -9,14 +9,16 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { GruasDocDto } from './gruasDocDto';
 
 export interface GruaDto { 
     id?: number;
     idEmpresa?: number;
     idMaquinaria?: number;
-    fecha?: Date;
-    createdBy: string;
+    fecha?: string;
+    createdBy?: string;
     createdAt?: Date;
-    changedBy: string;
+    changedBy?: string;
     changedAt?: Date;
+    gruasDoc?: GruasDocDto;
 }

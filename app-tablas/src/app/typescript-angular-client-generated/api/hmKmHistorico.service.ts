@@ -114,7 +114,7 @@ export class HmKmHistoricoService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<HmKmHistoricoDtoPaginatedResult>('get',`${this.basePath}/api/v2/hmKmHistorico`,
+        return this.httpClient.request<HmKmHistoricoDtoPaginatedResult>('get',`${this.basePath}/api/v2/HmKmHistorico`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -132,9 +132,9 @@ export class HmKmHistoricoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2HmKmHistoricoIdDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2HmKmHistoricoIdDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2HmKmHistoricoIdDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2HmKmHistoricoIdDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<HmKmHistoricoDto>;
+    public apiV2HmKmHistoricoIdDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<HmKmHistoricoDto>>;
+    public apiV2HmKmHistoricoIdDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<HmKmHistoricoDto>>;
     public apiV2HmKmHistoricoIdDelete(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (id === null || id === undefined) {
@@ -158,7 +158,7 @@ export class HmKmHistoricoService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<any>('delete',`${this.basePath}/api/v2/hmKmHistorico/${encodeURIComponent(String(id))}`,
+        return this.httpClient.request<HmKmHistoricoDto>('delete',`${this.basePath}/api/v2/HmKmHistorico/${encodeURIComponent(String(id))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -201,7 +201,7 @@ export class HmKmHistoricoService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<HmKmHistoricoDto>('get',`${this.basePath}/api/v2/hmKmHistorico/${encodeURIComponent(String(id))}`,
+        return this.httpClient.request<HmKmHistoricoDto>('get',`${this.basePath}/api/v2/HmKmHistorico/${encodeURIComponent(String(id))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -218,9 +218,9 @@ export class HmKmHistoricoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2HmKmHistoricoPost(body?: CreateHmKmHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2HmKmHistoricoPost(body?: CreateHmKmHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2HmKmHistoricoPost(body?: CreateHmKmHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2HmKmHistoricoPost(body?: CreateHmKmHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<HmKmHistoricoDto>;
+    public apiV2HmKmHistoricoPost(body?: CreateHmKmHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<HmKmHistoricoDto>>;
+    public apiV2HmKmHistoricoPost(body?: CreateHmKmHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<HmKmHistoricoDto>>;
     public apiV2HmKmHistoricoPost(body?: CreateHmKmHistoricoDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -248,7 +248,7 @@ export class HmKmHistoricoService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/hmKmHistorico`,
+        return this.httpClient.request<HmKmHistoricoDto>('post',`${this.basePath}/api/v2/HmKmHistorico`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -266,9 +266,9 @@ export class HmKmHistoricoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2HmKmHistoricoPut(body?: UpdateHmKmHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2HmKmHistoricoPut(body?: UpdateHmKmHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2HmKmHistoricoPut(body?: UpdateHmKmHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2HmKmHistoricoPut(body?: UpdateHmKmHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<HmKmHistoricoDto>;
+    public apiV2HmKmHistoricoPut(body?: UpdateHmKmHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<HmKmHistoricoDto>>;
+    public apiV2HmKmHistoricoPut(body?: UpdateHmKmHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<HmKmHistoricoDto>>;
     public apiV2HmKmHistoricoPut(body?: UpdateHmKmHistoricoDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -296,7 +296,7 @@ export class HmKmHistoricoService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/hmKmHistorico`,
+        return this.httpClient.request<HmKmHistoricoDto>('put',`${this.basePath}/api/v2/HmKmHistorico`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

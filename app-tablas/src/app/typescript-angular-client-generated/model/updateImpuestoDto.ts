@@ -12,8 +12,7 @@
 
 export interface UpdateImpuestoDto { 
     id?: number;
-    idEmpresa?: number;
     importe?: number;
     codMoneda?: string;
-    fecha?: Date;
+    fecha?: string;
 }

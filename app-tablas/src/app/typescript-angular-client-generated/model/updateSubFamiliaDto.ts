@@ -12,21 +12,21 @@
 
 export interface UpdateSubFamiliaDto { 
     id?: number;
-    idEmpresa?: number;
-    idFamilia?: number;
-    grua?: boolean;
-    fichaTecnica?: boolean;
-    inspeccionTecnica?: boolean;
-    permisoCirculacion?: boolean;
-    seguro?: boolean;
-    tarjetaTransporte?: boolean;
-    tacografo?: boolean;
-    marcadoCe?: boolean;
-    conformidad?: boolean;
-    peso?: boolean;
-    gnc?: boolean;
+    idEmpresa: number;
+    idFamilia: number;
+    grua: boolean;
+    fichaTecnica: boolean;
+    inspeccionTecnica: boolean;
+    permisoCirculacion: boolean;
+    seguro: boolean;
+    tarjetaTransporte: boolean;
+    tacografo: boolean;
+    marcadoCe: boolean;
+    conformidad: boolean;
+    peso: boolean;
+    gnc: boolean;
     idNivelMantenimientoChasis?: number;
     idNivelMantenimientoEquipo?: number;
     idNivelMantenimientoImplemento?: number;
-    esImplemento?: boolean;
+    esImplemento: boolean;
 }

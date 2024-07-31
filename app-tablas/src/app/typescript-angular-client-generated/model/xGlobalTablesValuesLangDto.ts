@@ -9,15 +9,13 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { BidoneDto } from './bidoneDto';
 
 export interface XGlobalTablesValuesLangDto { 
     id?: number;
-    code: string;
-    codeApp: string;
-    name: string;
+    code?: string;
+    codeApp?: string;
+    name?: string;
     idOriginSession?: number;
-    originSession?: BidoneDto;
     idLang?: number;
-    description: string;
+    description?: string;
 }

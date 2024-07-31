@@ -11,30 +11,30 @@
  */
 
 export interface CreateMaquinariaDto { 
-    idEmpresa?: number;
+    idEmpresa: number;
     idCentro?: number;
     idCentroCompra?: number;
-    idFamilia?: number;
-    idSubfamilia?: number;
+    idFamilia: number;
+    idSubFamilia: number;
     idSeguro?: number;
     idImpuesto?: number;
-    matricula?: string;
-    fechaMatriculacion?: Date;
-    bastidor?: string;
+    matricula: string;
+    fechaMatriculacion?: string;
+    bastidor: string;
     codTipoCombustible?: string;
     codNivelEmisiones?: string;
     codEstadoMaquinaria?: string;
-    fechaGnc?: Date;
+    fechaGnc?: string;
     codMoneda?: string;
     conductor?: string;
     servicio?: string;
-    mediaHorasDia?: number;
-    mediaKmsDia?: number;
-    operativa?: boolean;
+    mediaHorasDia: number;
+    mediaKmsDia: number;
+    operativa: boolean;
     disposicion?: boolean;
     comentarios?: string;
     fechaTasas?: Date;
     duracionTasas?: number;
-    avisoTracking?: boolean;
-    esImplemento?: boolean;
+    avisoTracking: boolean;
+    esImplemento: boolean;
 }

@@ -12,6 +12,6 @@
 
 export interface MaquinariasGncDto { 
     id?: number;
-    fechaGnc?: Date;
+    fechaGnc?: string;
     idCentro?: number;
 }

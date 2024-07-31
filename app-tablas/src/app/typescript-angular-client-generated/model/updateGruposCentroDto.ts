@@ -12,7 +12,7 @@
 
 export interface UpdateGruposCentroDto { 
     id?: number;
-    idEmpresa?: number;
-    codigo?: string;
-    nombre?: string;
+    idEmpresa: number;
+    codigo: string;
+    nombre: string;
 }

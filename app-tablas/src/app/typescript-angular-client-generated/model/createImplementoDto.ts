@@ -11,8 +11,8 @@
  */
 
 export interface CreateImplementoDto { 
-    idEmpresa?: number;
-    idMaquinaria?: number;
+    idEmpresa: number;
+    idMaquinaria: number;
     descripcion: string;
     marca?: string;
     modelo?: string;
@@ -23,12 +23,12 @@ export interface CreateImplementoDto {
     contrato?: string;
     codTipoPago?: string;
     banco?: string;
-    fecha?: Date;
-    duracion?: number;
+    fecha?: string;
+    duracion: number;
     mesesAmortizacion?: number;
-    fechaAmortizacion?: Date;
+    fechaAmortizacion?: string;
     mesesFinanciero?: number;
-    fechaFinanciero?: Date;
+    fechaFinanciero?: string;
     porcentajeFinanciero?: number;
     codMonedaTasa?: string;
     idImplementoAsociado?: number;

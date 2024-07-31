@@ -11,11 +11,11 @@
  */
 
 export interface CreatePesoCargaDto { 
-    idEmpresa?: number;
-    idMaquinaria?: number;
-    fecha?: Date;
+    idEmpresa: number;
+    idMaquinaria: number;
+    fecha: Date;
     codResiduo: string;
-    cantidad?: number;
+    cantidad: number;
     codUnidad: string;
     descripcion?: string;
 }

@@ -19,8 +19,8 @@ import { Observable }                                        from 'rxjs';
 
 import { CreateTacografosDocDto } from '../model/createTacografosDocDto';
 import { ProblemDetails } from '../model/problemDetails';
-import { TacografosDocDto } from '../model/tacografosDocDto';
 import { TacografosDocDtoPaginatedResult } from '../model/tacografosDocDtoPaginatedResult';
+import { TacografosDocOneDto } from '../model/tacografosDocOneDto';
 import { UpdateTacografosDocDto } from '../model/updateTacografosDocDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -58,6 +58,92 @@ export class TacografosDocService {
         return false;
     }
 
+
+    /**
+     * 
+     * 
+     * @param claveGuid 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public apiV2TacografosDocClaveGuidDelete(claveGuid: string, observe?: 'body', reportProgress?: boolean): Observable<TacografosDocOneDto>;
+    public apiV2TacografosDocClaveGuidDelete(claveGuid: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<TacografosDocOneDto>>;
+    public apiV2TacografosDocClaveGuidDelete(claveGuid: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<TacografosDocOneDto>>;
+    public apiV2TacografosDocClaveGuidDelete(claveGuid: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        if (claveGuid === null || claveGuid === undefined) {
+            throw new Error('Required parameter claveGuid was null or undefined when calling apiV2TacografosDocClaveGuidDelete.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.request<TacografosDocOneDto>('delete',`${this.basePath}/api/v2/TacografosDoc/${encodeURIComponent(String(claveGuid))}`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * 
+     * @param claveGuid 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public apiV2TacografosDocClaveGuidGet(claveGuid: string, observe?: 'body', reportProgress?: boolean): Observable<TacografosDocOneDto>;
+    public apiV2TacografosDocClaveGuidGet(claveGuid: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<TacografosDocOneDto>>;
+    public apiV2TacografosDocClaveGuidGet(claveGuid: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<TacografosDocOneDto>>;
+    public apiV2TacografosDocClaveGuidGet(claveGuid: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        if (claveGuid === null || claveGuid === undefined) {
+            throw new Error('Required parameter claveGuid was null or undefined when calling apiV2TacografosDocClaveGuidGet.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.request<TacografosDocOneDto>('get',`${this.basePath}/api/v2/TacografosDoc/${encodeURIComponent(String(claveGuid))}`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
 
     /**
      * 
@@ -114,95 +200,9 @@ export class TacografosDocService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<TacografosDocDtoPaginatedResult>('get',`${this.basePath}/api/v2/tacografosDoc`,
+        return this.httpClient.request<TacografosDocDtoPaginatedResult>('get',`${this.basePath}/api/v2/TacografosDoc`,
             {
                 params: queryParameters,
-                withCredentials: this.configuration.withCredentials,
-                headers: headers,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * 
-     * 
-     * @param id 
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public apiV2TacografosDocIdDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2TacografosDocIdDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2TacografosDocIdDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
-    public apiV2TacografosDocIdDelete(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
-
-        if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling apiV2TacografosDocIdDelete.');
-        }
-
-        let headers = this.defaultHeaders;
-
-        // to determine the Accept header
-        let httpHeaderAccepts: string[] = [
-            'text/plain',
-            'application/json',
-            'text/json'
-        ];
-        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        if (httpHeaderAcceptSelected != undefined) {
-            headers = headers.set('Accept', httpHeaderAcceptSelected);
-        }
-
-        // to determine the Content-Type header
-        const consumes: string[] = [
-        ];
-
-        return this.httpClient.request<any>('delete',`${this.basePath}/api/v2/tacografosDoc/${encodeURIComponent(String(id))}`,
-            {
-                withCredentials: this.configuration.withCredentials,
-                headers: headers,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * 
-     * 
-     * @param id 
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public apiV2TacografosDocIdGet(id: number, observe?: 'body', reportProgress?: boolean): Observable<TacografosDocDto>;
-    public apiV2TacografosDocIdGet(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<TacografosDocDto>>;
-    public apiV2TacografosDocIdGet(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<TacografosDocDto>>;
-    public apiV2TacografosDocIdGet(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
-
-        if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling apiV2TacografosDocIdGet.');
-        }
-
-        let headers = this.defaultHeaders;
-
-        // to determine the Accept header
-        let httpHeaderAccepts: string[] = [
-            'text/plain',
-            'application/json',
-            'text/json'
-        ];
-        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        if (httpHeaderAcceptSelected != undefined) {
-            headers = headers.set('Accept', httpHeaderAcceptSelected);
-        }
-
-        // to determine the Content-Type header
-        const consumes: string[] = [
-        ];
-
-        return this.httpClient.request<TacografosDocDto>('get',`${this.basePath}/api/v2/tacografosDoc/${encodeURIComponent(String(id))}`,
-            {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
                 observe: observe,
@@ -218,9 +218,9 @@ export class TacografosDocService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2TacografosDocPost(body?: CreateTacografosDocDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2TacografosDocPost(body?: CreateTacografosDocDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2TacografosDocPost(body?: CreateTacografosDocDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2TacografosDocPost(body?: CreateTacografosDocDto, observe?: 'body', reportProgress?: boolean): Observable<TacografosDocOneDto>;
+    public apiV2TacografosDocPost(body?: CreateTacografosDocDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<TacografosDocOneDto>>;
+    public apiV2TacografosDocPost(body?: CreateTacografosDocDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<TacografosDocOneDto>>;
     public apiV2TacografosDocPost(body?: CreateTacografosDocDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -248,7 +248,7 @@ export class TacografosDocService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/tacografosDoc`,
+        return this.httpClient.request<TacografosDocOneDto>('post',`${this.basePath}/api/v2/TacografosDoc`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -266,9 +266,9 @@ export class TacografosDocService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2TacografosDocPut(body?: UpdateTacografosDocDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2TacografosDocPut(body?: UpdateTacografosDocDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2TacografosDocPut(body?: UpdateTacografosDocDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2TacografosDocPut(body?: UpdateTacografosDocDto, observe?: 'body', reportProgress?: boolean): Observable<TacografosDocOneDto>;
+    public apiV2TacografosDocPut(body?: UpdateTacografosDocDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<TacografosDocOneDto>>;
+    public apiV2TacografosDocPut(body?: UpdateTacografosDocDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<TacografosDocOneDto>>;
     public apiV2TacografosDocPut(body?: UpdateTacografosDocDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -296,7 +296,7 @@ export class TacografosDocService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/tacografosDoc`,
+        return this.httpClient.request<TacografosDocOneDto>('put',`${this.basePath}/api/v2/TacografosDoc`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

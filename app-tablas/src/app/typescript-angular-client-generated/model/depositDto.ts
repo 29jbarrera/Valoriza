@@ -12,7 +12,7 @@
 
 export interface DepositDto { 
     id?: number;
-    centerId: string;
-    nombre: string;
+    centerId?: string;
+    nombre?: string;
     comun?: boolean;
 }

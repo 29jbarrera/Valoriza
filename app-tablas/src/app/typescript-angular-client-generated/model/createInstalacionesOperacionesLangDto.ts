@@ -11,6 +11,7 @@
  */
 
 export interface CreateInstalacionesOperacionesLangDto { 
+    id?: number;
     idLang?: number;
     descripcion: string;
 }

@@ -11,13 +11,13 @@
  */
 
 export interface SupplyDto { 
+    id?: number;
     cuenta?: string;
     machineId?: number;
     tarjeta?: string;
     typeId?: string;
     tipo?: number;
-    bidon: string;
+    bidon?: string;
     centerId?: string;
     suministro?: number;
-    id?: number;
 }

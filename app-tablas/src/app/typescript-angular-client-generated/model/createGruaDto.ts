@@ -13,5 +13,5 @@
 export interface CreateGruaDto { 
     idEmpresa?: number;
     idMaquinaria?: number;
-    fecha?: Date;
+    fecha: string;
 }

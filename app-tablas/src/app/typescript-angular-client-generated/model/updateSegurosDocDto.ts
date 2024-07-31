@@ -9,12 +9,12 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { ByteReadOnlyMemory } from './byteReadOnlyMemory';
 
 export interface UpdateSegurosDocDto { 
-    id?: number;
-    idSeguro?: number;
-    claveGuid?: string;
+    claveGuid: string;
+    idSeguro: number;
     extension: string;
-    documento: string;
+    documento: ByteReadOnlyMemory;
     nombre: string;
 }

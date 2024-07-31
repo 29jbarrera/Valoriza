@@ -16,5 +16,5 @@ export interface OperationDto {
     operacion?: string;
     periocidad?: number;
     actuante?: string;
-    fecha?: Date;
+    fecha?: string;
 }

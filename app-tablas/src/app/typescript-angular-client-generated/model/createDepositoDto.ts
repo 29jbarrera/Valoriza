@@ -11,9 +11,8 @@
  */
 
 export interface CreateDepositoDto { 
-    idEmpresa?: number;
     idCentro?: number;
     descripcion: string;
-    capacidad?: number;
-    comun?: boolean;
+    capacidad: number;
+    comun: boolean;
 }

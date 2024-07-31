@@ -114,7 +114,7 @@ export class UnidadesMedidaService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<UnidadesMedidaDtoPaginatedResult>('get',`${this.basePath}/api/v2/unidadesMedida`,
+        return this.httpClient.request<UnidadesMedidaDtoPaginatedResult>('get',`${this.basePath}/api/v2/UnidadesMedida`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -132,9 +132,9 @@ export class UnidadesMedidaService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2UnidadesMedidaIdDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2UnidadesMedidaIdDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2UnidadesMedidaIdDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2UnidadesMedidaIdDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<UnidadesMedidaDto>;
+    public apiV2UnidadesMedidaIdDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<UnidadesMedidaDto>>;
+    public apiV2UnidadesMedidaIdDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<UnidadesMedidaDto>>;
     public apiV2UnidadesMedidaIdDelete(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (id === null || id === undefined) {
@@ -158,7 +158,7 @@ export class UnidadesMedidaService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<any>('delete',`${this.basePath}/api/v2/unidadesMedida/${encodeURIComponent(String(id))}`,
+        return this.httpClient.request<UnidadesMedidaDto>('delete',`${this.basePath}/api/v2/UnidadesMedida/${encodeURIComponent(String(id))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -201,7 +201,7 @@ export class UnidadesMedidaService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<UnidadesMedidaDto>('get',`${this.basePath}/api/v2/unidadesMedida/${encodeURIComponent(String(id))}`,
+        return this.httpClient.request<UnidadesMedidaDto>('get',`${this.basePath}/api/v2/UnidadesMedida/${encodeURIComponent(String(id))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -218,9 +218,9 @@ export class UnidadesMedidaService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2UnidadesMedidaPost(body?: CreateUnidadesMedidaDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2UnidadesMedidaPost(body?: CreateUnidadesMedidaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2UnidadesMedidaPost(body?: CreateUnidadesMedidaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2UnidadesMedidaPost(body?: CreateUnidadesMedidaDto, observe?: 'body', reportProgress?: boolean): Observable<UnidadesMedidaDto>;
+    public apiV2UnidadesMedidaPost(body?: CreateUnidadesMedidaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<UnidadesMedidaDto>>;
+    public apiV2UnidadesMedidaPost(body?: CreateUnidadesMedidaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<UnidadesMedidaDto>>;
     public apiV2UnidadesMedidaPost(body?: CreateUnidadesMedidaDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -248,7 +248,7 @@ export class UnidadesMedidaService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/unidadesMedida`,
+        return this.httpClient.request<UnidadesMedidaDto>('post',`${this.basePath}/api/v2/UnidadesMedida`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -266,9 +266,9 @@ export class UnidadesMedidaService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2UnidadesMedidaPut(body?: UpdateUnidadesMedidaDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2UnidadesMedidaPut(body?: UpdateUnidadesMedidaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2UnidadesMedidaPut(body?: UpdateUnidadesMedidaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2UnidadesMedidaPut(body?: UpdateUnidadesMedidaDto, observe?: 'body', reportProgress?: boolean): Observable<UnidadesMedidaDto>;
+    public apiV2UnidadesMedidaPut(body?: UpdateUnidadesMedidaDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<UnidadesMedidaDto>>;
+    public apiV2UnidadesMedidaPut(body?: UpdateUnidadesMedidaDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<UnidadesMedidaDto>>;
     public apiV2UnidadesMedidaPut(body?: UpdateUnidadesMedidaDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -296,7 +296,7 @@ export class UnidadesMedidaService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/unidadesMedida`,
+        return this.httpClient.request<UnidadesMedidaDto>('put',`${this.basePath}/api/v2/UnidadesMedida`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

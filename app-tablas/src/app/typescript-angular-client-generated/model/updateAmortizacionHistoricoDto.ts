@@ -12,7 +12,7 @@
 
 export interface UpdateAmortizacionHistoricoDto { 
     id?: number;
-    idMaquinaria?: number;
+    idMaquinaria: number;
     idImplemento?: number;
     fecha?: Date;
     amortizacion?: number;

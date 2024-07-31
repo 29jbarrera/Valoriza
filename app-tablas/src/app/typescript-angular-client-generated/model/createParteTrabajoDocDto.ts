@@ -9,11 +9,12 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { ByteReadOnlyMemory } from './byteReadOnlyMemory';
 
 export interface CreateParteTrabajoDocDto { 
-    idParteTrabajo?: number;
-    claveGuid?: string;
-    documento: string;
+    idParteTrabajo: number;
+    claveGuid: string;
+    documento: ByteReadOnlyMemory;
     nombre: string;
     extension: string;
 }

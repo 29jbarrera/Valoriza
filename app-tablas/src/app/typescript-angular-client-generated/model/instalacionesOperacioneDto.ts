@@ -9,20 +9,18 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { EmpresaDto } from './empresaDto';
-import { InstalacionesElementoDto } from './instalacionesElementoDto';
+import { InstalacionesOperacionesLangDto } from './instalacionesOperacionesLangDto';
 
 export interface InstalacionesOperacioneDto { 
     id?: number;
     idEmpresa?: number;
-    empresa?: EmpresaDto;
     idElemento?: number;
-    elemento?: InstalacionesElementoDto;
-    fecha?: Date;
+    fecha?: string;
     actuante?: string;
     frecuencia?: number;
-    createdBy: string;
+    createdBy?: string;
     createdAt?: Date;
-    changedBy: string;
+    changedBy?: string;
     changedAt?: Date;
+    langs?: Array<InstalacionesOperacionesLangDto>;
 }

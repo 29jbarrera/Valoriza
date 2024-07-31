@@ -11,6 +11,6 @@
  */
 
 export interface CreateFamiliasLangDto { 
-    idLang?: number;
+    idLang: number;
     descripcion: string;
 }

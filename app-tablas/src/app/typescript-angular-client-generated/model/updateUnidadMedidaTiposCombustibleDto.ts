@@ -12,7 +12,7 @@
 
 export interface UpdateUnidadMedidaTiposCombustibleDto { 
     id?: number;
-    idEmpresa?: number;
-    idUnidadesMedida?: number;
+    idEmpresa: number;
+    idUnidadesMedida: number;
     codTipoCombustible: string;
 }

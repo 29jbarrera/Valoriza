@@ -11,7 +11,7 @@
  */
 
 export interface CreateInstalacionesElementoDto { 
-    idEmpresa?: number;
-    idInstalacion?: number;
+    idEmpresa: number;
+    idInstalacion: number;
     descripcion: string;
 }

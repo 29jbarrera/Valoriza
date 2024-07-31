@@ -12,7 +12,7 @@
 
 export interface UpdateGncDto { 
     id?: number;
-    idEmpresa?: number;
-    idMaquinaria?: number;
-    fecha?: Date;
+    idEmpresa: number;
+    idMaquinaria: number;
+    fecha: string;
 }

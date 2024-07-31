@@ -12,27 +12,10 @@
 
 export interface EmpresasViewDto { 
     id?: number;
-    idNegocioRegionPais?: number;
-    codigoRrhhsacyr?: string;
-    codigo: string;
-    nombre: string;
-    tipoSociedad?: string;
-    tipoConsolidacion?: string;
-    documentoIdentificativo: string;
-    codMoneda: string;
-    contabilidad?: string;
+    codigo?: string;
+    nombre?: string;
+    documentoIdentificativo?: string;
     direccion?: string;
     codigoPostal?: string;
     telefono?: string;
-    email?: string;
-    ute?: boolean;
-    codSap?: string;
-    idPeople?: number;
-    fecAlta?: Date;
-    fecBaja?: Date;
-    origen?: string;
-    createdBy: string;
-    createdAt?: Date;
-    changedBy: string;
-    changedAt?: Date;
 }

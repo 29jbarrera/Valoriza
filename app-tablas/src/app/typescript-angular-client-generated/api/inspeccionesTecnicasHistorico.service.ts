@@ -114,7 +114,7 @@ export class InspeccionesTecnicasHistoricoService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<InspeccionesTecnicasHistoricoDtoPaginatedResult>('get',`${this.basePath}/api/v2/inspeccionesTecnicasHistorico`,
+        return this.httpClient.request<InspeccionesTecnicasHistoricoDtoPaginatedResult>('get',`${this.basePath}/api/v2/InspeccionesTecnicasHistorico`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -132,9 +132,9 @@ export class InspeccionesTecnicasHistoricoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2InspeccionesTecnicasHistoricoIdDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2InspeccionesTecnicasHistoricoIdDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2InspeccionesTecnicasHistoricoIdDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2InspeccionesTecnicasHistoricoIdDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<InspeccionesTecnicasHistoricoDto>;
+    public apiV2InspeccionesTecnicasHistoricoIdDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InspeccionesTecnicasHistoricoDto>>;
+    public apiV2InspeccionesTecnicasHistoricoIdDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InspeccionesTecnicasHistoricoDto>>;
     public apiV2InspeccionesTecnicasHistoricoIdDelete(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (id === null || id === undefined) {
@@ -158,7 +158,7 @@ export class InspeccionesTecnicasHistoricoService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<any>('delete',`${this.basePath}/api/v2/inspeccionesTecnicasHistorico/${encodeURIComponent(String(id))}`,
+        return this.httpClient.request<InspeccionesTecnicasHistoricoDto>('delete',`${this.basePath}/api/v2/InspeccionesTecnicasHistorico/${encodeURIComponent(String(id))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -201,7 +201,7 @@ export class InspeccionesTecnicasHistoricoService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<InspeccionesTecnicasHistoricoDto>('get',`${this.basePath}/api/v2/inspeccionesTecnicasHistorico/${encodeURIComponent(String(id))}`,
+        return this.httpClient.request<InspeccionesTecnicasHistoricoDto>('get',`${this.basePath}/api/v2/InspeccionesTecnicasHistorico/${encodeURIComponent(String(id))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -218,9 +218,9 @@ export class InspeccionesTecnicasHistoricoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2InspeccionesTecnicasHistoricoPost(body?: CreateInspeccionesTecnicasHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2InspeccionesTecnicasHistoricoPost(body?: CreateInspeccionesTecnicasHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2InspeccionesTecnicasHistoricoPost(body?: CreateInspeccionesTecnicasHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2InspeccionesTecnicasHistoricoPost(body?: CreateInspeccionesTecnicasHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<InspeccionesTecnicasHistoricoDto>;
+    public apiV2InspeccionesTecnicasHistoricoPost(body?: CreateInspeccionesTecnicasHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InspeccionesTecnicasHistoricoDto>>;
+    public apiV2InspeccionesTecnicasHistoricoPost(body?: CreateInspeccionesTecnicasHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InspeccionesTecnicasHistoricoDto>>;
     public apiV2InspeccionesTecnicasHistoricoPost(body?: CreateInspeccionesTecnicasHistoricoDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -248,7 +248,7 @@ export class InspeccionesTecnicasHistoricoService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/inspeccionesTecnicasHistorico`,
+        return this.httpClient.request<InspeccionesTecnicasHistoricoDto>('post',`${this.basePath}/api/v2/InspeccionesTecnicasHistorico`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -266,9 +266,9 @@ export class InspeccionesTecnicasHistoricoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2InspeccionesTecnicasHistoricoPut(body?: UpdateInspeccionesTecnicasHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2InspeccionesTecnicasHistoricoPut(body?: UpdateInspeccionesTecnicasHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2InspeccionesTecnicasHistoricoPut(body?: UpdateInspeccionesTecnicasHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiV2InspeccionesTecnicasHistoricoPut(body?: UpdateInspeccionesTecnicasHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<InspeccionesTecnicasHistoricoDto>;
+    public apiV2InspeccionesTecnicasHistoricoPut(body?: UpdateInspeccionesTecnicasHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InspeccionesTecnicasHistoricoDto>>;
+    public apiV2InspeccionesTecnicasHistoricoPut(body?: UpdateInspeccionesTecnicasHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InspeccionesTecnicasHistoricoDto>>;
     public apiV2InspeccionesTecnicasHistoricoPut(body?: UpdateInspeccionesTecnicasHistoricoDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -296,7 +296,7 @@ export class InspeccionesTecnicasHistoricoService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/inspeccionesTecnicasHistorico`,
+        return this.httpClient.request<InspeccionesTecnicasHistoricoDto>('put',`${this.basePath}/api/v2/InspeccionesTecnicasHistorico`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

@@ -12,5 +12,5 @@
 
 export interface CreateTacografosHistoricoDto { 
     idTacografo?: number;
-    fecha?: Date;
+    fecha: string;
 }

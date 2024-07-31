@@ -12,8 +12,8 @@
 
 export interface UpdateAppParameterDto { 
     id?: number;
-    idEmpresa?: number;
+    idEmpresa: number;
     codigo: string;
-    valor?: number;
+    valor: number;
     descripcion?: string;
 }

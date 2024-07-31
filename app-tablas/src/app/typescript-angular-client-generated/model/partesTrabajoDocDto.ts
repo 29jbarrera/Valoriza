@@ -12,16 +12,15 @@
 import { MaquinariaDto } from './maquinariaDto';
 
 export interface PartesTrabajoDocDto { 
+    claveGuid: string;
     id?: number;
     idMaquinaria?: number;
     maquinaria?: MaquinariaDto;
-    claveGuid?: string;
-    documento: string;
-    nombre: string;
-    extension: string;
-    fecha?: Date;
-    createdBy: string;
+    nombre?: string;
+    extension?: string;
+    fecha?: string;
+    createdBy?: string;
     createdAt?: Date;
-    changedBy: string;
+    changedBy?: string;
     changedAt?: Date;
 }

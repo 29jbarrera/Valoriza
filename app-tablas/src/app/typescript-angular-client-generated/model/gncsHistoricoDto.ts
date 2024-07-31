@@ -18,9 +18,9 @@ export interface GncsHistoricoDto {
     maquinaria?: MaquinariaDto;
     idEmpresa?: number;
     empresa?: EmpresaDto;
-    fecha?: Date;
-    createdBy: string;
+    fecha?: string;
+    createdBy?: string;
     createdAt?: Date;
-    changedBy: string;
+    changedBy?: string;
     changedAt?: Date;
 }

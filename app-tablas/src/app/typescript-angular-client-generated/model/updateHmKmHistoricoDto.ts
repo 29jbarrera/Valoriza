@@ -16,8 +16,8 @@ export interface UpdateHmKmHistoricoDto {
     horas?: number;
     kilometros?: number;
     tipo: string;
-    externa?: boolean;
-    fecha?: Date;
+    externa: boolean;
+    fecha: Date;
     idReferencia?: number;
     idMaquinaria?: number;
 }

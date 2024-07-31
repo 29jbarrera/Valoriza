@@ -12,9 +12,9 @@
 
 export interface UpdateMaquinariasHistoricoDto { 
     id?: number;
-    fechaCambio?: Date;
+    fechaCambio: string;
     tipoCambio: string;
-    idMaquinaria?: number;
+    idMaquinaria: number;
     idMaquinariaAsociada?: number;
     idCentro?: number;
 }

@@ -9,24 +9,22 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { EmpresaDto } from './empresaDto';
 
 export interface SeguroDto { 
     id?: number;
-    codigo: string;
+    codigo?: string;
     idEmpresa?: number;
-    empresa?: EmpresaDto;
-    aseguradora: string;
-    fechaInicio?: Date;
-    fechaFin?: Date;
+    aseguradora?: string;
+    fechaInicio?: string;
+    fechaFin?: string;
     importe?: number;
-    codMoneda: string;
+    codMoneda?: string;
     comentario?: string;
     codTipoSeguro?: string;
     codEstadoSeguro?: string;
     idMaquinaria?: number;
-    createdBy: string;
+    createdBy?: string;
     createdAt?: Date;
-    changedBy: string;
+    changedBy?: string;
     changedAt?: Date;
 }

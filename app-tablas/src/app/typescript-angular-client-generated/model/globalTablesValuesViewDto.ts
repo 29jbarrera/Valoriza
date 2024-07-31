@@ -12,4 +12,13 @@
 
 export interface GlobalTablesValuesViewDto { 
     id?: number;
+    code?: string;
+    codeApp?: string;
+    name?: string;
+    idOriginSession?: number;
+    modifiable?: boolean;
+    validFrom?: string;
+    validTo?: string;
+    description?: string;
+    idLang?: number;
 }

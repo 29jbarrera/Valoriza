@@ -13,6 +13,6 @@
 export interface ObservationDto { 
     id?: number;
     machineId?: number;
-    observacion: string;
+    observacion?: string;
     fecha?: string;
 }

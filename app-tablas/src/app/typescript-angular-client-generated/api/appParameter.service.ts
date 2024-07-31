@@ -70,10 +70,10 @@ export class AppParameterService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2AppParameterGet(Q?: string, sort?: string, page?: number, pageSize?: number, filters?: { [key: string]: string; }, observe?: 'body', reportProgress?: boolean): Observable<AppParameterDtoPaginatedResult>;
-    public apiV2AppParameterGet(Q?: string, sort?: string, page?: number, pageSize?: number, filters?: { [key: string]: string; }, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<AppParameterDtoPaginatedResult>>;
-    public apiV2AppParameterGet(Q?: string, sort?: string, page?: number, pageSize?: number, filters?: { [key: string]: string; }, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<AppParameterDtoPaginatedResult>>;
-    public apiV2AppParameterGet(Q?: string, sort?: string, page?: number, pageSize?: number, filters?: { [key: string]: string; }, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public apiV2ParametrosGet(Q?: string, sort?: string, page?: number, pageSize?: number, filters?: { [key: string]: string; }, observe?: 'body', reportProgress?: boolean): Observable<AppParameterDtoPaginatedResult>;
+    public apiV2ParametrosGet(Q?: string, sort?: string, page?: number, pageSize?: number, filters?: { [key: string]: string; }, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<AppParameterDtoPaginatedResult>>;
+    public apiV2ParametrosGet(Q?: string, sort?: string, page?: number, pageSize?: number, filters?: { [key: string]: string; }, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<AppParameterDtoPaginatedResult>>;
+    public apiV2ParametrosGet(Q?: string, sort?: string, page?: number, pageSize?: number, filters?: { [key: string]: string; }, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
 
@@ -114,7 +114,7 @@ export class AppParameterService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<AppParameterDtoPaginatedResult>('get',`${this.basePath}/api/v2/appParameter`,
+        return this.httpClient.request<AppParameterDtoPaginatedResult>('get',`${this.basePath}/api/v2/parametros`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -132,13 +132,13 @@ export class AppParameterService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2AppParameterIdDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2AppParameterIdDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2AppParameterIdDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
-    public apiV2AppParameterIdDelete(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public apiV2ParametrosIdDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<AppParameterDto>;
+    public apiV2ParametrosIdDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<AppParameterDto>>;
+    public apiV2ParametrosIdDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<AppParameterDto>>;
+    public apiV2ParametrosIdDelete(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling apiV2AppParameterIdDelete.');
+            throw new Error('Required parameter id was null or undefined when calling apiV2ParametrosIdDelete.');
         }
 
         let headers = this.defaultHeaders;
@@ -158,7 +158,7 @@ export class AppParameterService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<any>('delete',`${this.basePath}/api/v2/appParameter/${encodeURIComponent(String(id))}`,
+        return this.httpClient.request<AppParameterDto>('delete',`${this.basePath}/api/v2/parametros/${encodeURIComponent(String(id))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -175,13 +175,13 @@ export class AppParameterService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2AppParameterIdGet(id: number, observe?: 'body', reportProgress?: boolean): Observable<AppParameterDto>;
-    public apiV2AppParameterIdGet(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<AppParameterDto>>;
-    public apiV2AppParameterIdGet(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<AppParameterDto>>;
-    public apiV2AppParameterIdGet(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public apiV2ParametrosIdGet(id: number, observe?: 'body', reportProgress?: boolean): Observable<AppParameterDto>;
+    public apiV2ParametrosIdGet(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<AppParameterDto>>;
+    public apiV2ParametrosIdGet(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<AppParameterDto>>;
+    public apiV2ParametrosIdGet(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling apiV2AppParameterIdGet.');
+            throw new Error('Required parameter id was null or undefined when calling apiV2ParametrosIdGet.');
         }
 
         let headers = this.defaultHeaders;
@@ -201,7 +201,7 @@ export class AppParameterService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<AppParameterDto>('get',`${this.basePath}/api/v2/appParameter/${encodeURIComponent(String(id))}`,
+        return this.httpClient.request<AppParameterDto>('get',`${this.basePath}/api/v2/parametros/${encodeURIComponent(String(id))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -218,10 +218,10 @@ export class AppParameterService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2AppParameterPost(body?: CreateAppParameterDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2AppParameterPost(body?: CreateAppParameterDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2AppParameterPost(body?: CreateAppParameterDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
-    public apiV2AppParameterPost(body?: CreateAppParameterDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public apiV2ParametrosPost(body?: CreateAppParameterDto, observe?: 'body', reportProgress?: boolean): Observable<AppParameterDto>;
+    public apiV2ParametrosPost(body?: CreateAppParameterDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<AppParameterDto>>;
+    public apiV2ParametrosPost(body?: CreateAppParameterDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<AppParameterDto>>;
+    public apiV2ParametrosPost(body?: CreateAppParameterDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
         let headers = this.defaultHeaders;
@@ -248,7 +248,7 @@ export class AppParameterService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<any>('post',`${this.basePath}/api/v2/appParameter`,
+        return this.httpClient.request<AppParameterDto>('post',`${this.basePath}/api/v2/parametros`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -266,10 +266,10 @@ export class AppParameterService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2AppParameterPut(body?: UpdateAppParameterDto, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2AppParameterPut(body?: UpdateAppParameterDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiV2AppParameterPut(body?: UpdateAppParameterDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
-    public apiV2AppParameterPut(body?: UpdateAppParameterDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public apiV2ParametrosPut(body?: UpdateAppParameterDto, observe?: 'body', reportProgress?: boolean): Observable<AppParameterDto>;
+    public apiV2ParametrosPut(body?: UpdateAppParameterDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<AppParameterDto>>;
+    public apiV2ParametrosPut(body?: UpdateAppParameterDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<AppParameterDto>>;
+    public apiV2ParametrosPut(body?: UpdateAppParameterDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
         let headers = this.defaultHeaders;
@@ -296,7 +296,7 @@ export class AppParameterService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<any>('put',`${this.basePath}/api/v2/appParameter`,
+        return this.httpClient.request<AppParameterDto>('put',`${this.basePath}/api/v2/parametros`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
