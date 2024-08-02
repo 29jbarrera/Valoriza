@@ -34,7 +34,7 @@
         <td>
           <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(familiasSubfamilias)"/>
         </td>
-        <td>{{ familiasSubfamilias.empresa.nombre }}</td>
+        <td>{{ get_name(familiasSubfamilias) }}</td>
       </tr>
     </ng-template>
     <ng-template pTemplate="footer">

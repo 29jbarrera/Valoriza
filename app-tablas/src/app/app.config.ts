@@ -21,7 +21,10 @@ export const appConfig: ApplicationConfig = {
         ],
       }),
       HttpClientModule,
-      ApiModule.forRoot(() => new Configuration({basePath: 'http://localhost:5000'}))
+      ApiModule.forRoot(() => new Configuration({
+        // basePath: 'http://localhost:5051'
+        basePath: 'http://10.243.53.212:5051'
+      }))
     ]),
     // Microsoft
     provideHttpClient(withInterceptorsFromDi(), withFetch()),

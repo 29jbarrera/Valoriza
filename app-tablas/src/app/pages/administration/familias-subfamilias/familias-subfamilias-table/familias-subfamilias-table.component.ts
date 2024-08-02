@@ -92,6 +92,10 @@ export class FamiliasSubfamiliasTableComponent implements OnInit {
       });
     }
   }
+  
+  get_name(familiasSubfamilias: FamiliaDto) {
+    return familiasSubfamilias.langs?.find((lang) => lang.idLang === 3082)?.descripcion || '';
+  }
 
   async edit(familiasSubfamilias: FamiliaDto) {
     // TODO: PETICIÓN A BACKEND PARA EDITAR
