@@ -86,12 +86,12 @@
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-impuestos>
-      <tr class="body-table">
+      <tr class="body-table" [id]="'impuesto-' + impuestos?.id">
         <td>
-          <p-button icon="fas fa-pen" severity="success" [text]="true" (click)="confirm_edit(impuestos)"/>
+          <p-button icon="fas fa-pen" severity="success" [text]="true" (click)="confirm_edit(impuestos)" [id]="'impuesto-edit-' + impuestos?.id"/>
         </td>
         <td>
-          <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(impuestos)"/>
+          <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(impuestos)" [id]="'impuesto-delete-' + impuestos?.id"/>
         </td>
         <td>{{ impuestos.nombreCentro }}</td>
         <td>{{ impuestos.nombreGrupo }}</td>

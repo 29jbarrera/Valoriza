@@ -59,12 +59,12 @@
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-depositos>
-      <tr class="body-table">
+      <tr class="body-table" [id]="'deposito-' + depositos?.id">
         <td>
-          <p-button icon="fas fa-pen" severity="success" [text]="true" (click)="confirm_edit(depositos)"/>
+          <p-button icon="fas fa-pen" severity="success" [text]="true" (click)="confirm_edit(depositos)" [id]="'deposito-edit-' + depositos?.id"/>
         </td>
         <td>
-          <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(depositos)"/>
+          <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(depositos)" [id]="'deposito-delete-' + depositos?.id"/>
         </td>
         <td>{{ depositos.centro.nombre }}</td>
         <td>{{ depositos.descripcion }}</td>

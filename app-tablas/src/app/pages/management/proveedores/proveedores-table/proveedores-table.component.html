@@ -1,12 +1,12 @@
 <div class="col-12 km-table-valoriza-app">
-  <p-table 
+  <p-table
     #dt
     [value]="proveedores"
     styleClass="p-datatable-sm"
     [rowsPerPageOptions]="[5, 10, 20]"
     [paginator]="true"
     [rows]="5"
-    >
+  >
     <ng-template pTemplate="header">
       <tr>
         <th></th>
@@ -31,7 +31,7 @@
               type="text"
               field="nombre"
               class="filter"
-             display="menu"
+              display="menu"
             />
           </div>
         </th>
@@ -86,12 +86,24 @@
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-proveedores>
-      <tr class="body-table">
+      <tr class="body-table" [id]="'proveedor-' + proveedores?.id">
         <td>
-          <p-button icon="fas fa-pen" severity="success" [text]="true" (click)="confirm_edit(proveedores)"/>
+          <p-button
+            icon="fas fa-pen"
+            severity="success"
+            [text]="true"
+            (click)="confirm_edit(proveedores)"
+            [id]="'proveedor-edit-' + proveedores?.id"
+          />
         </td>
         <td>
-          <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(proveedores)"/>
+          <p-button
+            icon="fas fa-trash"
+            severity="danger"
+            [text]="true"
+            (click)="confirm_delete(proveedores)"
+            [id]="'proveedor-delete-' + proveedores?.id"
+          />
         </td>
         <td>{{ proveedores.docIdentificacion }}</td>
         <td>{{ proveedores.nombre }}</td>
@@ -112,6 +124,6 @@
       </tr>
     </ng-template>
   </p-table>
-  <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+  <p-confirmDialog [style]="{ width: '50vw' }"></p-confirmDialog>
   <p-toast></p-toast>
 </div>

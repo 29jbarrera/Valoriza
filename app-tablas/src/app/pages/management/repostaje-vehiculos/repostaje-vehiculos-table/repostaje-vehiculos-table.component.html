@@ -112,13 +112,17 @@
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-repostajeVehiculos>
-      <tr class="body-table">
+      <tr
+        class="body-table"
+        [id]="'repostaje-vehiculo-' + repostajeVehiculos?.id"
+      >
         <td>
           <p-button
             icon="fas fa-pen"
             severity="success"
             [text]="true"
             (click)="confirm_edit(repostajeVehiculos)"
+            [id]="'repostaje-vehiculo-edit-' + repostajeVehiculos?.id"
           />
         </td>
         <td>
@@ -127,6 +131,7 @@
             severity="danger"
             [text]="true"
             (click)="confirm_delete(repostajeVehiculos)"
+            [id]="'repostaje-vehiculo-delete-' + repostajeVehiculos?.id"
           />
         </td>
         <td>{{ repostajeVehiculos.centro.nombre }}</td>
