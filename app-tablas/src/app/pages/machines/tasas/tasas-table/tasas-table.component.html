@@ -197,28 +197,40 @@
     </ng-template>
 
     <ng-template pTemplate="body" let-tasas>
-      <tr class="body-table">
+      <tr class="body-table" [id]="'tasa-' + tasas?.id">
         <td>
-          <p-button icon="fas fa-pen" severity="success" [text]="true" (click)="confirm_edit(tasas)"/>
+          <p-button
+            icon="fas fa-pen"
+            severity="success"
+            [text]="true"
+            (click)="confirm_edit(tasas)"
+            [id]="'tasa-edit' + tasas?.id"
+          />
         </td>
         <td>
-          <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(tasas)"/>
+          <p-button
+            icon="fas fa-trash"
+            severity="danger"
+            [text]="true"
+            (click)="confirm_delete(tasas)"
+            [id]="'tasa-delete' + tasas?.id"
+          />
         </td>
-        <td>{{ tasas.maquinaria.seguro.fechaInicio }}</td>
-        <td>{{ tasas.maquinaria.seguro.fechaFin  }}</td>
-        <td>{{ tasas.maquinaria.empresa.nombre }}</td>
-        <td>{{ tasas.maquinaria.subfamilia.changedAt }}</td>
-        <td>{{ tasas.maquinaria.matricula }}</td>
-        <td>{{ tasas.maquinaria.bastidor }}</td>
-        <td>{{ tasas.chasi.tasa }}</td>
-        <td>{{ tasas.tasaChasis }}</td>
-        <td>{{ tasas.maquinaria.codMoneda }}</td>
-        <td>{{ tasas.modeloImplemento1 }}</td>
-        <td>{{ tasas.tasaImplemento1 }}</td>
-        <td>{{ tasas.codMonedaTasaImplemento1 }}</td>
-        <td>{{ tasas.modeloImplemento2 }}</td>
-        <td>{{ tasas.tasaImplemento2 }}</td>
-        <td>{{ tasas.codMonedaTasaImplemento2 }}</td>
+        <td class="tasa-">{{ tasas.maquinaria.seguro.fechaInicio }}</td>
+        <td class="tasa-">{{ tasas.maquinaria.seguro.fechaFin }}</td>
+        <td class="tasa-">{{ tasas.maquinaria.empresa.nombre }}</td>
+        <td class="tasa-">{{ tasas.maquinaria.subfamilia.changedAt }}</td>
+        <td class="tasa-">{{ tasas.maquinaria.matricula }}</td>
+        <td class="tasa-">{{ tasas.maquinaria.bastidor }}</td>
+        <td class="tasa-">{{ tasas.chasi.tasa }}</td>
+        <td class="tasa-">{{ tasas.tasaChasis }}</td>
+        <td class="tasa-">{{ tasas.maquinaria.codMoneda }}</td>
+        <td class="tasa-">{{ tasas.modeloImplemento1 }}</td>
+        <td class="tasa-">{{ tasas.tasaImplemento1 }}</td>
+        <td class="tasa-">{{ tasas.codMonedaTasaImplemento1 }}</td>
+        <td class="tasa-">{{ tasas.modeloImplemento2 }}</td>
+        <td class="tasa-">{{ tasas.tasaImplemento2 }}</td>
+        <td class="tasa-">{{ tasas.codMonedaTasaImplemento2 }}</td>
       </tr>
     </ng-template>
     <ng-template pTemplate="footer">
@@ -232,6 +244,6 @@
       </tr>
     </ng-template>
   </p-table>
-  <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+  <p-confirmDialog [style]="{ width: '50vw' }"></p-confirmDialog>
   <p-toast></p-toast>
 </div>

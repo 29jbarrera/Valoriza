@@ -88,9 +88,9 @@ export class TasasTableComponent implements OnInit {
     this.tasas = await this.TasasService.getTasas();
   }
 
-  async confirm_edit(tasas: TasasHistoricoDto) {
+  async confirm_edit(tasa: TasasHistoricoDto) {
     try {
-      this.edit(tasas);
+      this.edit(tasa);
 
       this.messageService.add({
         severity: 'success',
@@ -108,20 +108,21 @@ export class TasasTableComponent implements OnInit {
     }
   }
 
-  async edit(tasas: TasasHistoricoDto) {
+  async edit(tasa: TasasHistoricoDto) {
     // TODO: PETICIÓN A BACKEND PARA EDITAR
-    console.error('Edit object:', tasas);
+    console.error('Edit object:', tasa);
   }
 
-  async delete(tasas: TasasHistoricoDto) {
+  async delete(tasa: TasasHistoricoDto) {
     try {
-      await this.TasasService.deleteTasas(tasas.id!);
+      await this.TasasService.deleteTasas(tasa.id!);
       this.messageService.add({
         severity: 'success',
         summary: 'Confirmado',
         detail: 'Fila eliminada correctamente',
         life: 3000,
       });
+      this.tasas = this.tasas.filter((o) => o.id !== tasa.id);
     } catch (error) {
       this.messageService.add({
         severity: 'error',
@@ -132,7 +133,7 @@ export class TasasTableComponent implements OnInit {
     }
   }
 
-  async confirm_delete(tasas: TasasHistoricoDto) {
+  async confirm_delete(tasa: TasasHistoricoDto) {
     this._confirmationService.confirm({
       message: '¿Estás seguro de que quieres eliminar esta fila?',
       header: 'Eliminar fila de tasas',
@@ -141,7 +142,7 @@ export class TasasTableComponent implements OnInit {
       acceptButtonStyleClass: 'p-button-danger',
 
       accept: async () => {
-        this.delete(tasas);
+        this.delete(tasa);
       },
       reject: () => {
         this.messageService.add({
