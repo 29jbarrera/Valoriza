@@ -141,4 +141,8 @@ export class DepositosTableComponent implements OnInit {
       },
     });
   }
+
+  get_icon_depositos_comun(comun: boolean): string {
+    return comun ? 'text-green-500 pi-check-circle' : 'text-red-500 pi-times-circle';
+  }
 }
