@@ -105,12 +105,14 @@
             [id]="'proveedor-delete-' + proveedores?.id"
           />
         </td>
-        <td>{{ proveedores.docIdentificacion }}</td>
-        <td>{{ proveedores.nombre }}</td>
-        <td>{{ proveedores.direccion }}</td>
-        <td>{{ proveedores.telefono }}</td>
-        <td>{{ proveedores.comentarios }}</td>
-        <td>{{ proveedores.sap }}</td>
+        <td class="proveedor-docIdentificacion">
+          {{ proveedores.docIdentificacion }}
+        </td>
+        <td class="proveedor-nombre">{{ proveedores.nombre }}</td>
+        <td class="proveedor-direccion">{{ proveedores.direccion }}</td>
+        <td class="proveedor-telefono">{{ proveedores.telefono }}</td>
+        <td class="proveedor-comentarios">{{ proveedores.comentarios }}</td>
+        <td class="proveedor-sap">{{ proveedores.sap }}</td>
       </tr>
     </ng-template>
     <ng-template pTemplate="footer">

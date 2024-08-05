@@ -97,20 +97,21 @@ export class ProveedoresTableComponent implements OnInit {
     }
   }
 
-  async edit(proveedores: ProveedorDto) {
+  async edit(proveedor: ProveedorDto) {
     // TODO: PETICIÓN A BACKEND PARA EDITAR
-    console.error('Edit object:', proveedores);
+    console.error('Edit object:', proveedor);
   }
 
-  async delete(proveedores: ProveedorDto) {
+  async delete(proveedor: ProveedorDto) {
     try {
-      await this.ProveedoresService.deleteProveedores(proveedores.id!);
+      await this.ProveedoresService.deleteProveedores(proveedor.id!);
       this.messageService.add({
         severity: 'success',
         summary: 'Confirmado',
         detail: 'Fila eliminada correctamente',
         life: 3000,
       });
+      this.proveedores = this.proveedores.filter((o) => o.id !== proveedor.id);
     } catch (error) {
       this.messageService.add({
         severity: 'error',
@@ -121,7 +122,7 @@ export class ProveedoresTableComponent implements OnInit {
     }
   }
 
-  async confirm_delete(proveedores: ProveedorDto) {
+  async confirm_delete(proveedor: ProveedorDto) {
     this._confirmationService.confirm({
       message: '¿Estás seguro de que quieres eliminar esta fila?',
       header: 'Eliminar fila de proveedores',
@@ -130,7 +131,7 @@ export class ProveedoresTableComponent implements OnInit {
       acceptButtonStyleClass: 'p-button-danger',
 
       accept: async () => {
-        this.delete(proveedores);
+        this.delete(proveedor);
       },
       reject: () => {
         this.messageService.add({
