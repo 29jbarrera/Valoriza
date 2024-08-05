@@ -108,6 +108,7 @@ export class UnidadesTableComponent implements OnInit {
         detail: 'Fila eliminada correctamente',
         life: 3000,
       });
+      this.updateTable();
     } catch (error) {
       this.messageService.add({
         severity: 'error',
