@@ -110,6 +110,7 @@ export class DepositosTableComponent implements OnInit {
         detail: 'Fila eliminada correctamente',
         life: 3000,
       });
+      this.updateTable();
     } catch (error) {
       this.messageService.add({
         severity: 'error',
@@ -143,6 +144,8 @@ export class DepositosTableComponent implements OnInit {
   }
 
   get_icon_depositos_comun(comun: boolean): string {
-    return comun ? 'text-green-500 pi-check-circle' : 'text-red-500 pi-times-circle';
+    return comun
+      ? 'text-green-500 pi-check-circle'
+      : 'text-red-500 pi-times-circle';
   }
 }

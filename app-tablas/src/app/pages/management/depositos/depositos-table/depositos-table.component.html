@@ -83,10 +83,10 @@
             [id]="'deposito-delete-' + depositos?.id"
           />
         </td>
-        <td>{{ depositos.centro.nombre }}</td>
-        <td>{{ depositos.descripcion }}</td>
-        <td>{{ depositos.capacidad }}</td>
-        <td class="text-center">
+        <td class="deposito-nombre">{{ depositos.centro.nombre }}</td>
+        <td class="deposito-descripcion">{{ depositos.descripcion }}</td>
+        <td class="deposito-capacidad">{{ depositos.capacidad }}</td>
+        <td class="deposito-comun text-center">
           <i
             class="pi"
             [ngClass]="get_icon_depositos_comun(depositos.comun)"
