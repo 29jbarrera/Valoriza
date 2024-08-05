@@ -53,7 +53,10 @@
 
         <th pSortableColumn="maquinaria.familia.empresa.nombre ">
           <div>
-            <p-sortIcon class="order" field="maquinaria.familia.empresa.nombre " />
+            <p-sortIcon
+              class="order"
+              field="maquinaria.familia.empresa.nombre "
+            />
             Familia
             <p-columnFilter
               class="filter"
@@ -66,7 +69,10 @@
 
         <th pSortableColumn="maquinaria.subfamilia.empresa.nombre">
           <div>
-            <p-sortIcon class="order" field="maquinaria.subfamilia.empresa.nombre" />
+            <p-sortIcon
+              class="order"
+              field="maquinaria.subfamilia.empresa.nombre"
+            />
             SubFamilia
             <p-columnFilter
               class="filter"
@@ -90,14 +96,14 @@
           </div>
         </th>
 
-        <th pSortableColumn="maquinaria.comentarios">
+        <th pSortableColumn="comentarios">
           <div>
-            <p-sortIcon class="order" field="maquinaria.comentarios" />
+            <p-sortIcon class="order" field="comentarios" />
             Comentarios
             <p-columnFilter
               class="filter"
               type="text"
-              field="maquinaria.comentarios"
+              field="comentarios"
               display="menu"
             />
           </div>
@@ -105,20 +111,33 @@
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-itvs>
-      <tr class="body-table">
+      <tr class="body-table" [id]="'itv-' + itvs?.id">
         <td>
-          <p-button icon="fas fa-pen" severity="success" [text]="true" (click)="confirm_edit(itvs)"/>
+          <p-button
+            icon="fas fa-pen"
+            severity="success"
+            [text]="true"
+            (click)="confirm_edit(itvs)"
+            [id]="'itv-edit-' + itvs?.id"
+          />
         </td>
         <td>
-          <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(itvs)"/>
+          <p-button
+            icon="fas fa-trash"
+            severity="danger"
+            [text]="true"
+            (click)="confirm_delete(itvs)"
+            [id]="'itv-delete-' + itvs?.id"
+          />
         </td>
-        <td>{{ itvs.maquinaria.matricula }}</td>
-        <td>{{ itvs.maquinaria.empresa.nombre }}</td>
-        <td>{{ itvs.empresa.nombre }}</td>
-        <td>{{ itvs.maquinaria.familia.empresa.nombre }}</td>
-        <td>{{ itvs.maquinaria.subfamilia.empresa.nombre }}</td>
-        <td>{{ itvs.fechaProxima }}</td>
-        <td>{{ itvs.maquinaria.comentarios }}</td>
+        <!-- TODO: ÁDD MATRICULA, CENTRO, DELEGACIÓN...   -->
+        <td class="itv-"></td>
+        <td class="itv-"></td>
+        <td class="itv-"></td>
+        <td class="itv-"></td>
+        <td class="itv-"></td>
+        <td class="itv-fecha-proxima">{{ itvs.fechaProxima }}</td>
+        <td class="itv-comentarios">{{ itvs.comentarios }}</td>
       </tr>
     </ng-template>
     <ng-template pTemplate="footer">
@@ -132,6 +151,6 @@
       </tr>
     </ng-template>
   </p-table>
-  <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+  <p-confirmDialog [style]="{ width: '50vw' }"></p-confirmDialog>
   <p-toast></p-toast>
 </div>

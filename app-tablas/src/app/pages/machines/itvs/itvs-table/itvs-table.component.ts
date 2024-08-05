@@ -60,9 +60,9 @@ export class ItvsTableComponent implements OnInit {
     this.itvs = await this.ItvsService.getItvs();
   }
 
-  async confirm_edit(itvs: InspeccionTecnicaDto) {
+  async confirm_edit(itv: InspeccionTecnicaDto) {
     try {
-      this.edit(itvs);
+      this.edit(itv);
 
       this.messageService.add({
         severity: 'success',
@@ -80,20 +80,21 @@ export class ItvsTableComponent implements OnInit {
     }
   }
 
-  async edit(itvs: InspeccionTecnicaDto) {
+  async edit(itv: InspeccionTecnicaDto) {
     // TODO: PETICIÓN A BACKEND PARA EDITAR
-    console.error('Edit object:', itvs);
+    console.error('Edit object:', itv);
   }
 
-  async delete(itvs: InspeccionTecnicaDto) {
+  async delete(itv: InspeccionTecnicaDto) {
     try {
-      await this.ItvsService.deleteItvs(itvs.id!);
+      await this.ItvsService.deleteItvs(itv.id!);
       this.messageService.add({
         severity: 'success',
         summary: 'Confirmado',
         detail: 'Fila eliminada correctamente',
         life: 3000,
       });
+      this.itvs = this.itvs.filter((o) => o.id !== itv.id);
     } catch (error) {
       this.messageService.add({
         severity: 'error',
@@ -104,7 +105,7 @@ export class ItvsTableComponent implements OnInit {
     }
   }
 
-  async confirm_delete(itvs: InspeccionTecnicaDto) {
+  async confirm_delete(itv: InspeccionTecnicaDto) {
     this._confirmationService.confirm({
       message: '¿Estás seguro de que quieres eliminar esta fila?',
       header: 'Eliminar fila de Itvs',
@@ -113,7 +114,7 @@ export class ItvsTableComponent implements OnInit {
       acceptButtonStyleClass: 'p-button-danger',
 
       accept: async () => {
-        this.delete(itvs);
+        this.delete(itv);
       },
       reject: () => {
         this.messageService.add({
