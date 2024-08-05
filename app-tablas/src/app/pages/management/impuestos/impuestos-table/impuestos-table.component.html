@@ -6,7 +6,8 @@
     styleClass="p-datatable-sm"
     [rowsPerPageOptions]="[5, 10, 20]"
     [paginator]="true"
-    [rows]="5">
+    [rows]="5"
+  >
     <ng-template pTemplate="header">
       <tr>
         <th></th>
@@ -88,18 +89,31 @@
     <ng-template pTemplate="body" let-impuestos>
       <tr class="body-table" [id]="'impuesto-' + impuestos?.id">
         <td>
-          <p-button icon="fas fa-pen" severity="success" [text]="true" (click)="confirm_edit(impuestos)" [id]="'impuesto-edit-' + impuestos?.id"/>
+          <p-button
+            icon="fas fa-pen"
+            severity="success"
+            [text]="true"
+            (click)="confirm_edit(impuestos)"
+            [id]="'impuesto-edit-' + impuestos?.id"
+          />
         </td>
         <td>
-          <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(impuestos)" [id]="'impuesto-delete-' + impuestos?.id"/>
+          <p-button
+            icon="fas fa-trash"
+            severity="danger"
+            [text]="true"
+            (click)="confirm_delete(impuestos)"
+            [id]="'impuesto-delete-' + impuestos?.id"
+          />
         </td>
-        <td>{{ impuestos.nombreCentro }}</td>
-        <td>{{ impuestos.nombreGrupo }}</td>
-        <td>{{ impuestos.matricula }}</td>
-        <td>{{ impuestos.importe }}</td>
-        <td>{{ impuestos.codMoneda }}</td>
-        <td>{{ impuestos.fecha | date: 'dd/MM/yyyy' }}</td>
-
+        <td class="impuesto-nombre-centro">{{ impuestos.nombreCentro }}</td>
+        <td class="impuesto-nombre-grupo">{{ impuestos.nombreGrupo }}</td>
+        <td class="impuesto-matricula">{{ impuestos.matricula }}</td>
+        <td class="impuesto-importe">{{ impuestos.importe }}</td>
+        <td class="impuesto-codMoneda">{{ impuestos.codMoneda }}</td>
+        <td class="impuesto-fecha">
+          {{ impuestos.fecha | date : "dd/MM/yyyy" }}
+        </td>
       </tr>
     </ng-template>
     <ng-template pTemplate="footer">
@@ -113,6 +127,6 @@
       </tr>
     </ng-template>
   </p-table>
-  <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+  <p-confirmDialog [style]="{ width: '50vw' }"></p-confirmDialog>
   <p-toast></p-toast>
 </div>

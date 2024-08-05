@@ -77,9 +77,9 @@ export class ImpuestosTableComponent implements OnInit {
     this.impuestos = await this.ImpuestosService.getImpuestos();
   }
 
-  async confirm_edit(impuestos: ImpuestoDto) {
+  async confirm_edit(impuesto: ImpuestoDto) {
     try {
-      this.edit(impuestos);
+      this.edit(impuesto);
 
       this.messageService.add({
         severity: 'success',
@@ -87,6 +87,7 @@ export class ImpuestosTableComponent implements OnInit {
         detail: 'Fila actualizada correctamente',
         life: 3000,
       });
+      this.updateTable();
     } catch (error) {
       this.messageService.add({
         severity: 'error',
@@ -97,20 +98,21 @@ export class ImpuestosTableComponent implements OnInit {
     }
   }
 
-  async edit(impuestos: ImpuestoDto) {
+  async edit(impuesto: ImpuestoDto) {
     // TODO: PETICIÓN A BACKEND PARA EDITAR
-    console.error('Edit object:', impuestos);
+    console.error('Edit object:', impuesto);
   }
 
-  async delete(impuestos: ImpuestoDto) {
+  async delete(impuesto: ImpuestoDto) {
     try {
-      await this.ImpuestosService.deleteImpuestos(impuestos.id!);
+      await this.ImpuestosService.deleteImpuestos(impuesto.id!);
       this.messageService.add({
         severity: 'success',
         summary: 'Confirmado',
         detail: 'Fila eliminada correctamente',
         life: 3000,
       });
+      this.impuestos = this.impuestos.filter((o) => o.id !== impuesto.id);
     } catch (error) {
       this.messageService.add({
         severity: 'error',
@@ -121,7 +123,7 @@ export class ImpuestosTableComponent implements OnInit {
     }
   }
 
-  async confirm_delete(impuestos: ImpuestoDto) {
+  async confirm_delete(impuesto: ImpuestoDto) {
     this._confirmationService.confirm({
       message: '¿Estás seguro de que quieres eliminar esta fila?',
       header: 'Eliminar fila de impuestos',
@@ -130,7 +132,7 @@ export class ImpuestosTableComponent implements OnInit {
       acceptButtonStyleClass: 'p-button-danger',
 
       accept: async () => {
-        this.delete(impuestos);
+        this.delete(impuesto);
       },
       reject: () => {
         this.messageService.add({

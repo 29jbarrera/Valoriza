@@ -76,9 +76,9 @@ export class DepositosTableComponent implements OnInit {
     this.depositos = await this.DepositosService.getDepositos();
   }
 
-  async confirm_edit(depositos: DepositoDto) {
+  async confirm_edit(deposito: DepositoDto) {
     try {
-      this.edit(depositos);
+      this.edit(deposito);
 
       this.messageService.add({
         severity: 'success',
@@ -96,21 +96,21 @@ export class DepositosTableComponent implements OnInit {
     }
   }
 
-  async edit(depositos: DepositoDto) {
+  async edit(deposito: DepositoDto) {
     // TODO: PETICIÓN A BACKEND PARA EDITAR
-    console.error('Edit object:', depositos);
+    console.error('Edit object:', deposito);
   }
 
-  async delete(depositos: DepositoDto) {
+  async delete(deposito: DepositoDto) {
     try {
-      await this.DepositosService.deleteDepositos(depositos.id!);
+      await this.DepositosService.deleteDepositos(deposito.id!);
       this.messageService.add({
         severity: 'success',
         summary: 'Confirmado',
         detail: 'Fila eliminada correctamente',
         life: 3000,
       });
-      this.updateTable();
+      this.depositos = this.depositos.filter((o) => o.id !== deposito.id);
     } catch (error) {
       this.messageService.add({
         severity: 'error',
@@ -121,7 +121,7 @@ export class DepositosTableComponent implements OnInit {
     }
   }
 
-  async confirm_delete(depositos: DepositoDto) {
+  async confirm_delete(deposito: DepositoDto) {
     this._confirmationService.confirm({
       message: '¿Estás seguro de que quieres eliminar esta fila?',
       header: 'Eliminar fila de depósitos',
@@ -130,7 +130,7 @@ export class DepositosTableComponent implements OnInit {
       acceptButtonStyleClass: 'p-button-danger',
 
       accept: async () => {
-        this.delete(depositos);
+        this.delete(deposito);
       },
       reject: () => {
         this.messageService.add({
