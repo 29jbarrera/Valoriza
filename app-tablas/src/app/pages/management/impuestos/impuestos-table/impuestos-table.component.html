@@ -11,37 +11,37 @@
       <tr>
         <th></th>
         <th></th>
-        <th pSortableColumn="empresa.nombre">
+        <th pSortableColumn="nombreCentro">
           <div>
-            <p-sortIcon class="order" field="empresa.nombre" />
+            <p-sortIcon class="order" field="nombreCentro" />
             Centro
             <p-columnFilter
               type="text"
-              field="empresa.nombre"
+              field="nombreCentro"
               class="filter"
               display="menu"
             />
           </div>
         </th>
-        <th pSortableColumn="direccion">
+        <th pSortableColumn="nombreGrupo">
           <div>
-            <p-sortIcon class="order" field="direccion" />
+            <p-sortIcon class="order" field="nombreGrupo" />
             Dirección
             <p-columnFilter
               type="text"
-              field="direccion"
+              field="nombreGrupo"
               class="filter"
               display="menu"
             />
           </div>
         </th>
-        <th pSortableColumn="documentoIdentificativo">
+        <th pSortableColumn="matricula">
           <div>
-            <p-sortIcon class="order" field="documentoIdentificativo" />
+            <p-sortIcon class="order" field="matricula" />
             Matrícula
             <p-columnFilter
               type="text"
-              field="documentoIdentificativo"
+              field="matricula"
               class="filter"
               display="menu"
             />
@@ -93,12 +93,13 @@
         <td>
           <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(impuestos)"/>
         </td>
-        <td>{{ impuestos.empresa.nombre }}</td>
-        <td>{{ impuestos.empresa.direccion }}</td>
-        <td>{{ impuestos.empresa.documentoIdentificativo }}</td>
+        <td>{{ impuestos.nombreCentro }}</td>
+        <td>{{ impuestos.nombreGrupo }}</td>
+        <td>{{ impuestos.matricula }}</td>
         <td>{{ impuestos.importe }}</td>
         <td>{{ impuestos.codMoneda }}</td>
-        <td>{{ impuestos.fecha }}</td>
+        <td>{{ impuestos.fecha | date: 'dd/MM/yyyy' }}</td>
+
       </tr>
     </ng-template>
     <ng-template pTemplate="footer">
