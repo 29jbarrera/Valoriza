@@ -46,7 +46,7 @@ import { CheckboxModule } from 'primeng/checkbox';
     FormlyPrimeNGModule,
     ConfirmDialogModule,
     ToastModule,
-    CheckboxModule
+    CheckboxModule,
   ],
   templateUrl: './cambio-centro-table.component.html',
   styleUrl: './cambio-centro-table.component.scss',
@@ -114,6 +114,9 @@ export class CambioCentroTableComponent implements OnInit {
         detail: 'Fila eliminada correctamente',
         life: 3000,
       });
+      this.cambioCentro = this.cambioCentro.filter(
+        (o) => o.id !== cambioCentro.id
+      );
     } catch (error) {
       this.messageService.add({
         severity: 'error',
