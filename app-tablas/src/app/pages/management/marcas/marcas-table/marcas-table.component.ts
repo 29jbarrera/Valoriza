@@ -72,9 +72,9 @@ export class MarcasTableComponent implements OnInit {
     this.marcas = await this.MarcasService.getMarcas();
   }
 
-  async confirm_edit(marcas: MarcaDto) {
+  async confirm_edit(marca: MarcaDto) {
     try {
-      this.edit(marcas);
+      this.edit(marca);
 
       this.messageService.add({
         severity: 'success',
@@ -92,20 +92,21 @@ export class MarcasTableComponent implements OnInit {
     }
   }
 
-  async edit(marcas: MarcaDto) {
+  async edit(marca: MarcaDto) {
     // TODO: PETICIÓN A BACKEND PARA EDITAR
-    console.error('Edit object:', marcas);
+    console.error('Edit object:', marca);
   }
 
-  async delete(marcas: MarcaDto) {
+  async delete(marca: MarcaDto) {
     try {
-      await this.MarcasService.deleteMarcas(marcas.id!);
+      await this.MarcasService.deleteMarcas(marca.id!);
       this.messageService.add({
         severity: 'success',
         summary: 'Confirmado',
         detail: 'Fila eliminada correctamente',
         life: 3000,
       });
+      this.marcas = this.marcas.filter((o) => o.id !== marca.id);
     } catch (error) {
       this.messageService.add({
         severity: 'error',
@@ -116,7 +117,7 @@ export class MarcasTableComponent implements OnInit {
     }
   }
 
-  async confirm_delete(marcas: MarcaDto) {
+  async confirm_delete(marca: MarcaDto) {
     this._confirmationService.confirm({
       message: '¿Estás seguro de que quieres eliminar esta fila?',
       header: 'Eliminar fila de marcas',
@@ -125,7 +126,7 @@ export class MarcasTableComponent implements OnInit {
       acceptButtonStyleClass: 'p-button-danger',
 
       accept: async () => {
-        this.delete(marcas);
+        this.delete(marca);
       },
       reject: () => {
         this.messageService.add({
