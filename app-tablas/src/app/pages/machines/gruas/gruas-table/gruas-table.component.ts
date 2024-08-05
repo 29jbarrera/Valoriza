@@ -53,9 +53,9 @@ export class GruasTableComponent implements OnInit {
     this.gruas = await this.GruasService.getGruas();
   }
 
-  async confirm_edit(gruas: GruasDocDto) {
+  async confirm_edit(grua: GruasDocDto) {
     try {
-      this.edit(gruas);
+      this.edit(grua);
 
       this.messageService.add({
         severity: 'success',
@@ -73,14 +73,14 @@ export class GruasTableComponent implements OnInit {
     }
   }
 
-  async edit(gruas: GruasDocDto) {
+  async edit(grua: GruasDocDto) {
     // TODO: PETICIÓN A BACKEND PARA EDITAR
-    console.error('Edit object:', gruas);
+    console.error('Edit object:', grua);
   }
 
-  async delete(gruas: GruasDocDto) {
+  async delete(grua: GruasDocDto) {
     try {
-      await this.GruasService.deleteGruas(gruas.idGrua!);
+      await this.GruasService.deleteGruas(grua.idGrua!);
       this.messageService.add({
         severity: 'success',
         summary: 'Confirmado',
@@ -88,6 +88,7 @@ export class GruasTableComponent implements OnInit {
         life: 3000,
       });
     } catch (error) {
+      this.gruas = this.gruas.filter((o) => o.idGrua !== grua.idGrua);
       this.messageService.add({
         severity: 'error',
         summary: 'Error',
@@ -97,7 +98,7 @@ export class GruasTableComponent implements OnInit {
     }
   }
 
-  async confirm_delete(gruas: GruasDocDto) {
+  async confirm_delete(grua: GruasDocDto) {
     this._confirmationService.confirm({
       message: '¿Estás seguro de que quieres eliminar esta fila?',
       header: 'Eliminar fila de Grúas',
@@ -106,7 +107,7 @@ export class GruasTableComponent implements OnInit {
       acceptButtonStyleClass: 'p-button-danger',
 
       accept: async () => {
-        this.delete(gruas)
+        this.delete(grua);
       },
       reject: () => {
         this.messageService.add({
