@@ -136,14 +136,14 @@
     </ng-template>
 
     <ng-template pTemplate="body" let-reparaciones>
-      <tr class="body-table" [id]="'repair-' + reparaciones?.id">
+      <tr class="body-table" [id]="'reparacion-' + reparaciones?.id">
         <td>
           <p-button
             icon="fas fa-pen"
             severity="success"
             [text]="true"
             (click)="confirm_edit(reparaciones)"
-            [id]="'repair-edit-' + reparaciones?.id"
+            [id]="'reparacion-edit-' + reparaciones?.id"
           />
         </td>
         <td>
@@ -152,20 +152,20 @@
             severity="danger"
             [text]="true"
             (click)="confirm_delete(reparaciones)"
-            [id]="'repair-delete-' + reparaciones?.id"
+            [id]="'reparacion-delete-' + reparaciones?.id"
           />
         </td>
         <td>{{ reparaciones.centro.nombre }}</td>
         <!-- TODO: ADD TIPO ACTUACIÓN ,TIPO DE MANTENIMIENTO, ALBARÁN,   -->
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>{{ reparaciones.fecha }}</td>
-        <td>{{ reparaciones.proveedor.nombre }}</td>
-        <td></td>
-        <td>{{ reparaciones.otros }}</td>
-        <td>{{ reparaciones.codMoneda }}</td>
-        <td>{{ reparaciones.comentarios }}</td>
+        <td class="reparacion-"></td>
+        <td class="reparacion-"></td>
+        <td class="reparacion-"></td>
+        <td class="reparacion-fecha">{{ reparaciones.fecha }}</td>
+        <td class="reparacion-nombre">{{ reparaciones.proveedor.nombre }}</td>
+        <td class="reparacion-"></td>
+        <td class="reparacion-otros">{{ reparaciones.otros }}</td>
+        <td class="reparacion-codMoneda">{{ reparaciones.codMoneda }}</td>
+        <td class="reparacion-comentarios">{{ reparaciones.comentarios }}</td>
       </tr>
     </ng-template>
     <ng-template pTemplate="footer">

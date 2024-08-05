@@ -82,9 +82,9 @@ export class ReparacionesTableComponent implements OnInit {
     this.reparaciones = await this.ReparacionesService.getReparaciones();
   }
 
-  async confirm_edit(reparaciones: ReparacionDto) {
+  async confirm_edit(reparacion: ReparacionDto) {
     try {
-      this.edit(reparaciones);
+      this.edit(reparacion);
 
       this.messageService.add({
         severity: 'success',
@@ -102,20 +102,23 @@ export class ReparacionesTableComponent implements OnInit {
     }
   }
 
-  async edit(reparaciones: ReparacionDto) {
+  async edit(reparacion: ReparacionDto) {
     // TODO: PETICIÓN A BACKEND PARA EDITAR
-    console.error('Edit object:', reparaciones);
+    console.error('Edit object:', reparacion);
   }
 
-  async delete(reparaciones: ReparacionDto) {
+  async delete(reparacion: ReparacionDto) {
     try {
-      await this.ReparacionesService.deleteReparaciones(reparaciones.id!);
+      await this.ReparacionesService.deleteReparaciones(reparacion.id!);
       this.messageService.add({
         severity: 'success',
         summary: 'Confirmado',
         detail: 'Fila eliminada correctamente',
         life: 3000,
       });
+      this.reparaciones = this.reparaciones.filter(
+        (o) => o.id !== reparacion.id
+      );
     } catch (error) {
       this.messageService.add({
         severity: 'error',
@@ -126,7 +129,7 @@ export class ReparacionesTableComponent implements OnInit {
     }
   }
 
-  async confirm_delete(reparaciones: ReparacionDto) {
+  async confirm_delete(reparacion: ReparacionDto) {
     this._confirmationService.confirm({
       message: '¿Estás seguro de que quieres eliminar esta fila?',
       header: 'Eliminar fila de reparaciones',
@@ -135,7 +138,7 @@ export class ReparacionesTableComponent implements OnInit {
       acceptButtonStyleClass: 'p-button-danger',
 
       accept: async () => {
-        this.delete(reparaciones);
+        this.delete(reparacion);
       },
       reject: () => {
         this.messageService.add({
