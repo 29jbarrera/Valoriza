@@ -24,6 +24,7 @@ import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { CheckboxModule } from 'primeng/checkbox';
 
 @Component({
   selector: 'app-cambio-centro-table',
@@ -45,6 +46,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
     FormlyPrimeNGModule,
     ConfirmDialogModule,
     ToastModule,
+    CheckboxModule
   ],
   templateUrl: './cambio-centro-table.component.html',
   styleUrl: './cambio-centro-table.component.scss',
