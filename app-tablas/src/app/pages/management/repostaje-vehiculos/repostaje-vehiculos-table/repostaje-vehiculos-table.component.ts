@@ -80,9 +80,9 @@ export class RepostajeVehiculosTableComponent implements OnInit {
       await this.RepostajeVehiculosService.getRepostajeVehiculos();
   }
 
-  async confirm_edit(repostajeVehiculos: RepostajeDto) {
+  async confirm_edit(repostajeVehiculo: RepostajeDto) {
     try {
-      this.edit(repostajeVehiculos);
+      this.edit(repostajeVehiculo);
 
       this.messageService.add({
         severity: 'success',
@@ -100,15 +100,15 @@ export class RepostajeVehiculosTableComponent implements OnInit {
     }
   }
 
-  async edit(repostajeVehiculos: RepostajeDto) {
+  async edit(repostajeVehiculo: RepostajeDto) {
     // TODO: PETICIÓN A BACKEND PARA EDITAR
-    console.error('Edit object:', repostajeVehiculos);
+    console.error('Edit object:', repostajeVehiculo);
   }
 
-  async delete(repostajeVehiculos: RepostajeDto) {
+  async delete(repostajeVehiculo: RepostajeDto) {
     try {
       await this.RepostajeVehiculosService.deleteRepostajeVehículos(
-        repostajeVehiculos.id!
+        repostajeVehiculo.id!
       );
       this.messageService.add({
         severity: 'success',
@@ -116,6 +116,9 @@ export class RepostajeVehiculosTableComponent implements OnInit {
         detail: 'Fila eliminada correctamente',
         life: 3000,
       });
+      this.repostajeVehiculos = this.repostajeVehiculos.filter(
+        (o) => o.id !== repostajeVehiculo.id
+      );
     } catch (error) {
       this.messageService.add({
         severity: 'error',
@@ -126,7 +129,7 @@ export class RepostajeVehiculosTableComponent implements OnInit {
     }
   }
 
-  async confirm_delete(repostajeVehiculos: RepostajeDto) {
+  async confirm_delete(repostajeVehiculo: RepostajeDto) {
     this._confirmationService.confirm({
       message: '¿Estás seguro de que quieres eliminar esta fila?',
       header: 'Eliminar fila de repostaje vehículos',
@@ -135,7 +138,7 @@ export class RepostajeVehiculosTableComponent implements OnInit {
       acceptButtonStyleClass: 'p-button-danger',
 
       accept: async () => {
-        this.delete(repostajeVehiculos);
+        this.delete(repostajeVehiculo);
       },
       reject: () => {
         this.messageService.add({

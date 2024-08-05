@@ -134,16 +134,30 @@
             [id]="'repostaje-vehiculo-delete-' + repostajeVehiculos?.id"
           />
         </td>
-        <td>{{ repostajeVehiculos.centro.nombre }}</td>
-        <td>{{ repostajeVehiculos.deposito.descripcion }}</td>
-        <td>{{ repostajeVehiculos.matricula }}</td>
-        <td>{{ repostajeVehiculos.idBidon }}</td>
-        <td>{{ repostajeVehiculos.fecha | date : "dd/MM/yyyy" }}</td>
-        <td>
+        <td class="repostaje-vehiculo-nombre">
+          {{ repostajeVehiculos.centro.nombre }}
+        </td>
+        <td class="repostaje-vehiculo-descripcion">
+          {{ repostajeVehiculos.deposito.descripcion }}
+        </td>
+        <td class="repostaje-vehiculo-matricula">
+          {{ repostajeVehiculos.matricula }}
+        </td>
+        <td class="repostaje-vehiculo-idBidon">
+          {{ repostajeVehiculos.idBidon }}
+        </td>
+        <td class="repostaje-vehiculo-fecha">
+          {{ repostajeVehiculos.fecha | date : "dd/MM/yyyy" }}
+        </td>
+        <td class="repostaje-vehiculo-cantidad">
           {{ repostajeVehiculos.cantidad }} - {{ repostajeVehiculos.codUnidad }}
         </td>
-        <td>{{ repostajeVehiculos.cuenta }}</td>
-        <td>{{ repostajeVehiculos.tarjeta }}</td>
+        <td class="repostaje-vehiculo-cuenta">
+          {{ repostajeVehiculos.cuenta }}
+        </td>
+        <td class="repostaje-vehiculo-tarjeta">
+          {{ repostajeVehiculos.tarjeta }}
+        </td>
       </tr>
     </ng-template>
     <ng-template pTemplate="footer">
