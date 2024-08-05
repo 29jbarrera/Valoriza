@@ -50,14 +50,14 @@
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-unidades>
-      <tr class="body-table" [id]="'unit-' + unidades?.id">
+      <tr class="body-table" [id]="'unidad-' + unidades?.id">
         <td>
           <p-button
             icon="fas fa-pen"
             severity="success"
             [text]="true"
             (click)="confirm_edit(unidades)"
-            [id]="'unit-edit-' + unidades?.id"
+            [id]="'unidad-edit-' + unidades?.id"
           />
         </td>
         <td>
@@ -66,13 +66,19 @@
             severity="danger"
             [text]="true"
             (click)="confirm_delete(unidades)"
-            [id]="'unit-delete-' + unidades?.id"
+            [id]="'unidad-delete-' + unidades?.id"
           />
         </td>
         <!-- TODO: Falta el nombre del tipo de combustible -->
-        <td>{{ unidades.codTipoCombustible }}</td>
-        <td>{{ unidades.unidadesMedida.langs[0]?.descripcion }}</td>
-        <td>{{ unidades.unidadesMedida.abreviatura }}</td>
+        <td class="unidad-codTipoCombustible">
+          {{ unidades.codTipoCombustible }}
+        </td>
+        <td class="unidad-descripcion">
+          {{ unidades.unidadesMedida.langs[0]?.descripcion }}
+        </td>
+        <td class="unidad-abreviatura">
+          {{ unidades.unidadesMedida.abreviatura }}
+        </td>
       </tr>
     </ng-template>
     <ng-template pTemplate="footer">

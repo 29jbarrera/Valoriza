@@ -74,9 +74,9 @@ export class UnidadesTableComponent implements OnInit {
     this.unidades = await this.UnidadesService.getGastosTaller();
   }
 
-  async confirm_edit(unidades: UnidadMedidaTiposCombustibleDto) {
+  async confirm_edit(unidad: UnidadMedidaTiposCombustibleDto) {
     try {
-      this.edit(unidades);
+      this.edit(unidad);
 
       this.messageService.add({
         severity: 'success',
@@ -94,21 +94,21 @@ export class UnidadesTableComponent implements OnInit {
     }
   }
 
-  async edit(unidades: UnidadMedidaTiposCombustibleDto) {
+  async edit(unidad: UnidadMedidaTiposCombustibleDto) {
     // TODO: PETICIÓN A BACKEND PARA EDITAR
-    console.error('Edit object:', unidades);
+    console.error('Edit object:', unidad);
   }
 
-  async delete(unidades: UnidadMedidaTiposCombustibleDto) {
+  async delete(unidad: UnidadMedidaTiposCombustibleDto) {
     try {
-      await this.UnidadesService.deleteGastosTaller(unidades.id!);
+      await this.UnidadesService.deleteGastosTaller(unidad.id!);
       this.messageService.add({
         severity: 'success',
         summary: 'Confirmado',
         detail: 'Fila eliminada correctamente',
         life: 3000,
       });
-      this.updateTable();
+      this.unidades = this.unidades.filter((o) => o.id !== unidad.id);
     } catch (error) {
       this.messageService.add({
         severity: 'error',
@@ -119,7 +119,7 @@ export class UnidadesTableComponent implements OnInit {
     }
   }
 
-  async confirm_delete(unidades: UnidadMedidaTiposCombustibleDto) {
+  async confirm_delete(unidad: UnidadMedidaTiposCombustibleDto) {
     this._confirmationService.confirm({
       message: '¿Estás seguro de que quieres eliminar esta fila?',
       header: 'Eliminar fila de unidades',
@@ -128,7 +128,7 @@ export class UnidadesTableComponent implements OnInit {
       acceptButtonStyleClass: 'p-button-danger',
 
       accept: async () => {
-        this.delete(unidades);
+        this.delete(unidad);
       },
       reject: () => {
         this.messageService.add({
