@@ -49,9 +49,9 @@ export class InstalacionesTableComponent implements OnInit {
     this.instalaciones = await this.InstalacionesService.getInstalaciones();
   }
 
-  async confirm_edit(instalaciones: InstalacionDto) {
+  async confirm_edit(instalacion: InstalacionDto) {
     try {
-      this.edit(instalaciones);
+      this.edit(instalacion);
 
       this.messageService.add({
         severity: 'success',
@@ -69,20 +69,23 @@ export class InstalacionesTableComponent implements OnInit {
     }
   }
 
-  async edit(instalaciones: InstalacionDto) {
+  async edit(instalacion: InstalacionDto) {
     // TODO: PETICIÓN A BACKEND PARA EDITAR
-    console.error('Edit object:', instalaciones);
+    console.error('Edit object:', instalacion);
   }
 
-  async delete(instalaciones: InstalacionDto) {
+  async delete(instalacion: InstalacionDto) {
     try {
-      await this.InstalacionesService.deleteInstalaciones(instalaciones.id!);
+      await this.InstalacionesService.deleteInstalaciones(instalacion.id!);
       this.messageService.add({
         severity: 'success',
         summary: 'Confirmado',
         detail: 'Fila eliminada correctamente',
         life: 3000,
       });
+      this.instalaciones = this.instalaciones.filter(
+        (o) => o.id !== instalacion.id
+      );
     } catch (error) {
       this.messageService.add({
         severity: 'error',
@@ -93,7 +96,7 @@ export class InstalacionesTableComponent implements OnInit {
     }
   }
 
-  async confirm_delete(instalaciones: InstalacionDto) {
+  async confirm_delete(instalacion: InstalacionDto) {
     this._confirmationService.confirm({
       message: '¿Estás seguro de que quieres eliminar esta fila?',
       header: 'Eliminar fila de instalaciones',
@@ -102,7 +105,7 @@ export class InstalacionesTableComponent implements OnInit {
       acceptButtonStyleClass: 'p-button-danger',
 
       accept: async () => {
-        this.delete(instalaciones)
+        this.delete(instalacion);
       },
       reject: () => {
         this.messageService.add({

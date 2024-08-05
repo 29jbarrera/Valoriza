@@ -53,13 +53,14 @@
     </ng-template>
 
     <ng-template pTemplate="body" let-instalaciones>
-      <tr class="body-table">
+      <tr class="body-table" [id]="'instalacion-' + instalaciones?.id">
         <td>
           <p-button
             icon="fas fa-pen"
             severity="success"
             [text]="true"
             (click)="confirm_edit(instalaciones)"
+            [id]="'instalacion-edit-' + instalaciones?.id"
           />
         </td>
         <td>
@@ -68,11 +69,14 @@
             severity="danger"
             [text]="true"
             (click)="confirm_delete(instalaciones)"
+            [id]="'instalacion-delete-' + instalaciones?.id"
           />
         </td>
-        <td>{{ instalaciones.centro.nombre }}</td>
-        <td>{{ instalaciones.nombre }}</td>
-        <td>{{ instalaciones.comentarios }}</td>
+        <td class="instalacion-nombre-centro">
+          {{ instalaciones.centro.nombre }}
+        </td>
+        <td class="instalacion-nombre">{{ instalaciones.nombre }}</td>
+        <td class="instalacion-comentarios">{{ instalaciones.comentarios }}</td>
       </tr>
     </ng-template>
     <ng-template pTemplate="footer">
