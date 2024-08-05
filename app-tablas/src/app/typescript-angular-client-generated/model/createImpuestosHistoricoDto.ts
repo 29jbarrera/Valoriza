@@ -11,7 +11,6 @@
  */
 
 export interface CreateImpuestosHistoricoDto { 
-    idEmpresa: number;
     impuesto?: number;
     fechaImpuesto?: string;
     codMoneda?: string;

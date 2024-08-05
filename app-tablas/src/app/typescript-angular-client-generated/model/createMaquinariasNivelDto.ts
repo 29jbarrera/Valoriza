@@ -13,7 +13,6 @@
 export interface CreateMaquinariasNivelDto { 
     idMaquinaria?: number;
     idNivelMantenimiento: number;
-    idEmpresa: number;
     posicion: number;
     tipo: string;
     tipoEquipamiento?: string;

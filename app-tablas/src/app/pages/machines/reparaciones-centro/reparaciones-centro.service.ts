@@ -3,24 +3,24 @@ import { Injectable } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
 import {
   ReparacionesDocDto,
-  ReparacionesDocService,
+  MaquinariasReparacionesDocsService,
 } from '@valoriza/web-commons';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ReparacionesCentroService {
-  constructor(private _reparacionesDocService: ReparacionesDocService) {}
+  constructor(private _reparacionesDocService: MaquinariasReparacionesDocsService) {}
 
   async getReparacionesCentro(): Promise<ReparacionesDocDto[]> {
     const response = await lastValueFrom(
-      this._reparacionesDocService.apiV2ReparacionesDocGet()
+      this._reparacionesDocService.apiV2ReparacionesDocsGet()
     );
     return response.results || [];
   }
   async deleteReparacionesCentro(reparacionesCentroid: string) {
     await lastValueFrom(
-      this._reparacionesDocService.apiV2ReparacionesDocClaveGuidDelete(
+      this._reparacionesDocService.apiV2ReparacionesDocsClaveGuidDelete(
         reparacionesCentroid
       )
     );

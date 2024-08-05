@@ -12,7 +12,6 @@
 
 export interface CreateSeguroDto { 
     codigo: string;
-    idEmpresa: number;
     aseguradora: string;
     fechaInicio: string;
     fechaFin: string;

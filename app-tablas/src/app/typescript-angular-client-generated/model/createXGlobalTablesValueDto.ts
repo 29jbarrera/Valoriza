@@ -9,6 +9,7 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { CreateXGlobalTablesValuesLangDto } from './createXGlobalTablesValuesLangDto';
 
 export interface CreateXGlobalTablesValueDto { 
     code: string;
@@ -19,4 +20,5 @@ export interface CreateXGlobalTablesValueDto {
     validFrom?: string;
     validTo?: string;
     order?: number;
+    langs?: Array<CreateXGlobalTablesValuesLangDto>;
 }

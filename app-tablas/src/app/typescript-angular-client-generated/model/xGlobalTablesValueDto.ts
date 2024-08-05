@@ -9,6 +9,7 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { XGlobalTablesValuesLangDto } from './xGlobalTablesValuesLangDto';
 
 export interface XGlobalTablesValueDto { 
     id?: number;
@@ -20,4 +21,5 @@ export interface XGlobalTablesValueDto {
     validFrom?: string;
     validTo?: string;
     order?: number;
+    langs?: Array<XGlobalTablesValuesLangDto>;
 }

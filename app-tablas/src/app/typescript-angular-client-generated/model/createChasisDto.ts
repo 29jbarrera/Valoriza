@@ -11,7 +11,6 @@
  */
 
 export interface CreateChasisDto { 
-    idEmpresa: number;
     idMaquinaria: number;
     marca: string;
     modelo: string;

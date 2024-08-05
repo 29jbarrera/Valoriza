@@ -11,7 +11,6 @@
  */
 
 export interface CreateAppParameterDto { 
-    idEmpresa: number;
     codigo: string;
     valor: number;
     descripcion?: string;

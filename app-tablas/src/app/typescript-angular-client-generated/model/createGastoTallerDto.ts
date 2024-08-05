@@ -11,7 +11,6 @@
  */
 
 export interface CreateGastoTallerDto { 
-    idEmpresa: number;
     idCentro?: number;
     idProveedor: number;
     fecha: string;

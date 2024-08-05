@@ -11,7 +11,6 @@
  */
 
 export interface CreateInstalacionDto { 
-    idEmpresa: number;
     idCentro: number;
     nombre: string;
     comentarios?: string;

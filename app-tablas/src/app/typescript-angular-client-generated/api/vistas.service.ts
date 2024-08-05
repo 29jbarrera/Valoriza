@@ -29,7 +29,6 @@ import { FamilyDtoPaginatedResult } from '../model/familyDtoPaginatedResult';
 import { GarageDtoPaginatedResult } from '../model/garageDtoPaginatedResult';
 import { GlobalTablesValuesViewDtoPaginatedResult } from '../model/globalTablesValuesViewDtoPaginatedResult';
 import { GruposCentrosViewDtoPaginatedResult } from '../model/gruposCentrosViewDtoPaginatedResult';
-import { HmKmDtoPaginatedResult } from '../model/hmKmDtoPaginatedResult';
 import { InstallationDtoPaginatedResult } from '../model/installationDtoPaginatedResult';
 import { LevelDtoPaginatedResult } from '../model/levelDtoPaginatedResult';
 import { LiterDtoPaginatedResult } from '../model/literDtoPaginatedResult';
@@ -135,6 +134,11 @@ export class VistasService {
 
         let headers = this.defaultHeaders;
 
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
+
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
             'text/plain',
@@ -200,6 +204,11 @@ export class VistasService {
         }
 
         let headers = this.defaultHeaders;
+
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
@@ -267,6 +276,11 @@ export class VistasService {
 
         let headers = this.defaultHeaders;
 
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
+
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
             'text/plain',
@@ -332,6 +346,11 @@ export class VistasService {
         }
 
         let headers = this.defaultHeaders;
+
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
@@ -399,6 +418,11 @@ export class VistasService {
 
         let headers = this.defaultHeaders;
 
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
+
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
             'text/plain',
@@ -464,6 +488,11 @@ export class VistasService {
         }
 
         let headers = this.defaultHeaders;
+
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
@@ -531,6 +560,11 @@ export class VistasService {
 
         let headers = this.defaultHeaders;
 
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
+
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
             'text/plain',
@@ -596,6 +630,11 @@ export class VistasService {
         }
 
         let headers = this.defaultHeaders;
+
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
@@ -663,6 +702,11 @@ export class VistasService {
 
         let headers = this.defaultHeaders;
 
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
+
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
             'text/plain',
@@ -728,6 +772,11 @@ export class VistasService {
         }
 
         let headers = this.defaultHeaders;
+
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
@@ -795,6 +844,11 @@ export class VistasService {
 
         let headers = this.defaultHeaders;
 
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
+
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
             'text/plain',
@@ -861,6 +915,11 @@ export class VistasService {
 
         let headers = this.defaultHeaders;
 
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
+
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
             'text/plain',
@@ -877,72 +936,6 @@ export class VistasService {
         ];
 
         return this.httpClient.request<GruposCentrosViewDtoPaginatedResult>('get',`${this.basePath}/api/v2/GruposCentrosView`,
-            {
-                params: queryParameters,
-                withCredentials: this.configuration.withCredentials,
-                headers: headers,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * 
-     * 
-     * @param Q 
-     * @param sort 
-     * @param page 
-     * @param pageSize 
-     * @param filters 
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public apiV2HmKmGet(Q?: string, sort?: string, page?: number, pageSize?: number, filters?: { [key: string]: string; }, observe?: 'body', reportProgress?: boolean): Observable<HmKmDtoPaginatedResult>;
-    public apiV2HmKmGet(Q?: string, sort?: string, page?: number, pageSize?: number, filters?: { [key: string]: string; }, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<HmKmDtoPaginatedResult>>;
-    public apiV2HmKmGet(Q?: string, sort?: string, page?: number, pageSize?: number, filters?: { [key: string]: string; }, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<HmKmDtoPaginatedResult>>;
-    public apiV2HmKmGet(Q?: string, sort?: string, page?: number, pageSize?: number, filters?: { [key: string]: string; }, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
-
-
-
-
-
-
-        let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
-        if (Q !== undefined && Q !== null) {
-            queryParameters = queryParameters.set('Q', <any>Q);
-        }
-        if (sort !== undefined && sort !== null) {
-            queryParameters = queryParameters.set('Sort', <any>sort);
-        }
-        if (page !== undefined && page !== null) {
-            queryParameters = queryParameters.set('Page', <any>page);
-        }
-        if (pageSize !== undefined && pageSize !== null) {
-            queryParameters = queryParameters.set('PageSize', <any>pageSize);
-        }
-        if (filters !== undefined && filters !== null) {
-            queryParameters = queryParameters.set('Filters', <any>filters);
-        }
-
-        let headers = this.defaultHeaders;
-
-        // to determine the Accept header
-        let httpHeaderAccepts: string[] = [
-            'text/plain',
-            'application/json',
-            'text/json'
-        ];
-        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        if (httpHeaderAcceptSelected != undefined) {
-            headers = headers.set('Accept', httpHeaderAcceptSelected);
-        }
-
-        // to determine the Content-Type header
-        const consumes: string[] = [
-        ];
-
-        return this.httpClient.request<HmKmDtoPaginatedResult>('get',`${this.basePath}/api/v2/HmKm`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -992,6 +985,11 @@ export class VistasService {
         }
 
         let headers = this.defaultHeaders;
+
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
@@ -1059,6 +1057,11 @@ export class VistasService {
 
         let headers = this.defaultHeaders;
 
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
+
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
             'text/plain',
@@ -1124,6 +1127,11 @@ export class VistasService {
         }
 
         let headers = this.defaultHeaders;
+
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
@@ -1191,6 +1199,11 @@ export class VistasService {
 
         let headers = this.defaultHeaders;
 
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
+
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
             'text/plain',
@@ -1256,6 +1269,11 @@ export class VistasService {
         }
 
         let headers = this.defaultHeaders;
+
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
@@ -1323,6 +1341,11 @@ export class VistasService {
 
         let headers = this.defaultHeaders;
 
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
+
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
             'text/plain',
@@ -1388,6 +1411,11 @@ export class VistasService {
         }
 
         let headers = this.defaultHeaders;
+
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
@@ -1455,6 +1483,11 @@ export class VistasService {
 
         let headers = this.defaultHeaders;
 
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
+
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
             'text/plain',
@@ -1520,6 +1553,11 @@ export class VistasService {
         }
 
         let headers = this.defaultHeaders;
+
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
@@ -1587,6 +1625,11 @@ export class VistasService {
 
         let headers = this.defaultHeaders;
 
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
+
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
             'text/plain',
@@ -1652,6 +1695,11 @@ export class VistasService {
         }
 
         let headers = this.defaultHeaders;
+
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
@@ -1719,6 +1767,11 @@ export class VistasService {
 
         let headers = this.defaultHeaders;
 
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
+
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
             'text/plain',
@@ -1784,6 +1837,11 @@ export class VistasService {
         }
 
         let headers = this.defaultHeaders;
+
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
@@ -1851,6 +1909,11 @@ export class VistasService {
 
         let headers = this.defaultHeaders;
 
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
+
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
             'text/plain',
@@ -1916,6 +1979,11 @@ export class VistasService {
         }
 
         let headers = this.defaultHeaders;
+
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
@@ -1983,6 +2051,11 @@ export class VistasService {
 
         let headers = this.defaultHeaders;
 
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
+
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
             'text/plain',
@@ -2048,6 +2121,11 @@ export class VistasService {
         }
 
         let headers = this.defaultHeaders;
+
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
@@ -2115,6 +2193,11 @@ export class VistasService {
 
         let headers = this.defaultHeaders;
 
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
+
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
             'text/plain',
@@ -2180,6 +2263,11 @@ export class VistasService {
         }
 
         let headers = this.defaultHeaders;
+
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
@@ -2247,6 +2335,11 @@ export class VistasService {
 
         let headers = this.defaultHeaders;
 
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
+
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
             'text/plain',
@@ -2312,6 +2405,11 @@ export class VistasService {
         }
 
         let headers = this.defaultHeaders;
+
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
@@ -2379,6 +2477,11 @@ export class VistasService {
 
         let headers = this.defaultHeaders;
 
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
+
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
             'text/plain',
@@ -2444,6 +2547,11 @@ export class VistasService {
         }
 
         let headers = this.defaultHeaders;
+
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
@@ -2511,6 +2619,11 @@ export class VistasService {
 
         let headers = this.defaultHeaders;
 
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
+
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
             'text/plain',
@@ -2576,6 +2689,11 @@ export class VistasService {
         }
 
         let headers = this.defaultHeaders;
+
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
@@ -2643,6 +2761,11 @@ export class VistasService {
 
         let headers = this.defaultHeaders;
 
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
+
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
             'text/plain',
@@ -2708,6 +2831,11 @@ export class VistasService {
         }
 
         let headers = this.defaultHeaders;
+
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [

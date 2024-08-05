@@ -12,7 +12,6 @@
 
 export interface UpdateSubFamiliaDto { 
     id?: number;
-    idEmpresa: number;
     idFamilia: number;
     grua: boolean;
     fichaTecnica: boolean;

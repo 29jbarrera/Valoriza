@@ -9,6 +9,7 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { NivelMantenimientoTipoDto } from './nivelMantenimientoTipoDto';
 
 export interface NivelMantenimientoDto { 
     id?: number;
@@ -19,4 +20,5 @@ export interface NivelMantenimientoDto {
     media?: number;
     esPeriodico?: boolean;
     fechaInicio?: string;
+    tipos?: Array<NivelMantenimientoTipoDto>;
 }

@@ -11,7 +11,6 @@
  */
 
 export interface CreateNivelMantenimientoDto { 
-    idEmpresa: number;
     codigo: string;
     frecuencia: number;
     tipo: string;

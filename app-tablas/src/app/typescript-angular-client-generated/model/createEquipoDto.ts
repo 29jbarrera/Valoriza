@@ -11,7 +11,6 @@
  */
 
 export interface CreateEquipoDto { 
-    idEmpresa: number;
     idMaquinaria?: number;
     marca?: string;
     modelo?: string;

@@ -11,7 +11,6 @@
  */
 
 export interface CreateInstalacionesOperacioneDto { 
-    idEmpresa: number;
     idElemento: number;
     fecha: string;
     actuante?: string;

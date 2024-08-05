@@ -9,6 +9,7 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { SegurosDocDto } from './segurosDocDto';
 
 export interface SeguroDto { 
     id?: number;
@@ -27,4 +28,5 @@ export interface SeguroDto {
     createdAt?: Date;
     changedBy?: string;
     changedAt?: Date;
+    segurosDoc?: SegurosDocDto;
 }

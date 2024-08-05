@@ -3,21 +3,25 @@ import { Configuration } from './configuration';
 import { HttpClient } from '@angular/common/http';
 
 
-import { AmortizacionHistoricoService } from './api/amortizacionHistorico.service';
+import { AmortizacionesService } from './api/amortizaciones.service';
 import { AppParameterService } from './api/appParameter.service';
 import { BidonesService } from './api/bidones.service';
-import { CentrosCosteService } from './api/centrosCoste.service';
+import { CategoriasService } from './api/categorias.service';
+import { CentrosCostesService } from './api/centrosCostes.service';
 import { DepositosService } from './api/depositos.service';
 import { FamiliasService } from './api/familias.service';
 import { GastosTallerService } from './api/gastosTaller.service';
+import { GlobalTablesService } from './api/globalTables.service';
+import { GlobalTablesValuesService } from './api/globalTablesValues.service';
+import { GlobalTablesValuesLangService } from './api/globalTablesValuesLang.service';
 import { GncService } from './api/gnc.service';
 import { GncDocsService } from './api/gncDocs.service';
 import { GruasService } from './api/gruas.service';
 import { GruposCentroService } from './api/gruposCentro.service';
+import { HmKmService } from './api/hmKm.service';
 import { HmKmHistoricoService } from './api/hmKmHistorico.service';
 import { ImpuestosService } from './api/impuestos.service';
 import { ImpuestosHistoricoService } from './api/impuestosHistorico.service';
-import { InspeccionesTecnicasHistoricoService } from './api/inspeccionesTecnicasHistorico.service';
 import { InstalacionesService } from './api/instalaciones.service';
 import { MaquinariasService } from './api/maquinarias.service';
 import { MaquinariasChasisService } from './api/maquinariasChasis.service';
@@ -28,59 +32,61 @@ import { MaquinariasImagenesDocsService } from './api/maquinariasImagenesDocs.se
 import { MaquinariasImplementosService } from './api/maquinariasImplementos.service';
 import { MaquinariasInspeccionesTecnicasService } from './api/maquinariasInspeccionesTecnicas.service';
 import { MaquinariasInspeccionesTecnicasDocsService } from './api/maquinariasInspeccionesTecnicasDocs.service';
+import { MaquinariasInspeccionesTecnicasHistoricoService } from './api/maquinariasInspeccionesTecnicasHistorico.service';
 import { MaquinariasNivelesService } from './api/maquinariasNiveles.service';
 import { MaquinariasNivelesDocsService } from './api/maquinariasNivelesDocs.service';
 import { MaquinariasObservacionesService } from './api/maquinariasObservaciones.service';
+import { MaquinariasPartesDeTrabajoDocumentosService } from './api/maquinariasPartesDeTrabajoDocumentos.service';
 import { MaquinariasReparacionesService } from './api/maquinariasReparaciones.service';
+import { MaquinariasReparacionesDocsService } from './api/maquinariasReparacionesDocs.service';
+import { MaquinariasReparacionesHistoricoService } from './api/maquinariasReparacionesHistorico.service';
 import { MaquinariasRepostajesService } from './api/maquinariasRepostajes.service';
 import { MaquinariasTacografosService } from './api/maquinariasTacografos.service';
-import { MarcaService } from './api/marca.service';
-import { NivelMantenimientoService } from './api/nivelMantenimiento.service';
+import { MarcasService } from './api/marcas.service';
 import { NivelMantenimientoAccionService } from './api/nivelMantenimientoAccion.service';
 import { NivelMantenimientoAccionesLangService } from './api/nivelMantenimientoAccionesLang.service';
-import { NivelMantenimientoTipoService } from './api/nivelMantenimientoTipo.service';
-import { NivelMantenimientoTiposAccionService } from './api/nivelMantenimientoTiposAccion.service';
-import { ParteTrabajoService } from './api/parteTrabajo.service';
-import { ParteTrabajoDocService } from './api/parteTrabajoDoc.service';
-import { ParteTrabajoMecanicoService } from './api/parteTrabajoMecanico.service';
-import { PartesTrabajoDocService } from './api/partesTrabajoDoc.service';
-import { PesoCargaService } from './api/pesoCarga.service';
-import { PrestamosStockService } from './api/prestamosStock.service';
-import { ProveedorService } from './api/proveedor.service';
-import { ReparacionesDocService } from './api/reparacionesDoc.service';
-import { SeguroService } from './api/seguro.service';
-import { SegurosDocService } from './api/segurosDoc.service';
+import { NivelesDeMantenimientoService } from './api/nivelesDeMantenimiento.service';
+import { NivelesDeMantenimientoTipoService } from './api/nivelesDeMantenimientoTipo.service';
+import { NivelesDeMantenimientoTipoDeAccinService } from './api/nivelesDeMantenimientoTipoDeAccin.service';
+import { PartesDeTrabajoService } from './api/partesDeTrabajo.service';
+import { PartesDeTrabajoDocumentosService } from './api/partesDeTrabajoDocumentos.service';
+import { PartesDeTrabajoMecanicosService } from './api/partesDeTrabajoMecanicos.service';
+import { PesoYCargaService } from './api/pesoYCarga.service';
+import { PrestamosYStockService } from './api/prestamosYStock.service';
+import { ProveedoresService } from './api/proveedores.service';
+import { ReferenciaDeMaterialesService } from './api/referenciaDeMateriales.service';
+import { SegurosService } from './api/seguros.service';
 import { StockService } from './api/stock.service';
 import { TacografosDocService } from './api/tacografosDoc.service';
-import { TacografosHistoricoService } from './api/tacografosHistorico.service';
-import { UnidadMedidaTiposCombustibleService } from './api/unidadMedidaTiposCombustible.service';
-import { UnidadesMedidaService } from './api/unidadesMedida.service';
-import { UnidadesMedidaLangService } from './api/unidadesMedidaLang.service';
+import { UnidadesDeMedidaService } from './api/unidadesDeMedida.service';
+import { UnidadesDeMedidaTiposDeCombustibleService } from './api/unidadesDeMedidaTiposDeCombustible.service';
+import { UsuarioCentroService } from './api/usuarioCentro.service';
 import { VistasService } from './api/vistas.service';
-import { XGlobalTableService } from './api/xGlobalTable.service';
-import { XGlobalTablesValueService } from './api/xGlobalTablesValue.service';
-import { XGlobalTablesValuesLangService } from './api/xGlobalTablesValuesLang.service';
 
 @NgModule({
   imports:      [],
   declarations: [],
   exports:      [],
   providers: [
-    AmortizacionHistoricoService,
+    AmortizacionesService,
     AppParameterService,
     BidonesService,
-    CentrosCosteService,
+    CategoriasService,
+    CentrosCostesService,
     DepositosService,
     FamiliasService,
     GastosTallerService,
+    GlobalTablesService,
+    GlobalTablesValuesService,
+    GlobalTablesValuesLangService,
     GncService,
     GncDocsService,
     GruasService,
     GruposCentroService,
+    HmKmService,
     HmKmHistoricoService,
     ImpuestosService,
     ImpuestosHistoricoService,
-    InspeccionesTecnicasHistoricoService,
     InstalacionesService,
     MaquinariasService,
     MaquinariasChasisService,
@@ -91,38 +97,36 @@ import { XGlobalTablesValuesLangService } from './api/xGlobalTablesValuesLang.se
     MaquinariasImplementosService,
     MaquinariasInspeccionesTecnicasService,
     MaquinariasInspeccionesTecnicasDocsService,
+    MaquinariasInspeccionesTecnicasHistoricoService,
     MaquinariasNivelesService,
     MaquinariasNivelesDocsService,
     MaquinariasObservacionesService,
+    MaquinariasPartesDeTrabajoDocumentosService,
     MaquinariasReparacionesService,
+    MaquinariasReparacionesDocsService,
+    MaquinariasReparacionesHistoricoService,
     MaquinariasRepostajesService,
     MaquinariasTacografosService,
-    MarcaService,
-    NivelMantenimientoService,
+    MarcasService,
     NivelMantenimientoAccionService,
     NivelMantenimientoAccionesLangService,
-    NivelMantenimientoTipoService,
-    NivelMantenimientoTiposAccionService,
-    ParteTrabajoService,
-    ParteTrabajoDocService,
-    ParteTrabajoMecanicoService,
-    PartesTrabajoDocService,
-    PesoCargaService,
-    PrestamosStockService,
-    ProveedorService,
-    ReparacionesDocService,
-    SeguroService,
-    SegurosDocService,
+    NivelesDeMantenimientoService,
+    NivelesDeMantenimientoTipoService,
+    NivelesDeMantenimientoTipoDeAccinService,
+    PartesDeTrabajoService,
+    PartesDeTrabajoDocumentosService,
+    PartesDeTrabajoMecanicosService,
+    PesoYCargaService,
+    PrestamosYStockService,
+    ProveedoresService,
+    ReferenciaDeMaterialesService,
+    SegurosService,
     StockService,
     TacografosDocService,
-    TacografosHistoricoService,
-    UnidadMedidaTiposCombustibleService,
-    UnidadesMedidaService,
-    UnidadesMedidaLangService,
-    VistasService,
-    XGlobalTableService,
-    XGlobalTablesValueService,
-    XGlobalTablesValuesLangService ]
+    UnidadesDeMedidaService,
+    UnidadesDeMedidaTiposDeCombustibleService,
+    UsuarioCentroService,
+    VistasService ]
 })
 export class ApiModule {
     public static forRoot(configurationFactory: () => Configuration): ModuleWithProviders<ApiModule> {

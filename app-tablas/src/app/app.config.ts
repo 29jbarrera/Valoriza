@@ -3,10 +3,32 @@ import { provideRouter } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { routes } from './app.routes';
 import { FormlyModule } from '@ngx-formly/core';
-import { HTTP_INTERCEPTORS, HttpClientModule, provideHttpClient, withFetch, withInterceptorsFromDi } from '@angular/common/http';
-import { MSAL_GUARD_CONFIG, MSAL_INSTANCE, MSAL_INTERCEPTOR_CONFIG, MsalBroadcastService, MsalGuard, MsalInterceptor, MsalService } from '@azure/msal-angular';
-import { MSALGuardConfigFactory, MSALInstanceFactory, MSALInterceptorConfigFactory } from './ms';
-import { ApiModule, Configuration } from './typescript-angular-client-generated';
+import {
+  HTTP_INTERCEPTORS,
+  HttpClientModule,
+  provideHttpClient,
+  withFetch,
+  withInterceptorsFromDi,
+} from '@angular/common/http';
+import {
+  MSAL_GUARD_CONFIG,
+  MSAL_INSTANCE,
+  MSAL_INTERCEPTOR_CONFIG,
+  MsalBroadcastService,
+  MsalGuard,
+  MsalInterceptor,
+  MsalService,
+} from '@azure/msal-angular';
+import {
+  MSALGuardConfigFactory,
+  MSALInstanceFactory,
+  MSALInterceptorConfigFactory,
+} from './ms';
+import {
+  ApiModule,
+  Configuration,
+} from './typescript-angular-client-generated';
+import { TokenInterceptor } from './token.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -21,33 +43,41 @@ export const appConfig: ApplicationConfig = {
         ],
       }),
       HttpClientModule,
-      ApiModule.forRoot(() => new Configuration({
-        // basePath: 'http://localhost:5051'
-        basePath: 'http://10.243.53.212:5051'
-      }))
+      ApiModule.forRoot(
+        () =>
+          new Configuration({
+            // basePath: 'http://localhost:5051',
+            basePath: 'http://10.243.53.212:5051',
+          })
+      ),
     ]),
     // Microsoft
     provideHttpClient(withInterceptorsFromDi(), withFetch()),
-      {
-        provide: HTTP_INTERCEPTORS,
-        useClass: MsalInterceptor,
-        multi: true,
-      },
-      {
-        provide: MSAL_INSTANCE,
-        useFactory: MSALInstanceFactory,
-      },
-      {
-        provide: MSAL_GUARD_CONFIG,
-        useFactory: MSALGuardConfigFactory,
-      },
-      {
-        provide: MSAL_INTERCEPTOR_CONFIG,
-        useFactory: MSALInterceptorConfigFactory,
-      },
-      MsalService,
-      MsalGuard,
-      MsalBroadcastService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: MsalInterceptor,
+      multi: true,
+    },
+    {
+      provide: MSAL_INSTANCE,
+      useFactory: MSALInstanceFactory,
+    },
+    {
+      provide: MSAL_GUARD_CONFIG,
+      useFactory: MSALGuardConfigFactory,
+    },
+    {
+      provide: MSAL_INTERCEPTOR_CONFIG,
+      useFactory: MSALInterceptorConfigFactory,
+    },
+    MsalService,
+    MsalGuard,
+    MsalBroadcastService,
     provideRouter(routes),
   ],
 };

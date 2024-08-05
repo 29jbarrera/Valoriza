@@ -12,6 +12,7 @@
 import { CentrosCosteDto } from './centrosCosteDto';
 import { GastosTallerDocDto } from './gastosTallerDocDto';
 import { ProveedorDto } from './proveedorDto';
+import { ReferenciaMaterialDto } from './referenciaMaterialDto';
 
 export interface GastoTallerDto { 
     id?: number;
@@ -32,4 +33,6 @@ export interface GastoTallerDto {
     changedBy?: string;
     changedAt?: Date;
     gastosTallerDoc?: GastosTallerDocDto;
+    idReferenciaMaterial?: number;
+    referenciaMaterial?: ReferenciaMaterialDto;
 }

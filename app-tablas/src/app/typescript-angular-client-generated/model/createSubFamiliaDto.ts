@@ -11,7 +11,6 @@
  */
 
 export interface CreateSubFamiliaDto { 
-    idEmpresa: number;
     idFamilia: number;
     grua: boolean;
     fichaTecnica: boolean;

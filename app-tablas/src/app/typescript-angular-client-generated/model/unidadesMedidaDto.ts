@@ -9,6 +9,7 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { UnidadesMedidaLangDto } from './unidadesMedidaLangDto';
 
 export interface UnidadesMedidaDto { 
     id?: number;
@@ -17,4 +18,5 @@ export interface UnidadesMedidaDto {
     createdAt?: Date;
     changedBy?: string;
     changedAt?: Date;
+    langs?: Array<UnidadesMedidaLangDto>;
 }

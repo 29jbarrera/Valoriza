@@ -11,7 +11,6 @@
  */
 
 export interface CreateRepostajeDto { 
-    idEmpresa: number;
     idCentro?: number;
     idMaquinaria?: number;
     idDeposito?: number;

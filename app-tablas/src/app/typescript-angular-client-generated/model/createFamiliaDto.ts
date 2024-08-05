@@ -11,5 +11,4 @@
  */
 
 export interface CreateFamiliaDto { 
-    idEmpresa: number;
 }

@@ -11,7 +11,6 @@
  */
 
 export interface CreateUnidadMedidaTiposCombustibleDto { 
-    idEmpresa: number;
     idUnidadesMedida: number;
     codTipoCombustible: string;
 }

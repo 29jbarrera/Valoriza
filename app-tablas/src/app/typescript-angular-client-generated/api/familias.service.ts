@@ -111,6 +111,11 @@ export class FamiliasService {
 
         let headers = this.defaultHeaders;
 
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
+
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
             'text/plain',
@@ -155,6 +160,11 @@ export class FamiliasService {
 
         let headers = this.defaultHeaders;
 
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
+
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
             'text/plain',
@@ -197,6 +207,11 @@ export class FamiliasService {
         }
 
         let headers = this.defaultHeaders;
+
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
@@ -263,6 +278,11 @@ export class FamiliasService {
 
         let headers = this.defaultHeaders;
 
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
+
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
             'text/plain',
@@ -293,19 +313,34 @@ export class FamiliasService {
      * 
      * 
      * @param id 
+     * @param idLang 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2FamiliasLangIdDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<FamiliasLangDto>;
-    public apiV2FamiliasLangIdDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<FamiliasLangDto>>;
-    public apiV2FamiliasLangIdDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<FamiliasLangDto>>;
-    public apiV2FamiliasLangIdDelete(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public apiV2FamiliasLangIdDelete(id: number, idLang: number, observe?: 'body', reportProgress?: boolean): Observable<FamiliasLangDto>;
+    public apiV2FamiliasLangIdDelete(id: number, idLang: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<FamiliasLangDto>>;
+    public apiV2FamiliasLangIdDelete(id: number, idLang: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<FamiliasLangDto>>;
+    public apiV2FamiliasLangIdDelete(id: number, idLang: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling apiV2FamiliasLangIdDelete.');
         }
 
+        if (idLang === null || idLang === undefined) {
+            throw new Error('Required parameter idLang was null or undefined when calling apiV2FamiliasLangIdDelete.');
+        }
+
+        let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
+        if (idLang !== undefined && idLang !== null) {
+            queryParameters = queryParameters.set('idLang', <any>idLang);
+        }
+
         let headers = this.defaultHeaders;
+
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
@@ -324,6 +359,7 @@ export class FamiliasService {
 
         return this.httpClient.request<FamiliasLangDto>('delete',`${this.basePath}/api/v2/familiasLang/${encodeURIComponent(String(id))}`,
             {
+                params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
                 observe: observe,
@@ -336,19 +372,34 @@ export class FamiliasService {
      * 
      * 
      * @param id 
+     * @param idLang 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2FamiliasLangIdGet(id: number, observe?: 'body', reportProgress?: boolean): Observable<FamiliasLangDto>;
-    public apiV2FamiliasLangIdGet(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<FamiliasLangDto>>;
-    public apiV2FamiliasLangIdGet(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<FamiliasLangDto>>;
-    public apiV2FamiliasLangIdGet(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public apiV2FamiliasLangIdGet(id: number, idLang: number, observe?: 'body', reportProgress?: boolean): Observable<FamiliasLangDto>;
+    public apiV2FamiliasLangIdGet(id: number, idLang: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<FamiliasLangDto>>;
+    public apiV2FamiliasLangIdGet(id: number, idLang: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<FamiliasLangDto>>;
+    public apiV2FamiliasLangIdGet(id: number, idLang: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling apiV2FamiliasLangIdGet.');
         }
 
+        if (idLang === null || idLang === undefined) {
+            throw new Error('Required parameter idLang was null or undefined when calling apiV2FamiliasLangIdGet.');
+        }
+
+        let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
+        if (idLang !== undefined && idLang !== null) {
+            queryParameters = queryParameters.set('idLang', <any>idLang);
+        }
+
         let headers = this.defaultHeaders;
+
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
@@ -367,6 +418,7 @@ export class FamiliasService {
 
         return this.httpClient.request<FamiliasLangDto>('get',`${this.basePath}/api/v2/familiasLang/${encodeURIComponent(String(id))}`,
             {
+                params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
                 observe: observe,
@@ -389,6 +441,11 @@ export class FamiliasService {
 
 
         let headers = this.defaultHeaders;
+
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
@@ -438,6 +495,11 @@ export class FamiliasService {
 
         let headers = this.defaultHeaders;
 
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
+
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
             'text/plain',
@@ -486,6 +548,11 @@ export class FamiliasService {
 
         let headers = this.defaultHeaders;
 
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
+
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
             'text/plain',
@@ -533,6 +600,11 @@ export class FamiliasService {
 
 
         let headers = this.defaultHeaders;
+
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
@@ -607,6 +679,11 @@ export class FamiliasService {
 
         let headers = this.defaultHeaders;
 
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
+
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
             'text/plain',
@@ -651,6 +728,11 @@ export class FamiliasService {
 
         let headers = this.defaultHeaders;
 
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
+
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
             'text/plain',
@@ -694,6 +776,11 @@ export class FamiliasService {
 
         let headers = this.defaultHeaders;
 
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
+
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
             'text/plain',
@@ -733,6 +820,11 @@ export class FamiliasService {
 
 
         let headers = this.defaultHeaders;
+
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
@@ -781,6 +873,11 @@ export class FamiliasService {
 
 
         let headers = this.defaultHeaders;
+
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
@@ -855,6 +952,11 @@ export class FamiliasService {
 
         let headers = this.defaultHeaders;
 
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
+
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
             'text/plain',
@@ -898,6 +1000,11 @@ export class FamiliasService {
         }
 
         let headers = this.defaultHeaders;
+
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
@@ -947,6 +1054,11 @@ export class FamiliasService {
 
         let headers = this.defaultHeaders;
 
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
+
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
             'text/plain',
@@ -986,6 +1098,11 @@ export class FamiliasService {
 
 
         let headers = this.defaultHeaders;
+
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
@@ -1034,6 +1151,11 @@ export class FamiliasService {
 
 
         let headers = this.defaultHeaders;
+
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [

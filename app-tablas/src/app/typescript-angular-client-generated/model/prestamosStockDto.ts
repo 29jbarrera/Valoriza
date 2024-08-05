@@ -10,12 +10,10 @@
  * Do not edit the class manually.
  */
 import { CentrosCosteDto } from './centrosCosteDto';
-import { EmpresaDto } from './empresaDto';
 
 export interface PrestamosStockDto { 
     id?: number;
     idEmpresa?: number;
-    empresa?: EmpresaDto;
     idCentroOrigen?: number;
     centroOrigen?: CentrosCosteDto;
     idCentroDestino?: number;

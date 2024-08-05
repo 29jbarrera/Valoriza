@@ -11,7 +11,6 @@
  */
 
 export interface CreateInspeccionTecnicaDto { 
-    idEmpresa: number;
     idMaquinaria?: number;
     fecha?: string;
     fechaProxima?: string;

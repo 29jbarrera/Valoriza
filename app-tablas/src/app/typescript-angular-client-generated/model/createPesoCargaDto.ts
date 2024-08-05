@@ -11,7 +11,6 @@
  */
 
 export interface CreatePesoCargaDto { 
-    idEmpresa: number;
     idMaquinaria: number;
     fecha: Date;
     codResiduo: string;

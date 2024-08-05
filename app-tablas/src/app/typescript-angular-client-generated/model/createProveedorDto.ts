@@ -11,7 +11,6 @@
  */
 
 export interface CreateProveedorDto { 
-    idEmpresa: number;
     docIdentificacion: string;
     nombre: string;
     direccion?: string;

@@ -99,6 +99,11 @@ export class NivelMantenimientoAccionesLangService {
 
         let headers = this.defaultHeaders;
 
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
+
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
             'text/plain',
@@ -148,6 +153,11 @@ export class NivelMantenimientoAccionesLangService {
 
         let headers = this.defaultHeaders;
 
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
+
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
             'text/plain',
@@ -196,6 +206,11 @@ export class NivelMantenimientoAccionesLangService {
 
         let headers = this.defaultHeaders;
 
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
+
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
             'text/plain',
@@ -235,6 +250,11 @@ export class NivelMantenimientoAccionesLangService {
 
 
         let headers = this.defaultHeaders;
+
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
@@ -283,6 +303,11 @@ export class NivelMantenimientoAccionesLangService {
 
 
         let headers = this.defaultHeaders;
+
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [

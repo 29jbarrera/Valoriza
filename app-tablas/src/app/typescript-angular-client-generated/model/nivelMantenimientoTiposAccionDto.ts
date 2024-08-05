@@ -9,14 +9,10 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { NivelMantenimientoAccionDto } from './nivelMantenimientoAccionDto';
-import { NivelMantenimientoTipoDto } from './nivelMantenimientoTipoDto';
 
 export interface NivelMantenimientoTiposAccionDto { 
     id?: number;
     idTipo?: number;
-    tipo?: NivelMantenimientoTipoDto;
     idAccion?: number;
-    accion?: NivelMantenimientoAccionDto;
     posicion?: number;
 }

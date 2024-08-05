@@ -11,7 +11,6 @@
  */
 
 export interface CreateStockDto { 
-    idEmpresa: number;
     idCentro: number;
     idReferenciaMaterial: number;
     cantidad: number;

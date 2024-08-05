@@ -12,7 +12,6 @@
 
 export interface CreateNivelMantenimientoTipoDto { 
     idNivelMantenimiento: number;
-    idEmpresa: number;
     codigo: number;
     posicion: number;
 }

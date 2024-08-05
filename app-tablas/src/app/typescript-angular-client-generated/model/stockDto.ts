@@ -10,12 +10,11 @@
  * Do not edit the class manually.
  */
 import { CentrosCosteDto } from './centrosCosteDto';
-import { EmpresaDto } from './empresaDto';
+import { ReferenciaMaterialDto } from './referenciaMaterialDto';
 
 export interface StockDto { 
     id?: number;
     idEmpresa?: number;
-    empresa?: EmpresaDto;
     idCentro?: number;
     centro?: CentrosCosteDto;
     idReferenciaMaterial?: number;
@@ -26,4 +25,5 @@ export interface StockDto {
     createdAt?: Date;
     changedBy?: string;
     changedAt?: Date;
+    referenciaMaterial?: ReferenciaMaterialDto;
 }

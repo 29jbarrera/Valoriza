@@ -9,12 +9,10 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { EmpresaDto } from './empresaDto';
 
 export interface ProveedorDto { 
     id?: number;
     idEmpresa?: number;
-    empresa?: EmpresaDto;
     docIdentificacion?: string;
     nombre?: string;
     direccion?: string;

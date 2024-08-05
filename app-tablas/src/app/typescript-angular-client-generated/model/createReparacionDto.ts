@@ -11,7 +11,6 @@
  */
 
 export interface CreateReparacionDto { 
-    idEmpresa: number;
     idCentro?: number;
     idMaquinaria: number;
     idProveedor?: number;

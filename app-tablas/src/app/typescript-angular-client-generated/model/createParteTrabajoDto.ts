@@ -13,7 +13,6 @@
 export interface CreateParteTrabajoDto { 
     idCentro?: number;
     idMaquinaria?: number;
-    idEmpresa: number;
     codEstado: string;
     codTipoMantenimiento?: string;
     codTipoActuacion?: string;

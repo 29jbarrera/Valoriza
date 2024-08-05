@@ -11,7 +11,6 @@
  */
 
 export interface CreateTacografoDto { 
-    idEmpresa: number;
     idMaquinaria?: number;
     fecha: string;
 }

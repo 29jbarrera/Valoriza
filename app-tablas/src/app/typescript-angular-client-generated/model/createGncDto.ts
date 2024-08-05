@@ -11,7 +11,6 @@
  */
 
 export interface CreateGncDto { 
-    idEmpresa: number;
     idMaquinaria: number;
     fecha: string;
 }

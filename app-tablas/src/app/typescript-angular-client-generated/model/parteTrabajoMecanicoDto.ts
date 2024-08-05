@@ -9,12 +9,10 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { ParteTrabajoDto } from './parteTrabajoDto';
 
 export interface ParteTrabajoMecanicoDto { 
     id?: number;
     idParteTrabajo?: number;
-    parteTrabajo?: ParteTrabajoDto;
     idMecanico?: number;
     horasReparacion?: number;
     createdBy?: string;

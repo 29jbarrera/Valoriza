@@ -17,11 +17,9 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs';
 
-import { CreateHmKmHistoricoDto } from '../model/createHmKmHistoricoDto';
 import { HmKmHistoricoDto } from '../model/hmKmHistoricoDto';
 import { HmKmHistoricoDtoPaginatedResult } from '../model/hmKmHistoricoDtoPaginatedResult';
 import { ProblemDetails } from '../model/problemDetails';
-import { UpdateHmKmHistoricoDto } from '../model/updateHmKmHistoricoDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -99,6 +97,11 @@ export class HmKmHistoricoService {
 
         let headers = this.defaultHeaders;
 
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
+
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
             'text/plain',
@@ -132,49 +135,6 @@ export class HmKmHistoricoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2HmKmHistoricoIdDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<HmKmHistoricoDto>;
-    public apiV2HmKmHistoricoIdDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<HmKmHistoricoDto>>;
-    public apiV2HmKmHistoricoIdDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<HmKmHistoricoDto>>;
-    public apiV2HmKmHistoricoIdDelete(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
-
-        if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling apiV2HmKmHistoricoIdDelete.');
-        }
-
-        let headers = this.defaultHeaders;
-
-        // to determine the Accept header
-        let httpHeaderAccepts: string[] = [
-            'text/plain',
-            'application/json',
-            'text/json'
-        ];
-        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        if (httpHeaderAcceptSelected != undefined) {
-            headers = headers.set('Accept', httpHeaderAcceptSelected);
-        }
-
-        // to determine the Content-Type header
-        const consumes: string[] = [
-        ];
-
-        return this.httpClient.request<HmKmHistoricoDto>('delete',`${this.basePath}/api/v2/HmKmHistorico/${encodeURIComponent(String(id))}`,
-            {
-                withCredentials: this.configuration.withCredentials,
-                headers: headers,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * 
-     * 
-     * @param id 
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
     public apiV2HmKmHistoricoIdGet(id: number, observe?: 'body', reportProgress?: boolean): Observable<HmKmHistoricoDto>;
     public apiV2HmKmHistoricoIdGet(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<HmKmHistoricoDto>>;
     public apiV2HmKmHistoricoIdGet(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<HmKmHistoricoDto>>;
@@ -185,6 +145,11 @@ export class HmKmHistoricoService {
         }
 
         let headers = this.defaultHeaders;
+
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
@@ -203,102 +168,6 @@ export class HmKmHistoricoService {
 
         return this.httpClient.request<HmKmHistoricoDto>('get',`${this.basePath}/api/v2/HmKmHistorico/${encodeURIComponent(String(id))}`,
             {
-                withCredentials: this.configuration.withCredentials,
-                headers: headers,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * 
-     * 
-     * @param body 
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public apiV2HmKmHistoricoPost(body?: CreateHmKmHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<HmKmHistoricoDto>;
-    public apiV2HmKmHistoricoPost(body?: CreateHmKmHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<HmKmHistoricoDto>>;
-    public apiV2HmKmHistoricoPost(body?: CreateHmKmHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<HmKmHistoricoDto>>;
-    public apiV2HmKmHistoricoPost(body?: CreateHmKmHistoricoDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
-
-
-        let headers = this.defaultHeaders;
-
-        // to determine the Accept header
-        let httpHeaderAccepts: string[] = [
-            'text/plain',
-            'application/json',
-            'text/json'
-        ];
-        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        if (httpHeaderAcceptSelected != undefined) {
-            headers = headers.set('Accept', httpHeaderAcceptSelected);
-        }
-
-        // to determine the Content-Type header
-        const consumes: string[] = [
-            'application/json',
-            'text/json',
-            'application/_*+json'
-        ];
-        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
-        if (httpContentTypeSelected != undefined) {
-            headers = headers.set('Content-Type', httpContentTypeSelected);
-        }
-
-        return this.httpClient.request<HmKmHistoricoDto>('post',`${this.basePath}/api/v2/HmKmHistorico`,
-            {
-                body: body,
-                withCredentials: this.configuration.withCredentials,
-                headers: headers,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * 
-     * 
-     * @param body 
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public apiV2HmKmHistoricoPut(body?: UpdateHmKmHistoricoDto, observe?: 'body', reportProgress?: boolean): Observable<HmKmHistoricoDto>;
-    public apiV2HmKmHistoricoPut(body?: UpdateHmKmHistoricoDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<HmKmHistoricoDto>>;
-    public apiV2HmKmHistoricoPut(body?: UpdateHmKmHistoricoDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<HmKmHistoricoDto>>;
-    public apiV2HmKmHistoricoPut(body?: UpdateHmKmHistoricoDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
-
-
-        let headers = this.defaultHeaders;
-
-        // to determine the Accept header
-        let httpHeaderAccepts: string[] = [
-            'text/plain',
-            'application/json',
-            'text/json'
-        ];
-        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        if (httpHeaderAcceptSelected != undefined) {
-            headers = headers.set('Accept', httpHeaderAcceptSelected);
-        }
-
-        // to determine the Content-Type header
-        const consumes: string[] = [
-            'application/json',
-            'text/json',
-            'application/_*+json'
-        ];
-        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
-        if (httpContentTypeSelected != undefined) {
-            headers = headers.set('Content-Type', httpContentTypeSelected);
-        }
-
-        return this.httpClient.request<HmKmHistoricoDto>('put',`${this.basePath}/api/v2/HmKmHistorico`,
-            {
-                body: body,
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
                 observe: observe,

@@ -11,7 +11,6 @@
  */
 
 export interface CreateImplementoDto { 
-    idEmpresa: number;
     idMaquinaria: number;
     descripcion: string;
     marca?: string;

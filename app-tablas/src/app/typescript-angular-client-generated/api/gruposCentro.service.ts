@@ -99,6 +99,11 @@ export class GruposCentroService {
 
         let headers = this.defaultHeaders;
 
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
+
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
             'text/plain',
@@ -114,7 +119,7 @@ export class GruposCentroService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<GruposCentroDtoPaginatedResult>('get',`${this.basePath}/api/v2/GruposCentro`,
+        return this.httpClient.request<GruposCentroDtoPaginatedResult>('get',`${this.basePath}/api/v2/gruposCentro`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -143,6 +148,11 @@ export class GruposCentroService {
 
         let headers = this.defaultHeaders;
 
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
+
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
             'text/plain',
@@ -158,7 +168,7 @@ export class GruposCentroService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<GruposCentroDto>('delete',`${this.basePath}/api/v2/GruposCentro/${encodeURIComponent(String(id))}`,
+        return this.httpClient.request<GruposCentroDto>('delete',`${this.basePath}/api/v2/gruposCentro/${encodeURIComponent(String(id))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -186,6 +196,11 @@ export class GruposCentroService {
 
         let headers = this.defaultHeaders;
 
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
+
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
             'text/plain',
@@ -201,7 +216,7 @@ export class GruposCentroService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<GruposCentroDto>('get',`${this.basePath}/api/v2/GruposCentro/${encodeURIComponent(String(id))}`,
+        return this.httpClient.request<GruposCentroDto>('get',`${this.basePath}/api/v2/gruposCentro/${encodeURIComponent(String(id))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -226,6 +241,11 @@ export class GruposCentroService {
 
         let headers = this.defaultHeaders;
 
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
+
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
             'text/plain',
@@ -248,7 +268,7 @@ export class GruposCentroService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<GruposCentroDto>('post',`${this.basePath}/api/v2/GruposCentro`,
+        return this.httpClient.request<GruposCentroDto>('post',`${this.basePath}/api/v2/gruposCentro`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -274,6 +294,11 @@ export class GruposCentroService {
 
         let headers = this.defaultHeaders;
 
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
+
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
             'text/plain',
@@ -296,7 +321,7 @@ export class GruposCentroService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<GruposCentroDto>('put',`${this.basePath}/api/v2/GruposCentro`,
+        return this.httpClient.request<GruposCentroDto>('put',`${this.basePath}/api/v2/gruposCentro`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

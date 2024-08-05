@@ -11,7 +11,6 @@
  */
 
 export interface CreateMaquinariaDto { 
-    idEmpresa: number;
     idCentro?: number;
     idCentroCompra?: number;
     idFamilia: number;

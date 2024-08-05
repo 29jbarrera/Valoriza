@@ -11,7 +11,6 @@
  */
 
 export interface CreatePrestamosStockDto { 
-    idEmpresa: number;
     idCentroOrigen: number;
     idCentroDestino: number;
     idReferenciaMaterial: number;

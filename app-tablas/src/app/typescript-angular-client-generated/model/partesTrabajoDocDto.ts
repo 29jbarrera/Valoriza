@@ -9,13 +9,11 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { MaquinariaDto } from './maquinariaDto';
 
 export interface PartesTrabajoDocDto { 
     claveGuid: string;
     id?: number;
     idMaquinaria?: number;
-    maquinaria?: MaquinariaDto;
     nombre?: string;
     extension?: string;
     fecha?: string;

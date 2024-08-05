@@ -21,6 +21,8 @@ import { CreateTacografoDto } from '../model/createTacografoDto';
 import { ProblemDetails } from '../model/problemDetails';
 import { TacografoDto } from '../model/tacografoDto';
 import { TacografoDtoPaginatedResult } from '../model/tacografoDtoPaginatedResult';
+import { TacografosHistoricoDto } from '../model/tacografosHistoricoDto';
+import { TacografosHistoricoDtoPaginatedResult } from '../model/tacografosHistoricoDtoPaginatedResult';
 import { UpdateTacografoDto } from '../model/updateTacografoDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -99,6 +101,11 @@ export class MaquinariasTacografosService {
 
         let headers = this.defaultHeaders;
 
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
+
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
             'text/plain',
@@ -128,6 +135,125 @@ export class MaquinariasTacografosService {
     /**
      * 
      * 
+     * @param Q 
+     * @param sort 
+     * @param page 
+     * @param pageSize 
+     * @param filters 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public apiV2TacografoHistoricoGet(Q?: string, sort?: string, page?: number, pageSize?: number, filters?: { [key: string]: string; }, observe?: 'body', reportProgress?: boolean): Observable<TacografosHistoricoDtoPaginatedResult>;
+    public apiV2TacografoHistoricoGet(Q?: string, sort?: string, page?: number, pageSize?: number, filters?: { [key: string]: string; }, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<TacografosHistoricoDtoPaginatedResult>>;
+    public apiV2TacografoHistoricoGet(Q?: string, sort?: string, page?: number, pageSize?: number, filters?: { [key: string]: string; }, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<TacografosHistoricoDtoPaginatedResult>>;
+    public apiV2TacografoHistoricoGet(Q?: string, sort?: string, page?: number, pageSize?: number, filters?: { [key: string]: string; }, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+
+
+
+
+
+        let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
+        if (Q !== undefined && Q !== null) {
+            queryParameters = queryParameters.set('Q', <any>Q);
+        }
+        if (sort !== undefined && sort !== null) {
+            queryParameters = queryParameters.set('Sort', <any>sort);
+        }
+        if (page !== undefined && page !== null) {
+            queryParameters = queryParameters.set('Page', <any>page);
+        }
+        if (pageSize !== undefined && pageSize !== null) {
+            queryParameters = queryParameters.set('PageSize', <any>pageSize);
+        }
+        if (filters !== undefined && filters !== null) {
+            queryParameters = queryParameters.set('Filters', <any>filters);
+        }
+
+        let headers = this.defaultHeaders;
+
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.request<TacografosHistoricoDtoPaginatedResult>('get',`${this.basePath}/api/v2/tacografo/historico`,
+            {
+                params: queryParameters,
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * 
+     * @param id 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public apiV2TacografoHistoricoIdGet(id: number, observe?: 'body', reportProgress?: boolean): Observable<TacografosHistoricoDto>;
+    public apiV2TacografoHistoricoIdGet(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<TacografosHistoricoDto>>;
+    public apiV2TacografoHistoricoIdGet(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<TacografosHistoricoDto>>;
+    public apiV2TacografoHistoricoIdGet(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling apiV2TacografoHistoricoIdGet.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.request<TacografosHistoricoDto>('get',`${this.basePath}/api/v2/tacografo/historico/${encodeURIComponent(String(id))}`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * 
      * @param id 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -142,6 +268,11 @@ export class MaquinariasTacografosService {
         }
 
         let headers = this.defaultHeaders;
+
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
@@ -186,6 +317,11 @@ export class MaquinariasTacografosService {
 
         let headers = this.defaultHeaders;
 
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
+
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
             'text/plain',
@@ -225,6 +361,11 @@ export class MaquinariasTacografosService {
 
 
         let headers = this.defaultHeaders;
+
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
@@ -273,6 +414,11 @@ export class MaquinariasTacografosService {
 
 
         let headers = this.defaultHeaders;
+
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
