@@ -147,19 +147,31 @@
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-seguros>
-      <tr class="body-table">
+      <tr class="body-table" [id]="'insurance-' + seguros?.id">
         <td>
-          <p-button icon="fas fa-pen" severity="success" [text]="true" (click)="confirm_edit(seguros)"/>
+          <p-button
+            icon="fas fa-pen"
+            severity="success"
+            [text]="true"
+            (click)="confirm_edit(seguros)"
+            [id]="'insurance-edit-' + seguros?.id"
+          />
         </td>
         <td>
-          <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(seguros)"/>
+          <p-button
+            icon="fas fa-trash"
+            severity="danger"
+            [text]="true"
+            (click)="confirm_delete(seguros)"
+            [id]="'insurance-delete-' + seguros?.id"
+          />
         </td>
         <td>{{ seguros.empresa.direccion }}</td>
         <td>{{ seguros.empresa.documentoIdentificativo }}</td>
-        <td>{{ seguros.empresa.nombre  }}</td>
+        <td>{{ seguros.empresa.nombre }}</td>
         <td>{{ seguros.codEstadoSeguro }}</td>
         <td>{{ seguros.codTipoSeguro }}</td>
-          <!-- TODO: add NºPóliza -->
+        <!-- TODO: add NºPóliza -->
         <td>{{ seguros }}</td>
         <td>{{ seguros.fechaInicio }}</td>
         <td>{{ seguros.fechaFin }}</td>
@@ -179,6 +191,6 @@
       </tr>
     </ng-template>
   </p-table>
-  <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+  <p-confirmDialog [style]="{ width: '50vw' }"></p-confirmDialog>
   <p-toast></p-toast>
 </div>

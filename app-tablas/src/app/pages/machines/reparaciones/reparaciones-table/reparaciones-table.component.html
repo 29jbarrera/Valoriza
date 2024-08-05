@@ -19,7 +19,7 @@
             <p-columnFilter
               class="filter"
               type="text"
-              field="centro.nombre "
+              field="centro.nombre"
               display="menu"
             ></p-columnFilter>
           </div>
@@ -39,7 +39,7 @@
         <th pSortableColumn="codTipoReparacion">
           <div>
             <p-sortIcon class="order" field="codTipoReparacion" />
-            Tipo Acción
+            Tipo Actuación
             <p-columnFilter
               class="filter"
               type="text"
@@ -96,26 +96,26 @@
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="maquinaria.impuesto.importe ">
+        <th pSortableColumn="otros">
           <div>
-            <p-sortIcon class="order" field="maquinaria.impuesto.importe " />
+            <p-sortIcon class="order" field="otros " />
             Coste
             <p-columnFilter
               class="filter"
               type="text"
-              field="maquinaria.impuesto.importe "
+              field="otros "
               display="menu"
             ></p-columnFilter>
           </div>
         </th>
-        <th pSortableColumn="maquinaria.codMoneda ">
+        <th pSortableColumn="codMoneda ">
           <div>
-            <p-sortIcon class="order" field="maquinaria.codMoneda " />
+            <p-sortIcon class="order" field="codMoneda " />
             Divisa
             <p-columnFilter
               class="filter"
               type="text"
-              field="maquinaria.codMoneda "
+              field="codMoneda "
               display="menu"
             ></p-columnFilter>
           </div>
@@ -136,23 +136,35 @@
     </ng-template>
 
     <ng-template pTemplate="body" let-reparaciones>
-      <tr class="body-table">
+      <tr class="body-table" [id]="'repair-' + reparaciones?.id">
         <td>
-          <p-button icon="fas fa-pen" severity="success" [text]="true" (click)="confirm_edit(reparaciones)"/>
+          <p-button
+            icon="fas fa-pen"
+            severity="success"
+            [text]="true"
+            (click)="confirm_edit(reparaciones)"
+            [id]="'repair-edit-' + reparaciones?.id"
+          />
         </td>
         <td>
-          <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(reparaciones)"/>
+          <p-button
+            icon="fas fa-trash"
+            severity="danger"
+            [text]="true"
+            (click)="confirm_delete(reparaciones)"
+            [id]="'repair-delete-' + reparaciones?.id"
+          />
         </td>
         <td>{{ reparaciones.centro.nombre }}</td>
-        <td>{{ reparaciones.maquinaria.matricula }}</td>
-        <!-- TODO: ADD TIPO DE MANTINIMIENTO Y  ALBARÁN -->
-        <td>{{ reparaciones.codTipoReparacion }}</td>
-        <td>{{ reparaciones }}</td>
+        <!-- TODO: ADD TIPO ACTUACIÓN ,TIPO DE MANTENIMIENTO, ALBARÁN,   -->
+        <td></td>
+        <td></td>
+        <td></td>
         <td>{{ reparaciones.fecha }}</td>
         <td>{{ reparaciones.proveedor.nombre }}</td>
-        <td>{{ reparaciones }}</td>
-        <td>{{ reparaciones.maquinaria.impuesto.importe }}</td>
-        <td>{{ reparaciones.maquinaria.codMoneda }}</td>
+        <td></td>
+        <td>{{ reparaciones.otros }}</td>
+        <td>{{ reparaciones.codMoneda }}</td>
         <td>{{ reparaciones.comentarios }}</td>
       </tr>
     </ng-template>
@@ -167,6 +179,6 @@
       </tr>
     </ng-template>
   </p-table>
-  <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+  <p-confirmDialog [style]="{ width: '50vw' }"></p-confirmDialog>
   <p-toast></p-toast>
 </div>

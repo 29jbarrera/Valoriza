@@ -68,8 +68,9 @@
               class="filter"
               type="text"
               field="model"
-              display="menu">
-          </p-columnFilter>
+              display="menu"
+            >
+            </p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="finalHorometer">
@@ -80,8 +81,9 @@
               class="filter"
               type="text"
               field="finalHorometer"
-              display="menu">
-          </p-columnFilter>
+              display="menu"
+            >
+            </p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="kilometros">
@@ -92,8 +94,9 @@
               class="filter"
               type="text"
               field="kilometros"
-              display="menu">
-          </p-columnFilter>
+              display="menu"
+            >
+            </p-columnFilter>
           </div>
         </th>
         <th pSortableColumn="fecha">
@@ -104,29 +107,42 @@
               class="filter"
               type="text"
               field="fecha"
-              display="menu">
-          </p-columnFilter>
+              display="menu"
+            >
+            </p-columnFilter>
           </div>
         </th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-horometrosKilometros>
-      <tr class="body-table">
+      <tr class="body-table" [id]="'hm-km-' + horometrosKilometros?.id">
         <td>
-          <p-button icon="fas fa-pen" severity="success" [text]="true" (click)="confirm_edit(horometrosKilometros)"/>
+          <p-button
+            icon="fas fa-pen"
+            severity="success"
+            [text]="true"
+            (click)="confirm_edit(horometrosKilometros)"
+            [id]="'hm-km-edit-' + horometrosKilometros?.id"
+          />
         </td>
         <td>
-          <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(horometrosKilometros)"/>
+          <p-button
+            icon="fas fa-trash"
+            severity="danger"
+            [text]="true"
+            (click)="confirm_delete(horometrosKilometros)"
+            [id]="'hm-km-delete-' + horometrosKilometros?.id"
+          />
         </td>
         <td>{{ horometrosKilometros.referencia.centro.nombre }}</td>
         <td>{{ horometrosKilometros.referencia.maquinaria.idSubfamilia }}</td>
         <td>{{ horometrosKilometros.referencia.maquinaria.matricula }}</td>
-                <!-- TODO: FINALHM-->
+        <!-- TODO: FINALHM-->
         <td>{{ horometrosKilometros.referencia.centro.nombre }}</td>
         <td>{{ horometrosKilometros.referencia.centro.codigo }}</td>
         <td>{{ horometrosKilometros }}</td>
         <td>{{ horometrosKilometros.kilometros }}</td>
-        <td>{{ horometrosKilometros.fecha}}</td>
+        <td>{{ horometrosKilometros.fecha }}</td>
       </tr>
     </ng-template>
     <ng-template pTemplate="footer">
@@ -134,12 +150,14 @@
         <td colspan="10">
           <div class="pl-2">
             Resultado totales:
-            <span class="font-bold">{{ horometrosKilometros.length || 0 }}</span>
+            <span class="font-bold">{{
+              horometrosKilometros.length || 0
+            }}</span>
           </div>
         </td>
       </tr>
     </ng-template>
   </p-table>
-  <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+  <p-confirmDialog [style]="{ width: '50vw' }"></p-confirmDialog>
   <p-toast></p-toast>
 </div>
