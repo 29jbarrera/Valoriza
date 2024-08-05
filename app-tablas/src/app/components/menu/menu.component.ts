@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BadgeModule } from 'primeng/badge';
 import { ButtonModule } from 'primeng/button';
@@ -7,6 +7,12 @@ import { InputTextModule } from 'primeng/inputtext';
 import { RippleModule } from 'primeng/ripple';
 import { LogotypeComponent } from '../logotype/logotype.component';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import {
+  MSAL_GUARD_CONFIG,
+  MsalBroadcastService,
+  MsalGuardConfiguration,
+  MsalService,
+} from '@azure/msal-angular';
 
 @Component({
   selector: 'app-menu',
@@ -300,7 +306,15 @@ export class MenuComponent {
     },
   ];
 
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  account = this.authService.instance.getActiveAccount();
+
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    @Inject(MSAL_GUARD_CONFIG) private msalGuardConfig: MsalGuardConfiguration,
+    private authService: MsalService,
+    private msalBroadcastService: MsalBroadcastService
+  ) {}
 
   get_if_path_is_active(item: any, item2: any) {
     const path = '/authenticated/' + item.path + '/' + item2.path;

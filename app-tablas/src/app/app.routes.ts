@@ -34,15 +34,23 @@ import { UnidadesComponent } from './pages/administration/unidades/unidades.comp
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AuthenticatedComponent } from './pages/authenticated/authenticated.component';
+import { UnauthenticatedComponent } from './pages/unauthenticated/unauthenticated.component';
+import { MsalGuard } from '@azure/msal-angular';
 
 export const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
+    canActivate: [MsalGuard],
+  },
+  {
+    path: '',
+    component: UnauthenticatedComponent,
   },
   {
     path: 'home',
     component: HomeComponent,
+    canActivate: [MsalGuard],
   },
   {
     path: 'authenticated',
@@ -155,6 +163,7 @@ export const routes: Routes = [
         ],
       },
     ],
+    canActivate: [MsalGuard],
   },
   {
     path: '**',

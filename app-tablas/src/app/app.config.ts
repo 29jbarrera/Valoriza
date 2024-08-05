@@ -53,11 +53,11 @@ export const appConfig: ApplicationConfig = {
     ]),
     // Microsoft
     provideHttpClient(withInterceptorsFromDi(), withFetch()),
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptor,
-      multi: true,
-    },
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: TokenInterceptor,
+    //   multi: true,
+    // },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: MsalInterceptor,

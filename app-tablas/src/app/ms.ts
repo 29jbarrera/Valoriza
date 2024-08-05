@@ -27,6 +27,7 @@ import {
   MsalGuard,
   MsalBroadcastService,
 } from '@azure/msal-angular';
+import { environment } from './environments/environment';
 
 export function loggerCallback(logLevel: LogLevel, message: string) {
   console.log(message);
@@ -35,8 +36,9 @@ export function loggerCallback(logLevel: LogLevel, message: string) {
 export function MSALInstanceFactory(): IPublicClientApplication {
   return new PublicClientApplication({
     auth: {
-      clientId: '60175c67-c37c-409a-8ea7-03cf9c409792',
-      authority: '2fc1802c-ccb1-4233-8272-5a6c89e3a839',
+      clientId: 'bfe4de94-041a-4479-a959-9877a5861254',
+      authority:
+        'https://login.microsoftonline.com/9133aec2-7cdd-4b6f-a5cc-65e7eb1384ec/',
       redirectUri: '/',
       postLogoutRedirectUri: '/',
     },
@@ -56,10 +58,10 @@ export function MSALInstanceFactory(): IPublicClientApplication {
 
 export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
   const protectedResourceMap = new Map<string, Array<string>>();
-  // protectedResourceMap.set(
-  //   environment.apiConfig.uri,
-  //   environment.apiConfig.scopes
-  // );
+  protectedResourceMap.set(
+    environment.apiConfig.uri,
+    environment.apiConfig.scopes
+  );
 
   return {
     interactionType: InteractionType.Redirect,
@@ -72,8 +74,9 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
     interactionType: InteractionType.Redirect,
     authRequest: {
       scopes: [
-        // ...environment.apiConfig.scopes
-        "openid", "profile"
+        ...environment.apiConfig.scopes,
+        // 'openid',
+        // 'profile',
       ],
     },
     loginFailedRoute: '/login-failed',
