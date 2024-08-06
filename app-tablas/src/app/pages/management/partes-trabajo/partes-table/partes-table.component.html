@@ -6,120 +6,139 @@
     styleClass="p-datatable-sm"
     [rowsPerPageOptions]="[5, 10, 20]"
     [paginator]="true"
-    [rows]="5">
-  <ng-template pTemplate="header">
-    <tr>
-      <th></th>
-      <th></th>
-      <th pSortableColumn="centro.nombre">
-        <div>
-          <p-sortIcon class="order" field="centro.nombre" />
-          Nombre del centro
-          <p-columnFilter
-            type="text"
-            field="centro.nombre"
-            class="filter"
-            display="menu"/>
-        </div>
-      </th>
-      <th pSortableColumn="empresa.nombre ">
-        <div>
-          <p-sortIcon class="order" field="empresa.nombre " />
-          Delegación
-          <p-columnFilter
-            type="text"
-            field="empresa.nombre "
-            class="filter"
-            display="menu"/>
-        </div>
-      </th>
-      <th pSortableColumn="maquinaria.matricula ">
-        <div>
-          <p-sortIcon class="order" field="maquinaria.matricula " />
-          Matrícula
-          <p-columnFilter
-            type="text"
-            field="maquinaria.matricula "
-            class="filter"
-            display="menu"/>
-        </div>
-      </th>
-      <th pSortableColumn="nombre">
-        <div>
-          <p-sortIcon class="order" field="nombre" />
-          Nombre
-          <p-columnFilter
-            type="text"
-            field="nombre"
-            class="filter"
-            display="menu"/>
-        </div>
-      </th>
-      <th pSortableColumn="fecha">
-        <div>
-          <p-sortIcon class="order" field="fecha" />
-          Fecha
-          <p-columnFilter
-            type="text"
-            field="fecha"
-            class="filter"
-            display="menu"/>
-        </div>
-      </th>
-      <th pSortableColumn="trabajoRealizado">
-        <div>
-          <p-sortIcon class="order" field="trabajoRealizado" />
-          Estado
-          <p-columnFilter
-            type="text"
-            field="trabajoRealizado"
-            class="filter"
-            display="menu"
-          />
-        </div>
-      </th>
-      <th pSortableColumn="codTipoMantenimiento">
-        <div>
-          <p-sortIcon class="order" field="codTipoMantenimiento" />
-          Tipo de mantenimiento
-          <p-columnFilter
-            type="text"
-            field="codTipoMantenimiento"
-            class="filter"
-            display="menu"/>
-        </div>
-      </th>
-    </tr>
-  </ng-template>
+    [rows]="5"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th></th>
+        <th></th>
+        <th pSortableColumn="centro.nombre">
+          <div>
+            <p-sortIcon class="order" field="centro.nombre" />
+            Nombre del centro
+            <p-columnFilter
+              type="text"
+              field="centro.nombre"
+              class="filter"
+              display="menu"
+            />
+          </div>
+        </th>
+        <th pSortableColumn="empresa.nombre ">
+          <div>
+            <p-sortIcon class="order" field="empresa.nombre " />
+            Delegación
+            <p-columnFilter
+              type="text"
+              field="empresa.nombre "
+              class="filter"
+              display="menu"
+            />
+          </div>
+        </th>
+        <th pSortableColumn="maquinaria.matricula ">
+          <div>
+            <p-sortIcon class="order" field="maquinaria.matricula " />
+            Matrícula
+            <p-columnFilter
+              type="text"
+              field="maquinaria.matricula "
+              class="filter"
+              display="menu"
+            />
+          </div>
+        </th>
+        <th pSortableColumn="nombre">
+          <div>
+            <p-sortIcon class="order" field="nombre" />
+            Nombre
+            <p-columnFilter
+              type="text"
+              field="nombre"
+              class="filter"
+              display="menu"
+            />
+          </div>
+        </th>
+        <th pSortableColumn="fecha">
+          <div>
+            <p-sortIcon class="order" field="fecha" />
+            Fecha
+            <p-columnFilter
+              type="text"
+              field="fecha"
+              class="filter"
+              display="menu"
+            />
+          </div>
+        </th>
+        <th pSortableColumn="trabajoRealizado">
+          <div>
+            <p-sortIcon class="order" field="trabajoRealizado" />
+            Estado
+            <p-columnFilter
+              type="text"
+              field="trabajoRealizado"
+              class="filter"
+              display="menu"
+            />
+          </div>
+        </th>
+        <th pSortableColumn="codTipoMantenimiento">
+          <div>
+            <p-sortIcon class="order" field="codTipoMantenimiento" />
+            Tipo de mantenimiento
+            <p-columnFilter
+              type="text"
+              field="codTipoMantenimiento"
+              class="filter"
+              display="menu"
+            />
+          </div>
+        </th>
+      </tr>
+    </ng-template>
 
-  <ng-template pTemplate="body" let-partes>
-    <tr class="body-table">
-      <td>
-        <p-button icon="fas fa-pen" severity="success" [text]="true" (click)="confirm_edit(partes)"/>
-      </td>
-      <td>
-        <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(partes)"/>
-      </td>
-      <td>{{ partes.centro.nombre }}</td>
-      <td>{{ partes.empresa.nombre }}</td>
-      <td>{{ partes.maquinaria.matricula }}</td>
-      <td>{{ partes.nombre }}</td>
-      <td>{{ partes.fecha }}</td>
-      <td>{{ partes.trabajoRealizado }}</td>
-      <td>{{ partes.codTipoMantenimiento }}</td>
-    </tr>
-  </ng-template>
-  <ng-template pTemplate="footer">
-    <tr>
-      <td colspan="9">
-        <div class="pl-2">
-          Resultado totales:
-          <span class="font-bold">{{ partes.length || 0 }}</span>
-        </div>
-      </td>
-    </tr>
-  </ng-template>
+    <ng-template pTemplate="body" let-partes>
+      <tr class="body-table" [id]="'parte-' + partes?.id">
+        <td>
+          <p-button
+            icon="fas fa-pen"
+            severity="success"
+            [text]="true"
+            (click)="confirm_edit(partes)"
+            [id]="'parte-edit-' + partes?.id"
+          />
+        </td>
+        <td>
+          <p-button
+            icon="fas fa-trash"
+            severity="danger"
+            [text]="true"
+            (click)="confirm_delete(partes)"
+            [id]="'parte-delete-' + partes?.id"
+          />
+        </td>
+        <td class="parte-">{{ partes.centro.nombre }}</td>
+        <td class="parte-">{{ partes.empresa.nombre }}</td>
+        <td class="parte-">{{ partes.maquinaria.matricula }}</td>
+        <td class="parte-">{{ partes.nombre }}</td>
+        <td class="parte-">{{ partes.fecha }}</td>
+        <td class="parte-">{{ partes.trabajoRealizado }}</td>
+        <td class="parte-">{{ partes.codTipoMantenimiento }}</td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="footer">
+      <tr>
+        <td colspan="9">
+          <div class="pl-2">
+            Resultado totales:
+            <span class="font-bold">{{ partes.length || 0 }}</span>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
   </p-table>
-  <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+  <p-confirmDialog [style]="{ width: '50vw' }"></p-confirmDialog>
   <p-toast></p-toast>
 </div>
