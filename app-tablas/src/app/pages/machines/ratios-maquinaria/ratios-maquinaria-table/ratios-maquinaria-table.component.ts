@@ -81,8 +81,8 @@ export class RatiosMaquinariaTableComponent implements OnInit {
   }
 
   async updateTable() {
-    this.ratiosMaquinaria =
-      await this.RatiosMaquinariaService.getRatiosMaquinaria();
+    // this.ratiosMaquinaria =
+      // await this.RatiosMaquinariaService.getRatiosMaquinaria();
   }
 
   async confirm_edit(ratiosMaquinaria: RatiosMaquinaria) {
