@@ -64,17 +64,33 @@
     </ng-template>
 
     <ng-template pTemplate="body" let-reparacionesCentro>
-      <tr class="body-table">
+      <tr
+        class="body-table"
+        [id]="'reparaciones-centro-' + reparacionesCentro?.id"
+      >
         <td>
-          <p-button icon="fas fa-pen" severity="success" [text]="true" (click)="confirm_edit(reparacionesCentro)"/>
+          <p-button
+            icon="fas fa-pen"
+            severity="success"
+            [text]="true"
+            (click)="confirm_edit(reparacionesCentro)"
+            [id]="'reparaciones-centro-edit-' + reparacionesCentro?.id"
+          />
         </td>
         <td>
-          <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(reparacionesCentro)"/>
+          <p-button
+            icon="fas fa-trash"
+            severity="danger"
+            [text]="true"
+            (click)="confirm_delete(reparacionesCentro)"
+            [id]="'reparaciones-centro-delete-' + reparacionesCentro?.id"
+          />
         </td>
-        <td>{{ reparacionesCentro.codEstado }}</td>
-        <td>{{ reparacionesCentro.nombre }}</td>
-        <td>{{ reparacionesCentro.reparacion.centro.nombre }}</td>
-        <td>{{ reparacionesCentro.reparacion.maquinaria.impuesto.importe }}</td>
+        <!-- TODO: ADD CÓDIGO, DELEGACIÓN Y COSTE -->
+        <td class="reparaciones-centro-codEstado">{{ reparacionesCentro.codEstado }}</td>
+        <td class="reparaciones-centro-nombre">{{ reparacionesCentro.nombre }}</td>
+        <td class="reparaciones-centro-"></td>
+        <td class="reparaciones-centro-"></td>
       </tr>
     </ng-template>
     <ng-template pTemplate="footer">
@@ -88,6 +104,6 @@
       </tr>
     </ng-template>
   </p-table>
-  <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+  <p-confirmDialog [style]="{ width: '50vw' }"></p-confirmDialog>
   <p-toast></p-toast>
 </div>
