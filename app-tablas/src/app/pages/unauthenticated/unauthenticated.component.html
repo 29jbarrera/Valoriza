@@ -2,11 +2,7 @@
 <button mat-menu-item (click)="loginPopup()">Login using Popup</button>
 
 } @else {
-<h1>Holi</h1>
+<h1>Autenticado</h1>
 <button mat-menu-item (click)="logout(true)">Logout using Popup</button>
-
-<pre>
-        <!-- {{ payload | json }} -->
-    </pre
->
+<button (click)="copy_storage()">Copia storage</button>
 }

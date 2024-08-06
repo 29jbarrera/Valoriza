@@ -98,7 +98,7 @@ export class UnauthenticatedComponent implements OnInit, OnDestroy {
       let accounts = this.authService.instance.getAllAccounts();
       this.authService.instance.setActiveAccount(accounts[0]);
     } else {
-      this.router.navigate(['authenticated/machines', 'stock']);
+      // this.router.navigate(['authenticated/machines', 'stock']);
     }
   }
 
@@ -133,5 +133,34 @@ export class UnauthenticatedComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this._destroying$.next(undefined);
     this._destroying$.complete();
+  }
+
+  copy_storage() {
+    // Get all keys from localStorage
+    const keys = Object.keys(localStorage);
+    const storage: any = {};
+    keys.forEach((key) => {
+      storage[key] = localStorage.getItem(key);
+    });
+    this.copy_clipoard(JSON.stringify(storage));
+  }
+
+  copy_clipoard(texto: string) {
+    // Crear un elemento de texto temporal para copiar el contenido
+    var elementoTemporal = document.createElement('textarea');
+    elementoTemporal.value = texto;
+
+    // Añadir el elemento temporal al cuerpo del documento
+    document.body.appendChild(elementoTemporal);
+
+    // Seleccionar el contenido del elemento temporal
+    elementoTemporal.select();
+    elementoTemporal.setSelectionRange(0, 99999); // Para dispositivos móviles
+
+    // Copiar el contenido seleccionado al portapapeles
+    document.execCommand('copy');
+
+    // Remover el elemento temporal del documento
+    document.body.removeChild(elementoTemporal);
   }
 }
