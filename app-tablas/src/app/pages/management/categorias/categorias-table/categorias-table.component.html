@@ -40,16 +40,27 @@
     </ng-template>
 
     <ng-template pTemplate="body" let-categorias>
-      <tr>
+      <tr class="body-table" [id]="'categoria-' + categorias?.id">
         <td>
-          <p-button icon="fas fa-pen" severity="success" [text]="true" (click)="confirm_edit(categorias)"/>
+          <p-button
+            icon="fas fa-pen"
+            severity="success"
+            [text]="true"
+            (click)="confirm_edit(categorias)"
+            [id]="'categoria-edit-' + categorias?.id"
+          />
         </td>
         <td>
-          <p-button icon="fas fa-trash" severity="danger" [text]="true" (click)="confirm_delete(categorias)"/>
+          <p-button
+            icon="fas fa-trash"
+            severity="danger"
+            [text]="true"
+            (click)="confirm_delete(categorias)"
+            [id]="'categoria-delete-' + categorias?.id"
+          />
         </td>
-        <!-- TODO: add descripcion  -->
-        <td>{{ categorias.description }}</td>
-        <td>{{ categorias.codigo }}</td>
+        <td class="categoria-desciption">{{ categorias.description }}</td>
+        <td class="categoria-codigo">{{ categorias.codigo }}</td>
       </tr>
     </ng-template>
     <ng-template pTemplate="footer">
@@ -63,6 +74,6 @@
       </tr>
     </ng-template>
   </p-table>
-  <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+  <p-confirmDialog [style]="{ width: '50vw' }"></p-confirmDialog>
   <p-toast></p-toast>
 </div>

@@ -109,7 +109,7 @@
         <td class="impuesto-nombre-centro">{{ impuestos.nombreCentro }}</td>
         <td class="impuesto-nombre-grupo">{{ impuestos.nombreGrupo }}</td>
         <td class="impuesto-matricula">{{ impuestos.matricula }}</td>
-        <td class="impuesto-importe">{{ impuestos.importe }}</td>
+        <td class="impuesto-importe">{{ format_price_amount(impuestos.importe) }}</td>
         <td class="impuesto-codMoneda">{{ impuestos.codMoneda }}</td>
         <td class="impuesto-fecha">
           {{ impuestos.fecha | date : "dd/MM/yyyy" }}

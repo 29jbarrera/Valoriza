@@ -24,6 +24,7 @@ import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { format_price_amount } from 'src/app/components/common/commons';
 
 @Component({
   selector: 'app-impuestos-table',
@@ -143,5 +144,9 @@ export class ImpuestosTableComponent implements OnInit {
         });
       },
     });
+  }
+
+  format_price_amount(amount: number) {
+    return format_price_amount(amount);
   }
 }

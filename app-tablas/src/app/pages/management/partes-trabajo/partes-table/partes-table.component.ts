@@ -113,6 +113,7 @@ export class PartesTableComponent implements OnInit {
         detail: 'Fila eliminada correctamente',
         life: 3000,
       });
+      this.partes = this.partes.filter((o) => o.id !== partes.id);
     } catch (error) {
       this.messageService.add({
         severity: 'error',

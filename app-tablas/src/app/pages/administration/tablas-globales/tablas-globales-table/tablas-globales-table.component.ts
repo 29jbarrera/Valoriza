@@ -24,6 +24,7 @@ import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { get_icon_boolean } from 'src/app/components/common/commons';
 
 @Component({
   selector: 'app-tablas-globales-table',
@@ -140,5 +141,9 @@ export class TablasGlobalesTableComponent implements OnInit {
         });
       },
     });
+  }
+
+  get_icon_session(value: boolean): string {
+    return get_icon_boolean(value);
   }
 }

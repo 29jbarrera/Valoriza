@@ -166,16 +166,16 @@
             [id]="'insurance-delete-' + seguros?.id"
           />
         </td>
-        <td>{{ seguros.empresa.direccion }}</td>
-        <td>{{ seguros.empresa.documentoIdentificativo }}</td>
-        <td>{{ seguros.empresa.nombre }}</td>
+        <!-- TODO: ADD Matricula, nombre del centro, número de póliza.-->
+        <td></td>
+        <td></td>
+        <td>{{ seguros.aseguradora }}</td>
         <td>{{ seguros.codEstadoSeguro }}</td>
         <td>{{ seguros.codTipoSeguro }}</td>
-        <!-- TODO: add NºPóliza -->
-        <td>{{ seguros }}</td>
+        <td></td>
         <td>{{ seguros.fechaInicio }}</td>
         <td>{{ seguros.fechaFin }}</td>
-        <td>{{ seguros.importe }}</td>
+        <td>{{ format_price_amount(seguros.importe) }}</td>
         <td>{{ seguros.codMoneda }}</td>
         <td>{{ seguros.comentario }}</td>
       </tr>

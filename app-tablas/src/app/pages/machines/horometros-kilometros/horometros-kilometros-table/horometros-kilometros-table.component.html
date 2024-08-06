@@ -134,15 +134,17 @@
             [id]="'hm-km-delete-' + horometrosKilometros?.id"
           />
         </td>
-        <td>{{ horometrosKilometros.referencia.centro.nombre }}</td>
-        <td>{{ horometrosKilometros.referencia.maquinaria.idSubfamilia }}</td>
-        <td>{{ horometrosKilometros.referencia.maquinaria.matricula }}</td>
-        <!-- TODO: FINALHM-->
-        <td>{{ horometrosKilometros.referencia.centro.nombre }}</td>
-        <td>{{ horometrosKilometros.referencia.centro.codigo }}</td>
-        <td>{{ horometrosKilometros }}</td>
+        <td>{{ horometrosKilometros.maquinaria.centrosCoste.nombre }}</td>
+        <td>
+          {{ horometrosKilometros.maquinaria.subFamilia.langs[0].descripcion }}
+        </td>
+        <td>{{ horometrosKilometros.maquinaria.matricula }}</td>
+        <!-- TODO: ADD MARCA , MODELO , HM FINAL, -->
+        <td></td>
+        <td></td>
+        <td></td>
         <td>{{ horometrosKilometros.kilometros }}</td>
-        <td>{{ horometrosKilometros.fecha }}</td>
+        <td>{{ horometrosKilometros.fecha | date : "dd/MM/yyyy" }}</td>
       </tr>
     </ng-template>
     <ng-template pTemplate="footer">

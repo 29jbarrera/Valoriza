@@ -1,26 +1,27 @@
 Depositos: Completada
 
-Impuestos: Petición Delete 400 "Error while saving to the database"
+Impuestos: Completada
 
 Repostajes-Vehículos: Completada
 
-Cambio Centro: Petición Delete 400 "Error while saving to the database"
+Cambio Centro: Falta Código, centro de compra y Nombre de centro de compra
 
-Proovedores: Bloqueada por Petición a backend
+Proovedores: Completada (Función borrar: "Error while saving to the database")
 
 Unidades: Falta el nombre del tipo de combustible en el objeto
 
-Seguros: Bloqueada por Petición a backend
+Seguros: Falta matricula, nombre del centro, número de póliza.
 
-HMKMS: TODO importar modulos necesarios para petición backend
+HMKMS: Falta marca, modelo, hm final.
 
 Reparaciones: Falta matrícula, Tipo de actuación, Tipo de mantenimiento, Albarán
 
-Reparaciones Centro: Bloqueada por Petición a backend
+Reparaciones Centro: Falta código, delegación y coste. (Función borrar: status:400 
+title:"One or more validation errors occurred.")
 
 Tasas: TODO importar modulos necesarios
 
-Ratios maquinaria: Realizar petición backend 
+Ratios maquinaria: Falta el servicio de Ratios para realizar petición.
 
 ITVs: Falta todo el objeto menos: fecha próxima y comentarios 
 
@@ -28,4 +29,14 @@ Instalaciones: Completada
 
 Grúas: TODO importar modulos necesarios para petición backend
 
-Marcas: Petición Delete 400 "Error while saving to the database"
+Marcas: Completada
+
+Categorías: TODO: Importar módulos necesarios
+
+Partes de trabajo:
+
+Tablas globales:
+
+Depósitos:
+
+

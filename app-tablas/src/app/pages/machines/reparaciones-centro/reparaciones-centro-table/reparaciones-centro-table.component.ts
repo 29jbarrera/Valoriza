@@ -113,6 +113,9 @@ export class ReparacionesCentroTableComponent implements OnInit {
         detail: 'Fila eliminada correctamente',
         life: 3000,
       });
+      this.reparacionesCentro = this.reparacionesCentro.filter(
+        (o) => o.id !== reparacionesCentro.id
+      );
     } catch (error) {
       this.messageService.add({
         severity: 'error',

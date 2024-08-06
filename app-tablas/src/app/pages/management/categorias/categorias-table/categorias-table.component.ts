@@ -110,6 +110,7 @@ export class CategoriasTableComponent implements OnInit {
         detail: 'Fila eliminada correctamente',
         life: 3000,
       });
+      this.categorias = this.categorias.filter((o) => o.id !== categorias.id);
     } catch (error) {
       this.messageService.add({
         severity: 'error',
